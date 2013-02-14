@@ -22,6 +22,16 @@
     :initarg :seq_xyz
     :type cl:integer
     :initform 0)
+   (consume
+    :reader consume
+    :initarg :consume
+    :type cl:integer
+    :initform 0)
+   (age
+    :reader age
+    :initarg :age
+    :type cl:integer
+    :initform 0)
    (controlInfo
     :reader controlInfo
     :initarg :controlInfo
@@ -82,6 +92,16 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:seq_xyz-val is deprecated.  Use AutoNav-msg:seq_xyz instead.")
   (seq_xyz m))
 
+(cl:ensure-generic-function 'consume-val :lambda-list '(m))
+(cl:defmethod consume-val ((m <predictUpTo>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:consume-val is deprecated.  Use AutoNav-msg:consume instead.")
+  (consume m))
+
+(cl:ensure-generic-function 'age-val :lambda-list '(m))
+(cl:defmethod age-val ((m <predictUpTo>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:age-val is deprecated.  Use AutoNav-msg:age instead.")
+  (age m))
+
 (cl:ensure-generic-function 'controlInfo-val :lambda-list '(m))
 (cl:defmethod controlInfo-val ((m <predictUpTo>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:controlInfo-val is deprecated.  Use AutoNav-msg:controlInfo instead.")
@@ -132,6 +152,16 @@
   (cl:write-byte (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'seq_xyz)) ostream)
   (cl:write-byte (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'seq_xyz)) ostream)
   (cl:write-byte (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'seq_xyz)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'consume)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'consume)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'consume)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'consume)) ostream)
+  (cl:let* ((signed (cl:slot-value msg 'age)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
+    )
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'controlInfo) ostream)
   (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'roll))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
@@ -180,6 +210,16 @@
     (cl:setf (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'seq_xyz)) (cl:read-byte istream))
     (cl:setf (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'seq_xyz)) (cl:read-byte istream))
     (cl:setf (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'seq_xyz)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'consume)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'consume)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'consume)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'consume)) (cl:read-byte istream))
+    (cl:let ((unsigned 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'age) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'controlInfo) istream)
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
@@ -227,18 +267,20 @@
   "AutoNav/predictUpTo")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<predictUpTo>)))
   "Returns md5sum for a message object of type '<predictUpTo>"
-  "dd021969d994e39ff43a715cb3a3d6ed")
+  "6b06b20df5d73c601cc7929931c5a089")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'predictUpTo)))
   "Returns md5sum for a message object of type 'predictUpTo"
-  "dd021969d994e39ff43a715cb3a3d6ed")
+  "6b06b20df5d73c601cc7929931c5a089")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<predictUpTo>)))
   "Returns full string definition for message of type '<predictUpTo>"
-  (cl:format cl:nil "int32 timestamp~%uint32 seq_rpy~%uint32 seq_xyz~%~%geometry_msgs/Twist controlInfo~%~%float32 roll~%float32 pitch~%float32 yaw~%~%float32 vx~%float32 vy~%float32 altd~%================================================================================~%MSG: geometry_msgs/Twist~%# This expresses velocity in free space broken into it's linear and angular parts. ~%Vector3  linear~%Vector3  angular~%~%================================================================================~%MSG: geometry_msgs/Vector3~%# This represents a vector in free space. ~%~%float64 x~%float64 y~%float64 z~%~%"))
+  (cl:format cl:nil "int32 timestamp~%uint32 seq_rpy~%uint32 seq_xyz~%~%uint32 consume ~%~%int32 age~%~%geometry_msgs/Twist controlInfo~%~%float32 roll~%float32 pitch~%float32 yaw~%~%float32 vx~%float32 vy~%float32 altd~%================================================================================~%MSG: geometry_msgs/Twist~%# This expresses velocity in free space broken into it's linear and angular parts. ~%Vector3  linear~%Vector3  angular~%~%================================================================================~%MSG: geometry_msgs/Vector3~%# This represents a vector in free space. ~%~%float64 x~%float64 y~%float64 z~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'predictUpTo)))
   "Returns full string definition for message of type 'predictUpTo"
-  (cl:format cl:nil "int32 timestamp~%uint32 seq_rpy~%uint32 seq_xyz~%~%geometry_msgs/Twist controlInfo~%~%float32 roll~%float32 pitch~%float32 yaw~%~%float32 vx~%float32 vy~%float32 altd~%================================================================================~%MSG: geometry_msgs/Twist~%# This expresses velocity in free space broken into it's linear and angular parts. ~%Vector3  linear~%Vector3  angular~%~%================================================================================~%MSG: geometry_msgs/Vector3~%# This represents a vector in free space. ~%~%float64 x~%float64 y~%float64 z~%~%"))
+  (cl:format cl:nil "int32 timestamp~%uint32 seq_rpy~%uint32 seq_xyz~%~%uint32 consume ~%~%int32 age~%~%geometry_msgs/Twist controlInfo~%~%float32 roll~%float32 pitch~%float32 yaw~%~%float32 vx~%float32 vy~%float32 altd~%================================================================================~%MSG: geometry_msgs/Twist~%# This expresses velocity in free space broken into it's linear and angular parts. ~%Vector3  linear~%Vector3  angular~%~%================================================================================~%MSG: geometry_msgs/Vector3~%# This represents a vector in free space. ~%~%float64 x~%float64 y~%float64 z~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <predictUpTo>))
   (cl:+ 0
+     4
+     4
      4
      4
      4
@@ -256,6 +298,8 @@
     (cl:cons ':timestamp (timestamp msg))
     (cl:cons ':seq_rpy (seq_rpy msg))
     (cl:cons ':seq_xyz (seq_xyz msg))
+    (cl:cons ':consume (consume msg))
+    (cl:cons ':age (age msg))
     (cl:cons ':controlInfo (controlInfo msg))
     (cl:cons ':roll (roll msg))
     (cl:cons ':pitch (pitch msg))

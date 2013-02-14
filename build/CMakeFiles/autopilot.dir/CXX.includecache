@@ -82,6 +82,10 @@ AutoNav/control_commands.h
 cmath
 -
 
+/home/dev/ros/stacks/AutoNav/src/autopilot/main_autopilot.cpp
+Controller.h
+/home/dev/ros/stacks/AutoNav/src/autopilot/Controller.h
+
 /opt/ros/fuerte/include/XmlRpcDecl.h
 ros/macros.h
 -

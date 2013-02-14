@@ -5,6 +5,10 @@
           SEQ_RPY
           SEQ_XYZ-VAL
           SEQ_XYZ
+          CONSUME-VAL
+          CONSUME
+          AGE-VAL
+          AGE
           CONTROLINFO-VAL
           CONTROLINFO
           ROLL-VAL

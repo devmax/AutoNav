@@ -26,6 +26,8 @@ struct predictUpTo_ {
   : timestamp(0)
   , seq_rpy(0)
   , seq_xyz(0)
+  , consume(0)
+  , age(0)
   , controlInfo()
   , roll(0.0)
   , pitch(0.0)
@@ -40,6 +42,8 @@ struct predictUpTo_ {
   : timestamp(0)
   , seq_rpy(0)
   , seq_xyz(0)
+  , consume(0)
+  , age(0)
   , controlInfo(_alloc)
   , roll(0.0)
   , pitch(0.0)
@@ -58,6 +62,12 @@ struct predictUpTo_ {
 
   typedef uint32_t _seq_xyz_type;
   uint32_t seq_xyz;
+
+  typedef uint32_t _consume_type;
+  uint32_t consume;
+
+  typedef int32_t _age_type;
+  int32_t age;
 
   typedef  ::geometry_msgs::Twist_<ContainerAllocator>  _controlInfo_type;
    ::geometry_msgs::Twist_<ContainerAllocator>  controlInfo;
@@ -109,12 +119,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::AutoNav::predictUpTo_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "dd021969d994e39ff43a715cb3a3d6ed";
+    return "6b06b20df5d73c601cc7929931c5a089";
   }
 
   static const char* value(const  ::AutoNav::predictUpTo_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0xdd021969d994e39fULL;
-  static const uint64_t static_value2 = 0xf43a715cb3a3d6edULL;
+  static const uint64_t static_value1 = 0x6b06b20df5d73c60ULL;
+  static const uint64_t static_value2 = 0x1cc7929931c5a089ULL;
 };
 
 template<class ContainerAllocator>
@@ -134,6 +144,10 @@ struct Definition< ::AutoNav::predictUpTo_<ContainerAllocator> > {
     return "int32 timestamp\n\
 uint32 seq_rpy\n\
 uint32 seq_xyz\n\
+\n\
+uint32 consume \n\
+\n\
+int32 age\n\
 \n\
 geometry_msgs/Twist controlInfo\n\
 \n\
@@ -179,6 +193,8 @@ template<class ContainerAllocator> struct Serializer< ::AutoNav::predictUpTo_<Co
     stream.next(m.timestamp);
     stream.next(m.seq_rpy);
     stream.next(m.seq_xyz);
+    stream.next(m.consume);
+    stream.next(m.age);
     stream.next(m.controlInfo);
     stream.next(m.roll);
     stream.next(m.pitch);
@@ -209,6 +225,10 @@ struct Printer< ::AutoNav::predictUpTo_<ContainerAllocator> >
     Printer<uint32_t>::stream(s, indent + "  ", v.seq_rpy);
     s << indent << "seq_xyz: ";
     Printer<uint32_t>::stream(s, indent + "  ", v.seq_xyz);
+    s << indent << "consume: ";
+    Printer<uint32_t>::stream(s, indent + "  ", v.consume);
+    s << indent << "age: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.age);
     s << indent << "controlInfo: ";
 s << std::endl;
     Printer< ::geometry_msgs::Twist_<ContainerAllocator> >::stream(s, indent + "  ", v.controlInfo);

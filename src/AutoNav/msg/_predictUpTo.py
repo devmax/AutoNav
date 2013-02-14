@@ -7,12 +7,16 @@ import struct
 import geometry_msgs.msg
 
 class predictUpTo(genpy.Message):
-  _md5sum = "dd021969d994e39ff43a715cb3a3d6ed"
+  _md5sum = "6b06b20df5d73c601cc7929931c5a089"
   _type = "AutoNav/predictUpTo"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """int32 timestamp
 uint32 seq_rpy
 uint32 seq_xyz
+
+uint32 consume 
+
+int32 age
 
 geometry_msgs/Twist controlInfo
 
@@ -37,8 +41,8 @@ float64 x
 float64 y
 float64 z
 """
-  __slots__ = ['timestamp','seq_rpy','seq_xyz','controlInfo','roll','pitch','yaw','vx','vy','altd']
-  _slot_types = ['int32','uint32','uint32','geometry_msgs/Twist','float32','float32','float32','float32','float32','float32']
+  __slots__ = ['timestamp','seq_rpy','seq_xyz','consume','age','controlInfo','roll','pitch','yaw','vx','vy','altd']
+  _slot_types = ['int32','uint32','uint32','uint32','int32','geometry_msgs/Twist','float32','float32','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -48,7 +52,7 @@ float64 z
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       timestamp,seq_rpy,seq_xyz,controlInfo,roll,pitch,yaw,vx,vy,altd
+       timestamp,seq_rpy,seq_xyz,consume,age,controlInfo,roll,pitch,yaw,vx,vy,altd
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -63,6 +67,10 @@ float64 z
         self.seq_rpy = 0
       if self.seq_xyz is None:
         self.seq_xyz = 0
+      if self.consume is None:
+        self.consume = 0
+      if self.age is None:
+        self.age = 0
       if self.controlInfo is None:
         self.controlInfo = geometry_msgs.msg.Twist()
       if self.roll is None:
@@ -81,6 +89,8 @@ float64 z
       self.timestamp = 0
       self.seq_rpy = 0
       self.seq_xyz = 0
+      self.consume = 0
+      self.age = 0
       self.controlInfo = geometry_msgs.msg.Twist()
       self.roll = 0.
       self.pitch = 0.
@@ -102,7 +112,7 @@ float64 z
     """
     try:
       _x = self
-      buff.write(_struct_i2I6d6f.pack(_x.timestamp, _x.seq_rpy, _x.seq_xyz, _x.controlInfo.linear.x, _x.controlInfo.linear.y, _x.controlInfo.linear.z, _x.controlInfo.angular.x, _x.controlInfo.angular.y, _x.controlInfo.angular.z, _x.roll, _x.pitch, _x.yaw, _x.vx, _x.vy, _x.altd))
+      buff.write(_struct_i3Ii6d6f.pack(_x.timestamp, _x.seq_rpy, _x.seq_xyz, _x.consume, _x.age, _x.controlInfo.linear.x, _x.controlInfo.linear.y, _x.controlInfo.linear.z, _x.controlInfo.angular.x, _x.controlInfo.angular.y, _x.controlInfo.angular.z, _x.roll, _x.pitch, _x.yaw, _x.vx, _x.vy, _x.altd))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -117,8 +127,8 @@ float64 z
       end = 0
       _x = self
       start = end
-      end += 84
-      (_x.timestamp, _x.seq_rpy, _x.seq_xyz, _x.controlInfo.linear.x, _x.controlInfo.linear.y, _x.controlInfo.linear.z, _x.controlInfo.angular.x, _x.controlInfo.angular.y, _x.controlInfo.angular.z, _x.roll, _x.pitch, _x.yaw, _x.vx, _x.vy, _x.altd,) = _struct_i2I6d6f.unpack(str[start:end])
+      end += 92
+      (_x.timestamp, _x.seq_rpy, _x.seq_xyz, _x.consume, _x.age, _x.controlInfo.linear.x, _x.controlInfo.linear.y, _x.controlInfo.linear.z, _x.controlInfo.angular.x, _x.controlInfo.angular.y, _x.controlInfo.angular.z, _x.roll, _x.pitch, _x.yaw, _x.vx, _x.vy, _x.altd,) = _struct_i3Ii6d6f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -132,7 +142,7 @@ float64 z
     """
     try:
       _x = self
-      buff.write(_struct_i2I6d6f.pack(_x.timestamp, _x.seq_rpy, _x.seq_xyz, _x.controlInfo.linear.x, _x.controlInfo.linear.y, _x.controlInfo.linear.z, _x.controlInfo.angular.x, _x.controlInfo.angular.y, _x.controlInfo.angular.z, _x.roll, _x.pitch, _x.yaw, _x.vx, _x.vy, _x.altd))
+      buff.write(_struct_i3Ii6d6f.pack(_x.timestamp, _x.seq_rpy, _x.seq_xyz, _x.consume, _x.age, _x.controlInfo.linear.x, _x.controlInfo.linear.y, _x.controlInfo.linear.z, _x.controlInfo.angular.x, _x.controlInfo.angular.y, _x.controlInfo.angular.z, _x.roll, _x.pitch, _x.yaw, _x.vx, _x.vy, _x.altd))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -148,11 +158,11 @@ float64 z
       end = 0
       _x = self
       start = end
-      end += 84
-      (_x.timestamp, _x.seq_rpy, _x.seq_xyz, _x.controlInfo.linear.x, _x.controlInfo.linear.y, _x.controlInfo.linear.z, _x.controlInfo.angular.x, _x.controlInfo.angular.y, _x.controlInfo.angular.z, _x.roll, _x.pitch, _x.yaw, _x.vx, _x.vy, _x.altd,) = _struct_i2I6d6f.unpack(str[start:end])
+      end += 92
+      (_x.timestamp, _x.seq_rpy, _x.seq_xyz, _x.consume, _x.age, _x.controlInfo.linear.x, _x.controlInfo.linear.y, _x.controlInfo.linear.z, _x.controlInfo.angular.x, _x.controlInfo.angular.y, _x.controlInfo.angular.z, _x.roll, _x.pitch, _x.yaw, _x.vx, _x.vy, _x.altd,) = _struct_i3Ii6d6f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_i2I6d6f = struct.Struct("<i2I6d6f")
+_struct_i3Ii6d6f = struct.Struct("<i3Ii6d6f")
