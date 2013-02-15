@@ -1,0 +1,6 @@
+<launch>
+  <node name="state_estimation" pkg="AutoNav" type="state_estimation">
+  </node>
+  <node name="UI" pkg="AutoNav" type="UI">
+  </node>
+</launch>
