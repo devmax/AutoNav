@@ -205,13 +205,48 @@ clean: CMakeFiles/ROSBUILD_gensrv_lisp.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/UI.dir
+
+# All Build rule for target.
+CMakeFiles/UI.dir/all: CMakeFiles/rosbuild_precompile.dir/all
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/depend
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  26 27 28
+	@echo "Built target UI"
+.PHONY : CMakeFiles/UI.dir/all
+
+# Include target in all.
+all: CMakeFiles/UI.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/UI.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 28
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/UI.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
+.PHONY : CMakeFiles/UI.dir/rule
+
+# Convenience name for target.
+UI: CMakeFiles/UI.dir/rule
+.PHONY : UI
+
+# clean rule for target.
+CMakeFiles/UI.dir/clean:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/clean
+.PHONY : CMakeFiles/UI.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/UI.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/autopilot.dir
 
 # All Build rule for target.
 CMakeFiles/autopilot.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/depend
 	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  26 27
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  29 30
 	@echo "Built target autopilot"
 .PHONY : CMakeFiles/autopilot.dir/all
 
@@ -471,7 +506,7 @@ clean: CMakeFiles/rospack_gensrv.dir/clean
 CMakeFiles/state_estimation.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/state_estimation.dir/build.make CMakeFiles/state_estimation.dir/depend
 	$(MAKE) -f CMakeFiles/state_estimation.dir/build.make CMakeFiles/state_estimation.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  28 29 30
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  31 32 33
 	@echo "Built target state_estimation"
 .PHONY : CMakeFiles/state_estimation.dir/all
 

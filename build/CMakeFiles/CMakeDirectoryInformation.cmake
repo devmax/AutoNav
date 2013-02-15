@@ -44,6 +44,11 @@ SET(CMAKE_C_INCLUDE_PATH
   "/opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/cpp/include"
   "/opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/cpp/include"
   "../msg_gen/cpp/include"
+  "../thirdparty/libcvd/include"
+  "/usr/include/qt4"
+  "/usr/include/qt4/QtGui"
+  "/usr/include/qt4/QtCore"
+  "."
   )
 SET(CMAKE_CXX_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
 SET(CMAKE_Fortran_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})

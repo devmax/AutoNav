@@ -3,6 +3,7 @@
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/ROSBUILD_genmsg_py.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/ROSBUILD_gensrv_cpp.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/ROSBUILD_gensrv_lisp.dir
+/home/dev/ros/stacks/AutoNav/build/CMakeFiles/UI.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/autopilot.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/clean-test-results.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/rosbuild_precompile.dir

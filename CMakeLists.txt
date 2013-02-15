@@ -24,6 +24,14 @@ rosbuild_genmsg()
 find_package(Eigen REQUIRED)
 include_directories(${Eigen_INCLUDE_DIRS})
 
+include_directories(
+  ${PROJECT_SOURCE_DIR}/thirdparty/libcvd/include 
+)  
+
+link_directories(
+  ${PROJECT_SOURCE_DIR}/thirdparty/libcvd/lib 
+)
+
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)
@@ -31,5 +39,21 @@ include_directories(${Eigen_INCLUDE_DIRS})
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 rosbuild_add_executable(state_estimation src/stateestimation/main_stateestimation.cpp src/stateestimation/DroneKalmanFilter.cpp src/stateestimation/EstimationNode.cpp)
 rosbuild_add_executable(autopilot src/autopilot/main_autopilot.cpp src/autopilot/Controller.cpp)
-#rosbuild_add_executable(rpy_test src/testQuatToRPY.cpp)
+
 #target_link_libraries(example ${PROJECT_NAME})
+
+# UI Stuff
+
+ADD_DEFINITIONS( -Wall )
+find_package(Qt4 REQUIRED)
+include(${QT_USE_FILE})
+QT4_ADD_RESOURCES(GUI_RESOURCE_FILES_CPP ${GUI_RESOURCE_FILES})
+QT4_WRAP_UI(GUI_UI_FILES_HPP ${GUI_UI_FILES})
+QT4_WRAP_CPP(GUI_HEADER_FILES_HPP ${GUI_HEADER_FILES})
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
+rosbuild_add_executable(UI src/UI/main_UI.cpp src/UI/Rosthread.cpp src/UI/Teleop.cpp)
+target_link_libraries(UI ${QT_LIBRARIES} cvd)
+
+
+

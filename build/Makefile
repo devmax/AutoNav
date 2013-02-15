@@ -161,6 +161,19 @@ ROSBUILD_gensrv_lisp/fast:
 .PHONY : ROSBUILD_gensrv_lisp/fast
 
 #=============================================================================
+# Target rules for targets named UI
+
+# Build rule for target.
+UI: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 UI
+.PHONY : UI
+
+# fast build rule for target.
+UI/fast:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/build
+.PHONY : UI/fast
+
+#=============================================================================
 # Target rules for targets named autopilot
 
 # Build rule for target.
@@ -343,6 +356,51 @@ tests/fast:
 .PHONY : tests/fast
 
 # target to build an object file
+src/UI/Rosthread.o:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/Rosthread.o
+.PHONY : src/UI/Rosthread.o
+
+# target to preprocess a source file
+src/UI/Rosthread.i:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/Rosthread.i
+.PHONY : src/UI/Rosthread.i
+
+# target to generate assembly for a file
+src/UI/Rosthread.s:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/Rosthread.s
+.PHONY : src/UI/Rosthread.s
+
+# target to build an object file
+src/UI/Teleop.o:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/Teleop.o
+.PHONY : src/UI/Teleop.o
+
+# target to preprocess a source file
+src/UI/Teleop.i:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/Teleop.i
+.PHONY : src/UI/Teleop.i
+
+# target to generate assembly for a file
+src/UI/Teleop.s:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/Teleop.s
+.PHONY : src/UI/Teleop.s
+
+# target to build an object file
+src/UI/main_UI.o:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/main_UI.o
+.PHONY : src/UI/main_UI.o
+
+# target to preprocess a source file
+src/UI/main_UI.i:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/main_UI.i
+.PHONY : src/UI/main_UI.i
+
+# target to generate assembly for a file
+src/UI/main_UI.s:
+	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/main_UI.s
+.PHONY : src/UI/main_UI.s
+
+# target to build an object file
 src/autopilot/Controller.o:
 	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/Controller.o
 .PHONY : src/autopilot/Controller.o
@@ -428,6 +486,7 @@ help:
 	@echo "... ROSBUILD_genmsg_py"
 	@echo "... ROSBUILD_gensrv_cpp"
 	@echo "... ROSBUILD_gensrv_lisp"
+	@echo "... UI"
 	@echo "... autopilot"
 	@echo "... clean-test-results"
 	@echo "... edit_cache"
@@ -444,6 +503,15 @@ help:
 	@echo "... test-results"
 	@echo "... test-results-run"
 	@echo "... tests"
+	@echo "... src/UI/Rosthread.o"
+	@echo "... src/UI/Rosthread.i"
+	@echo "... src/UI/Rosthread.s"
+	@echo "... src/UI/Teleop.o"
+	@echo "... src/UI/Teleop.i"
+	@echo "... src/UI/Teleop.s"
+	@echo "... src/UI/main_UI.o"
+	@echo "... src/UI/main_UI.i"
+	@echo "... src/UI/main_UI.s"
 	@echo "... src/autopilot/Controller.o"
 	@echo "... src/autopilot/Controller.i"
 	@echo "... src/autopilot/Controller.s"
