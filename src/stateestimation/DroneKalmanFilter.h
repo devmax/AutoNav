@@ -68,7 +68,15 @@ class PVFilter
        var = (eye(2)-K*H) * var;
     */
     Eigen::Vector2f K = var.col(0) / (obsVar + var(0,0));	//K is first col = first row of var.
+
+    ROS_INFO("PoseObservation:: Variance and covariance: [%lf,%lf]'",var(0,0),var(1,0));
+    ROS_INFO("Kalman gain: [%lf,%lf]'",K[0],K[1]);
+    
+    Eigen::Vector2f gain = K * (obs - state[0]);
     state = state + K * (obs - state[0]);
+
+    ROS_INFO("State augmented by: [%lf,%lf]'",gain[0],gain[1]);
+
     Eigen::Matrix2f tmp = Eigen::Matrix2f::Identity();
     tmp(0,0) -= K[0]; 
     tmp(1,0) -= K[1];
@@ -86,8 +94,16 @@ class PVFilter
        uncertainty = (eye(2)-K*H) * uncertainty;
     */
     Eigen::Vector2f K = var.col(1) / (obsVar + var(1,1));	//K is second col = second row of var.
+    ROS_INFO("SpeedObervation:: Variance and covariance: [%lf,%lf]'",var(1,1),var(0,1));
+    ROS_INFO("Kalman gain: [%lf,%lf]'",K[0],K[1]);
+
+    Eigen::Vector2f gain = K * (obs - state[1]);
     state = state + K * (obs - state[1]);
+
     Eigen::Matrix2f tmp = Eigen::Matrix2f::Identity();
+    
+    ROS_INFO("State augmented by: [%lf,%lf]'",gain[0],gain[1]);
+
     tmp(0,1) -= K[0]; 
     tmp(1,1) -= K[1];
     var = tmp * var;

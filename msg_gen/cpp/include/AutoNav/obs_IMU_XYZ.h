@@ -31,15 +31,23 @@ struct obs_IMU_XYZ_ {
   , x_pre(0.0)
   , y_pre(0.0)
   , z_pre(0.0)
+  , varx_pre(0.0)
+  , vary_pre(0.0)
   , dx_pre(0.0)
   , dy_pre(0.0)
   , dz_pre(0.0)
+  , vardx_pre(0.0)
+  , vardy_pre(0.0)
   , x_post(0.0)
   , y_post(0.0)
   , z_post(0.0)
+  , varx_post(0.0)
+  , vary_post(0.0)
   , dx_post(0.0)
   , dy_post(0.0)
   , dz_post(0.0)
+  , vardx_post(0.0)
+  , vardy_post(0.0)
   {
   }
 
@@ -53,15 +61,23 @@ struct obs_IMU_XYZ_ {
   , x_pre(0.0)
   , y_pre(0.0)
   , z_pre(0.0)
+  , varx_pre(0.0)
+  , vary_pre(0.0)
   , dx_pre(0.0)
   , dy_pre(0.0)
   , dz_pre(0.0)
+  , vardx_pre(0.0)
+  , vardy_pre(0.0)
   , x_post(0.0)
   , y_post(0.0)
   , z_post(0.0)
+  , varx_post(0.0)
+  , vary_post(0.0)
   , dx_post(0.0)
   , dy_post(0.0)
   , dz_post(0.0)
+  , vardx_post(0.0)
+  , vardy_post(0.0)
   {
   }
 
@@ -92,6 +108,12 @@ struct obs_IMU_XYZ_ {
   typedef float _z_pre_type;
   float z_pre;
 
+  typedef float _varx_pre_type;
+  float varx_pre;
+
+  typedef float _vary_pre_type;
+  float vary_pre;
+
   typedef float _dx_pre_type;
   float dx_pre;
 
@@ -100,6 +122,12 @@ struct obs_IMU_XYZ_ {
 
   typedef float _dz_pre_type;
   float dz_pre;
+
+  typedef float _vardx_pre_type;
+  float vardx_pre;
+
+  typedef float _vardy_pre_type;
+  float vardy_pre;
 
   typedef float _x_post_type;
   float x_post;
@@ -110,6 +138,12 @@ struct obs_IMU_XYZ_ {
   typedef float _z_post_type;
   float z_post;
 
+  typedef float _varx_post_type;
+  float varx_post;
+
+  typedef float _vary_post_type;
+  float vary_post;
+
   typedef float _dx_post_type;
   float dx_post;
 
@@ -118,6 +152,12 @@ struct obs_IMU_XYZ_ {
 
   typedef float _dz_post_type;
   float dz_post;
+
+  typedef float _vardx_post_type;
+  float vardx_post;
+
+  typedef float _vardy_post_type;
+  float vardy_post;
 
 
   typedef boost::shared_ptr< ::AutoNav::obs_IMU_XYZ_<ContainerAllocator> > Ptr;
@@ -148,12 +188,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::AutoNav::obs_IMU_XYZ_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "1476010774524ca9679f455b1a546c2e";
+    return "a27ecf5c7e457c77d43e22ee523c64b9";
   }
 
   static const char* value(const  ::AutoNav::obs_IMU_XYZ_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0x1476010774524ca9ULL;
-  static const uint64_t static_value2 = 0x679f455b1a546c2eULL;
+  static const uint64_t static_value1 = 0xa27ecf5c7e457c77ULL;
+  static const uint64_t static_value2 = 0xd43e22ee523c64b9ULL;
 };
 
 template<class ContainerAllocator>
@@ -182,18 +222,26 @@ float32 global_vy\n\
 float32 x_pre\n\
 float32 y_pre\n\
 float32 z_pre\n\
+float32 varx_pre\n\
+float32 vary_pre\n\
 \n\
 float32 dx_pre\n\
 float32 dy_pre\n\
 float32 dz_pre\n\
+float32 vardx_pre\n\
+float32 vardy_pre\n\
 \n\
 float32 x_post\n\
 float32 y_post\n\
 float32 z_post\n\
+float32 varx_post\n\
+float32 vary_post\n\
 \n\
 float32 dx_post\n\
 float32 dy_post\n\
 float32 dz_post\n\
+float32 vardx_post\n\
+float32 vardy_post\n\
 ";
   }
 
@@ -222,15 +270,23 @@ template<class ContainerAllocator> struct Serializer< ::AutoNav::obs_IMU_XYZ_<Co
     stream.next(m.x_pre);
     stream.next(m.y_pre);
     stream.next(m.z_pre);
+    stream.next(m.varx_pre);
+    stream.next(m.vary_pre);
     stream.next(m.dx_pre);
     stream.next(m.dy_pre);
     stream.next(m.dz_pre);
+    stream.next(m.vardx_pre);
+    stream.next(m.vardy_pre);
     stream.next(m.x_post);
     stream.next(m.y_post);
     stream.next(m.z_post);
+    stream.next(m.varx_post);
+    stream.next(m.vary_post);
     stream.next(m.dx_post);
     stream.next(m.dy_post);
     stream.next(m.dz_post);
+    stream.next(m.vardx_post);
+    stream.next(m.vardy_post);
   }
 
   ROS_DECLARE_ALLINONE_SERIALIZER;
@@ -266,24 +322,40 @@ struct Printer< ::AutoNav::obs_IMU_XYZ_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.y_pre);
     s << indent << "z_pre: ";
     Printer<float>::stream(s, indent + "  ", v.z_pre);
+    s << indent << "varx_pre: ";
+    Printer<float>::stream(s, indent + "  ", v.varx_pre);
+    s << indent << "vary_pre: ";
+    Printer<float>::stream(s, indent + "  ", v.vary_pre);
     s << indent << "dx_pre: ";
     Printer<float>::stream(s, indent + "  ", v.dx_pre);
     s << indent << "dy_pre: ";
     Printer<float>::stream(s, indent + "  ", v.dy_pre);
     s << indent << "dz_pre: ";
     Printer<float>::stream(s, indent + "  ", v.dz_pre);
+    s << indent << "vardx_pre: ";
+    Printer<float>::stream(s, indent + "  ", v.vardx_pre);
+    s << indent << "vardy_pre: ";
+    Printer<float>::stream(s, indent + "  ", v.vardy_pre);
     s << indent << "x_post: ";
     Printer<float>::stream(s, indent + "  ", v.x_post);
     s << indent << "y_post: ";
     Printer<float>::stream(s, indent + "  ", v.y_post);
     s << indent << "z_post: ";
     Printer<float>::stream(s, indent + "  ", v.z_post);
+    s << indent << "varx_post: ";
+    Printer<float>::stream(s, indent + "  ", v.varx_post);
+    s << indent << "vary_post: ";
+    Printer<float>::stream(s, indent + "  ", v.vary_post);
     s << indent << "dx_post: ";
     Printer<float>::stream(s, indent + "  ", v.dx_post);
     s << indent << "dy_post: ";
     Printer<float>::stream(s, indent + "  ", v.dy_post);
     s << indent << "dz_post: ";
     Printer<float>::stream(s, indent + "  ", v.dz_post);
+    s << indent << "vardx_post: ";
+    Printer<float>::stream(s, indent + "  ", v.vardx_post);
+    s << indent << "vardy_post: ";
+    Printer<float>::stream(s, indent + "  ", v.vardy_post);
   }
 };
 

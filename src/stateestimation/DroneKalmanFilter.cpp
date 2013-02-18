@@ -3,18 +3,18 @@
 #include<math.h>
 
 // constants (variances assumed to be present)
-const double varSpeedObservation_xy = 1.8*1.8;
-const double varPoseObservation_xy = 0.1*0.1;
+const double varSpeedObservation_xy = 1.6*1.6;
+const double varPoseObservation_xy = 0.35*0.35;
 const double varAccelerationError_xy = 8*8;
 
-const double varPoseObservation_z_tag = 0.1*0.1;
-const double varPoseObservation_z_IMU = 0.25*0.25;
+const double varPoseObservation_z_tag = 0.15*0.15;
+const double varPoseObservation_z_IMU = 0.35*0.35;
 const double varPoseObservation_z_IMU_NO_tag = 0.1*0.1;
 const double varAccelerationError_z = 1*1;
 
 const double varPoseObservation_rp_tag = 4*4;
 const double varPoseObservation_rp_IMU = 1*1;
-const double varSpeedError_rp = 360*360 * 16;	// increased because prediction based on control command is damn inaccurate.
+const double varSpeedError_rp = 360*360 * 16;	// increased because prediction based on control command is very inaccurate.
 
 const double varSpeedObservation_yaw = 3*3;
 const double varPoseObservation_yaw_IMU = 2*2;
@@ -27,7 +27,7 @@ const double varAccelerationError_yaw = 360*360;
 int DroneKalmanFilter::delayRPY = 0;		// always zero
 int DroneKalmanFilter::delayXYZ = 40;		// base_delayXYZ, but at most delayVideo
 int DroneKalmanFilter::delayVideo = 75;		// base_delayVideo + delayVid - delayNav
-int DroneKalmanFilter::delayControl = 100;	// base_delayControl + 2*delayNav
+int DroneKalmanFilter::delayControl = 80;	// base_delayControl + 2*delayNav
 
 const int DroneKalmanFilter::base_delayXYZ = 40;		// t_xyz - t_rpy = base_delayXYZ
 const int DroneKalmanFilter::base_delayVideo = 50;		// t_cam - t_rpy = base_delayVideo + delayVid - delayNav
@@ -146,11 +146,15 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
   double tsMillis = timeSpanMicros / 1000.0;	// in milliseconds
   double tsSeconds = tsMillis / 1000.0;	// in seconds
 
-  ROS_INFO("Predicting based on :(%lf,%lf,%lf) and %lf",activeControlInfo.linear.x,activeControlInfo.linear.y,activeControlInfo.linear.z,activeControlInfo.angular.z);
-  // predict roll, pitch, yaw
-  float rollControlGain = tsSeconds*c3*(c4 * std::max(-0.5, std::min(0.5, (double)activeControlInfo.linear.y)) - roll.state);
+  //ROS_INFO("Predicting based on :(%lf,%lf,%lf) and %lf",activeControlInfo.linear.x,activeControlInfo.linear.y,activeControlInfo.linear.z,activeControlInfo.angular.z);
+
+// predict roll, pitch, yaw
+  float rollControlGain = tsSeconds*c3*(c4 * std::max(-0.5, std::min(0.5, -(double)activeControlInfo.linear.y)) - roll.state);
   float pitchControlGain = tsSeconds*c3*(c4 * std::max(-0.5, std::min(0.5, (double)activeControlInfo.linear.x)) - pitch.state);
   float yawSpeedControlGain = tsSeconds*c5*(c6 * activeControlInfo.angular.z - yaw.state[1]);
+
+  //ROS_INFO("Roll gain: %lf tending to %lf = %lf",roll.state,-activeControlInfo.linear.y,rollControlGain);
+  //ROS_INFO("Pitch gain: %lf tending to %lf = %lf",pitch.state,activeControlInfo.linear.x,pitchControlGain);
 
   double yawRad = yaw.state[0] * 3.14159268 / 180;
   double rollRad = roll.state * 3.14159268 / 180;
@@ -164,6 +168,9 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
   double vx_gain = tsSeconds * c1 * (c2*forceX - x.state(1));
   double vy_gain = tsSeconds * c1 * (c2*forceY - y.state(1));
   double vz_gain = tsSeconds * c7 * (c8*activeControlInfo.linear.z*(activeControlInfo.linear.z < 0 ? 2 : 1) - z.state[1]);
+
+  //ROS_INFO("forceX = %lf, vx = %lf and vx_gain = %lf",forceX,x.state(1),vx_gain);
+  //ROS_INFO("forceY = %lf, vy = %lf and vy_gain = %lf",forceY,y.state(1),vy_gain);
 
   /*begin LOGGING*/
   AutoNav::predictInternal message;
@@ -190,11 +197,15 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
   message.dy_pre = y.state(1);
   message.dz_pre = z.state(1);
   message.dyaw_pre = yaw.state(1);
+  message.varx_pre = x.var(0,0);
+  message.vardx_pre = x.var(1,1);
+  message.vary_pre = y.var(0,0);
+  message.vardy_pre = y.var(1,1);
   /*end LOGGING*/
 
   if(!useControlGains || !controlValid)
     {
-      ROS_INFO("useControlGains = %d and controlValid = %d",(int)useControlGains,(int)controlValid);
+      //ROS_INFO("useControlGains = %d and controlValid = %d",(int)useControlGains,(int)controlValid);
       vx_gain = vy_gain = vz_gain = 0;
       rollControlGain = pitchControlGain = yawSpeedControlGain = 0;
     }
@@ -220,6 +231,10 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
   message.dy_post = y.state(1);
   message.dz_post = z.state(1);
   message.dyaw_post = yaw.state(1);
+  message.varx_post = x.var(0,0);
+  message.vardx_post = x.var(1,1);
+  message.vary_post = y.var(0,0);
+  message.vardy_post = y.var(1,1);
 
   pub_predictInternal.publish(message);
   /*end LOGGING*/
@@ -246,6 +261,10 @@ void DroneKalmanFilter::observeIMU_XYZ(const ardrone_autonomy::Navdata* nav)
   message.dx_pre = x.state(1);
   message.dy_pre = y.state(1);
   message.dz_pre = z.state(1);
+  message.varx_pre = x.var(0,0);
+  message.vardx_pre = x.var(1,1);
+  message.vary_pre = y.var(0,0);
+  message.vardy_pre = y.var(1,1);
   /*end LOGGING*/
 
   if(lastPosesValid)
@@ -310,6 +329,10 @@ void DroneKalmanFilter::observeIMU_XYZ(const ardrone_autonomy::Navdata* nav)
   message.dx_post = x.state(1);
   message.dy_post = y.state(1);
   message.dz_post = z.state(1);
+  message.varx_post = x.var(0,0);
+  message.vardx_post = x.var(1,1);
+  message.vary_post = y.var(0,0);
+  message.vardy_post = y.var(1,1);
   pub_obs_IMU_XYZ.publish(message);
   /*end LOGGING*/
 }
@@ -329,6 +352,7 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
   message.yaw_pre = yaw.state(0);
   message.dyaw_pre = yaw.state(1);
   /*end LOGGING*/
+
   roll.observe(nav->rotX,varPoseObservation_rp_IMU);
   pitch.observe(nav->rotY,varPoseObservation_rp_IMU);
 
@@ -406,21 +430,29 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
   message.pitch_pre = pitch.state;
   message.yaw_pre = yaw.state(0);
   message.dyaw_pre = yaw.state(1);
+  message.varx_pre = x.var(0,0);
+  message.vardx_pre = x.var(1,1);
+  message.vary_pre = y.var(0,0);
+  message.vardy_pre = y.var(1,1);
   /*end LOGGING*/
 
-  PVFilter lastX = x;
+  /*PVFilter lastX = x;
   PVFilter lastY = y;
   PVFilter lastZ = z;
   PFilter lastroll = roll;
   PFilter lastpitch = pitch;
-  PVFilter lastyaw = yaw;
+  PVFilter lastyaw = yaw;*/
   bool reject  = false;
 
+  ROS_INFO("Prior poses are: %lf,%lf,%lf and velocities are: %lf,%lf,%lf",x.state(0),y.state(0),z.state(0),x.state(1),y.state(1),z.state(1));
+  ROS_INFO("Observation is : %lf,%lf,%lf for time at %d",pose[0],pose[1],pose[2],getMS());
   if(offsets_initialized)
     {
       x.observePose(pose[0],varPoseObservation_xy);
       y.observePose(pose[1],varPoseObservation_xy);
       z.observePose(pose[2],varPoseObservation_z_tag);
+
+      ROS_INFO("Posterior poses: %lf,%lf,%lf and velocities: %lf,%lf,%lf",x.state(0),y.state(0),z.state(0),x.state(1),y.state(1),z.state(1));
 
       roll.observe(pose[3],varPoseObservation_rp_tag);
       pitch.observe(pose[4],varPoseObservation_rp_tag);
@@ -446,7 +478,7 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
   else if(abs(z.state(1))>4.0)
     {
       ROS_INFO("Large jump in Z of %lf!",z.state(1));
-      //reject = true;
+      reject = true;
     }
 
   /*begin LOGGING*/
@@ -460,11 +492,15 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
   message.pitch_post = pitch.state;
   message.yaw_post = yaw.state(0);
   message.dyaw_post = yaw.state(1);
+  message.varx_post = x.var(0,0);
+  message.vardx_post = x.var(1,1);
+  message.vary_post = y.var(0,0);
+  message.vardy_post = y.var(1,1);
   message.rejected = (int)reject;
   pub_obs_tag.publish(message);
   /*end LOGGING*/
 
-  if(reject)
+  /*if(reject)
     {
       ROS_INFO("Rejecting this observation");
       x = lastX;
@@ -474,9 +510,9 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
       pitch = lastpitch;
       yaw = lastyaw;
       lastPosesValid = false;
-    }
+      }*/
 
-  return (!reject);
+  return true;//(!reject);
 }
 
 void DroneKalmanFilter::sync_offsets(Vector6f pose)
@@ -590,7 +626,10 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
 	controlIterator++;
 
       if(useControlGains)
-	ROS_INFO("Control info sent at %d.%d=%d with age of %d selected for prediction!",controlIterator->header.stamp.sec,controlIterator->header.stamp.nsec,getMS(controlIterator->header.stamp),(predictedUpToTimestamp - delayControl - getMS(controlIterator->header.stamp)));
+	{
+	  //ROS_INFO("Control info sent at %d.%d=%d with age of %d selected for prediction!",controlIterator->header.stamp.sec,controlIterator->header.stamp.nsec,getMS(controlIterator->header.stamp),(predictedUpToTimestamp - delayControl - getMS(controlIterator->header.stamp)));
+	  //ROS_INFO("Next control data sent at %d.%d=%d with age of %d",(controlIterator+1)->header.stamp.sec,(controlIterator+1)->header.stamp.nsec,getMS((controlIterator+1)->header.stamp),(predictedUpToTimestamp - delayControl - getMS((controlIterator+1)->header.stamp)));
+	}
 
       /*begin LOGGING*/
       AutoNav::predictUpTo message;
@@ -602,7 +641,7 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
 
       //useControlGains = getMS(controlIterator->header.stamp) + 200 > predictedUpToTimestamp - delayControl ? 1: 0;
 
-      ROS_INFO("useControlGains = %d",(int)useControlGains);
+      //ROS_INFO("useControlGains = %d",(int)useControlGains);
 
       // predict not further than the point in time where the next observation needs to be added.
       if(rpyIterator != navdataQueue->end() )
@@ -610,7 +649,7 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
       if(xyzIterator != navdataQueue->end() )
 	predictTo = std::min(predictTo,getMS(xyzIterator->header.stamp)-delayXYZ);
 
-      predictInternal(useControlGains ? controlIterator->twist : geometry_msgs::Twist(),(predictTo - predictedUpToTimestamp)*1000,useControlGains && getMS(controlIterator->header.stamp) + 300 > predictedUpToTimestamp - delayControl);				// control max. 200ms old.
+      predictInternal(useControlGains ? controlIterator->twist : geometry_msgs::Twist(),(predictTo - predictedUpToTimestamp)*1000,useControlGains && getMS(controlIterator->header.stamp) + 200 > predictedUpToTimestamp - delayControl);				// control max. 200ms old.
 
       // if an observation needs to be added, it HAS to have a stamp equal to [predictTo],
       // as we just set [predictTo] to that timestamp.
@@ -721,7 +760,7 @@ void DroneKalmanFilter::addTag(Vector6f measurement,int corrStamp)
   //ROS_INFO("Adding tag now!");
   if(corrStamp>predictedUpToTotal)
     {
-      ROS_INFO("Calling predictUpTo by adding new tag!");
+      ROS_INFO("Calling predictUpTo by adding new tag to predict until %d",corrStamp);
       predictUpTo(corrStamp,true,true);
     }
 

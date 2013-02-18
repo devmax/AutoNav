@@ -17,22 +17,38 @@
           Y_PRE
           Z_PRE-VAL
           Z_PRE
+          VARX_PRE-VAL
+          VARX_PRE
+          VARY_PRE-VAL
+          VARY_PRE
           DX_PRE-VAL
           DX_PRE
           DY_PRE-VAL
           DY_PRE
           DZ_PRE-VAL
           DZ_PRE
+          VARDX_PRE-VAL
+          VARDX_PRE
+          VARDY_PRE-VAL
+          VARDY_PRE
           X_POST-VAL
           X_POST
           Y_POST-VAL
           Y_POST
           Z_POST-VAL
           Z_POST
+          VARX_POST-VAL
+          VARX_POST
+          VARY_POST-VAL
+          VARY_POST
           DX_POST-VAL
           DX_POST
           DY_POST-VAL
           DY_POST
           DZ_POST-VAL
           DZ_POST
+          VARDX_POST-VAL
+          VARDX_POST
+          VARDY_POST-VAL
+          VARDY_POST
 ))

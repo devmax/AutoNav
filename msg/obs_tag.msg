@@ -26,6 +26,10 @@ float32 roll_pre
 float32 pitch_pre
 float32 yaw_pre
 float32 dyaw_pre
+float32 varx_pre
+float32 vary_pre
+float32 vardx_pre
+float32 vardy_pre
 
 #the posterior
 float32 x_post
@@ -38,3 +42,7 @@ float32 roll_post
 float32 pitch_post
 float32 yaw_post
 float32 dyaw_post
+float32 varx_post
+float32 vary_post
+float32 vardx_post
+float32 vardy_post

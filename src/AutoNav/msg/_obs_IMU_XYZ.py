@@ -6,7 +6,7 @@ import struct
 
 
 class obs_IMU_XYZ(genpy.Message):
-  _md5sum = "1476010774524ca9679f455b1a546c2e"
+  _md5sum = "a27ecf5c7e457c77d43e22ee523c64b9"
   _type = "AutoNav/obs_IMU_XYZ"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """int32 timestamp
@@ -21,21 +21,29 @@ float32 global_vy
 float32 x_pre
 float32 y_pre
 float32 z_pre
+float32 varx_pre
+float32 vary_pre
 
 float32 dx_pre
 float32 dy_pre
 float32 dz_pre
+float32 vardx_pre
+float32 vardy_pre
 
 float32 x_post
 float32 y_post
 float32 z_post
+float32 varx_post
+float32 vary_post
 
 float32 dx_post
 float32 dy_post
 float32 dz_post
+float32 vardx_post
+float32 vardy_post
 """
-  __slots__ = ['timestamp','seq','nav_vx','nav_vy','global_vx','global_vy','x_pre','y_pre','z_pre','dx_pre','dy_pre','dz_pre','x_post','y_post','z_post','dx_post','dy_post','dz_post']
-  _slot_types = ['int32','uint32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32']
+  __slots__ = ['timestamp','seq','nav_vx','nav_vy','global_vx','global_vy','x_pre','y_pre','z_pre','varx_pre','vary_pre','dx_pre','dy_pre','dz_pre','vardx_pre','vardy_pre','x_post','y_post','z_post','varx_post','vary_post','dx_post','dy_post','dz_post','vardx_post','vardy_post']
+  _slot_types = ['int32','uint32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -45,7 +53,7 @@ float32 dz_post
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       timestamp,seq,nav_vx,nav_vy,global_vx,global_vy,x_pre,y_pre,z_pre,dx_pre,dy_pre,dz_pre,x_post,y_post,z_post,dx_post,dy_post,dz_post
+       timestamp,seq,nav_vx,nav_vy,global_vx,global_vy,x_pre,y_pre,z_pre,varx_pre,vary_pre,dx_pre,dy_pre,dz_pre,vardx_pre,vardy_pre,x_post,y_post,z_post,varx_post,vary_post,dx_post,dy_post,dz_post,vardx_post,vardy_post
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -72,24 +80,40 @@ float32 dz_post
         self.y_pre = 0.
       if self.z_pre is None:
         self.z_pre = 0.
+      if self.varx_pre is None:
+        self.varx_pre = 0.
+      if self.vary_pre is None:
+        self.vary_pre = 0.
       if self.dx_pre is None:
         self.dx_pre = 0.
       if self.dy_pre is None:
         self.dy_pre = 0.
       if self.dz_pre is None:
         self.dz_pre = 0.
+      if self.vardx_pre is None:
+        self.vardx_pre = 0.
+      if self.vardy_pre is None:
+        self.vardy_pre = 0.
       if self.x_post is None:
         self.x_post = 0.
       if self.y_post is None:
         self.y_post = 0.
       if self.z_post is None:
         self.z_post = 0.
+      if self.varx_post is None:
+        self.varx_post = 0.
+      if self.vary_post is None:
+        self.vary_post = 0.
       if self.dx_post is None:
         self.dx_post = 0.
       if self.dy_post is None:
         self.dy_post = 0.
       if self.dz_post is None:
         self.dz_post = 0.
+      if self.vardx_post is None:
+        self.vardx_post = 0.
+      if self.vardy_post is None:
+        self.vardy_post = 0.
     else:
       self.timestamp = 0
       self.seq = 0
@@ -100,15 +124,23 @@ float32 dz_post
       self.x_pre = 0.
       self.y_pre = 0.
       self.z_pre = 0.
+      self.varx_pre = 0.
+      self.vary_pre = 0.
       self.dx_pre = 0.
       self.dy_pre = 0.
       self.dz_pre = 0.
+      self.vardx_pre = 0.
+      self.vardy_pre = 0.
       self.x_post = 0.
       self.y_post = 0.
       self.z_post = 0.
+      self.varx_post = 0.
+      self.vary_post = 0.
       self.dx_post = 0.
       self.dy_post = 0.
       self.dz_post = 0.
+      self.vardx_post = 0.
+      self.vardy_post = 0.
 
   def _get_types(self):
     """
@@ -123,7 +155,7 @@ float32 dz_post
     """
     try:
       _x = self
-      buff.write(_struct_iI16f.pack(_x.timestamp, _x.seq, _x.nav_vx, _x.nav_vy, _x.global_vx, _x.global_vy, _x.x_pre, _x.y_pre, _x.z_pre, _x.dx_pre, _x.dy_pre, _x.dz_pre, _x.x_post, _x.y_post, _x.z_post, _x.dx_post, _x.dy_post, _x.dz_post))
+      buff.write(_struct_iI24f.pack(_x.timestamp, _x.seq, _x.nav_vx, _x.nav_vy, _x.global_vx, _x.global_vy, _x.x_pre, _x.y_pre, _x.z_pre, _x.varx_pre, _x.vary_pre, _x.dx_pre, _x.dy_pre, _x.dz_pre, _x.vardx_pre, _x.vardy_pre, _x.x_post, _x.y_post, _x.z_post, _x.varx_post, _x.vary_post, _x.dx_post, _x.dy_post, _x.dz_post, _x.vardx_post, _x.vardy_post))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -136,8 +168,8 @@ float32 dz_post
       end = 0
       _x = self
       start = end
-      end += 72
-      (_x.timestamp, _x.seq, _x.nav_vx, _x.nav_vy, _x.global_vx, _x.global_vy, _x.x_pre, _x.y_pre, _x.z_pre, _x.dx_pre, _x.dy_pre, _x.dz_pre, _x.x_post, _x.y_post, _x.z_post, _x.dx_post, _x.dy_post, _x.dz_post,) = _struct_iI16f.unpack(str[start:end])
+      end += 104
+      (_x.timestamp, _x.seq, _x.nav_vx, _x.nav_vy, _x.global_vx, _x.global_vy, _x.x_pre, _x.y_pre, _x.z_pre, _x.varx_pre, _x.vary_pre, _x.dx_pre, _x.dy_pre, _x.dz_pre, _x.vardx_pre, _x.vardy_pre, _x.x_post, _x.y_post, _x.z_post, _x.varx_post, _x.vary_post, _x.dx_post, _x.dy_post, _x.dz_post, _x.vardx_post, _x.vardy_post,) = _struct_iI24f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -151,7 +183,7 @@ float32 dz_post
     """
     try:
       _x = self
-      buff.write(_struct_iI16f.pack(_x.timestamp, _x.seq, _x.nav_vx, _x.nav_vy, _x.global_vx, _x.global_vy, _x.x_pre, _x.y_pre, _x.z_pre, _x.dx_pre, _x.dy_pre, _x.dz_pre, _x.x_post, _x.y_post, _x.z_post, _x.dx_post, _x.dy_post, _x.dz_post))
+      buff.write(_struct_iI24f.pack(_x.timestamp, _x.seq, _x.nav_vx, _x.nav_vy, _x.global_vx, _x.global_vy, _x.x_pre, _x.y_pre, _x.z_pre, _x.varx_pre, _x.vary_pre, _x.dx_pre, _x.dy_pre, _x.dz_pre, _x.vardx_pre, _x.vardy_pre, _x.x_post, _x.y_post, _x.z_post, _x.varx_post, _x.vary_post, _x.dx_post, _x.dy_post, _x.dz_post, _x.vardx_post, _x.vardy_post))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -165,11 +197,11 @@ float32 dz_post
       end = 0
       _x = self
       start = end
-      end += 72
-      (_x.timestamp, _x.seq, _x.nav_vx, _x.nav_vy, _x.global_vx, _x.global_vy, _x.x_pre, _x.y_pre, _x.z_pre, _x.dx_pre, _x.dy_pre, _x.dz_pre, _x.x_post, _x.y_post, _x.z_post, _x.dx_post, _x.dy_post, _x.dz_post,) = _struct_iI16f.unpack(str[start:end])
+      end += 104
+      (_x.timestamp, _x.seq, _x.nav_vx, _x.nav_vy, _x.global_vx, _x.global_vy, _x.x_pre, _x.y_pre, _x.z_pre, _x.varx_pre, _x.vary_pre, _x.dx_pre, _x.dy_pre, _x.dz_pre, _x.vardx_pre, _x.vardy_pre, _x.x_post, _x.y_post, _x.z_post, _x.varx_post, _x.vary_post, _x.dx_post, _x.dy_post, _x.dz_post, _x.vardx_post, _x.vardy_post,) = _struct_iI24f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_iI16f = struct.Struct("<iI16f")
+_struct_iI24f = struct.Struct("<iI24f")

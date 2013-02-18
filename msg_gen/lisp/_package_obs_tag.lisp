@@ -43,6 +43,14 @@
           YAW_PRE
           DYAW_PRE-VAL
           DYAW_PRE
+          VARX_PRE-VAL
+          VARX_PRE
+          VARY_PRE-VAL
+          VARY_PRE
+          VARDX_PRE-VAL
+          VARDX_PRE
+          VARDY_PRE-VAL
+          VARDY_PRE
           X_POST-VAL
           X_POST
           Y_POST-VAL
@@ -63,4 +71,12 @@
           YAW_POST
           DYAW_POST-VAL
           DYAW_POST
+          VARX_POST-VAL
+          VARX_POST
+          VARY_POST-VAL
+          VARY_POST
+          VARDX_POST-VAL
+          VARDX_POST
+          VARDY_POST-VAL
+          VARDY_POST
 ))

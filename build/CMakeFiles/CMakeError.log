@@ -70,8 +70,8 @@ Building CXX object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o
 /usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o -c /home/dev/ros/stacks/AutoNav/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main()’:
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:25: error: ‘Q_WS_MAC’ was not declared in this scope
-make[2]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o] Error 1
 make[2]: Leaving directory `/home/dev/ros/stacks/AutoNav/build/CMakeFiles/CMakeTmp'
+make[2]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o] Error 1
 make[1]: *** [cmTryCompileExec/fast] Error 2
 make[1]: Leaving directory `/home/dev/ros/stacks/AutoNav/build/CMakeFiles/CMakeTmp'
 

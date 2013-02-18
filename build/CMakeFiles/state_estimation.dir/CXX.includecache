@@ -256,12 +256,6 @@ ar_track_alvar/AlvarMarkers.h
 AutoNav/filter_state.h
 /home/dev/ros/stacks/AutoNav/src/stateestimation/AutoNav/filter_state.h
 
-/home/dev/ros/stacks/AutoNav/src/stateestimation/main_stateestimation.cpp
-ros/ros.h
--
-EstimationNode.h
-/home/dev/ros/stacks/AutoNav/src/stateestimation/EstimationNode.h
-
 /home/dev/ros/stacks/ar_track_alvar/msg_gen/cpp/include/ar_track_alvar/AlvarMarker.h
 string
 -

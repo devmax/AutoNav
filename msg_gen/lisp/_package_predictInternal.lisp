@@ -45,6 +45,14 @@
           Z_PRE
           DZ_PRE-VAL
           DZ_PRE
+          VARX_PRE-VAL
+          VARX_PRE
+          VARY_PRE-VAL
+          VARY_PRE
+          VARDX_PRE-VAL
+          VARDX_PRE
+          VARDY_PRE-VAL
+          VARDY_PRE
           ROLL_POST-VAL
           ROLL_POST
           PITCH_POST-VAL
@@ -65,4 +73,12 @@
           Z_POST
           DZ_POST-VAL
           DZ_POST
+          VARX_POST-VAL
+          VARX_POST
+          VARY_POST-VAL
+          VARY_POST
+          VARDX_POST-VAL
+          VARDX_POST
+          VARDY_POST-VAL
+          VARDY_POST
 ))

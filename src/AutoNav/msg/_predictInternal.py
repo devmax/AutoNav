@@ -7,7 +7,7 @@ import struct
 import geometry_msgs.msg
 
 class predictInternal(genpy.Message):
-  _md5sum = "df44c08d5063e18e5d6f0beeb9f6f87e"
+  _md5sum = "ecda137da737bf0c26f0e9aeaeab8110"
   _type = "AutoNav/predictInternal"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """#time when message was published
@@ -45,6 +45,10 @@ float32 y_pre
 float32 dy_pre
 float32 z_pre
 float32 dz_pre
+float32 varx_pre
+float32 vary_pre
+float32 vardx_pre
+float32 vardy_pre
 
 #posterior state after prediction
 float32 roll_post
@@ -57,6 +61,10 @@ float32 y_post
 float32 dy_post
 float32 z_post
 float32 dz_post
+float32 varx_post
+float32 vary_post
+float32 vardx_post
+float32 vardy_post
 
 ================================================================================
 MSG: geometry_msgs/Twist
@@ -72,8 +80,8 @@ float64 x
 float64 y
 float64 z
 """
-  __slots__ = ['timestamp','timeSpanMicros','activeControlInfo','useControlGains','controlValid','rollControlGain','pitchControlGain','yawSpeedControlGain','forceX','forceY','vx_gain','vy_gain','vz_gain','roll_pre','pitch_pre','yaw_pre','dyaw_pre','x_pre','dx_pre','y_pre','dy_pre','z_pre','dz_pre','roll_post','pitch_post','yaw_post','dyaw_post','x_post','dx_post','y_post','dy_post','z_post','dz_post']
-  _slot_types = ['int32','int32','geometry_msgs/Twist','int32','int32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32']
+  __slots__ = ['timestamp','timeSpanMicros','activeControlInfo','useControlGains','controlValid','rollControlGain','pitchControlGain','yawSpeedControlGain','forceX','forceY','vx_gain','vy_gain','vz_gain','roll_pre','pitch_pre','yaw_pre','dyaw_pre','x_pre','dx_pre','y_pre','dy_pre','z_pre','dz_pre','varx_pre','vary_pre','vardx_pre','vardy_pre','roll_post','pitch_post','yaw_post','dyaw_post','x_post','dx_post','y_post','dy_post','z_post','dz_post','varx_post','vary_post','vardx_post','vardy_post']
+  _slot_types = ['int32','int32','geometry_msgs/Twist','int32','int32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -83,7 +91,7 @@ float64 z
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       timestamp,timeSpanMicros,activeControlInfo,useControlGains,controlValid,rollControlGain,pitchControlGain,yawSpeedControlGain,forceX,forceY,vx_gain,vy_gain,vz_gain,roll_pre,pitch_pre,yaw_pre,dyaw_pre,x_pre,dx_pre,y_pre,dy_pre,z_pre,dz_pre,roll_post,pitch_post,yaw_post,dyaw_post,x_post,dx_post,y_post,dy_post,z_post,dz_post
+       timestamp,timeSpanMicros,activeControlInfo,useControlGains,controlValid,rollControlGain,pitchControlGain,yawSpeedControlGain,forceX,forceY,vx_gain,vy_gain,vz_gain,roll_pre,pitch_pre,yaw_pre,dyaw_pre,x_pre,dx_pre,y_pre,dy_pre,z_pre,dz_pre,varx_pre,vary_pre,vardx_pre,vardy_pre,roll_post,pitch_post,yaw_post,dyaw_post,x_post,dx_post,y_post,dy_post,z_post,dz_post,varx_post,vary_post,vardx_post,vardy_post
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -138,6 +146,14 @@ float64 z
         self.z_pre = 0.
       if self.dz_pre is None:
         self.dz_pre = 0.
+      if self.varx_pre is None:
+        self.varx_pre = 0.
+      if self.vary_pre is None:
+        self.vary_pre = 0.
+      if self.vardx_pre is None:
+        self.vardx_pre = 0.
+      if self.vardy_pre is None:
+        self.vardy_pre = 0.
       if self.roll_post is None:
         self.roll_post = 0.
       if self.pitch_post is None:
@@ -158,6 +174,14 @@ float64 z
         self.z_post = 0.
       if self.dz_post is None:
         self.dz_post = 0.
+      if self.varx_post is None:
+        self.varx_post = 0.
+      if self.vary_post is None:
+        self.vary_post = 0.
+      if self.vardx_post is None:
+        self.vardx_post = 0.
+      if self.vardy_post is None:
+        self.vardy_post = 0.
     else:
       self.timestamp = 0
       self.timeSpanMicros = 0
@@ -182,6 +206,10 @@ float64 z
       self.dy_pre = 0.
       self.z_pre = 0.
       self.dz_pre = 0.
+      self.varx_pre = 0.
+      self.vary_pre = 0.
+      self.vardx_pre = 0.
+      self.vardy_pre = 0.
       self.roll_post = 0.
       self.pitch_post = 0.
       self.yaw_post = 0.
@@ -192,6 +220,10 @@ float64 z
       self.dy_post = 0.
       self.z_post = 0.
       self.dz_post = 0.
+      self.varx_post = 0.
+      self.vary_post = 0.
+      self.vardx_post = 0.
+      self.vardy_post = 0.
 
   def _get_types(self):
     """
@@ -206,7 +238,7 @@ float64 z
     """
     try:
       _x = self
-      buff.write(_struct_2i6d2i28f.pack(_x.timestamp, _x.timeSpanMicros, _x.activeControlInfo.linear.x, _x.activeControlInfo.linear.y, _x.activeControlInfo.linear.z, _x.activeControlInfo.angular.x, _x.activeControlInfo.angular.y, _x.activeControlInfo.angular.z, _x.useControlGains, _x.controlValid, _x.rollControlGain, _x.pitchControlGain, _x.yawSpeedControlGain, _x.forceX, _x.forceY, _x.vx_gain, _x.vy_gain, _x.vz_gain, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.x_pre, _x.dx_pre, _x.y_pre, _x.dy_pre, _x.z_pre, _x.dz_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post, _x.x_post, _x.dx_post, _x.y_post, _x.dy_post, _x.z_post, _x.dz_post))
+      buff.write(_struct_2i6d2i36f.pack(_x.timestamp, _x.timeSpanMicros, _x.activeControlInfo.linear.x, _x.activeControlInfo.linear.y, _x.activeControlInfo.linear.z, _x.activeControlInfo.angular.x, _x.activeControlInfo.angular.y, _x.activeControlInfo.angular.z, _x.useControlGains, _x.controlValid, _x.rollControlGain, _x.pitchControlGain, _x.yawSpeedControlGain, _x.forceX, _x.forceY, _x.vx_gain, _x.vy_gain, _x.vz_gain, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.x_pre, _x.dx_pre, _x.y_pre, _x.dy_pre, _x.z_pre, _x.dz_pre, _x.varx_pre, _x.vary_pre, _x.vardx_pre, _x.vardy_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post, _x.x_post, _x.dx_post, _x.y_post, _x.dy_post, _x.z_post, _x.dz_post, _x.varx_post, _x.vary_post, _x.vardx_post, _x.vardy_post))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -221,8 +253,8 @@ float64 z
       end = 0
       _x = self
       start = end
-      end += 176
-      (_x.timestamp, _x.timeSpanMicros, _x.activeControlInfo.linear.x, _x.activeControlInfo.linear.y, _x.activeControlInfo.linear.z, _x.activeControlInfo.angular.x, _x.activeControlInfo.angular.y, _x.activeControlInfo.angular.z, _x.useControlGains, _x.controlValid, _x.rollControlGain, _x.pitchControlGain, _x.yawSpeedControlGain, _x.forceX, _x.forceY, _x.vx_gain, _x.vy_gain, _x.vz_gain, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.x_pre, _x.dx_pre, _x.y_pre, _x.dy_pre, _x.z_pre, _x.dz_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post, _x.x_post, _x.dx_post, _x.y_post, _x.dy_post, _x.z_post, _x.dz_post,) = _struct_2i6d2i28f.unpack(str[start:end])
+      end += 208
+      (_x.timestamp, _x.timeSpanMicros, _x.activeControlInfo.linear.x, _x.activeControlInfo.linear.y, _x.activeControlInfo.linear.z, _x.activeControlInfo.angular.x, _x.activeControlInfo.angular.y, _x.activeControlInfo.angular.z, _x.useControlGains, _x.controlValid, _x.rollControlGain, _x.pitchControlGain, _x.yawSpeedControlGain, _x.forceX, _x.forceY, _x.vx_gain, _x.vy_gain, _x.vz_gain, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.x_pre, _x.dx_pre, _x.y_pre, _x.dy_pre, _x.z_pre, _x.dz_pre, _x.varx_pre, _x.vary_pre, _x.vardx_pre, _x.vardy_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post, _x.x_post, _x.dx_post, _x.y_post, _x.dy_post, _x.z_post, _x.dz_post, _x.varx_post, _x.vary_post, _x.vardx_post, _x.vardy_post,) = _struct_2i6d2i36f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -236,7 +268,7 @@ float64 z
     """
     try:
       _x = self
-      buff.write(_struct_2i6d2i28f.pack(_x.timestamp, _x.timeSpanMicros, _x.activeControlInfo.linear.x, _x.activeControlInfo.linear.y, _x.activeControlInfo.linear.z, _x.activeControlInfo.angular.x, _x.activeControlInfo.angular.y, _x.activeControlInfo.angular.z, _x.useControlGains, _x.controlValid, _x.rollControlGain, _x.pitchControlGain, _x.yawSpeedControlGain, _x.forceX, _x.forceY, _x.vx_gain, _x.vy_gain, _x.vz_gain, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.x_pre, _x.dx_pre, _x.y_pre, _x.dy_pre, _x.z_pre, _x.dz_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post, _x.x_post, _x.dx_post, _x.y_post, _x.dy_post, _x.z_post, _x.dz_post))
+      buff.write(_struct_2i6d2i36f.pack(_x.timestamp, _x.timeSpanMicros, _x.activeControlInfo.linear.x, _x.activeControlInfo.linear.y, _x.activeControlInfo.linear.z, _x.activeControlInfo.angular.x, _x.activeControlInfo.angular.y, _x.activeControlInfo.angular.z, _x.useControlGains, _x.controlValid, _x.rollControlGain, _x.pitchControlGain, _x.yawSpeedControlGain, _x.forceX, _x.forceY, _x.vx_gain, _x.vy_gain, _x.vz_gain, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.x_pre, _x.dx_pre, _x.y_pre, _x.dy_pre, _x.z_pre, _x.dz_pre, _x.varx_pre, _x.vary_pre, _x.vardx_pre, _x.vardy_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post, _x.x_post, _x.dx_post, _x.y_post, _x.dy_post, _x.z_post, _x.dz_post, _x.varx_post, _x.vary_post, _x.vardx_post, _x.vardy_post))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -252,11 +284,11 @@ float64 z
       end = 0
       _x = self
       start = end
-      end += 176
-      (_x.timestamp, _x.timeSpanMicros, _x.activeControlInfo.linear.x, _x.activeControlInfo.linear.y, _x.activeControlInfo.linear.z, _x.activeControlInfo.angular.x, _x.activeControlInfo.angular.y, _x.activeControlInfo.angular.z, _x.useControlGains, _x.controlValid, _x.rollControlGain, _x.pitchControlGain, _x.yawSpeedControlGain, _x.forceX, _x.forceY, _x.vx_gain, _x.vy_gain, _x.vz_gain, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.x_pre, _x.dx_pre, _x.y_pre, _x.dy_pre, _x.z_pre, _x.dz_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post, _x.x_post, _x.dx_post, _x.y_post, _x.dy_post, _x.z_post, _x.dz_post,) = _struct_2i6d2i28f.unpack(str[start:end])
+      end += 208
+      (_x.timestamp, _x.timeSpanMicros, _x.activeControlInfo.linear.x, _x.activeControlInfo.linear.y, _x.activeControlInfo.linear.z, _x.activeControlInfo.angular.x, _x.activeControlInfo.angular.y, _x.activeControlInfo.angular.z, _x.useControlGains, _x.controlValid, _x.rollControlGain, _x.pitchControlGain, _x.yawSpeedControlGain, _x.forceX, _x.forceY, _x.vx_gain, _x.vy_gain, _x.vz_gain, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.x_pre, _x.dx_pre, _x.y_pre, _x.dy_pre, _x.z_pre, _x.dz_pre, _x.varx_pre, _x.vary_pre, _x.vardx_pre, _x.vardy_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post, _x.x_post, _x.dx_post, _x.y_post, _x.dy_post, _x.z_post, _x.dz_post, _x.varx_post, _x.vary_post, _x.vardx_post, _x.vardy_post,) = _struct_2i6d2i36f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_2i6d2i28f = struct.Struct("<2i6d2i28f")
+_struct_2i6d2i36f = struct.Struct("<2i6d2i36f")
