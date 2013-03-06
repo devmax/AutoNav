@@ -52,7 +52,7 @@ QT4_WRAP_UI(GUI_UI_FILES_HPP ${GUI_UI_FILES})
 QT4_WRAP_CPP(GUI_HEADER_FILES_HPP ${GUI_HEADER_FILES})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-rosbuild_add_executable(UI src/main_UI.cpp src/Rosthread.cpp src/UI/Teleop.cpp)
+rosbuild_add_executable(UI src/UI/main_UI.cpp src/UI/Rosthread.cpp src/UI/Teleop.cpp)
 target_link_libraries(UI ${QT_LIBRARIES} cvd)
 
 

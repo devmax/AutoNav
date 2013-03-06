@@ -17,4 +17,5 @@
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/test-future.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/test-results.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/test-results-run.dir
+/home/dev/ros/stacks/AutoNav/build/CMakeFiles/testRPY.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/tests.dir

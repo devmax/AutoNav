@@ -343,6 +343,19 @@ test-results-run/fast:
 .PHONY : test-results-run/fast
 
 #=============================================================================
+# Target rules for targets named testRPY
+
+# Build rule for target.
+testRPY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testRPY
+.PHONY : testRPY
+
+# fast build rule for target.
+testRPY/fast:
+	$(MAKE) -f CMakeFiles/testRPY.dir/build.make CMakeFiles/testRPY.dir/build
+.PHONY : testRPY/fast
+
+#=============================================================================
 # Target rules for targets named tests
 
 # Build rule for target.
@@ -475,6 +488,21 @@ src/stateestimation/main_stateestimation.s:
 	$(MAKE) -f CMakeFiles/state_estimation.dir/build.make CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.s
 .PHONY : src/stateestimation/main_stateestimation.s
 
+# target to build an object file
+src/testQuatToRPY.o:
+	$(MAKE) -f CMakeFiles/testRPY.dir/build.make CMakeFiles/testRPY.dir/src/testQuatToRPY.o
+.PHONY : src/testQuatToRPY.o
+
+# target to preprocess a source file
+src/testQuatToRPY.i:
+	$(MAKE) -f CMakeFiles/testRPY.dir/build.make CMakeFiles/testRPY.dir/src/testQuatToRPY.i
+.PHONY : src/testQuatToRPY.i
+
+# target to generate assembly for a file
+src/testQuatToRPY.s:
+	$(MAKE) -f CMakeFiles/testRPY.dir/build.make CMakeFiles/testRPY.dir/src/testQuatToRPY.s
+.PHONY : src/testQuatToRPY.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -502,6 +530,7 @@ help:
 	@echo "... test-future"
 	@echo "... test-results"
 	@echo "... test-results-run"
+	@echo "... testRPY"
 	@echo "... tests"
 	@echo "... src/UI/Rosthread.o"
 	@echo "... src/UI/Rosthread.i"
@@ -527,6 +556,9 @@ help:
 	@echo "... src/stateestimation/main_stateestimation.o"
 	@echo "... src/stateestimation/main_stateestimation.i"
 	@echo "... src/stateestimation/main_stateestimation.s"
+	@echo "... src/testQuatToRPY.o"
+	@echo "... src/testQuatToRPY.i"
+	@echo "... src/testQuatToRPY.s"
 .PHONY : help
 
 

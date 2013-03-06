@@ -17,8 +17,8 @@ const double varPoseObservation_rp_IMU = 1*1;
 const double varSpeedError_rp = 360*360 * 16;	// increased because prediction based on control command is very inaccurate.
 
 const double varSpeedObservation_yaw = 3*3;
-const double varPoseObservation_yaw_IMU = 2*2;
-const double varPoseObservation_yaw_tag = 2.5*2.5;
+const double varPoseObservation_yaw_IMU = 1.5*1.5;
+const double varPoseObservation_yaw_tag = 7.5*7.5; //very inaccurate angle observations due to motion blur with the tag
 const double varAccelerationError_yaw = 360*360;
 	
 
@@ -218,7 +218,8 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
 
   x.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector2f()<<(tsSeconds*vx_gain/2),vx_gain).finished(),0.0001);
   y.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector2f()<<(tsSeconds*vy_gain/2),vy_gain).finished(),0.0001);
-  z.predict(tsMillis,(Eigen::Vector3f()<<(tsSeconds*tsSeconds*tsSeconds*tsSeconds), (9*tsSeconds),(tsSeconds*tsSeconds*tsSeconds*3)).finished(),(Eigen::Vector2f()<<(tsSeconds*vz_gain/2),vz_gain).finished());
+  //CONTACT ABOUT BUG HERE-VARIANCE IN SPEED SENT IMPROPER
+  z.predict(tsMillis,(Eigen::Vector3f()<<(tsSeconds*tsSeconds*tsSeconds*tsSeconds), (9*tsSeconds*tsSeconds),(tsSeconds*tsSeconds*tsSeconds*3)).finished(),(Eigen::Vector2f()<<(tsSeconds*vz_gain/2),vz_gain).finished());
 
   /*begin LOGGING*/
   message.roll_post = roll.state;

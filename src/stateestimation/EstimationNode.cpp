@@ -68,9 +68,9 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 	  measurement(2)=-marker.pose.pose.position.z;
 	  tf::poseMsgToTF(marker.pose.pose,tf_pose);
 	  tf_pose.getBasis().getRPY(roll,pitch,yaw);
-	  measurement(3)=-pitch;
-	  measurement(4)=roll;
-	  measurement(5)=-yaw;
+	  measurement(3)=-pitch*180 / 3.14159268;
+	  measurement(4)=roll*180 / 3.14159268;
+	  measurement(5)=-yaw*180 / 3.14159268;
 	  ROS_DEBUG("rpy:%lf,%lf,%lf",measurement(3),measurement(4),measurement(5));
       
 	  ros::Time stamp;

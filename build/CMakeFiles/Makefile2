@@ -659,6 +659,41 @@ clean: CMakeFiles/test-results-run.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/testRPY.dir
+
+# All Build rule for target.
+CMakeFiles/testRPY.dir/all: CMakeFiles/rosbuild_precompile.dir/all
+	$(MAKE) -f CMakeFiles/testRPY.dir/build.make CMakeFiles/testRPY.dir/depend
+	$(MAKE) -f CMakeFiles/testRPY.dir/build.make CMakeFiles/testRPY.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  34
+	@echo "Built target testRPY"
+.PHONY : CMakeFiles/testRPY.dir/all
+
+# Include target in all.
+all: CMakeFiles/testRPY.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/testRPY.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 26
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/testRPY.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
+.PHONY : CMakeFiles/testRPY.dir/rule
+
+# Convenience name for target.
+testRPY: CMakeFiles/testRPY.dir/rule
+.PHONY : testRPY
+
+# clean rule for target.
+CMakeFiles/testRPY.dir/clean:
+	$(MAKE) -f CMakeFiles/testRPY.dir/build.make CMakeFiles/testRPY.dir/clean
+.PHONY : CMakeFiles/testRPY.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/testRPY.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/tests.dir
 
 # All Build rule for target.
