@@ -57,7 +57,7 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
     {
       ar_track_alvar::AlvarMarker marker=msg.markers[i];
 
-      if(marker.id == 9)
+      if(marker.id == 10)
 	{
 	  Vector6f measurement;
 	  tf::Pose tf_pose;

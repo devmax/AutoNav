@@ -21,7 +21,7 @@ inline static int getMS(ros::Time stamp = ros::Time::now())
 
   //ROS_INFO("getMS for %d.%d = %d",stamp.sec,stamp.nsec,mss);
   if(mss < 0)
-    std::cout << "ERROR: negative timestamp..."<< std::endl;
+    ROS_INFO("ERROR: negative timestamp for %d.%d=%d",stamp.sec,stamp.nsec,mss);
   return mss;
 }
 

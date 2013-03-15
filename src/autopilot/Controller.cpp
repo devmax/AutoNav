@@ -11,18 +11,18 @@ double angleFromTo(double angle, double min, double max)
 }
 DroneController::DroneController()
 {
-  Kp_xy = 0.25;//5;
-  Kd_xy = 0.16;//35;
+  Kp_xy = 0.4;
+  Kd_xy = 0.3;
   Ki_xy = 0.0;
   Kp_gaz = 0;// 0.6;
   Kd_gaz = 0;//0.1;
   Ki_gaz = 0;//0.01;
-  Kp_yaw = 0;//0.05;
+  Kp_yaw = 0.05;
   Kd_yaw = 0.0;
 
-  err_xy = 0.2;
+  err_xy = 0.25;
   err_z = 0.3;
-  err_yaw = 3;
+  err_yaw = 4;
 
   rise_fac = 2.5;
 
@@ -84,15 +84,18 @@ void DroneController::calcControl(Vector4f error,Vector4f d_error,double yaw)
   command.linear.z = gain_pZ + gain_dZ;
   command.angular.z = gain_pYaw + gain_dYaw;
 
-  //ROS_INFO("X:Sum = %lf but publishing %lf",gain_pX+gain_dX,command.linear.x);
-  //ROS_INFO("Y:Sum = %lf but publishing %lf",gain_pY+gain_dY,command.linear.y);
-
-  if(((std::abs(command.linear.x) < 0.1) && (std::abs(command.linear.y) < 0.1) && (std::abs(command.linear.z) < 0.1) && (std::abs(command.angular.z) < 0.1)) || (std::abs(error(0)) < 0.3 && std::abs(error(1)) < 0.3))
+  if(((std::abs(command.linear.x) < 0.1) && (std::abs(command.linear.y) < 0.1) && (std::abs(command.linear.z) < 0.1) && (std::abs(command.angular.z) < 0.1)))// || (std::abs(error(0)) < err_xy && std::abs(error(1)) < err_xy && std::abs(error(3)) < err_yaw))
     {
-      ROS_INFO("Sending pseudo-hover with (%lf,%lf,%lf,%lf)!",std::abs(command.linear.x),std::abs(command.linear.y),std::abs(command.linear.z),std::abs(command.angular.z));
+      //ROS_INFO("Sending pseudo-hover with (%lf,%lf,%lf,%lf)!",std::abs(command.linear.x),std::abs(command.linear.y),std::abs(command.linear.z),std::abs(command.angular.z));
       command.linear.x = command.linear.y = command.linear.z = command.angular.z = 0.0;
       command.angular.x = command.angular.y = 1.0;
     }
+
+  /*if(std::abs(error(3)) > 12)
+    {
+      ROS_INFO("Prioritizing yaw now!");
+      command.linear.x = command.linear.y = 0.0;
+      }*/
 
   cmd_pub.publish(command);
   

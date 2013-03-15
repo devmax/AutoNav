@@ -7,8 +7,14 @@
           ROLL
           PITCH-VAL
           PITCH
-          YAW-VAL
-          YAW
+          BASELINEY_IMU-VAL
+          BASELINEY_IMU
+          BASELINEY_FILTER-VAL
+          BASELINEY_FILTER
+          NAVYAW-VAL
+          NAVYAW
+          OBSERVEDYAW-VAL
+          OBSERVEDYAW
           ROLL_PRE-VAL
           ROLL_PRE
           PITCH_PRE-VAL

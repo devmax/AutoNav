@@ -26,7 +26,10 @@ struct obs_IMU_RPY_ {
   , seq(0)
   , roll(0.0)
   , pitch(0.0)
-  , yaw(0.0)
+  , baselineY_IMU(0.0)
+  , baselineY_Filter(0.0)
+  , navYaw(0.0)
+  , observedYaw(0.0)
   , roll_pre(0.0)
   , pitch_pre(0.0)
   , yaw_pre(0.0)
@@ -43,7 +46,10 @@ struct obs_IMU_RPY_ {
   , seq(0)
   , roll(0.0)
   , pitch(0.0)
-  , yaw(0.0)
+  , baselineY_IMU(0.0)
+  , baselineY_Filter(0.0)
+  , navYaw(0.0)
+  , observedYaw(0.0)
   , roll_pre(0.0)
   , pitch_pre(0.0)
   , yaw_pre(0.0)
@@ -67,8 +73,17 @@ struct obs_IMU_RPY_ {
   typedef float _pitch_type;
   float pitch;
 
-  typedef float _yaw_type;
-  float yaw;
+  typedef float _baselineY_IMU_type;
+  float baselineY_IMU;
+
+  typedef float _baselineY_Filter_type;
+  float baselineY_Filter;
+
+  typedef float _navYaw_type;
+  float navYaw;
+
+  typedef float _observedYaw_type;
+  float observedYaw;
 
   typedef float _roll_pre_type;
   float roll_pre;
@@ -123,12 +138,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::AutoNav::obs_IMU_RPY_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "7ae7f845d6e8d3c6c5352d8860c40cdd";
+    return "a9a4538ac5c69253cc8a1aefb110a3fa";
   }
 
   static const char* value(const  ::AutoNav::obs_IMU_RPY_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0x7ae7f845d6e8d3c6ULL;
-  static const uint64_t static_value2 = 0xc5352d8860c40cddULL;
+  static const uint64_t static_value1 = 0xa9a4538ac5c69253ULL;
+  static const uint64_t static_value2 = 0xcc8a1aefb110a3faULL;
 };
 
 template<class ContainerAllocator>
@@ -150,7 +165,11 @@ uint32 seq\n\
 \n\
 float32 roll\n\
 float32 pitch\n\
-float32 yaw\n\
+\n\
+float32 baselineY_IMU\n\
+float32 baselineY_Filter\n\
+float32 navYaw\n\
+float32 observedYaw\n\
 \n\
 float32 roll_pre\n\
 float32 pitch_pre\n\
@@ -184,7 +203,10 @@ template<class ContainerAllocator> struct Serializer< ::AutoNav::obs_IMU_RPY_<Co
     stream.next(m.seq);
     stream.next(m.roll);
     stream.next(m.pitch);
-    stream.next(m.yaw);
+    stream.next(m.baselineY_IMU);
+    stream.next(m.baselineY_Filter);
+    stream.next(m.navYaw);
+    stream.next(m.observedYaw);
     stream.next(m.roll_pre);
     stream.next(m.pitch_pre);
     stream.next(m.yaw_pre);
@@ -218,8 +240,14 @@ struct Printer< ::AutoNav::obs_IMU_RPY_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.roll);
     s << indent << "pitch: ";
     Printer<float>::stream(s, indent + "  ", v.pitch);
-    s << indent << "yaw: ";
-    Printer<float>::stream(s, indent + "  ", v.yaw);
+    s << indent << "baselineY_IMU: ";
+    Printer<float>::stream(s, indent + "  ", v.baselineY_IMU);
+    s << indent << "baselineY_Filter: ";
+    Printer<float>::stream(s, indent + "  ", v.baselineY_Filter);
+    s << indent << "navYaw: ";
+    Printer<float>::stream(s, indent + "  ", v.navYaw);
+    s << indent << "observedYaw: ";
+    Printer<float>::stream(s, indent + "  ", v.observedYaw);
     s << indent << "roll_pre: ";
     Printer<float>::stream(s, indent + "  ", v.roll_pre);
     s << indent << "pitch_pre: ";

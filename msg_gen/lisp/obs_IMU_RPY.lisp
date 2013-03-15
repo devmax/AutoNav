@@ -27,9 +27,24 @@
     :initarg :pitch
     :type cl:float
     :initform 0.0)
-   (yaw
-    :reader yaw
-    :initarg :yaw
+   (baselineY_IMU
+    :reader baselineY_IMU
+    :initarg :baselineY_IMU
+    :type cl:float
+    :initform 0.0)
+   (baselineY_Filter
+    :reader baselineY_Filter
+    :initarg :baselineY_Filter
+    :type cl:float
+    :initform 0.0)
+   (navYaw
+    :reader navYaw
+    :initarg :navYaw
+    :type cl:float
+    :initform 0.0)
+   (observedYaw
+    :reader observedYaw
+    :initarg :observedYaw
     :type cl:float
     :initform 0.0)
    (roll_pre
@@ -102,10 +117,25 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:pitch-val is deprecated.  Use AutoNav-msg:pitch instead.")
   (pitch m))
 
-(cl:ensure-generic-function 'yaw-val :lambda-list '(m))
-(cl:defmethod yaw-val ((m <obs_IMU_RPY>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:yaw-val is deprecated.  Use AutoNav-msg:yaw instead.")
-  (yaw m))
+(cl:ensure-generic-function 'baselineY_IMU-val :lambda-list '(m))
+(cl:defmethod baselineY_IMU-val ((m <obs_IMU_RPY>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:baselineY_IMU-val is deprecated.  Use AutoNav-msg:baselineY_IMU instead.")
+  (baselineY_IMU m))
+
+(cl:ensure-generic-function 'baselineY_Filter-val :lambda-list '(m))
+(cl:defmethod baselineY_Filter-val ((m <obs_IMU_RPY>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:baselineY_Filter-val is deprecated.  Use AutoNav-msg:baselineY_Filter instead.")
+  (baselineY_Filter m))
+
+(cl:ensure-generic-function 'navYaw-val :lambda-list '(m))
+(cl:defmethod navYaw-val ((m <obs_IMU_RPY>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:navYaw-val is deprecated.  Use AutoNav-msg:navYaw instead.")
+  (navYaw m))
+
+(cl:ensure-generic-function 'observedYaw-val :lambda-list '(m))
+(cl:defmethod observedYaw-val ((m <obs_IMU_RPY>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:observedYaw-val is deprecated.  Use AutoNav-msg:observedYaw instead.")
+  (observedYaw m))
 
 (cl:ensure-generic-function 'roll_pre-val :lambda-list '(m))
 (cl:defmethod roll_pre-val ((m <obs_IMU_RPY>))
@@ -168,7 +198,22 @@
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
-  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'yaw))))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'baselineY_IMU))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'baselineY_Filter))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'navYaw))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'observedYaw))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -243,7 +288,25 @@
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'yaw) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:setf (cl:slot-value msg 'baselineY_IMU) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'baselineY_Filter) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'navYaw) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'observedYaw) (roslisp-utils:decode-single-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
@@ -302,18 +365,21 @@
   "AutoNav/obs_IMU_RPY")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<obs_IMU_RPY>)))
   "Returns md5sum for a message object of type '<obs_IMU_RPY>"
-  "7ae7f845d6e8d3c6c5352d8860c40cdd")
+  "a9a4538ac5c69253cc8a1aefb110a3fa")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'obs_IMU_RPY)))
   "Returns md5sum for a message object of type 'obs_IMU_RPY"
-  "7ae7f845d6e8d3c6c5352d8860c40cdd")
+  "a9a4538ac5c69253cc8a1aefb110a3fa")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<obs_IMU_RPY>)))
   "Returns full string definition for message of type '<obs_IMU_RPY>"
-  (cl:format cl:nil "int32 timestamp~%uint32 seq~%~%float32 roll~%float32 pitch~%float32 yaw~%~%float32 roll_pre~%float32 pitch_pre~%float32 yaw_pre~%float32 dyaw_pre~%~%float32 roll_post~%float32 pitch_post~%float32 yaw_post~%float32 dyaw_post~%~%"))
+  (cl:format cl:nil "int32 timestamp~%uint32 seq~%~%float32 roll~%float32 pitch~%~%float32 baselineY_IMU~%float32 baselineY_Filter~%float32 navYaw~%float32 observedYaw~%~%float32 roll_pre~%float32 pitch_pre~%float32 yaw_pre~%float32 dyaw_pre~%~%float32 roll_post~%float32 pitch_post~%float32 yaw_post~%float32 dyaw_post~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'obs_IMU_RPY)))
   "Returns full string definition for message of type 'obs_IMU_RPY"
-  (cl:format cl:nil "int32 timestamp~%uint32 seq~%~%float32 roll~%float32 pitch~%float32 yaw~%~%float32 roll_pre~%float32 pitch_pre~%float32 yaw_pre~%float32 dyaw_pre~%~%float32 roll_post~%float32 pitch_post~%float32 yaw_post~%float32 dyaw_post~%~%"))
+  (cl:format cl:nil "int32 timestamp~%uint32 seq~%~%float32 roll~%float32 pitch~%~%float32 baselineY_IMU~%float32 baselineY_Filter~%float32 navYaw~%float32 observedYaw~%~%float32 roll_pre~%float32 pitch_pre~%float32 yaw_pre~%float32 dyaw_pre~%~%float32 roll_post~%float32 pitch_post~%float32 yaw_post~%float32 dyaw_post~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <obs_IMU_RPY>))
   (cl:+ 0
+     4
+     4
+     4
      4
      4
      4
@@ -335,7 +401,10 @@
     (cl:cons ':seq (seq msg))
     (cl:cons ':roll (roll msg))
     (cl:cons ':pitch (pitch msg))
-    (cl:cons ':yaw (yaw msg))
+    (cl:cons ':baselineY_IMU (baselineY_IMU msg))
+    (cl:cons ':baselineY_Filter (baselineY_Filter msg))
+    (cl:cons ':navYaw (navYaw msg))
+    (cl:cons ':observedYaw (observedYaw msg))
     (cl:cons ':roll_pre (roll_pre msg))
     (cl:cons ':pitch_pre (pitch_pre msg))
     (cl:cons ':yaw_pre (yaw_pre msg))

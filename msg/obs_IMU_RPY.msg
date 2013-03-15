@@ -3,7 +3,11 @@ uint32 seq
 
 float32 roll
 float32 pitch
-float32 yaw
+
+float32 baselineY_IMU
+float32 baselineY_Filter
+float32 navYaw
+float32 observedYaw
 
 float32 roll_pre
 float32 pitch_pre

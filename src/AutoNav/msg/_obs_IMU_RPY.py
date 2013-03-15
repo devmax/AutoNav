@@ -6,7 +6,7 @@ import struct
 
 
 class obs_IMU_RPY(genpy.Message):
-  _md5sum = "7ae7f845d6e8d3c6c5352d8860c40cdd"
+  _md5sum = "a9a4538ac5c69253cc8a1aefb110a3fa"
   _type = "AutoNav/obs_IMU_RPY"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """int32 timestamp
@@ -14,7 +14,11 @@ uint32 seq
 
 float32 roll
 float32 pitch
-float32 yaw
+
+float32 baselineY_IMU
+float32 baselineY_Filter
+float32 navYaw
+float32 observedYaw
 
 float32 roll_pre
 float32 pitch_pre
@@ -26,8 +30,8 @@ float32 pitch_post
 float32 yaw_post
 float32 dyaw_post
 """
-  __slots__ = ['timestamp','seq','roll','pitch','yaw','roll_pre','pitch_pre','yaw_pre','dyaw_pre','roll_post','pitch_post','yaw_post','dyaw_post']
-  _slot_types = ['int32','uint32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32']
+  __slots__ = ['timestamp','seq','roll','pitch','baselineY_IMU','baselineY_Filter','navYaw','observedYaw','roll_pre','pitch_pre','yaw_pre','dyaw_pre','roll_post','pitch_post','yaw_post','dyaw_post']
+  _slot_types = ['int32','uint32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -37,7 +41,7 @@ float32 dyaw_post
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       timestamp,seq,roll,pitch,yaw,roll_pre,pitch_pre,yaw_pre,dyaw_pre,roll_post,pitch_post,yaw_post,dyaw_post
+       timestamp,seq,roll,pitch,baselineY_IMU,baselineY_Filter,navYaw,observedYaw,roll_pre,pitch_pre,yaw_pre,dyaw_pre,roll_post,pitch_post,yaw_post,dyaw_post
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -54,8 +58,14 @@ float32 dyaw_post
         self.roll = 0.
       if self.pitch is None:
         self.pitch = 0.
-      if self.yaw is None:
-        self.yaw = 0.
+      if self.baselineY_IMU is None:
+        self.baselineY_IMU = 0.
+      if self.baselineY_Filter is None:
+        self.baselineY_Filter = 0.
+      if self.navYaw is None:
+        self.navYaw = 0.
+      if self.observedYaw is None:
+        self.observedYaw = 0.
       if self.roll_pre is None:
         self.roll_pre = 0.
       if self.pitch_pre is None:
@@ -77,7 +87,10 @@ float32 dyaw_post
       self.seq = 0
       self.roll = 0.
       self.pitch = 0.
-      self.yaw = 0.
+      self.baselineY_IMU = 0.
+      self.baselineY_Filter = 0.
+      self.navYaw = 0.
+      self.observedYaw = 0.
       self.roll_pre = 0.
       self.pitch_pre = 0.
       self.yaw_pre = 0.
@@ -100,7 +113,7 @@ float32 dyaw_post
     """
     try:
       _x = self
-      buff.write(_struct_iI11f.pack(_x.timestamp, _x.seq, _x.roll, _x.pitch, _x.yaw, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post))
+      buff.write(_struct_iI14f.pack(_x.timestamp, _x.seq, _x.roll, _x.pitch, _x.baselineY_IMU, _x.baselineY_Filter, _x.navYaw, _x.observedYaw, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -113,8 +126,8 @@ float32 dyaw_post
       end = 0
       _x = self
       start = end
-      end += 52
-      (_x.timestamp, _x.seq, _x.roll, _x.pitch, _x.yaw, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post,) = _struct_iI11f.unpack(str[start:end])
+      end += 64
+      (_x.timestamp, _x.seq, _x.roll, _x.pitch, _x.baselineY_IMU, _x.baselineY_Filter, _x.navYaw, _x.observedYaw, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post,) = _struct_iI14f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -128,7 +141,7 @@ float32 dyaw_post
     """
     try:
       _x = self
-      buff.write(_struct_iI11f.pack(_x.timestamp, _x.seq, _x.roll, _x.pitch, _x.yaw, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post))
+      buff.write(_struct_iI14f.pack(_x.timestamp, _x.seq, _x.roll, _x.pitch, _x.baselineY_IMU, _x.baselineY_Filter, _x.navYaw, _x.observedYaw, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -142,11 +155,11 @@ float32 dyaw_post
       end = 0
       _x = self
       start = end
-      end += 52
-      (_x.timestamp, _x.seq, _x.roll, _x.pitch, _x.yaw, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post,) = _struct_iI11f.unpack(str[start:end])
+      end += 64
+      (_x.timestamp, _x.seq, _x.roll, _x.pitch, _x.baselineY_IMU, _x.baselineY_Filter, _x.navYaw, _x.observedYaw, _x.roll_pre, _x.pitch_pre, _x.yaw_pre, _x.dyaw_pre, _x.roll_post, _x.pitch_post, _x.yaw_post, _x.dyaw_post,) = _struct_iI14f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_iI11f = struct.Struct("<iI11f")
+_struct_iI14f = struct.Struct("<iI14f")
