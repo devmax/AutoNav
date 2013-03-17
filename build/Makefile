@@ -96,6 +96,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named ROSBUILD_gencfg_cpp
+
+# Build rule for target.
+ROSBUILD_gencfg_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ROSBUILD_gencfg_cpp
+.PHONY : ROSBUILD_gencfg_cpp
+
+# fast build rule for target.
+ROSBUILD_gencfg_cpp/fast:
+	$(MAKE) -f CMakeFiles/ROSBUILD_gencfg_cpp.dir/build.make CMakeFiles/ROSBUILD_gencfg_cpp.dir/build
+.PHONY : ROSBUILD_gencfg_cpp/fast
+
+#=============================================================================
 # Target rules for targets named ROSBUILD_genmsg_cpp
 
 # Build rule for target.
@@ -224,6 +237,32 @@ rosbuild_premsgsrvgen: cmake_check_build_system
 rosbuild_premsgsrvgen/fast:
 	$(MAKE) -f CMakeFiles/rosbuild_premsgsrvgen.dir/build.make CMakeFiles/rosbuild_premsgsrvgen.dir/build
 .PHONY : rosbuild_premsgsrvgen/fast
+
+#=============================================================================
+# Target rules for targets named rospack_gencfg
+
+# Build rule for target.
+rospack_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rospack_gencfg
+.PHONY : rospack_gencfg
+
+# fast build rule for target.
+rospack_gencfg/fast:
+	$(MAKE) -f CMakeFiles/rospack_gencfg.dir/build.make CMakeFiles/rospack_gencfg.dir/build
+.PHONY : rospack_gencfg/fast
+
+#=============================================================================
+# Target rules for targets named rospack_gencfg_real
+
+# Build rule for target.
+rospack_gencfg_real: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rospack_gencfg_real
+.PHONY : rospack_gencfg_real
+
+# fast build rule for target.
+rospack_gencfg_real/fast:
+	$(MAKE) -f CMakeFiles/rospack_gencfg_real.dir/build.make CMakeFiles/rospack_gencfg_real.dir/build
+.PHONY : rospack_gencfg_real/fast
 
 #=============================================================================
 # Target rules for targets named rospack_genmsg
@@ -414,19 +453,34 @@ src/UI/main_UI.s:
 .PHONY : src/UI/main_UI.s
 
 # target to build an object file
-src/autopilot/Controller.o:
-	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/Controller.o
-.PHONY : src/autopilot/Controller.o
+src/autopilot/ControlNode.o:
+	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o
+.PHONY : src/autopilot/ControlNode.o
 
 # target to preprocess a source file
-src/autopilot/Controller.i:
-	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/Controller.i
-.PHONY : src/autopilot/Controller.i
+src/autopilot/ControlNode.i:
+	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/ControlNode.i
+.PHONY : src/autopilot/ControlNode.i
 
 # target to generate assembly for a file
-src/autopilot/Controller.s:
-	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/Controller.s
-.PHONY : src/autopilot/Controller.s
+src/autopilot/ControlNode.s:
+	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/ControlNode.s
+.PHONY : src/autopilot/ControlNode.s
+
+# target to build an object file
+src/autopilot/DroneController.o:
+	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/DroneController.o
+.PHONY : src/autopilot/DroneController.o
+
+# target to preprocess a source file
+src/autopilot/DroneController.i:
+	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/DroneController.i
+.PHONY : src/autopilot/DroneController.i
+
+# target to generate assembly for a file
+src/autopilot/DroneController.s:
+	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/DroneController.s
+.PHONY : src/autopilot/DroneController.s
 
 # target to build an object file
 src/autopilot/main_autopilot.o:
@@ -509,6 +563,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... ROSBUILD_gencfg_cpp"
 	@echo "... ROSBUILD_genmsg_cpp"
 	@echo "... ROSBUILD_genmsg_lisp"
 	@echo "... ROSBUILD_genmsg_py"
@@ -521,6 +576,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... rosbuild_precompile"
 	@echo "... rosbuild_premsgsrvgen"
+	@echo "... rospack_gencfg"
+	@echo "... rospack_gencfg_real"
 	@echo "... rospack_genmsg"
 	@echo "... rospack_genmsg_all"
 	@echo "... rospack_genmsg_libexe"
@@ -541,9 +598,12 @@ help:
 	@echo "... src/UI/main_UI.o"
 	@echo "... src/UI/main_UI.i"
 	@echo "... src/UI/main_UI.s"
-	@echo "... src/autopilot/Controller.o"
-	@echo "... src/autopilot/Controller.i"
-	@echo "... src/autopilot/Controller.s"
+	@echo "... src/autopilot/ControlNode.o"
+	@echo "... src/autopilot/ControlNode.i"
+	@echo "... src/autopilot/ControlNode.s"
+	@echo "... src/autopilot/DroneController.o"
+	@echo "... src/autopilot/DroneController.i"
+	@echo "... src/autopilot/DroneController.s"
 	@echo "... src/autopilot/main_autopilot.o"
 	@echo "... src/autopilot/main_autopilot.i"
 	@echo "... src/autopilot/main_autopilot.s"

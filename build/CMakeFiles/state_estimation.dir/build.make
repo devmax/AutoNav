@@ -50,7 +50,10 @@ CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: CMak
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: ../src/stateestimation/main_stateestimation.cpp
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: ../manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -62,7 +65,6 @@ CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/rostest/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/roswtf/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -80,19 +82,17 @@ CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o"
@@ -119,7 +119,10 @@ CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: CMakeFi
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: ../src/stateestimation/DroneKalmanFilter.cpp
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: ../manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -131,7 +134,6 @@ CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ro
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/rostest/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/roswtf/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -149,19 +151,17 @@ CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ro
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o"
@@ -188,7 +188,10 @@ CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: CMakeFiles
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: ../src/stateestimation/EstimationNode.cpp
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: ../manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -200,7 +203,6 @@ CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/f
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/rostest/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/roswtf/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -218,19 +220,17 @@ CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/f
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o"

@@ -8,6 +8,7 @@
 #include "geometry_msgs/Twist.h"
 #include <std_msgs/Empty.h>
 #include <std_srvs/Empty.h>
+#include <std_msgs/String.h>
 #include <ros/ros.h>
 #include <stdio.h>
 
@@ -25,6 +26,7 @@ class Rosthread : private CVD::Thread
   ros::Publisher takeoff_pub;
   ros::Publisher land_pub;
   ros::Publisher toggleState_pub;
+  ros::Publisher command_pub;
 
   ros::Subscriber vel_sub;
 
@@ -51,6 +53,8 @@ class Rosthread : private CVD::Thread
 
   void velCB(const geometry_msgs::TwistConstPtr cmd);
 
+  void autohover();
+  void revertmanual();
   void sendTakeOff();
   void sendLand();
   void sendToggleState();

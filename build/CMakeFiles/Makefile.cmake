@@ -23,6 +23,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "/opt/ros/fuerte/share/roslang/cmake/roslang.cmake"
   "/opt/ros/fuerte/share/roslisp/rosbuild/roslisp.cmake"
   "/opt/ros/fuerte/share/rospy/rosbuild/rospy.cmake"
+  "/opt/ros/fuerte/stacks/dynamic_reconfigure/cmake/cfgbuild.cmake"
   "/usr/share/cmake-2.8/Modules/AddFileDependencies.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCXXInformation.cmake"
@@ -67,6 +68,7 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/ROSBUILD_gencfg_cpp.dir/DependInfo.cmake"
   "CMakeFiles/ROSBUILD_genmsg_cpp.dir/DependInfo.cmake"
   "CMakeFiles/ROSBUILD_genmsg_lisp.dir/DependInfo.cmake"
   "CMakeFiles/ROSBUILD_genmsg_py.dir/DependInfo.cmake"
@@ -77,6 +79,8 @@ SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/clean-test-results.dir/DependInfo.cmake"
   "CMakeFiles/rosbuild_precompile.dir/DependInfo.cmake"
   "CMakeFiles/rosbuild_premsgsrvgen.dir/DependInfo.cmake"
+  "CMakeFiles/rospack_gencfg.dir/DependInfo.cmake"
+  "CMakeFiles/rospack_gencfg_real.dir/DependInfo.cmake"
   "CMakeFiles/rospack_genmsg.dir/DependInfo.cmake"
   "CMakeFiles/rospack_genmsg_all.dir/DependInfo.cmake"
   "CMakeFiles/rospack_genmsg_libexe.dir/DependInfo.cmake"

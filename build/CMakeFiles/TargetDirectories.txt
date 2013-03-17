@@ -1,3 +1,4 @@
+/home/dev/ros/stacks/AutoNav/build/CMakeFiles/ROSBUILD_gencfg_cpp.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/ROSBUILD_genmsg_cpp.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/ROSBUILD_genmsg_lisp.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/ROSBUILD_genmsg_py.dir
@@ -8,6 +9,8 @@
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/clean-test-results.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/rosbuild_precompile.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/rosbuild_premsgsrvgen.dir
+/home/dev/ros/stacks/AutoNav/build/CMakeFiles/rospack_gencfg.dir
+/home/dev/ros/stacks/AutoNav/build/CMakeFiles/rospack_gencfg_real.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/rospack_genmsg.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/rospack_genmsg_all.dir
 /home/dev/ros/stacks/AutoNav/build/CMakeFiles/rospack_genmsg_libexe.dir

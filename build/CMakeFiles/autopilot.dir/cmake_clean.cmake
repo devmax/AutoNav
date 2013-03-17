@@ -3,7 +3,8 @@ FILE(REMOVE_RECURSE
   "../src/AutoNav/msg"
   "../msg_gen"
   "CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o"
-  "CMakeFiles/autopilot.dir/src/autopilot/Controller.o"
+  "CMakeFiles/autopilot.dir/src/autopilot/DroneController.o"
+  "CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o"
   "../bin/autopilot.pdb"
   "../bin/autopilot"
 )

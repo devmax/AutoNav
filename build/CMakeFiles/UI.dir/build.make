@@ -50,7 +50,10 @@ CMakeFiles/UI.dir/src/UI/main_UI.o: CMakeFiles/UI.dir/flags.make
 CMakeFiles/UI.dir/src/UI/main_UI.o: ../src/UI/main_UI.cpp
 CMakeFiles/UI.dir/src/UI/main_UI.o: ../manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -62,7 +65,6 @@ CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/image_common/image_tr
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/rostest/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/roswtf/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -80,19 +82,17 @@ CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/bond_core/bond/manife
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/main_UI.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/main_UI.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/main_UI.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/UI.dir/src/UI/main_UI.o"
@@ -119,7 +119,10 @@ CMakeFiles/UI.dir/src/UI/Rosthread.o: CMakeFiles/UI.dir/flags.make
 CMakeFiles/UI.dir/src/UI/Rosthread.o: ../src/UI/Rosthread.cpp
 CMakeFiles/UI.dir/src/UI/Rosthread.o: ../manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -131,7 +134,6 @@ CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/image_common/image_
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/rostest/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/roswtf/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -149,19 +151,17 @@ CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/bond_core/bond/mani
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/UI.dir/src/UI/Rosthread.o"
@@ -188,7 +188,10 @@ CMakeFiles/UI.dir/src/UI/Teleop.o: CMakeFiles/UI.dir/flags.make
 CMakeFiles/UI.dir/src/UI/Teleop.o: ../src/UI/Teleop.cpp
 CMakeFiles/UI.dir/src/UI/Teleop.o: ../manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -200,7 +203,6 @@ CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/image_common/image_tra
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/rostest/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/roswtf/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -218,19 +220,17 @@ CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/bond_core/bond/manifes
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Teleop.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/Teleop.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Teleop.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/UI.dir/src/UI/Teleop.o"

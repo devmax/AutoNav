@@ -21,10 +21,11 @@ Keypress::Keypress(QWidget *parent):QWidget(parent)
 		   "    s\n"
 		   "Press f to flat trim\n"
 		   "Press t to toggle state\n"
+		   "Press h to start hovering with the AutoPilot\n"
+		   "Press m to revert to manual control\n"
 		   "Press 1/2 to increase/decrease linear speeds by 10% \n"
 		   "Press 3/4 to increase/decrease angular speeds by 10% \n"
-		   "anything else : stop\n"
-		   "\nESC to quit\n");
+		   "Press ESC to quit!\n");
 
   for(int i=0;i<8;i++)
     isPressed[i] = false;
@@ -92,6 +93,14 @@ void Keypress::keyPressEvent(QKeyEvent *key)
       rosthread->turn *= 0.9;
       rosthread->turn = std::max(0.0,std::min(rosthread->turn,1.0));
       ROS_INFO("Turn is %lf",rosthread->turn);
+    }
+  else if(key->key() == 72) //h
+    {
+      rosthread->autohover();
+    }
+  else if(key->key() == 77) //m
+    {
+      rosthread->revertmanual();
     }
   else if(key->key() == 16777216) //ESC
     {

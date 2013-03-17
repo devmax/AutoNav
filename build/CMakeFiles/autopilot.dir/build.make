@@ -50,7 +50,10 @@ CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: CMakeFiles/autopilot.di
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: ../src/autopilot/main_autopilot.cpp
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: ../manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -62,7 +65,6 @@ CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/rostest/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/roswtf/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -80,19 +82,17 @@ CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o"
@@ -115,85 +115,156 @@ CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o.provides: CMakeFiles/aut
 
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o.provides.build: CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o
 
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: CMakeFiles/autopilot.dir/flags.make
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: ../src/autopilot/Controller.cpp
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: ../manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/roslang/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/roscpp/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/roslib/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/rosconsole/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/pluginlib/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/message_filters/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/image_common/image_transport/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/rospy/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/rostest/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/roswtf/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/common_rosdeps/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/image_common/camera_calibration_parsers/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/image_common/camera_info_manager/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /home/dev/ros/stacks/ardrone_autonomy/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/std_msgs/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/visualization_msgs/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/robot_model/resource_retriever/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/rosbag/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/bond_core/bond/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: CMakeFiles/autopilot.dir/flags.make
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: ../src/autopilot/DroneController.cpp
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: ../manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/rospy/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/roslib/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/rosconsole/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/pluginlib/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/message_filters/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/image_common/image_transport/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/rostest/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/roswtf/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/common_rosdeps/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/image_common/camera_calibration_parsers/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/image_common/camera_info_manager/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /home/dev/ros/stacks/ardrone_autonomy/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/std_msgs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/visualization_msgs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/robot_model/resource_retriever/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/share/rosbag/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/bond_core/bond/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/autopilot.dir/src/autopilot/Controller.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/autopilot.dir/src/autopilot/Controller.o -c /home/dev/ros/stacks/AutoNav/src/autopilot/Controller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/autopilot.dir/src/autopilot/DroneController.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/autopilot.dir/src/autopilot/DroneController.o -c /home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.cpp
 
-CMakeFiles/autopilot.dir/src/autopilot/Controller.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/autopilot.dir/src/autopilot/Controller.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/dev/ros/stacks/AutoNav/src/autopilot/Controller.cpp > CMakeFiles/autopilot.dir/src/autopilot/Controller.i
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/autopilot.dir/src/autopilot/DroneController.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.cpp > CMakeFiles/autopilot.dir/src/autopilot/DroneController.i
 
-CMakeFiles/autopilot.dir/src/autopilot/Controller.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/autopilot.dir/src/autopilot/Controller.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/dev/ros/stacks/AutoNav/src/autopilot/Controller.cpp -o CMakeFiles/autopilot.dir/src/autopilot/Controller.s
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/autopilot.dir/src/autopilot/DroneController.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.cpp -o CMakeFiles/autopilot.dir/src/autopilot/DroneController.s
 
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o.requires:
-.PHONY : CMakeFiles/autopilot.dir/src/autopilot/Controller.o.requires
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o.requires:
+.PHONY : CMakeFiles/autopilot.dir/src/autopilot/DroneController.o.requires
 
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o.provides: CMakeFiles/autopilot.dir/src/autopilot/Controller.o.requires
-	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/Controller.o.provides.build
-.PHONY : CMakeFiles/autopilot.dir/src/autopilot/Controller.o.provides
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o.provides: CMakeFiles/autopilot.dir/src/autopilot/DroneController.o.requires
+	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/DroneController.o.provides.build
+.PHONY : CMakeFiles/autopilot.dir/src/autopilot/DroneController.o.provides
 
-CMakeFiles/autopilot.dir/src/autopilot/Controller.o.provides.build: CMakeFiles/autopilot.dir/src/autopilot/Controller.o
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o.provides.build: CMakeFiles/autopilot.dir/src/autopilot/DroneController.o
+
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: CMakeFiles/autopilot.dir/flags.make
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: ../src/autopilot/ControlNode.cpp
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: ../manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/rospy/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/roslib/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/rosconsole/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/pluginlib/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/message_filters/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/image_common/image_transport/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/rostest/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/roswtf/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/common_rosdeps/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/image_common/camera_calibration_parsers/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/image_common/camera_info_manager/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /home/dev/ros/stacks/ardrone_autonomy/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/std_msgs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/visualization_msgs/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/robot_model/resource_retriever/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/share/rosbag/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/bond_core/bond/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o -c /home/dev/ros/stacks/AutoNav/src/autopilot/ControlNode.cpp
+
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/autopilot.dir/src/autopilot/ControlNode.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/dev/ros/stacks/AutoNav/src/autopilot/ControlNode.cpp > CMakeFiles/autopilot.dir/src/autopilot/ControlNode.i
+
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/autopilot.dir/src/autopilot/ControlNode.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/dev/ros/stacks/AutoNav/src/autopilot/ControlNode.cpp -o CMakeFiles/autopilot.dir/src/autopilot/ControlNode.s
+
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o.requires:
+.PHONY : CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o.requires
+
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o.provides: CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o.requires
+	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o.provides.build
+.PHONY : CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o.provides
+
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o.provides.build: CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o
 
 # Object files for target autopilot
 autopilot_OBJECTS = \
 "CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o" \
-"CMakeFiles/autopilot.dir/src/autopilot/Controller.o"
+"CMakeFiles/autopilot.dir/src/autopilot/DroneController.o" \
+"CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o"
 
 # External object files for target autopilot
 autopilot_EXTERNAL_OBJECTS =
 
 ../bin/autopilot: CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o
-../bin/autopilot: CMakeFiles/autopilot.dir/src/autopilot/Controller.o
+../bin/autopilot: CMakeFiles/autopilot.dir/src/autopilot/DroneController.o
+../bin/autopilot: CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o
 ../bin/autopilot: CMakeFiles/autopilot.dir/build.make
 ../bin/autopilot: CMakeFiles/autopilot.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../bin/autopilot"
@@ -204,7 +275,8 @@ CMakeFiles/autopilot.dir/build: ../bin/autopilot
 .PHONY : CMakeFiles/autopilot.dir/build
 
 CMakeFiles/autopilot.dir/requires: CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o.requires
-CMakeFiles/autopilot.dir/requires: CMakeFiles/autopilot.dir/src/autopilot/Controller.o.requires
+CMakeFiles/autopilot.dir/requires: CMakeFiles/autopilot.dir/src/autopilot/DroneController.o.requires
+CMakeFiles/autopilot.dir/requires: CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o.requires
 .PHONY : CMakeFiles/autopilot.dir/requires
 
 CMakeFiles/autopilot.dir/clean:

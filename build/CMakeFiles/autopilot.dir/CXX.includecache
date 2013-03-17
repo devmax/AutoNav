@@ -58,11 +58,11 @@ stdlib.h
 ros/ros.h
 -
 
-/home/dev/ros/stacks/AutoNav/src/autopilot/Controller.cpp
-Controller.h
-/home/dev/ros/stacks/AutoNav/src/autopilot/Controller.h
+/home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.cpp
+DroneController.h
+/home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.h
 
-/home/dev/ros/stacks/AutoNav/src/autopilot/Controller.h
+/home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.h
 ros/ros.h
 -
 ../HelperFunction.h
@@ -73,14 +73,12 @@ Eigen/Core
 -
 Eigen/LU
 -
-AutoNav/filter_state.h
--
 string
 -
 AutoNav/control_commands.h
 /home/dev/ros/stacks/AutoNav/src/autopilot/AutoNav/control_commands.h
-cmath
--
+AutoNav/filter_state.h
+/home/dev/ros/stacks/AutoNav/src/autopilot/AutoNav/filter_state.h
 
 /opt/ros/fuerte/include/XmlRpcDecl.h
 ros/macros.h

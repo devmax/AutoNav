@@ -8,6 +8,7 @@
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/AutoNav</url>
+  <depend package="dynamic_reconfigure"/>
   <depend package="ardrone_autonomy"/>
   <depend package="roscpp"/>
   <depend package="ar_track_alvar"/>

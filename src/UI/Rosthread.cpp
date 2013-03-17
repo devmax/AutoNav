@@ -57,6 +57,20 @@ void Rosthread::velCB(const geometry_msgs::TwistConstPtr cmd)
   velCount++;
 }
 
+void Rosthread::autohover()
+{
+  std_msgs::String command;
+  command.data = "hover";
+  command_pub.publish(command);
+}
+
+void Rosthread::revertmanual()
+{
+  std_msgs::String command;
+  command.data = "manual";
+  command_pub.publish(command);
+}
+
 void Rosthread::run()
 {
   ROS_INFO("Starting ROS Thread!");
@@ -65,6 +79,7 @@ void Rosthread::run()
   takeoff_pub = n.advertise<std_msgs::Empty>("/ardrone/takeoff",1);
   land_pub = n.advertise<std_msgs::Empty>("/ardrone/land",1);
   toggleState_pub = n.advertise<std_msgs::Empty>("/ardrone/reset",1);
+  command_pub = n.advertise<std_msgs::String>("/AutoNav/commands",1);
 
   vel_sub = n.subscribe("/cmd_vel",5,&Rosthread::velCB,this);
   flattrim_srv = n.serviceClient<std_srvs::Empty>("/ardrone/flattrim",1);

@@ -14,10 +14,6 @@ pthread.h
 cvd/runnable.h
 -
 
-/home/dev/ros/stacks/AutoNav/src/UI/Rosthread.cpp
-Rosthread.h
-/home/dev/ros/stacks/AutoNav/src/UI/Rosthread.h
-
 /home/dev/ros/stacks/AutoNav/src/UI/Rosthread.h
 cvd/thread.h
 /home/dev/ros/stacks/AutoNav/src/UI/cvd/thread.h
@@ -33,14 +29,12 @@ std_msgs/Empty.h
 -
 std_srvs/Empty.h
 -
+std_msgs/String.h
+-
 ros/ros.h
 -
 stdio.h
 -
-
-/home/dev/ros/stacks/AutoNav/src/UI/Teleop.cpp
-Teleop.h
-/home/dev/ros/stacks/AutoNav/src/UI/Teleop.h
 
 /home/dev/ros/stacks/AutoNav/src/UI/Teleop.h
 stdio.h
@@ -745,6 +739,22 @@ ros/forwards.h
 /opt/ros/fuerte/include/rosconsole/macros_generated.h
 
 /opt/ros/fuerte/include/std_msgs/Empty.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/opt/ros/fuerte/include/std_msgs/String.h
 string
 -
 vector

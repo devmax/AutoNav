@@ -4,7 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/dev/ros/stacks/AutoNav/src/autopilot/Controller.cpp" "/home/dev/ros/stacks/AutoNav/build/CMakeFiles/autopilot.dir/src/autopilot/Controller.o"
+  "/home/dev/ros/stacks/AutoNav/src/autopilot/ControlNode.cpp" "/home/dev/ros/stacks/AutoNav/build/CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o"
+  "/home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.cpp" "/home/dev/ros/stacks/AutoNav/build/CMakeFiles/autopilot.dir/src/autopilot/DroneController.o"
   "/home/dev/ros/stacks/AutoNav/src/autopilot/main_autopilot.cpp" "/home/dev/ros/stacks/AutoNav/build/CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")

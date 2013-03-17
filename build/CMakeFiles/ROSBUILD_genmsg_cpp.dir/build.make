@@ -58,7 +58,10 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/geometry_msgs/msg/Vector3.msg
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: ../manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -70,7 +73,6 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -88,19 +90,17 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/cpp/include/AutoNav/predictInternal.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictInternal.h: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/AutoNav/predictInternal.h"
@@ -112,7 +112,10 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/std_msgs/msg/Header.msg
 ../msg_gen/cpp/include/AutoNav/filter_state.h: ../manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -124,7 +127,6 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -142,19 +144,17 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/cpp/include/AutoNav/filter_state.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/filter_state.h: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/AutoNav/filter_state.h"
@@ -165,7 +165,10 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/cpp/include/AutoNav/offsets.h: ../manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -177,7 +180,6 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -195,19 +197,17 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/cpp/include/AutoNav/offsets.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/offsets.h: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/offsets.h: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/cpp/include/AutoNav/offsets.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/offsets.h: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/AutoNav/offsets.h"
@@ -218,7 +218,10 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/cpp/include/AutoNav/control_commands.h: ../manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -230,7 +233,6 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -248,19 +250,17 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/cpp/include/AutoNav/control_commands.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/control_commands.h: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/AutoNav/control_commands.h"
@@ -271,7 +271,10 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: ../manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -283,7 +286,6 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -301,19 +303,17 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h"
@@ -324,7 +324,10 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: ../manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -336,7 +339,6 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -354,19 +356,17 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h"
@@ -377,7 +377,10 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: ../manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -389,7 +392,6 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -407,19 +409,17 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/cpp/include/AutoNav/obs_tag.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/obs_tag.h: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/AutoNav/obs_tag.h"
@@ -432,7 +432,10 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/geometry_msgs/msg/Vector3.msg
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: ../manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -444,7 +447,6 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -462,19 +464,17 @@ CMakeFiles/ROSBUILD_genmsg_cpp: ../msg_gen/cpp/include/AutoNav/predictUpTo.h
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/cpp/include/AutoNav/predictUpTo.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/cpp/include/AutoNav/predictUpTo.h: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/cpp/include/AutoNav/predictUpTo.h"

@@ -63,7 +63,10 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/geometry_msgs/msg/Vector3.msg
 ../src/AutoNav/msg/_predictInternal.py: ../manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/rosservice/manifest.xml
+../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -75,7 +78,6 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/rostest/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -93,19 +95,17 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/rosservice/manifest.xml
-../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../src/AutoNav/msg/_predictInternal.py: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../src/AutoNav/msg/_predictInternal.py: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../src/AutoNav/msg/_predictInternal.py: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_predictInternal.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_predictInternal.py"
@@ -117,7 +117,10 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/std_msgs/msg/Header.msg
 ../src/AutoNav/msg/_filter_state.py: ../manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/rosservice/manifest.xml
+../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -129,7 +132,6 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/rostest/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -147,19 +149,17 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/rosservice/manifest.xml
-../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../src/AutoNav/msg/_filter_state.py: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../src/AutoNav/msg/_filter_state.py: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../src/AutoNav/msg/_filter_state.py: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_filter_state.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_filter_state.py"
@@ -170,7 +170,10 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../src/AutoNav/msg/_offsets.py: ../manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/rosservice/manifest.xml
+../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -182,7 +185,6 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/rostest/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -200,19 +202,17 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/share/rosservice/manifest.xml
-../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../src/AutoNav/msg/_offsets.py: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../src/AutoNav/msg/_offsets.py: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../src/AutoNav/msg/_offsets.py: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_offsets.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_offsets.py"
@@ -223,7 +223,10 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../src/AutoNav/msg/_control_commands.py: ../manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/rosservice/manifest.xml
+../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -235,7 +238,6 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/rostest/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -253,19 +255,17 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/share/rosservice/manifest.xml
-../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../src/AutoNav/msg/_control_commands.py: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../src/AutoNav/msg/_control_commands.py: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../src/AutoNav/msg/_control_commands.py: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_control_commands.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_control_commands.py"
@@ -276,7 +276,10 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: ../manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/rosservice/manifest.xml
+../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -288,7 +291,6 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/rostest/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -306,19 +308,17 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/share/rosservice/manifest.xml
-../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_obs_IMU_XYZ.py"
@@ -329,7 +329,10 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../src/AutoNav/msg/_obs_IMU_RPY.py: ../manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/rosservice/manifest.xml
+../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -341,7 +344,6 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/rostest/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -359,19 +361,17 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/share/rosservice/manifest.xml
-../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_obs_IMU_RPY.py"
@@ -382,7 +382,10 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../src/AutoNav/msg/_obs_tag.py: ../manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/rosservice/manifest.xml
+../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -394,7 +397,6 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/rostest/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -412,19 +414,17 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/share/rosservice/manifest.xml
-../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../src/AutoNav/msg/_obs_tag.py: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../src/AutoNav/msg/_obs_tag.py: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../src/AutoNav/msg/_obs_tag.py: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_obs_tag.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_obs_tag.py"
@@ -437,7 +437,10 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/geometry_msgs/msg/Vector3.msg
 ../src/AutoNav/msg/_predictUpTo.py: ../manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/rosservice/manifest.xml
+../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -449,7 +452,6 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/rospy/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/rostest/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -467,19 +469,17 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/share/rosservice/manifest.xml
-../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../src/AutoNav/msg/_predictUpTo.py: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../src/AutoNav/msg/_predictUpTo.py: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../src/AutoNav/msg/_predictUpTo.py: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../src/AutoNav/msg/_predictUpTo.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_predictUpTo.py"

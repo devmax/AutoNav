@@ -50,7 +50,10 @@ CMakeFiles/testRPY.dir/src/testQuatToRPY.o: CMakeFiles/testRPY.dir/flags.make
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: ../src/testQuatToRPY.cpp
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: ../manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/roslang/manifest.xml
+CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/roscpp/manifest.xml
+CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -62,7 +65,6 @@ CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/image_common/
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/rospy/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/rostest/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/roswtf/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -80,19 +82,17 @@ CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/bond_core/bon
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/share/rosservice/manifest.xml
-CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/testRPY.dir/src/testQuatToRPY.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/testRPY.dir/src/testQuatToRPY.o"

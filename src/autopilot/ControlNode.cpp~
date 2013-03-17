@@ -1,0 +1,21 @@
+#include "ControlNode.h"
+
+ControlNode::ControlNode()
+{
+  goalSet = goalReached = false;
+
+  state_channel = nh.resolveName("/ardrone/predictedPose");
+  command_channel = nh.resolveName("/commands");
+
+  state_sub = nh.subscribe(state_channel,2,&ControlNode::stateCB,this);
+  command_channel = nh.subscribe(command_channel,5,&ControlNode::commandCB,this);
+}
+
+void ControlNode::commandCB(const std_msgs::StringConstPtr str)
+{
+  if(str == "hover")
+    {
+      ROS_INFO("Starting Auto-pilot hover now!");
+      beginHover();
+    }
+}

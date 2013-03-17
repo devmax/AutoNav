@@ -31,7 +31,7 @@ DroneController::DroneController()
 
   state_channel = nh.resolveName("/ardrone/predictedPose");
   velocity_channel = nh.resolveName("/cmd_vel");
-  control_commands_channel = nh.resolveName("/log_control_commands",1);
+  control_commands_channel = nh.resolveName("/log_control_commands");
 
   cmd_pub = nh.advertise<geometry_msgs::Twist>(velocity_channel,1);
   state_pub = nh.subscribe(state_channel,1,&DroneController::stateCB,this);
@@ -50,6 +50,7 @@ void DroneController::calcControl(Vector4f error,Vector4f d_error,double yaw)
 
   message.error_x = error(0);
   message.error_y = error(1);
+
   message.error_z = error(2);
   message.error_yaw = error(3);
 

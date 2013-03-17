@@ -1037,6 +1037,7 @@ CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/include/ros/wall_timer.h
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/include/ros/wall_timer_options.h
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/include/rosconsole/macros_generated.h
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/include/std_msgs/Empty.h
+CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/include/std_msgs/String.h
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/include/std_srvs/Empty.h
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/include/std_srvs/EmptyRequest.h
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/include/std_srvs/EmptyResponse.h

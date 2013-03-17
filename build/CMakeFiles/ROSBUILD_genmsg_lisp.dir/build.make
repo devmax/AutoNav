@@ -74,7 +74,10 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/geometry_msgs/msg/Vector3.msg
 ../msg_gen/lisp/predictInternal.lisp: ../manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -86,7 +89,6 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -104,19 +106,17 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/lisp/predictInternal.lisp: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/lisp/predictInternal.lisp: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/lisp/predictInternal.lisp: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/lisp/predictInternal.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/predictInternal.lisp: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/predictInternal.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_predictInternal.lisp"
@@ -132,7 +132,10 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/std_msgs/msg/Header.msg
 ../msg_gen/lisp/filter_state.lisp: ../manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -144,7 +147,6 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -162,19 +164,17 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/lisp/filter_state.lisp: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/lisp/filter_state.lisp: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/lisp/filter_state.lisp: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/lisp/filter_state.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/filter_state.lisp: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/filter_state.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_filter_state.lisp"
@@ -189,7 +189,10 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/lisp/offsets.lisp: ../manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -201,7 +204,6 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -219,19 +221,17 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/lisp/offsets.lisp: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/lisp/offsets.lisp: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/lisp/offsets.lisp: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/lisp/offsets.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/offsets.lisp: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/offsets.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_offsets.lisp"
@@ -246,7 +246,10 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/lisp/control_commands.lisp: ../manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -258,7 +261,6 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -276,19 +278,17 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/lisp/control_commands.lisp: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/lisp/control_commands.lisp: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/lisp/control_commands.lisp: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/lisp/control_commands.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/control_commands.lisp: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/control_commands.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_control_commands.lisp"
@@ -303,7 +303,10 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: ../manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -315,7 +318,6 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -333,19 +335,17 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/lisp/obs_IMU_XYZ.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/obs_IMU_XYZ.lisp: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/obs_IMU_XYZ.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_obs_IMU_XYZ.lisp"
@@ -360,7 +360,10 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/lisp/obs_IMU_RPY.lisp: ../manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -372,7 +375,6 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -390,19 +392,17 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/lisp/obs_IMU_RPY.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/obs_IMU_RPY.lisp: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/obs_IMU_RPY.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_obs_IMU_RPY.lisp"
@@ -417,7 +417,10 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/roslib/bin/gendeps
 ../msg_gen/lisp/obs_tag.lisp: ../manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -429,7 +432,6 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -447,19 +449,17 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/lisp/obs_tag.lisp: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/lisp/obs_tag.lisp: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/lisp/obs_tag.lisp: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/lisp/obs_tag.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/obs_tag.lisp: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/obs_tag.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_obs_tag.lisp"
@@ -476,7 +476,10 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/geometry_msgs/msg/Vector3.msg
 ../msg_gen/lisp/predictUpTo.lisp: ../manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/roslang/manifest.xml
+../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/roscpp/manifest.xml
+../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
+../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
@@ -488,7 +491,6 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/std_srvs/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/bullet/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
-../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/rospy/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/rostest/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/roswtf/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
@@ -506,19 +508,17 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_predictUpTo.lisp
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
-../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/share/rosservice/manifest.xml
-../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../msg_gen/lisp/predictUpTo.lisp: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
 ../msg_gen/lisp/predictUpTo.lisp: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
 ../msg_gen/lisp/predictUpTo.lisp: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
-../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
-../msg_gen/lisp/predictUpTo.lisp: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../msg_gen/lisp/predictUpTo.lisp: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/predictUpTo.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_predictUpTo.lisp"
