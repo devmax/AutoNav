@@ -66,6 +66,7 @@ CMakeFiles/UI.dir/src/UI/Rosthread.o
  /opt/ros/fuerte/include/ros/wall_timer_options.h
  /opt/ros/fuerte/include/rosconsole/macros_generated.h
  /opt/ros/fuerte/include/std_msgs/Empty.h
+ /opt/ros/fuerte/include/std_msgs/String.h
  /opt/ros/fuerte/include/std_srvs/Empty.h
  /opt/ros/fuerte/include/std_srvs/EmptyRequest.h
  /opt/ros/fuerte/include/std_srvs/EmptyResponse.h
@@ -552,6 +553,7 @@ CMakeFiles/UI.dir/src/UI/Teleop.o
  /opt/ros/fuerte/include/ros/wall_timer_options.h
  /opt/ros/fuerte/include/rosconsole/macros_generated.h
  /opt/ros/fuerte/include/std_msgs/Empty.h
+ /opt/ros/fuerte/include/std_msgs/String.h
  /opt/ros/fuerte/include/std_srvs/Empty.h
  /opt/ros/fuerte/include/std_srvs/EmptyRequest.h
  /opt/ros/fuerte/include/std_srvs/EmptyResponse.h

@@ -203,7 +203,7 @@ class DroneKalmanFilter
   PFilter roll;
   PFilter pitch;
 
-  bool lastPosesValid,offsets_initialized,yaw_offset_initialized;
+  bool lastPosesValid,offsets_initialized,yaw_offset_initialized,last_yaw_valid;
 
   double x_offset,y_offset,z_offset;
   double roll_offset,pitch_offset,yaw_offset;
@@ -228,6 +228,8 @@ class DroneKalmanFilter
   double baselineY_Filter;
   double last_yaw;
   bool baseline_set;
+
+  int last_tag;
 
   std::string predictInternal_channel;
   std::string predictUpTo_channel;

@@ -42,6 +42,7 @@ void Rosthread::sendToggleState()
 
 void Rosthread::sendFlatTrim()
 {
+  ROS_INFO("Sending Flat Trim!");
   flattrim_srv.call(flattrim_srv_empty);
 }
 
@@ -82,7 +83,7 @@ void Rosthread::run()
   command_pub = n.advertise<std_msgs::String>("/AutoNav/commands",1);
 
   vel_sub = n.subscribe("/cmd_vel",5,&Rosthread::velCB,this);
-  flattrim_srv = n.serviceClient<std_srvs::Empty>("/ardrone/flattrim",1);
+  flattrim_srv = n.serviceClient<std_srvs::Empty>(n.resolveName("/ardrone/flattrim"),1);
 
   sendFlatTrim();
 

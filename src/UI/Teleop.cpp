@@ -63,7 +63,7 @@ void Keypress::keyPressEvent(QKeyEvent *key)
   else if(key->key() == 70) //f
     {
       rosthread->sendFlatTrim();
-      ROS_INFO("Flat Trim!");
+      //ROS_INFO("Flat Trim!");
     }
   else if(key->key() == 84) //t
     {
