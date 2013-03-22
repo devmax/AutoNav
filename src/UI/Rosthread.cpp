@@ -44,6 +44,7 @@ void Rosthread::sendFlatTrim()
 {
   ROS_INFO("Sending Flat Trim!");
   flattrim_srv.call(flattrim_srv_empty);
+  ros::Duration(1).sleep();
 }
 
 void Rosthread::publishCommand(geometry_msgs::Twist cmd)
@@ -62,6 +63,13 @@ void Rosthread::autohover()
 {
   std_msgs::String command;
   command.data = "hover";
+  command_pub.publish(command);
+}
+
+void Rosthread::housefigure()
+{
+  std_msgs::String command;
+  command.data = "house";
   command_pub.publish(command);
 }
 

@@ -583,7 +583,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.max_gaz_rise = 1.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.max_gaz_rise = 0.8;
+      __default__.max_gaz_rise = 0.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("max_gaz_rise", "double", 0, "max. (positive) gaz control sent.", "", &AutopilotParamsConfig::max_gaz_rise)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -593,7 +593,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.max_gaz_drop = 0.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.max_gaz_drop = -0.25;
+      __default__.max_gaz_drop = 0.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("max_gaz_drop", "double", 0, "max. (negative) gaz control sent.", "", &AutopilotParamsConfig::max_gaz_drop)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -613,7 +613,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.Kd_rp = 1.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.Kd_rp = 0.3;
+      __default__.Kd_rp = 0.21;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("Kd_rp", "double", 0, "PID control parameter", "", &AutopilotParamsConfig::Kd_rp)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -623,7 +623,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.Kp_rp = 1.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.Kp_rp = 0.4;
+      __default__.Kp_rp = 0.32;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("Kp_rp", "double", 0, "PID control parameter", "", &AutopilotParamsConfig::Kp_rp)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"

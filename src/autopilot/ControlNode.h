@@ -9,6 +9,7 @@
 #include "AutoNav/AutopilotParamsConfig.h"
 #include "DroneController.h"
 #include <std_msgs/String.h>
+#include <vector>
 
 inline Position operator+(const Position a,const Position b)
 {
@@ -34,6 +35,10 @@ class ControlNode
   std::string command_channel;
 
   std::string current;
+  
+  Position reference;
+  std::vector<Position> house;
+  std::vector<Position>::iterator seq;
 
   bool goalSet;
   bool goalReached;  
@@ -47,6 +52,7 @@ class ControlNode
   void dynConfCB(AutoNav::AutopilotParamsConfig &config, uint32_t level);
   Position stateToPosition(const AutoNav::filter_stateConstPtr state);
   void beginHover(Position goal);
+  void updateHouse(Position cur);
 };
 
 #endif //ControlNode.h

@@ -400,16 +400,18 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
 
       ROS_INFO("valid: baselineY_IMU=%lf,baselineY_Filter=%lf",baselineY_IMU,baselineY_Filter);
 
-      if(abs(observedYaw - yaw.state[0])<10)
+      if(abs(observedYaw - yaw.state[0])<15)
 	{
+	  ROS_INFO("Prior yaw: %lf",yaw.state(0));
 	  yaw.observePose(observedYaw,varPoseObservation_yaw_IMU);
 	  ROS_INFO("New yaw after observation = %lf",yaw.state(0));
 	}
     }
   else
     {
-      if(abs(observedYaw - yaw.state[0])<10)
+      if(abs(observedYaw - yaw.state[0])<25)
 	{
+	  ROS_INFO("Prior yaw: %lf",yaw.state(0));
 	  yaw.observePose(observedYaw,1*1);
 	  ROS_INFO("Last pose invalid, but making observation now! posterior=%lf",yaw.state(0));
 	}
@@ -417,7 +419,7 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
 	{
 	  ROS_INFO("Big jump observed, no observation done!");
 	  baselineY_IMU=nav->rotZ;
-	  baselineY_Filter = yaw.state[0];
+	  baselineY_Filter = yaw.state(0);
 	  ROS_INFO("invalid: baselineY_IMU=%lf,baselineY_Filter=%lf",baselineY_IMU,baselineY_Filter);
 	}
     }
@@ -826,6 +828,8 @@ void DroneKalmanFilter::addTag(Vector6f measurement,int corrStamp)
 
 void DroneKalmanFilter::addFakeTag(int timestamp)
 {
+  last_yaw_valid = false;
+  //lastPosesValid = false;
   //ROS_INFO("Adding fake tag now");
   if(timestamp>predictedUpToTotal)
     {
@@ -834,7 +838,7 @@ void DroneKalmanFilter::addFakeTag(int timestamp)
     }
 
   lastPosesValid = false;
-  last_yaw_valid = false;
+  //last_yaw_valid = false;
 }
 
 AutoNav::filter_state DroneKalmanFilter::getPoseAt(ros::Time t, bool useControlGains)

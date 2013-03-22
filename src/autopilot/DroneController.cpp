@@ -18,6 +18,11 @@ Controller::Controller()
 
   cmd_pub = nh.advertise<geometry_msgs::Twist>(velocity_channel,1);
   log_control_commands = nh.advertise<AutoNav::control_commands>(log_control_commands_channel,1);
+
+  hoverCount = 0;
+
+  hoverCmd.linear.x = hoverCmd.linear.y = hoverCmd.linear.z = hoverCmd.angular.z = 0;
+  hoverCmd.angular.x = hoverCmd.angular.y = 0;
 }
 
 void Controller::setGoal(Position newGoal)
@@ -29,17 +34,30 @@ void Controller::setGoal(Position newGoal)
 int Controller::sendControl(geometry_msgs::Twist cmd)
 {
   //ROS_INFO("Received (%lf,%lf,%lf,%lf)",cmd.linear.x,cmd.linear.y,cmd.linear.z,cmd.angular.z);
+  //cmd.linear.x = cmd.linear.y = cmd.linear.z = cmd.angular.z = 0.0;
+  //cmd.angular.x = cmd.angular.y = 1.0;
+
   if(std::abs(cmd.linear.x)<min_rp && std::abs(cmd.linear.y)<min_rp && std::abs(cmd.linear.z)<min_gaz && std::abs(cmd.angular.z)<min_yaw)
     {
       //ROS_INFO("Sending pseudo hover!");
-      cmd.linear.x = cmd.linear.y = cmd.linear.z = cmd.angular.z = 0.0;
-      cmd.angular.x = cmd.angular.y = 1.0;
+      hoverCount++;
+      cmd_pub.publish(hoverCmd);//hoverCmd);
+    }
+  else
+    {
+      hoverCount = 0;
       cmd_pub.publish(cmd);
+    }
+  
+  if(hoverCount<20)
+    {
+      return 0;
+    }
+  else
+    {
       return 1;
     }
-
-  cmd_pub.publish(cmd);
-  return 0;
+  
 }
 
 geometry_msgs::Twist Controller::calcControl(Vector4f error,Vector4f d_error,double cur_yaw)

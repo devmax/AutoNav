@@ -55,6 +55,7 @@ class Rosthread : private CVD::Thread
 
   void autohover();
   void revertmanual();
+  void housefigure();
   void sendTakeOff();
   void sendLand();
   void sendToggleState();

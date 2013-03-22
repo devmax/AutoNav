@@ -47,6 +47,9 @@ class Controller
  private:
   Position goal;
 
+  int hoverCount;
+  geometry_msgs::Twist hoverCmd;
+
   ros::NodeHandle nh;
 
   ros::Publisher cmd_pub;

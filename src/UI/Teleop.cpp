@@ -22,6 +22,8 @@ Keypress::Keypress(QWidget *parent):QWidget(parent)
 		   "Press f to flat trim\n"
 		   "Press t to toggle state\n"
 		   "Press h to start hovering with the AutoPilot\n"
+		   "Press g to start flying the house figure\n"
+		   "CAUTION:Leave 2 meter radius free for figure flying\n"
 		   "Press m to revert to manual control\n"
 		   "Press 1/2 to increase/decrease linear speeds by 10% \n"
 		   "Press 3/4 to increase/decrease angular speeds by 10% \n"
@@ -101,6 +103,10 @@ void Keypress::keyPressEvent(QKeyEvent *key)
   else if(key->key() == 77) //m
     {
       rosthread->revertmanual();
+    }
+  else if(key->key() == 71) //g
+    {
+      rosthread->housefigure();
     }
   else if(key->key() == 16777216) //ESC
     {

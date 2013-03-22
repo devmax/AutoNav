@@ -40,10 +40,6 @@ ros/ros.h
 stdio.h
 -
 
-/home/dev/ros/stacks/AutoNav/src/UI/Teleop.cpp
-Teleop.h
-/home/dev/ros/stacks/AutoNav/src/UI/Teleop.h
-
 /home/dev/ros/stacks/AutoNav/src/UI/Teleop.h
 stdio.h
 -
