@@ -89,6 +89,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/stacks/visualization/interactive_markers/manifest.xml
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
@@ -328,6 +329,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/stacks/visualization/interactive_markers/manifest.xml
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated

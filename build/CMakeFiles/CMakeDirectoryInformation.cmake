@@ -43,6 +43,7 @@ SET(CMAKE_C_INCLUDE_PATH
   "/opt/ros/fuerte/stacks/bond_core/bond/msg_gen/cpp/include"
   "/opt/ros/fuerte/stacks/bond_core/smclib/include"
   "/opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/include"
+  "/opt/ros/fuerte/stacks/visualization/interactive_markers/include"
   "../cfg/cpp"
   "../msg_gen/cpp/include"
   "../thirdparty/libcvd/include"

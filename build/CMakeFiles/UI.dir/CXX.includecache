@@ -40,6 +40,10 @@ ros/ros.h
 stdio.h
 -
 
+/home/dev/ros/stacks/AutoNav/src/UI/Teleop.cpp
+Teleop.h
+/home/dev/ros/stacks/AutoNav/src/UI/Teleop.h
+
 /home/dev/ros/stacks/AutoNav/src/UI/Teleop.h
 stdio.h
 -
@@ -57,6 +61,12 @@ geometry_msgs/Twist.h
 -
 algorithm
 -
+Rosthread.h
+/home/dev/ros/stacks/AutoNav/src/UI/Rosthread.h
+
+/home/dev/ros/stacks/AutoNav/src/UI/main_UI.cpp
+Teleop.h
+/home/dev/ros/stacks/AutoNav/src/UI/Teleop.h
 Rosthread.h
 /home/dev/ros/stacks/AutoNav/src/UI/Rosthread.h
 

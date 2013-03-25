@@ -213,6 +213,19 @@ clean-test-results/fast:
 .PHONY : clean-test-results/fast
 
 #=============================================================================
+# Target rules for targets named interact
+
+# Build rule for target.
+interact: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 interact
+.PHONY : interact
+
+# fast build rule for target.
+interact/fast:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/build
+.PHONY : interact/fast
+
+#=============================================================================
 # Target rules for targets named rosbuild_precompile
 
 # Build rule for target.
@@ -408,6 +421,21 @@ tests/fast:
 .PHONY : tests/fast
 
 # target to build an object file
+src/UI/Interact.o:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/Interact.o
+.PHONY : src/UI/Interact.o
+
+# target to preprocess a source file
+src/UI/Interact.i:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/Interact.i
+.PHONY : src/UI/Interact.i
+
+# target to generate assembly for a file
+src/UI/Interact.s:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/Interact.s
+.PHONY : src/UI/Interact.s
+
+# target to build an object file
 src/UI/Rosthread.o:
 	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/Rosthread.o
 .PHONY : src/UI/Rosthread.o
@@ -436,6 +464,21 @@ src/UI/Teleop.i:
 src/UI/Teleop.s:
 	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/src/UI/Teleop.s
 .PHONY : src/UI/Teleop.s
+
+# target to build an object file
+src/UI/main_Interact.o:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/main_Interact.o
+.PHONY : src/UI/main_Interact.o
+
+# target to preprocess a source file
+src/UI/main_Interact.i:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/main_Interact.i
+.PHONY : src/UI/main_Interact.i
+
+# target to generate assembly for a file
+src/UI/main_Interact.s:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/main_Interact.s
+.PHONY : src/UI/main_Interact.s
 
 # target to build an object file
 src/UI/main_UI.o:
@@ -573,6 +616,7 @@ help:
 	@echo "... autopilot"
 	@echo "... clean-test-results"
 	@echo "... edit_cache"
+	@echo "... interact"
 	@echo "... rebuild_cache"
 	@echo "... rosbuild_precompile"
 	@echo "... rosbuild_premsgsrvgen"
@@ -589,12 +633,18 @@ help:
 	@echo "... test-results-run"
 	@echo "... testRPY"
 	@echo "... tests"
+	@echo "... src/UI/Interact.o"
+	@echo "... src/UI/Interact.i"
+	@echo "... src/UI/Interact.s"
 	@echo "... src/UI/Rosthread.o"
 	@echo "... src/UI/Rosthread.i"
 	@echo "... src/UI/Rosthread.s"
 	@echo "... src/UI/Teleop.o"
 	@echo "... src/UI/Teleop.i"
 	@echo "... src/UI/Teleop.s"
+	@echo "... src/UI/main_Interact.o"
+	@echo "... src/UI/main_Interact.i"
+	@echo "... src/UI/main_Interact.s"
 	@echo "... src/UI/main_UI.o"
 	@echo "... src/UI/main_UI.i"
 	@echo "... src/UI/main_UI.s"

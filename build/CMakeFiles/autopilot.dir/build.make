@@ -85,6 +85,7 @@ CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/visualization/interactive_markers/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/main_autopilot.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
@@ -154,6 +155,7 @@ CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks
 CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/visualization/interactive_markers/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/DroneController.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
@@ -223,6 +225,7 @@ CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/nod
 CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/visualization/interactive_markers/manifest.xml
 CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/autopilot.dir/src/autopilot/ControlNode.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated

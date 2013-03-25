@@ -85,6 +85,7 @@ CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/visualization/interactive_markers/manifest.xml
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/main_UI.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
@@ -154,6 +155,7 @@ CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/nodelet_core/nodele
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/visualization/interactive_markers/manifest.xml
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Rosthread.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
@@ -223,6 +225,7 @@ CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet/m
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/visualization/interactive_markers/manifest.xml
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/UI.dir/src/UI/Teleop.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
