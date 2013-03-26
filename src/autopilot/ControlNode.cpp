@@ -49,6 +49,11 @@ void ControlNode::commandCB(const std_msgs::StringConstPtr str)
       goalSet = false;
       goalReached = true;
     }
+  else if(str->data.substr(0,4) == "move")
+    {
+      ROS_INFO_STREAM(str->data);
+      goalSet = goalReached = false;
+    }
 }
 
 void ControlNode::updateHouse(Position cur)
@@ -72,13 +77,6 @@ void ControlNode::updateHouse(Position cur)
 Position ControlNode::stateToPosition(const AutoNav::filter_stateConstPtr state)
 {
   return Position(state->x,state->y,state->z,state->yaw);
-  /*Position target;
-  target.x = state->x;
-  target.y = state->y;
-  target.z = state->z;
-  target.yaw = state->yaw;
-
-  return target;*/
 }
 
 void ControlNode::stateCB(const AutoNav::filter_stateConstPtr state)
@@ -98,10 +96,18 @@ void ControlNode::stateCB(const AutoNav::filter_stateConstPtr state)
 	}
       else
 	{
-	  //ROS_INFO("Flying to goal!");
 	  goalReached = controller.update(state);
-	  //ROS_INFO("Value of goal is %d",(int)goalReached);
 	}
+    }
+  else if(current.substr(0,4) == "move")
+    {
+      if(!goalSet)
+	{
+	  Position movement;
+	  sscanf(current.c_str(),"move %lf %lf %lf %lf",&movement.x,&movement.y,&movement.z,&movement.yaw);
+	  beginHover(stateToPosition(state)+movement);
+	}
+      goalReached = controller.update(state);
     }
   
 }

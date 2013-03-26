@@ -37,6 +37,16 @@
     :initarg :yaw_raw
     :type cl:float
     :initform 0.0)
+   (x_raw
+    :reader x_raw
+    :initarg :x_raw
+    :type cl:float
+    :initform 0.0)
+   (y_raw
+    :reader y_raw
+    :initarg :y_raw
+    :type cl:float
+    :initform 0.0)
    (x
     :reader x
     :initarg :x
@@ -247,6 +257,16 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:yaw_raw-val is deprecated.  Use AutoNav-msg:yaw_raw instead.")
   (yaw_raw m))
 
+(cl:ensure-generic-function 'x_raw-val :lambda-list '(m))
+(cl:defmethod x_raw-val ((m <obs_tag>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:x_raw-val is deprecated.  Use AutoNav-msg:x_raw instead.")
+  (x_raw m))
+
+(cl:ensure-generic-function 'y_raw-val :lambda-list '(m))
+(cl:defmethod y_raw-val ((m <obs_tag>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:y_raw-val is deprecated.  Use AutoNav-msg:y_raw instead.")
+  (y_raw m))
+
 (cl:ensure-generic-function 'x-val :lambda-list '(m))
 (cl:defmethod x-val ((m <obs_tag>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:x-val is deprecated.  Use AutoNav-msg:x instead.")
@@ -445,6 +465,16 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
   (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'yaw_raw))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'x_raw))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'y_raw))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -661,6 +691,18 @@
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'x_raw) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'y_raw) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'x) (roslisp-utils:decode-single-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
@@ -870,18 +912,20 @@
   "AutoNav/obs_tag")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<obs_tag>)))
   "Returns md5sum for a message object of type '<obs_tag>"
-  "b356b42ccfd53b78fcb593c537f477e4")
+  "2b5b721e2f77825b8f51855b9f9f2419")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'obs_tag)))
   "Returns md5sum for a message object of type 'obs_tag"
-  "b356b42ccfd53b78fcb593c537f477e4")
+  "2b5b721e2f77825b8f51855b9f9f2419")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<obs_tag>)))
   "Returns full string definition for message of type '<obs_tag>"
-  (cl:format cl:nil "int32 timestamp~%uint32 seq~%~%int32 rejected~%~%float32 roll_raw~%float32 pitch_raw~%float32 yaw_raw~%~%# the observation~%float32 x~%float32 y~%float32 z~%float32 roll~%float32 pitch~%float32 yaw~%~%#the prior~%float32 x_pre~%float32 y_pre~%float32 z_pre~%float32 dx_pre~%float32 dy_pre~%float32 dz_pre~%float32 roll_pre~%float32 pitch_pre~%float32 yaw_pre~%float32 dyaw_pre~%float32 varx_pre~%float32 vary_pre~%float32 vardx_pre~%float32 vardy_pre~%~%#the posterior~%float32 x_post~%float32 y_post~%float32 z_post~%float32 dx_post~%float32 dy_post~%float32 dz_post~%float32 roll_post~%float32 pitch_post~%float32 yaw_post~%float32 dyaw_post~%float32 varx_post~%float32 vary_post~%float32 vardx_post~%float32 vardy_post~%~%"))
+  (cl:format cl:nil "int32 timestamp~%uint32 seq~%~%int32 rejected~%~%float32 roll_raw~%float32 pitch_raw~%float32 yaw_raw~%float32 x_raw~%float32 y_raw~%~%# the observation~%float32 x~%float32 y~%float32 z~%float32 roll~%float32 pitch~%float32 yaw~%~%#the prior~%float32 x_pre~%float32 y_pre~%float32 z_pre~%float32 dx_pre~%float32 dy_pre~%float32 dz_pre~%float32 roll_pre~%float32 pitch_pre~%float32 yaw_pre~%float32 dyaw_pre~%float32 varx_pre~%float32 vary_pre~%float32 vardx_pre~%float32 vardy_pre~%~%#the posterior~%float32 x_post~%float32 y_post~%float32 z_post~%float32 dx_post~%float32 dy_post~%float32 dz_post~%float32 roll_post~%float32 pitch_post~%float32 yaw_post~%float32 dyaw_post~%float32 varx_post~%float32 vary_post~%float32 vardx_post~%float32 vardy_post~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'obs_tag)))
   "Returns full string definition for message of type 'obs_tag"
-  (cl:format cl:nil "int32 timestamp~%uint32 seq~%~%int32 rejected~%~%float32 roll_raw~%float32 pitch_raw~%float32 yaw_raw~%~%# the observation~%float32 x~%float32 y~%float32 z~%float32 roll~%float32 pitch~%float32 yaw~%~%#the prior~%float32 x_pre~%float32 y_pre~%float32 z_pre~%float32 dx_pre~%float32 dy_pre~%float32 dz_pre~%float32 roll_pre~%float32 pitch_pre~%float32 yaw_pre~%float32 dyaw_pre~%float32 varx_pre~%float32 vary_pre~%float32 vardx_pre~%float32 vardy_pre~%~%#the posterior~%float32 x_post~%float32 y_post~%float32 z_post~%float32 dx_post~%float32 dy_post~%float32 dz_post~%float32 roll_post~%float32 pitch_post~%float32 yaw_post~%float32 dyaw_post~%float32 varx_post~%float32 vary_post~%float32 vardx_post~%float32 vardy_post~%~%"))
+  (cl:format cl:nil "int32 timestamp~%uint32 seq~%~%int32 rejected~%~%float32 roll_raw~%float32 pitch_raw~%float32 yaw_raw~%float32 x_raw~%float32 y_raw~%~%# the observation~%float32 x~%float32 y~%float32 z~%float32 roll~%float32 pitch~%float32 yaw~%~%#the prior~%float32 x_pre~%float32 y_pre~%float32 z_pre~%float32 dx_pre~%float32 dy_pre~%float32 dz_pre~%float32 roll_pre~%float32 pitch_pre~%float32 yaw_pre~%float32 dyaw_pre~%float32 varx_pre~%float32 vary_pre~%float32 vardx_pre~%float32 vardy_pre~%~%#the posterior~%float32 x_post~%float32 y_post~%float32 z_post~%float32 dx_post~%float32 dy_post~%float32 dz_post~%float32 roll_post~%float32 pitch_post~%float32 yaw_post~%float32 dyaw_post~%float32 varx_post~%float32 vary_post~%float32 vardx_post~%float32 vardy_post~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <obs_tag>))
   (cl:+ 0
+     4
+     4
      4
      4
      4
@@ -932,6 +976,8 @@
     (cl:cons ':roll_raw (roll_raw msg))
     (cl:cons ':pitch_raw (pitch_raw msg))
     (cl:cons ':yaw_raw (yaw_raw msg))
+    (cl:cons ':x_raw (x_raw msg))
+    (cl:cons ':y_raw (y_raw msg))
     (cl:cons ':x (x msg))
     (cl:cons ':y (y msg))
     (cl:cons ':z (z msg))

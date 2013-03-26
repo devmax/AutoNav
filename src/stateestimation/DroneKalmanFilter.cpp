@@ -368,7 +368,7 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
       baselineY_IMU = nav->rotZ;
       baselineY_Filter = yaw.state[0];
       //last_baseline = baselineY_IMU;
-      ROS_INFO("Initing: base_IMU = %lf and base_Filter = %lf",baselineY_IMU,baselineY_Filter);
+      //ROS_INFO("Initing: base_IMU = %lf and base_Filter = %lf",baselineY_IMU,baselineY_Filter);
     }
 
   double imuYawDiff = (nav->rotZ - baselineY_IMU);
@@ -398,29 +398,29 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
       baselineY_IMU = nav->rotZ;
       baselineY_Filter = yaw.state[0];
 
-      ROS_INFO("valid: baselineY_IMU=%lf,baselineY_Filter=%lf",baselineY_IMU,baselineY_Filter);
+      //ROS_INFO("valid: baselineY_IMU=%lf,baselineY_Filter=%lf",baselineY_IMU,baselineY_Filter);
 
       if(abs(observedYaw - yaw.state[0])<15)
 	{
-	  ROS_INFO("Prior yaw: %lf",yaw.state(0));
+	  //ROS_INFO("Prior yaw: %lf",yaw.state(0));
 	  yaw.observePose(observedYaw,varPoseObservation_yaw_IMU);
-	  ROS_INFO("New yaw after observation = %lf",yaw.state(0));
+	  //ROS_INFO("New yaw after observation = %lf",yaw.state(0));
 	}
     }
   else
     {
       if(abs(observedYaw - yaw.state[0])<25)
 	{
-	  ROS_INFO("Prior yaw: %lf",yaw.state(0));
+	  //ROS_INFO("Prior yaw: %lf",yaw.state(0));
 	  yaw.observePose(observedYaw,1*1);
-	  ROS_INFO("Last pose invalid, but making observation now! posterior=%lf",yaw.state(0));
+	  //ROS_INFO("Last pose invalid, but making observation now! posterior=%lf",yaw.state(0));
 	}
       else
 	{
-	  ROS_INFO("Big jump observed, no observation done!");
+	  //ROS_INFO("Big jump observed, no observation done!");
 	  baselineY_IMU=nav->rotZ;
 	  baselineY_Filter = yaw.state(0);
-	  ROS_INFO("invalid: baselineY_IMU=%lf,baselineY_Filter=%lf",baselineY_IMU,baselineY_Filter);
+	  //ROS_INFO("invalid: baselineY_IMU=%lf,baselineY_Filter=%lf",baselineY_IMU,baselineY_Filter);
 	}
     }
 
@@ -447,13 +447,26 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
   if(!offsets_initialized)
     sync_offsets(pose);
 
+  /*LOGGING now*/
   AutoNav::obs_tag message;
   message.roll_raw = pose(3);
   message.pitch_raw = pose(4);
   message.yaw_raw = pose(5);
+  /*end LOGGING*/
 
   pose = transformTagObservation(pose);
 
+  message.x_raw = pose(0);
+  message.y_raw = pose(1);
+
+  //project to global frame!
+  double yawRad = yaw.state(0)*3.14159268 / 180;
+  double x_global = (cos(yawRad)*pose(0) - sin(yawRad)*pose(1));
+  double y_global = (sin(yawRad)*pose(0) + cos(yawRad)*pose(1));
+
+  pose(0) = x_global;
+  pose(1) = y_global;
+  
   /*begin LOGGING*/
 
   message.timestamp = getMS();
@@ -605,8 +618,7 @@ void DroneKalmanFilter::sync_offsets(Vector6f pose)
 
 Vector6f DroneKalmanFilter::transformTagObservation(Vector6f pose)
 {
-  Vector6f offsets = getCurrentOffsets();
-  return (pose-offsets);
+  return (pose-getCurrentOffsets());
 }
 
 void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControlGains)

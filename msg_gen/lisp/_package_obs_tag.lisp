@@ -11,6 +11,10 @@
           PITCH_RAW
           YAW_RAW-VAL
           YAW_RAW
+          X_RAW-VAL
+          X_RAW
+          Y_RAW-VAL
+          Y_RAW
           X-VAL
           X
           Y-VAL

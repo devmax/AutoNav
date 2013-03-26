@@ -28,6 +28,8 @@ struct obs_tag_ {
   , roll_raw(0.0)
   , pitch_raw(0.0)
   , yaw_raw(0.0)
+  , x_raw(0.0)
+  , y_raw(0.0)
   , x(0.0)
   , y(0.0)
   , z(0.0)
@@ -72,6 +74,8 @@ struct obs_tag_ {
   , roll_raw(0.0)
   , pitch_raw(0.0)
   , yaw_raw(0.0)
+  , x_raw(0.0)
+  , y_raw(0.0)
   , x(0.0)
   , y(0.0)
   , z(0.0)
@@ -126,6 +130,12 @@ struct obs_tag_ {
 
   typedef float _yaw_raw_type;
   float yaw_raw;
+
+  typedef float _x_raw_type;
+  float x_raw;
+
+  typedef float _y_raw_type;
+  float y_raw;
 
   typedef float _x_type;
   float x;
@@ -258,12 +268,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::AutoNav::obs_tag_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "b356b42ccfd53b78fcb593c537f477e4";
+    return "2b5b721e2f77825b8f51855b9f9f2419";
   }
 
   static const char* value(const  ::AutoNav::obs_tag_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0xb356b42ccfd53b78ULL;
-  static const uint64_t static_value2 = 0xfcb593c537f477e4ULL;
+  static const uint64_t static_value1 = 0x2b5b721e2f77825bULL;
+  static const uint64_t static_value2 = 0x8f51855b9f9f2419ULL;
 };
 
 template<class ContainerAllocator>
@@ -288,6 +298,8 @@ int32 rejected\n\
 float32 roll_raw\n\
 float32 pitch_raw\n\
 float32 yaw_raw\n\
+float32 x_raw\n\
+float32 y_raw\n\
 \n\
 # the observation\n\
 float32 x\n\
@@ -353,6 +365,8 @@ template<class ContainerAllocator> struct Serializer< ::AutoNav::obs_tag_<Contai
     stream.next(m.roll_raw);
     stream.next(m.pitch_raw);
     stream.next(m.yaw_raw);
+    stream.next(m.x_raw);
+    stream.next(m.y_raw);
     stream.next(m.x);
     stream.next(m.y);
     stream.next(m.z);
@@ -416,6 +430,10 @@ struct Printer< ::AutoNav::obs_tag_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.pitch_raw);
     s << indent << "yaw_raw: ";
     Printer<float>::stream(s, indent + "  ", v.yaw_raw);
+    s << indent << "x_raw: ";
+    Printer<float>::stream(s, indent + "  ", v.x_raw);
+    s << indent << "y_raw: ";
+    Printer<float>::stream(s, indent + "  ", v.y_raw);
     s << indent << "x: ";
     Printer<float>::stream(s, indent + "  ", v.x);
     s << indent << "y: ";

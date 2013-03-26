@@ -466,6 +466,21 @@ src/UI/Teleop.s:
 .PHONY : src/UI/Teleop.s
 
 # target to build an object file
+src/UI/ThreadROS.o:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/ThreadROS.o
+.PHONY : src/UI/ThreadROS.o
+
+# target to preprocess a source file
+src/UI/ThreadROS.i:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/ThreadROS.i
+.PHONY : src/UI/ThreadROS.i
+
+# target to generate assembly for a file
+src/UI/ThreadROS.s:
+	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/ThreadROS.s
+.PHONY : src/UI/ThreadROS.s
+
+# target to build an object file
 src/UI/main_Interact.o:
 	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/src/UI/main_Interact.o
 .PHONY : src/UI/main_Interact.o
@@ -642,6 +657,9 @@ help:
 	@echo "... src/UI/Teleop.o"
 	@echo "... src/UI/Teleop.i"
 	@echo "... src/UI/Teleop.s"
+	@echo "... src/UI/ThreadROS.o"
+	@echo "... src/UI/ThreadROS.i"
+	@echo "... src/UI/ThreadROS.s"
 	@echo "... src/UI/main_Interact.o"
 	@echo "... src/UI/main_Interact.i"
 	@echo "... src/UI/main_Interact.s"

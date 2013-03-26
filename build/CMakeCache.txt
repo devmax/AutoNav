@@ -807,7 +807,7 @@ TOOLCHAINCONFIG:FILEPATH=TOOLCHAINCONFIG-NOTFOUND
 USERCONFIG:FILEPATH=USERCONFIG-NOTFOUND
 
 //Path to a file.
-_file_name:FILEPATH=/home/dev/ros/stacks/AutoNav/src/UI/Interact.cpp
+_file_name:FILEPATH=/home/dev/ros/stacks/AutoNav/src/UI/ThreadROS.cpp
 
 
 ########################
