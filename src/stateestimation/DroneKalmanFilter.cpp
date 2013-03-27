@@ -12,7 +12,7 @@ const double varPoseObservation_z_IMU = 0.25*0.25;
 const double varPoseObservation_z_IMU_NO_tag = 0.1*0.1;
 const double varAccelerationError_z = 1*1;
 
-const double varPoseObservation_rp_tag = 5*5;
+const double varPoseObservation_rp_tag = 8*8;
 const double varPoseObservation_rp_IMU = 1*1;
 const double varSpeedError_rp = 360*360 * 16;	// increased because prediction based on control command is very inaccurate.
 
@@ -135,6 +135,7 @@ void DroneKalmanFilter::clearTag()
   roll_offset=pitch_offset=yaw_offset=x_offset=y_offset=z_offset=0;
 
   last_yaw = 0.0;
+  last_z = 0.0;
   last_tag = getMS(ros::Time::now());
 
   lastPosesValid = last_yaw_valid = false;
@@ -454,18 +455,23 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
   message.yaw_raw = pose(5);
   /*end LOGGING*/
 
-  pose = transformTagObservation(pose);
-
   message.x_raw = pose(0);
   message.y_raw = pose(1);
 
   //project to global frame!
   double yawRad = yaw.state(0)*3.14159268 / 180;
+  double rollRad = roll.state*3.14159268/180;
+  double pitchRad = pitch.state*3.14159268/180;
+
   double x_global = (cos(yawRad)*pose(0) - sin(yawRad)*pose(1));
   double y_global = (sin(yawRad)*pose(0) + cos(yawRad)*pose(1));
+  double z_global = pose(2)*cos(rollRad)*cos(pitchRad);
 
   pose(0) = x_global;
   pose(1) = y_global;
+  pose(2) = z_global;
+
+  pose = transformTagObservation(pose);
   
   /*begin LOGGING*/
 
@@ -507,7 +513,13 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
     {
       x.observePose(pose[0],varPoseObservation_xy);
       y.observePose(pose[1],varPoseObservation_xy);
-      z.observePose(pose[2],varPoseObservation_z_tag);
+
+      if(std::abs(last_z-pose(2))<0.4 || (getMS()-last_tag)>500)
+	{
+	  z.observePose(pose[2],varPoseObservation_z_tag);
+	}
+      else
+	ROS_INFO("Large jump in z, not observing..");
 
       //ROS_INFO("Posterior poses: %lf,%lf,%lf and velocities: %lf,%lf,%lf",x.state(0),y.state(0),z.state(0),x.state(1),y.state(1),z.state(1));
 
@@ -517,7 +529,7 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
       pose[5] = angleFromTo(pose[5],-180,180);
       yaw.state[0] = angleFromTo(yaw.state[0],-180,180);
 
-      if(abs(last_yaw-pose[5])<15 || (getMS() - last_tag)>500)
+      if(std::abs(last_yaw-pose[5])<15 || (getMS() - last_tag)>500)
 	{
 	  yaw.observePose(pose[5],varPoseObservation_yaw_tag);
 	  yaw.state[0] = angleFromTo(yaw.state[0],-180,180);

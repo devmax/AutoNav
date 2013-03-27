@@ -60,14 +60,15 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
       if(marker.id == 10)
 	{
 	  Vector6f measurement;
-	  tf::Pose tf_pose;
+	  tf::Quaternion quat;
 	  double roll,pitch,yaw;
 
 	  measurement(0)=-marker.pose.pose.position.x;
 	  measurement(1)=-marker.pose.pose.position.y;
 	  measurement(2)=-marker.pose.pose.position.z;
-	  tf::poseMsgToTF(marker.pose.pose,tf_pose);
-	  tf_pose.getBasis().getRPY(roll,pitch,yaw);
+
+	  tf::quaternionMsgToTF(marker.pose.pose.orientation,quat);
+	  tf::Matrix3x3(quat).getRPY(roll,pitch,yaw);
 	  measurement(3)=-pitch*180 / 3.14159268;
 	  measurement(4)=roll*180 / 3.14159268;
 	  measurement(5)=-yaw*180 / 3.14159268;

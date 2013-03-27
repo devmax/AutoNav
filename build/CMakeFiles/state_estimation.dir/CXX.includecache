@@ -216,16 +216,6 @@ AutoNav/predictUpTo.h
 algorithm
 -
 
-/home/dev/ros/stacks/AutoNav/src/stateestimation/EstimationNode.cpp
-EstimationNode.h
-/home/dev/ros/stacks/AutoNav/src/stateestimation/EstimationNode.h
-DroneKalmanFilter.h
-/home/dev/ros/stacks/AutoNav/src/stateestimation/DroneKalmanFilter.h
-deque
-/home/dev/ros/stacks/AutoNav/src/stateestimation/deque
-string
--
-
 /home/dev/ros/stacks/AutoNav/src/stateestimation/EstimationNode.h
 ros/ros.h
 -

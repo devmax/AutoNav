@@ -14,6 +14,10 @@ pthread.h
 cvd/runnable.h
 -
 
+/home/dev/ros/stacks/AutoNav/src/UI/Interact.cpp
+Interact.h
+/home/dev/ros/stacks/AutoNav/src/UI/Interact.h
+
 /home/dev/ros/stacks/AutoNav/src/UI/Interact.h
 ros/ros.h
 -
@@ -41,10 +45,6 @@ visualization_msgs/InteractiveMarkerControl.h
 -
 cmath
 -
-
-/home/dev/ros/stacks/AutoNav/src/UI/ThreadROS.cpp
-ThreadROS.h
-/home/dev/ros/stacks/AutoNav/src/UI/ThreadROS.h
 
 /home/dev/ros/stacks/AutoNav/src/UI/ThreadROS.h
 Interact.h

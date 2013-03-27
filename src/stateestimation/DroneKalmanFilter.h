@@ -227,6 +227,7 @@ class DroneKalmanFilter
   double baselineY_IMU;
   double baselineY_Filter;
   double last_yaw;
+  double last_z;
   bool baseline_set;
 
   int last_tag;

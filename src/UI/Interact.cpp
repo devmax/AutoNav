@@ -132,7 +132,7 @@ void processFeedback(const visualization_msgs::InteractiveMarkerFeedbackConstPtr
 	  break;
 	case visualization_msgs::InteractiveMarkerFeedback::POSE_UPDATE:
 	  marker_interact.generateCommandManual(feedback->pose);
-	  ROS_INFO("Sending teleop velocities now..");
+	  //ROS_INFO("Sending teleop velocities now..");
 	  break;
 	case visualization_msgs::InteractiveMarkerFeedback::MOUSE_UP:
 	  marker_interact.resetManual();
