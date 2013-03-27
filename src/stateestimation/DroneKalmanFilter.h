@@ -20,7 +20,10 @@
 #include"AutoNav/predictInternal.h"
 #include"AutoNav/predictUpTo.h"
 #include<algorithm>
-
+#include<geometry_msgs/Pose.h>
+#include<tf/tfMessage.h>
+#include <tf/transform_listener.h>
+#include <tf/transform_broadcaster.h>
 
 #ifndef _EIGEN_TYPES_
 #define _EIGEN_TYPES_
@@ -203,10 +206,9 @@ class DroneKalmanFilter
   PFilter roll;
   PFilter pitch;
 
-  bool lastPosesValid,offsets_initialized,yaw_offset_initialized,last_yaw_valid;
+  bool lastPosesValid,yaw_offset_initialized,last_yaw_valid;
 
-  double x_offset,y_offset,z_offset;
-  double roll_offset,pitch_offset,yaw_offset;
+  tf::Transform initToMarker;
 
   double last_yaw_IMU;
   double last_z_IMU;
@@ -215,9 +217,7 @@ class DroneKalmanFilter
   void predictInternal(geometry_msgs::Twist activeControlInfo, int timeSpanMicros, bool useControlGains=true);
   void observeIMU_XYZ(const ardrone_autonomy::Navdata* nav);
   void observeIMU_RPY(const ardrone_autonomy::Navdata* nav);
-  bool observeTag(Vector6f pose);
-
-  void sync_offsets(Vector6f pose);
+  void observeTag(Vector6f measurement);
 
   int predictedUpToTotal;
 
@@ -237,7 +237,6 @@ class DroneKalmanFilter
   std::string obs_IMU_XYZ_channel;
   std::string obs_IMU_RPY_channel;
   std::string obs_tag_channel;
-  std::string offsets_channel;
 
   ros::NodeHandle n;
 
@@ -246,7 +245,7 @@ class DroneKalmanFilter
   ros::Publisher pub_obs_IMU_XYZ;
   ros::Publisher pub_obs_IMU_RPY;
   ros::Publisher pub_obs_tag;
-  ros::Publisher pub_offsets;
+
 
  public:
   DroneKalmanFilter();
@@ -268,6 +267,8 @@ class DroneKalmanFilter
 
   int predictedUpToTimestamp;
 
+  bool offsets_initialized;
+
   void reset();
   void clearTag();
   void predictUpTo(int timestamp,bool consume=true,bool useControlGains=true);
@@ -277,12 +278,10 @@ class DroneKalmanFilter
   AutoNav::filter_state getCurrentPoseSpeed();
   Vector10f getCurrentPoseSpeedVariances();
   Vector6f getCurrentPoseVariances();
-  Vector6f getCurrentOffsets();
-  Vector6f transformTagObservation(Vector6f pose);
   
   float c1,c2,c3,c4,c5,c6,c7,c8;
 
-  void addTag(Vector6f measurement,int corrStamp);
+  void addTag(tf::Transform droneToMarker,int corrStamp);
   void addFakeTag(int timestamp);
   AutoNav::filter_state getPoseAt(ros::Time t,bool useControlGains=true);
   

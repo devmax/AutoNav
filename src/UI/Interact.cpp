@@ -84,6 +84,7 @@ void processFeedback(const visualization_msgs::InteractiveMarkerFeedbackConstPtr
 	      marker_server->clear();
 	      marker_interact.makeManualMarker();
 	      marker_server->applyChanges();
+	      marker_interact.rosthread->revertmanual();
 	      marker_interact.resetManual();
 	      break;
 	    case 6:

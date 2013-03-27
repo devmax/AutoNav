@@ -54,14 +54,12 @@ DroneKalmanFilter::DroneKalmanFilter()
   obs_IMU_XYZ_channel=n.resolveName("/log_obs_IMU_XYZ");
   obs_IMU_RPY_channel=n.resolveName("/log_obs_IMU_RPY");
   obs_tag_channel=n.resolveName("/log_obs_tag");
-  offsets_channel=n.resolveName("/log_offsets");
 
   pub_predictInternal=n.advertise<AutoNav::predictInternal>(predictInternal_channel,1);
   pub_predictUpTo=n.advertise<AutoNav::predictUpTo>(predictUpTo_channel,1);
   pub_obs_IMU_XYZ=n.advertise<AutoNav::obs_IMU_XYZ>(obs_IMU_XYZ_channel,1);
   pub_obs_IMU_RPY=n.advertise<AutoNav::obs_IMU_RPY>(obs_IMU_RPY_channel,1);
   pub_obs_tag=n.advertise<AutoNav::obs_tag>(obs_tag_channel,1);
-  pub_offsets=n.advertise<AutoNav::offsets>(offsets_channel,1);
 
   last_z_IMU = -111;
   baseline_set = false;
@@ -132,7 +130,8 @@ void DroneKalmanFilter::clearTag()
 {
   ROS_INFO("Initializing tag-info now!");
   offsets_initialized = false;
-  roll_offset=pitch_offset=yaw_offset=x_offset=y_offset=z_offset=0;
+
+  initToMarker = tf::Transform(tf::Quaternion::getIdentity(),tf::Vector3(0,0,0));
 
   last_yaw = 0.0;
   last_z = 0.0;
@@ -442,38 +441,10 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
   /*end LOGGING*/
 }
 
-bool DroneKalmanFilter::observeTag(Vector6f pose)
+void DroneKalmanFilter::observeTag(Vector6f pose)
 {
-  //ROS_INFO("Tag observation now!");
-  if(!offsets_initialized)
-    sync_offsets(pose);
-
   /*LOGGING now*/
   AutoNav::obs_tag message;
-  message.roll_raw = pose(3);
-  message.pitch_raw = pose(4);
-  message.yaw_raw = pose(5);
-  /*end LOGGING*/
-
-  message.x_raw = pose(0);
-  message.y_raw = pose(1);
-
-  //project to global frame!
-  double yawRad = yaw.state(0)*3.14159268 / 180;
-  double rollRad = roll.state*3.14159268/180;
-  double pitchRad = pitch.state*3.14159268/180;
-
-  double x_global = (cos(yawRad)*pose(0) - sin(yawRad)*pose(1));
-  double y_global = (sin(yawRad)*pose(0) + cos(yawRad)*pose(1));
-  double z_global = pose(2)*cos(rollRad)*cos(pitchRad);
-
-  pose(0) = x_global;
-  pose(1) = y_global;
-  pose(2) = z_global;
-
-  pose = transformTagObservation(pose);
-  
-  /*begin LOGGING*/
 
   message.timestamp = getMS();
   message.x = pose(0);
@@ -498,12 +469,6 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
   message.vardy_pre = y.var(1,1);
   /*end LOGGING*/
 
-  /*PVFilter lastX = x;
-    PVFilter lastY = y;
-    PVFilter lastZ = z;
-    PFilter lastroll = roll;
-    PFilter lastpitch = pitch;
-    PVFilter lastyaw = yaw;*/
   bool reject  = false;
   lastPosesValid = true;
 
@@ -583,54 +548,6 @@ bool DroneKalmanFilter::observeTag(Vector6f pose)
   pub_obs_tag.publish(message);
   /*end LOGGING*/
 
-  /*if(reject)
-    {
-    ROS_INFO("Rejecting this observation");
-    x = lastX;
-    y = lastY;
-    z = lastZ;
-    roll = lastroll;
-    pitch = lastpitch;
-    yaw = lastyaw;
-    lastPosesValid = false;
-    }*/
-
-  return true;//(!reject);
-}
-
-void DroneKalmanFilter::sync_offsets(Vector6f pose)
-{
-  if(!offsets_initialized)
-    {
-      //ROS_INFO("Initializing Offsets now!");
-      x_offset = pose[0];
-      y_offset = pose[1];
-      z_offset = pose[2];
-
-      roll_offset = pose[3];
-      pitch_offset = pose[4];
-      yaw_offset = pose[5];
-
-      ROS_INFO("Offsets are: %lf,%lf,%lf,%lf,%lf,%lf",x_offset,y_offset,z_offset,roll_offset,pitch_offset,yaw_offset);
-      /*begin LOGGING*/
-      AutoNav::offsets message;
-      message.timestamp = getMS();
-      message.x = x_offset;
-      message.y = y_offset;
-      message.z = z_offset;
-      message.roll = roll_offset;
-      message.pitch = pitch_offset;
-      message.yaw = yaw_offset;
-      pub_offsets.publish(message);
-      /*end LOGGING*/
-
-      offsets_initialized = true;
-    }
-}
-
-Vector6f DroneKalmanFilter::transformTagObservation(Vector6f pose)
-{
-  return (pose-getCurrentOffsets());
 }
 
 void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControlGains)
@@ -829,15 +746,7 @@ Vector6f DroneKalmanFilter::getCurrentPoseVariances()
   return (Vector6f()<<x.var(0,0),y.var(0,0),z.var(0,0),roll.var,pitch.var,yaw.var(0,0)).finished();
 }
 
-Vector6f DroneKalmanFilter::getCurrentOffsets()
-{
-  if(offsets_initialized)
-    return (Vector6f()<<x_offset,y_offset,z_offset,roll_offset,pitch_offset,yaw_offset).finished();
-  else
-    return (Vector6f()<<0,0,0,0,0,0).finished();
-}
-
-void DroneKalmanFilter::addTag(Vector6f measurement,int corrStamp)
+void DroneKalmanFilter::addTag(tf::Transform droneToMarker,int corrStamp)
 {
   //ROS_INFO("Adding tag now!");
   if(corrStamp>predictedUpToTotal)
@@ -846,8 +755,32 @@ void DroneKalmanFilter::addTag(Vector6f measurement,int corrStamp)
       predictUpTo(corrStamp,true,true);
     }
 
-  if(!observeTag(measurement))
-    this->addFakeTag(corrStamp);
+  if(!offsets_initialized)
+    {
+      initToMarker = droneToMarker;
+      offsets_initialized = true;
+    }
+
+
+
+  if(offsets_initialized)
+    {
+      Vector6f measurement;
+
+      tf::Transform initToDrone = initToMarker*(droneToMarker.inverse());
+      double roll,pitch,yaw;
+
+      tf::Matrix3x3(initToDrone.getRotation()).getRPY(roll,pitch,yaw);
+
+      measurement(0) = initToDrone.getOrigin().x();
+      measurement(1) = initToDrone.getOrigin().y();
+      measurement(2) = initToDrone.getOrigin().z();
+      measurement(3) = roll * 180 / 3.14159265359;
+      measurement(4) = pitch * 180 / 3.14159265359;
+      measurement(5) = yaw * 180 / 3.14159265359;
+
+      observeTag(measurement);
+    }
 }
 
 void DroneKalmanFilter::addFakeTag(int timestamp)

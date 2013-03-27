@@ -18,6 +18,8 @@
     (:file "_package_obs_IMU_XYZ" :depends-on ("_package"))
     (:file "obs_IMU_RPY" :depends-on ("_package_obs_IMU_RPY"))
     (:file "_package_obs_IMU_RPY" :depends-on ("_package"))
+    (:file "eulerpose" :depends-on ("_package_eulerpose"))
+    (:file "_package_eulerpose" :depends-on ("_package"))
     (:file "obs_tag" :depends-on ("_package_obs_tag"))
     (:file "_package_obs_tag" :depends-on ("_package"))
     (:file "predictUpTo" :depends-on ("_package_predictUpTo"))

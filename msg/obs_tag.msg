@@ -3,12 +3,6 @@ uint32 seq
 
 int32 rejected
 
-float32 roll_raw
-float32 pitch_raw
-float32 yaw_raw
-float32 x_raw
-float32 y_raw
-
 # the observation
 float32 x
 float32 y

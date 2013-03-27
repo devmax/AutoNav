@@ -25,11 +25,6 @@ struct obs_tag_ {
   : timestamp(0)
   , seq(0)
   , rejected(0)
-  , roll_raw(0.0)
-  , pitch_raw(0.0)
-  , yaw_raw(0.0)
-  , x_raw(0.0)
-  , y_raw(0.0)
   , x(0.0)
   , y(0.0)
   , z(0.0)
@@ -71,11 +66,6 @@ struct obs_tag_ {
   : timestamp(0)
   , seq(0)
   , rejected(0)
-  , roll_raw(0.0)
-  , pitch_raw(0.0)
-  , yaw_raw(0.0)
-  , x_raw(0.0)
-  , y_raw(0.0)
   , x(0.0)
   , y(0.0)
   , z(0.0)
@@ -121,21 +111,6 @@ struct obs_tag_ {
 
   typedef int32_t _rejected_type;
   int32_t rejected;
-
-  typedef float _roll_raw_type;
-  float roll_raw;
-
-  typedef float _pitch_raw_type;
-  float pitch_raw;
-
-  typedef float _yaw_raw_type;
-  float yaw_raw;
-
-  typedef float _x_raw_type;
-  float x_raw;
-
-  typedef float _y_raw_type;
-  float y_raw;
 
   typedef float _x_type;
   float x;
@@ -268,12 +243,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::AutoNav::obs_tag_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "2b5b721e2f77825b8f51855b9f9f2419";
+    return "fcd0f6314e48f880df39fea74382ceda";
   }
 
   static const char* value(const  ::AutoNav::obs_tag_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0x2b5b721e2f77825bULL;
-  static const uint64_t static_value2 = 0x8f51855b9f9f2419ULL;
+  static const uint64_t static_value1 = 0xfcd0f6314e48f880ULL;
+  static const uint64_t static_value2 = 0xdf39fea74382cedaULL;
 };
 
 template<class ContainerAllocator>
@@ -294,12 +269,6 @@ struct Definition< ::AutoNav::obs_tag_<ContainerAllocator> > {
 uint32 seq\n\
 \n\
 int32 rejected\n\
-\n\
-float32 roll_raw\n\
-float32 pitch_raw\n\
-float32 yaw_raw\n\
-float32 x_raw\n\
-float32 y_raw\n\
 \n\
 # the observation\n\
 float32 x\n\
@@ -362,11 +331,6 @@ template<class ContainerAllocator> struct Serializer< ::AutoNav::obs_tag_<Contai
     stream.next(m.timestamp);
     stream.next(m.seq);
     stream.next(m.rejected);
-    stream.next(m.roll_raw);
-    stream.next(m.pitch_raw);
-    stream.next(m.yaw_raw);
-    stream.next(m.x_raw);
-    stream.next(m.y_raw);
     stream.next(m.x);
     stream.next(m.y);
     stream.next(m.z);
@@ -424,16 +388,6 @@ struct Printer< ::AutoNav::obs_tag_<ContainerAllocator> >
     Printer<uint32_t>::stream(s, indent + "  ", v.seq);
     s << indent << "rejected: ";
     Printer<int32_t>::stream(s, indent + "  ", v.rejected);
-    s << indent << "roll_raw: ";
-    Printer<float>::stream(s, indent + "  ", v.roll_raw);
-    s << indent << "pitch_raw: ";
-    Printer<float>::stream(s, indent + "  ", v.pitch_raw);
-    s << indent << "yaw_raw: ";
-    Printer<float>::stream(s, indent + "  ", v.yaw_raw);
-    s << indent << "x_raw: ";
-    Printer<float>::stream(s, indent + "  ", v.x_raw);
-    s << indent << "y_raw: ";
-    Printer<float>::stream(s, indent + "  ", v.y_raw);
     s << indent << "x: ";
     Printer<float>::stream(s, indent + "  ", v.x);
     s << indent << "y: ";

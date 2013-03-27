@@ -6,6 +6,32 @@
 
 #IncludeRegexTransform: 
 
+../msg_gen/cpp/include/AutoNav/eulerpose.h
+string
+-
+vector
+-
+map
+-
+ostream
+-
+ros/serialization.h
+../msg_gen/cpp/include/AutoNav/ros/serialization.h
+ros/builtin_message_traits.h
+../msg_gen/cpp/include/AutoNav/ros/builtin_message_traits.h
+ros/message_operations.h
+../msg_gen/cpp/include/AutoNav/ros/message_operations.h
+ros/time.h
+../msg_gen/cpp/include/AutoNav/ros/time.h
+ros/macros.h
+../msg_gen/cpp/include/AutoNav/ros/macros.h
+ros/assert.h
+../msg_gen/cpp/include/AutoNav/ros/assert.h
+geometry_msgs/Vector3.h
+../msg_gen/cpp/include/AutoNav/geometry_msgs/Vector3.h
+geometry_msgs/Vector3.h
+../msg_gen/cpp/include/AutoNav/geometry_msgs/Vector3.h
+
 /home/dev/ros/stacks/AutoNav/src/testQuatToRPY.cpp
 ros/ros.h
 -
@@ -27,6 +53,10 @@ ardrone_autonomy/Navdata.h
 /home/dev/ros/stacks/AutoNav/src/ardrone_autonomy/Navdata.h
 geometry_msgs/Point.h
 -
+geometry_msgs/Pose.h
+-
+AutoNav/eulerpose.h
+/home/dev/ros/stacks/AutoNav/src/AutoNav/eulerpose.h
 
 /home/dev/ros/stacks/ar_track_alvar/msg_gen/cpp/include/ar_track_alvar/AlvarMarker.h
 string

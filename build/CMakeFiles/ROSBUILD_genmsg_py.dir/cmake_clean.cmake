@@ -10,6 +10,7 @@ FILE(REMOVE_RECURSE
   "../src/AutoNav/msg/_control_commands.py"
   "../src/AutoNav/msg/_obs_IMU_XYZ.py"
   "../src/AutoNav/msg/_obs_IMU_RPY.py"
+  "../src/AutoNav/msg/_eulerpose.py"
   "../src/AutoNav/msg/_obs_tag.py"
   "../src/AutoNav/msg/_predictUpTo.py"
 )

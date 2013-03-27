@@ -9,6 +9,7 @@ FILE(REMOVE_RECURSE
   "../msg_gen/cpp/include/AutoNav/control_commands.h"
   "../msg_gen/cpp/include/AutoNav/obs_IMU_XYZ.h"
   "../msg_gen/cpp/include/AutoNav/obs_IMU_RPY.h"
+  "../msg_gen/cpp/include/AutoNav/eulerpose.h"
   "../msg_gen/cpp/include/AutoNav/obs_tag.h"
   "../msg_gen/cpp/include/AutoNav/predictUpTo.h"
 )

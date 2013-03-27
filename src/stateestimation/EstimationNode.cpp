@@ -59,29 +59,19 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 
       if(marker.id == 10)
 	{
-	  Vector6f measurement;
-	  tf::Quaternion quat;
-	  double roll,pitch,yaw;
-
-	  measurement(0)=-marker.pose.pose.position.x;
-	  measurement(1)=-marker.pose.pose.position.y;
-	  measurement(2)=-marker.pose.pose.position.z;
-
-	  tf::quaternionMsgToTF(marker.pose.pose.orientation,quat);
-	  tf::Matrix3x3(quat).getRPY(roll,pitch,yaw);
-	  measurement(3)=-pitch*180 / 3.14159268;
-	  measurement(4)=roll*180 / 3.14159268;
-	  measurement(5)=-yaw*180 / 3.14159268;
-	  ROS_DEBUG("rpy:%lf,%lf,%lf",measurement(3),measurement(4),measurement(5));
-      
 	  ros::Time stamp;
 	  if(ros::Time::now()-marker.pose.header.stamp > ros::Duration(30.0))
 	    stamp=ros::Time::now()-ros::Duration(0.001);
 	  else
 	    stamp=marker.pose.header.stamp;
 
+	  tf::Quaternion q;
+	  quaternionMsgToTF(marker.pose.pose.orientation,q);
+	  tf::Vector3 origin(marker.pose.pose.position.x,marker.pose.pose.position.y,marker.pose.pose.position.z);
+	  tf::Transform camToTag(q,origin);
+
 	  pthread_mutex_lock(&filter->filter_CS);
-	  filter->addTag(measurement,getMS(stamp)-filter->delayVideo);
+	  filter->addTag(camToTag,getMS(stamp)-filter->delayVideo);
 	  pthread_mutex_unlock(&filter->filter_CS);
 	}
     }
