@@ -11,6 +11,7 @@
 #include <string>
 #include "AutoNav/control_commands.h"
 #include "AutoNav/filter_state.h"
+#include "../HelperFunction.h"
 
 typedef Eigen::Matrix<float,4,1> Vector4f;
 
@@ -47,9 +48,6 @@ class Controller
  private:
   Position goal;
 
-  int hoverCount;
-  geometry_msgs::Twist hoverCmd;
-
   ros::NodeHandle nh;
 
   ros::Publisher cmd_pub;
@@ -64,6 +62,10 @@ class Controller
   PID gaz;
   PID yaw;
 
+  double initStayDist,stayWithinDist;
+  int stayTimeMS,initReachClock;
+  bool reached;
+
   double min_rp;
   double max_rp;
 
@@ -75,10 +77,10 @@ class Controller
 
   Controller();
   void setGoal(Position newGoal);
-  int clearGoal();
-  int sendControl(geometry_msgs::Twist cmd);
+  void clearGoal();
+  void sendControl(geometry_msgs::Twist cmd);
   geometry_msgs::Twist calcControl(Vector4f error,Vector4f d_error,double cur_yaw);
-  int update(const AutoNav::filter_stateConstPtr state);
+  bool update(const AutoNav::filter_stateConstPtr state);
 
 };
 

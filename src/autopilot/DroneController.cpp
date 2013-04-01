@@ -19,45 +19,20 @@ Controller::Controller()
   cmd_pub = nh.advertise<geometry_msgs::Twist>(velocity_channel,1);
   log_control_commands = nh.advertise<AutoNav::control_commands>(log_control_commands_channel,1);
 
-  hoverCount = 0;
-
-  hoverCmd.linear.x = hoverCmd.linear.y = hoverCmd.linear.z = hoverCmd.angular.z = 0;
-  hoverCmd.angular.x = hoverCmd.angular.y = 0;
+  reached = false;
 }
 
 void Controller::setGoal(Position newGoal)
 {
   ROS_INFO("Accepting new goal of (%lf,%lf,%lf,%lf)",newGoal.x,newGoal.y,newGoal.z,newGoal.yaw);
   goal = newGoal;
+
+  reached = false;
 }
 
-int Controller::sendControl(geometry_msgs::Twist cmd)
+void Controller::sendControl(geometry_msgs::Twist cmd)
 {
-  //ROS_INFO("Received (%lf,%lf,%lf,%lf)",cmd.linear.x,cmd.linear.y,cmd.linear.z,cmd.angular.z);
-  //cmd.linear.x = cmd.linear.y = cmd.linear.z = cmd.angular.z = 0.0;
-  //cmd.angular.x = cmd.angular.y = 1.0;
-
-  if(std::abs(cmd.linear.x)<min_rp && std::abs(cmd.linear.y)<min_rp && std::abs(cmd.linear.z)<min_gaz && std::abs(cmd.angular.z)<min_yaw)
-    {
-      //ROS_INFO("Sending pseudo hover!");
-      hoverCount++;
-      cmd_pub.publish(hoverCmd);//hoverCmd);
-    }
-  else
-    {
-      hoverCount = 0;
-      cmd_pub.publish(cmd);
-    }
-  
-  if(hoverCount<20)
-    {
-      return 0;
-    }
-  else
-    {
-      return 1;
-    }
-  
+  cmd_pub.publish(cmd);
 }
 
 geometry_msgs::Twist Controller::calcControl(Vector4f error,Vector4f d_error,double cur_yaw)
@@ -125,14 +100,15 @@ geometry_msgs::Twist Controller::calcControl(Vector4f error,Vector4f d_error,dou
   return command;
 }
 
-int Controller::clearGoal()
+void Controller::clearGoal()
 {
   geometry_msgs::Twist hover;
   hover.linear.x = hover.linear.y = hover.linear.z = hover.angular.x = hover.angular.y = hover.angular.z = 0.0;
-  return sendControl(hover);
+  reached = false;
+  sendControl(hover);
 }
 
-int Controller::update(const AutoNav::filter_stateConstPtr state)
+bool Controller::update(const AutoNav::filter_stateConstPtr state)
 {
   Vector4f error,d_error;
 
@@ -146,5 +122,28 @@ int Controller::update(const AutoNav::filter_stateConstPtr state)
   d_error(2) = -state->dz;
   d_error(3) = -state->dyaw;
 
-  return sendControl(calcControl(error,d_error,state->yaw));
+  sendControl(calcControl(error,d_error,state->yaw));
+
+  if(reached && (getMS()-initReachClock) > stayTimeMS)
+    {
+      //ROS_INFO("Checkpoint done!");
+      return true;
+    }
+
+  double squaredDistError = error(0)*error(0) + error(1)*error(1);
+
+  if(!reached && squaredDistError<(initStayDist*initStayDist) && std::abs(error(3))<5)
+    {
+      reached = true;
+      initReachClock = getMS();
+      ROS_INFO("Reached buffer zone for target, waiting for stable hover!");
+    }
+
+  if(reached && (squaredDistError>(stayWithinDist*stayWithinDist) || std::abs(error(3))>5))
+    {
+      reached = false;
+      ROS_INFO("Revoking reached status...");
+    }
+
+  return false;
 }

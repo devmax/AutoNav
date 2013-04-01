@@ -12,14 +12,21 @@ ControlNode::ControlNode()
 
   //filling in coordinates of house!
 
+  //  house.push_back(Position(0,-1,0,0)); //move right
   house.push_back(Position(0,-2,0,0)); //move right
+  //  house.push_back(Position(-1,-2,0,0)); //move backward
   house.push_back(Position(-2,-2,0,0)); //move backward
+  //  house.push_back(Position(-2,-1,0,0)); //move left
   house.push_back(Position(-2,0,0,0)); //move left
+  //  house.push_back(Position(-1,0,0,0)); //move forward
   house.push_back(Position(0,0,0,0)); //move forward
+  house.push_back(Position(-1,-1,0,0)); //move backward, right diagonally
   house.push_back(Position(-2,-2,0,0)); //move backward, right diagonally
-  house.push_back(Position(-3,-1,0,0)); //move backward,left diagonally (roof)
-  house.push_back(Position(-2,0,0,0)); //move forward,left diagonally (roof)
-  house.push_back(Position(0,-2,0,0)); //move forward,right diagonally
+  //  house.push_back(Position(-2,-1,0,0)); //move left
+  house.push_back(Position(-2,0,0,0)); //move left
+  house.push_back(Position(-1,-1,0,0)); //move forward, right diagonally
+  house.push_back(Position(0,-2,0,0)); //move forward, right diagonally
+  //  house.push_back(Position(0,-1,0,0)); //move left
   house.push_back(Position(0,0,0,0)); //move left
 
   seq = house.begin();
@@ -132,6 +139,10 @@ void ControlNode::dynConfCB(AutoNav::AutopilotParamsConfig &config,uint32_t leve
   controller.max_rp = config.max_rp;
   controller.min_gaz = config.min_gaz;
   controller.max_gaz = config.max_gaz_rise;
+
+  controller.initStayDist = config.initStayDist;
+  controller.stayWithinDist = config.stayWithinDist;
+  controller.stayTimeMS = config.stayTimeMS;
 
   ROS_INFO("After dynConfg, Kp,Ki,Kd are:%lf,%lf,%lf",controller.rp.Kp,controller.rp.Ki,controller.rp.Kd);
 }

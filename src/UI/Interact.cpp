@@ -27,6 +27,7 @@ void Interact::start()
   interactive_markers::MenuHandler::EntryHandle sub_menu_handle = menu_handler.insert("Set");
   menu_handler.insert(sub_menu_handle,"Flat Trim",processFeedback);
   menu_handler.insert(sub_menu_handle,"Reset State",processFeedback);
+  menu_handler.insert("Figure",processFeedback);
 
   menu_handler_manual.insert("Takeoff",processFeedback);
   menu_handler_manual.insert("Land",processFeedback);
@@ -92,6 +93,9 @@ void processFeedback(const visualization_msgs::InteractiveMarkerFeedbackConstPtr
 	      break;
 	    case 7:
 	      marker_interact.rosthread->sendToggleState();
+	      break;
+	    case 8:
+	      marker_interact.rosthread->housefigure();
 	      break;
 	    }
 	  break;

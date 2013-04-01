@@ -208,6 +208,8 @@ class DroneKalmanFilter
 
   bool lastPosesValid,yaw_offset_initialized,last_yaw_valid;
 
+  double lastX,lastY,lastZ;
+
   tf::Transform initToMarker;
 
   double last_yaw_IMU;

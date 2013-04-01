@@ -280,6 +280,9 @@ class DEFAULT
         if("Kp_rp"==(*i)->name){Kp_rp = boost::any_cast<double>(val);}
         if("min_rp"==(*i)->name){min_rp = boost::any_cast<double>(val);}
         if("max_rp"==(*i)->name){max_rp = boost::any_cast<double>(val);}
+        if("initStayDist"==(*i)->name){initStayDist = boost::any_cast<double>(val);}
+        if("stayWithinDist"==(*i)->name){stayWithinDist = boost::any_cast<double>(val);}
+        if("stayTimeMS"==(*i)->name){stayTimeMS = boost::any_cast<int>(val);}
       }
     }
 
@@ -300,6 +303,9 @@ double Kd_rp;
 double Kp_rp;
 double min_rp;
 double max_rp;
+double initStayDist;
+double stayWithinDist;
+int stayTimeMS;
 
     bool state;
     std::string name;
@@ -343,6 +349,12 @@ double max_rp;
       double min_rp;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       double max_rp;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      double initStayDist;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      double stayWithinDist;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      int stayTimeMS;
 //#line 255 "/opt/ros/fuerte/stacks/dynamic_reconfigure/templates/ConfigType.h"
 
     bool __fromMessage__(dynamic_reconfigure::Config &msg)
@@ -613,7 +625,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.Kd_rp = 1.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.Kd_rp = 0.21;
+      __default__.Kd_rp = 0.26;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("Kd_rp", "double", 0, "PID control parameter", "", &AutopilotParamsConfig::Kd_rp)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -623,7 +635,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.Kp_rp = 1.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.Kp_rp = 0.32;
+      __default__.Kp_rp = 0.3;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("Kp_rp", "double", 0, "PID control parameter", "", &AutopilotParamsConfig::Kp_rp)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -648,6 +660,36 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("max_rp", "double", 0, "max roll/pitch control sent.", "", &AutopilotParamsConfig::max_rp)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __param_descriptions__.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("max_rp", "double", 0, "max roll/pitch control sent.", "", &AutopilotParamsConfig::max_rp)));
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __min__.initStayDist = 0.0;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __max__.initStayDist = 0.6;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __default__.initStayDist = 0.2;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("initStayDist", "double", 0, "Radius of Buffer Zone", "", &AutopilotParamsConfig::initStayDist)));
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("initStayDist", "double", 0, "Radius of Buffer Zone", "", &AutopilotParamsConfig::initStayDist)));
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __min__.stayWithinDist = 0.0;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __max__.stayWithinDist = 1.0;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __default__.stayWithinDist = 0.5;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("stayWithinDist", "double", 0, "Radius of Zone to stay in after reaching initially", "", &AutopilotParamsConfig::stayWithinDist)));
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("stayWithinDist", "double", 0, "Radius of Zone to stay in after reaching initially", "", &AutopilotParamsConfig::stayWithinDist)));
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __min__.stayTimeMS = 0;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __max__.stayTimeMS = 3000;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __default__.stayTimeMS = 1500;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<int>("stayTimeMS", "int", 0, "Time to hover in ms", "", &AutopilotParamsConfig::stayTimeMS)));
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<int>("stayTimeMS", "int", 0, "Time to hover in ms", "", &AutopilotParamsConfig::stayTimeMS)));
 //#line 233 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.convertParams();
 //#line 233 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
