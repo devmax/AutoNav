@@ -172,14 +172,6 @@ stdlib.h
 ros/ros.h
 -
 
-/home/dev/ros/stacks/AutoNav/src/stateestimation/DroneKalmanFilter.cpp
-DroneKalmanFilter.h
-/home/dev/ros/stacks/AutoNav/src/stateestimation/DroneKalmanFilter.h
-EstimationNode.h
-/home/dev/ros/stacks/AutoNav/src/stateestimation/EstimationNode.h
-math.h
--
-
 /home/dev/ros/stacks/AutoNav/src/stateestimation/DroneKalmanFilter.h
 Eigen/Core
 -
@@ -222,6 +214,16 @@ tf/tfMessage.h
 tf/transform_listener.h
 -
 tf/transform_broadcaster.h
+-
+
+/home/dev/ros/stacks/AutoNav/src/stateestimation/EstimationNode.cpp
+EstimationNode.h
+/home/dev/ros/stacks/AutoNav/src/stateestimation/EstimationNode.h
+DroneKalmanFilter.h
+/home/dev/ros/stacks/AutoNav/src/stateestimation/DroneKalmanFilter.h
+deque
+/home/dev/ros/stacks/AutoNav/src/stateestimation/deque
+string
 -
 
 /home/dev/ros/stacks/AutoNav/src/stateestimation/EstimationNode.h

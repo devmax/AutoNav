@@ -3,7 +3,7 @@
 #include<math.h>
 
 // constants (variances assumed to be present)
-const double varSpeedObservation_xy = 1.6*1.6;
+const double varSpeedObservation_xy = 1*1;
 const double varPoseObservation_xy = 0.3*0.3;
 const double varAccelerationError_xy = 8*8;
 

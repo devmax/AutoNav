@@ -160,6 +160,7 @@ void ControlNode::Loop()
 
 void ControlNode::beginHover(Position goal)
 {
+  goal.yaw = 0;
   controller.setGoal(goal);
   goalSet = true;
   //ROS_INFO("goal set as (%lf,%lf,%lf,%lf)",goal.x,goal.y,goal.z,goal.yaw);

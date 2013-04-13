@@ -57,7 +57,7 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
     {
       ar_track_alvar::AlvarMarker marker=msg.markers[i];
 
-      if(marker.id == 10)
+      if(marker.id == 11)
 	{
 	  ros::Time stamp;
 	  if(ros::Time::now()-marker.pose.header.stamp > ros::Duration(30.0))
