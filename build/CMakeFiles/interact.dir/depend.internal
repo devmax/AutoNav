@@ -7,6 +7,7 @@ CMakeFiles/interact.dir/src/UI/Interact.o
  /home/dev/ros/stacks/AutoNav/src/UI/Interact.cpp
  /home/dev/ros/stacks/AutoNav/src/UI/Interact.h
  /home/dev/ros/stacks/AutoNav/src/UI/ThreadROS.h
+ /home/dev/ros/stacks/ar_track_alvar/msg_gen/cpp/include/ar_track_alvar/AlvarMarker.h
  /opt/ros/fuerte/include/XmlRpcDecl.h
  /opt/ros/fuerte/include/XmlRpcValue.h
  /opt/ros/fuerte/include/geometry_msgs/Point.h
@@ -122,6 +123,7 @@ CMakeFiles/interact.dir/src/UI/ThreadROS.o
  /home/dev/ros/stacks/AutoNav/src/UI/Interact.h
  /home/dev/ros/stacks/AutoNav/src/UI/ThreadROS.cpp
  /home/dev/ros/stacks/AutoNav/src/UI/ThreadROS.h
+ /home/dev/ros/stacks/ar_track_alvar/msg_gen/cpp/include/ar_track_alvar/AlvarMarker.h
  /opt/ros/fuerte/include/XmlRpcDecl.h
  /opt/ros/fuerte/include/XmlRpcValue.h
  /opt/ros/fuerte/include/geometry_msgs/Point.h
@@ -237,6 +239,7 @@ CMakeFiles/interact.dir/src/UI/main_Interact.o
  /home/dev/ros/stacks/AutoNav/src/UI/Interact.h
  /home/dev/ros/stacks/AutoNav/src/UI/ThreadROS.h
  /home/dev/ros/stacks/AutoNav/src/UI/main_Interact.cpp
+ /home/dev/ros/stacks/ar_track_alvar/msg_gen/cpp/include/ar_track_alvar/AlvarMarker.h
  /opt/ros/fuerte/include/XmlRpcDecl.h
  /opt/ros/fuerte/include/XmlRpcValue.h
  /opt/ros/fuerte/include/geometry_msgs/Point.h

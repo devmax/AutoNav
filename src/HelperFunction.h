@@ -20,8 +20,8 @@ inline static int getMS(ros::Time stamp = ros::Time::now())
   int mss = (stamp.sec - ros_header_timestamp_base) * 1000 + stamp.nsec/1000000;
 
   //ROS_INFO("getMS for %d.%d = %d",stamp.sec,stamp.nsec,mss);
-  if(mss < 0)
-    ROS_INFO("ERROR: negative timestamp for %d.%d=%d",stamp.sec,stamp.nsec,mss);
+  //  if(mss < 0)
+    //    ROS_INFO("ERROR: negative timestamp for %d.%d=%d",stamp.sec,stamp.nsec,mss);
   return mss;
 }
 

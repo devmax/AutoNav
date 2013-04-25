@@ -595,7 +595,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.max_gaz_rise = 1.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.max_gaz_rise = 0.0;
+      __default__.max_gaz_rise = 0.8;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("max_gaz_rise", "double", 0, "max. (positive) gaz control sent.", "", &AutopilotParamsConfig::max_gaz_rise)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -605,7 +605,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.max_gaz_drop = 0.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.max_gaz_drop = 0.0;
+      __default__.max_gaz_drop = -0.25;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("max_gaz_drop", "double", 0, "max. (negative) gaz control sent.", "", &AutopilotParamsConfig::max_gaz_drop)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -625,7 +625,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.Kd_rp = 1.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.Kd_rp = 0.26;
+      __default__.Kd_rp = 0.3;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("Kd_rp", "double", 0, "PID control parameter", "", &AutopilotParamsConfig::Kd_rp)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -665,7 +665,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.initStayDist = 0.6;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.initStayDist = 0.2;
+      __default__.initStayDist = 0.18;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("initStayDist", "double", 0, "Radius of Buffer Zone", "", &AutopilotParamsConfig::initStayDist)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -675,7 +675,7 @@ AutopilotParamsConfig::GroupDescription<AutopilotParamsConfig::DEFAULT, Autopilo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __max__.stayWithinDist = 1.0;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.stayWithinDist = 0.5;
+      __default__.stayWithinDist = 0.35;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(AutopilotParamsConfig::AbstractParamDescriptionConstPtr(new AutopilotParamsConfig::ParamDescription<double>("stayWithinDist", "double", 0, "Radius of Zone to stay in after reaching initially", "", &AutopilotParamsConfig::stayWithinDist)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"

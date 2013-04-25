@@ -96,6 +96,10 @@ std_msgs/String.h
 vector
 -
 
+/home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.cpp
+DroneController.h
+/home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.h
+
 /home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.h
 ros/ros.h
 -
@@ -115,6 +119,12 @@ AutoNav/filter_state.h
 /home/dev/ros/stacks/AutoNav/src/autopilot/AutoNav/filter_state.h
 ../HelperFunction.h
 /home/dev/ros/stacks/AutoNav/src/autopilot/../HelperFunction.h
+
+/home/dev/ros/stacks/AutoNav/src/autopilot/main_autopilot.cpp
+ControlNode.h
+/home/dev/ros/stacks/AutoNav/src/autopilot/ControlNode.h
+ros/ros.h
+-
 
 /opt/ros/fuerte/include/XmlRpcDecl.h
 ros/macros.h

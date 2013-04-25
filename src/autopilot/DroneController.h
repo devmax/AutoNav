@@ -55,7 +55,10 @@ class Controller
 
   std::string velocity_channel;
   std::string log_control_commands_channel;
-
+  
+  double lastTimeStamp;
+  double i_term;
+  double last_error;
  public:
 
   PID rp;
@@ -75,13 +78,15 @@ class Controller
   double min_yaw;
   double max_yaw;
 
+  double rise_fac;
+
   Controller();
   void setGoal(Position newGoal);
   void clearGoal();
   void sendControl(geometry_msgs::Twist cmd);
   geometry_msgs::Twist calcControl(Vector4f error,Vector4f d_error,double cur_yaw);
   bool update(const AutoNav::filter_stateConstPtr state);
-
+  void i_increase(double new_err,double cap);
 };
 
 #endif //DroneController.h

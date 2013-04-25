@@ -83,6 +83,12 @@ void Rthread::revertmanual()
   command_pub.publish(command);
 }
 
+void Rthread::gotoOrigin()
+{
+  std_msgs::String command;
+  command.data = "origin";
+  command_pub.publish(command);
+}
 void Rthread::publishCommand(Position move)
 {
   if(std::abs(move.x) > 0.1 || std::abs(move.y) > 0.1 || std::abs(move.z) > 0.1 || std::abs(move.yaw) > 5)

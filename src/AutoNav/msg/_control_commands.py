@@ -6,7 +6,7 @@ import struct
 
 
 class control_commands(genpy.Message):
-  _md5sum = "89daaa5cf29061dcd0b2da457fee8393"
+  _md5sum = "3db3fa1a97fcb89b635a0c8cfbc2484b"
   _type = "AutoNav/control_commands"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """
@@ -33,13 +33,15 @@ float32 dterm_y
 float32 dterm_z
 float32 dterm_yaw
 
+float32 iterm_z
+
 float32 vel_x
 float32 vel_y
 float32 vel_z
 float32 vel_yaw
 """
-  __slots__ = ['error_x','error_y','error_z','error_yaw','d_error_x','d_error_y','d_error_z','d_error_yaw','proj_error_x','proj_error_y','pterm_x','pterm_y','pterm_z','pterm_yaw','dterm_x','dterm_y','dterm_z','dterm_yaw','vel_x','vel_y','vel_z','vel_yaw']
-  _slot_types = ['float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32']
+  __slots__ = ['error_x','error_y','error_z','error_yaw','d_error_x','d_error_y','d_error_z','d_error_yaw','proj_error_x','proj_error_y','pterm_x','pterm_y','pterm_z','pterm_yaw','dterm_x','dterm_y','dterm_z','dterm_yaw','iterm_z','vel_x','vel_y','vel_z','vel_yaw']
+  _slot_types = ['float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -49,7 +51,7 @@ float32 vel_yaw
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       error_x,error_y,error_z,error_yaw,d_error_x,d_error_y,d_error_z,d_error_yaw,proj_error_x,proj_error_y,pterm_x,pterm_y,pterm_z,pterm_yaw,dterm_x,dterm_y,dterm_z,dterm_yaw,vel_x,vel_y,vel_z,vel_yaw
+       error_x,error_y,error_z,error_yaw,d_error_x,d_error_y,d_error_z,d_error_yaw,proj_error_x,proj_error_y,pterm_x,pterm_y,pterm_z,pterm_yaw,dterm_x,dterm_y,dterm_z,dterm_yaw,iterm_z,vel_x,vel_y,vel_z,vel_yaw
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -94,6 +96,8 @@ float32 vel_yaw
         self.dterm_z = 0.
       if self.dterm_yaw is None:
         self.dterm_yaw = 0.
+      if self.iterm_z is None:
+        self.iterm_z = 0.
       if self.vel_x is None:
         self.vel_x = 0.
       if self.vel_y is None:
@@ -121,6 +125,7 @@ float32 vel_yaw
       self.dterm_y = 0.
       self.dterm_z = 0.
       self.dterm_yaw = 0.
+      self.iterm_z = 0.
       self.vel_x = 0.
       self.vel_y = 0.
       self.vel_z = 0.
@@ -139,7 +144,7 @@ float32 vel_yaw
     """
     try:
       _x = self
-      buff.write(_struct_22f.pack(_x.error_x, _x.error_y, _x.error_z, _x.error_yaw, _x.d_error_x, _x.d_error_y, _x.d_error_z, _x.d_error_yaw, _x.proj_error_x, _x.proj_error_y, _x.pterm_x, _x.pterm_y, _x.pterm_z, _x.pterm_yaw, _x.dterm_x, _x.dterm_y, _x.dterm_z, _x.dterm_yaw, _x.vel_x, _x.vel_y, _x.vel_z, _x.vel_yaw))
+      buff.write(_struct_23f.pack(_x.error_x, _x.error_y, _x.error_z, _x.error_yaw, _x.d_error_x, _x.d_error_y, _x.d_error_z, _x.d_error_yaw, _x.proj_error_x, _x.proj_error_y, _x.pterm_x, _x.pterm_y, _x.pterm_z, _x.pterm_yaw, _x.dterm_x, _x.dterm_y, _x.dterm_z, _x.dterm_yaw, _x.iterm_z, _x.vel_x, _x.vel_y, _x.vel_z, _x.vel_yaw))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -152,8 +157,8 @@ float32 vel_yaw
       end = 0
       _x = self
       start = end
-      end += 88
-      (_x.error_x, _x.error_y, _x.error_z, _x.error_yaw, _x.d_error_x, _x.d_error_y, _x.d_error_z, _x.d_error_yaw, _x.proj_error_x, _x.proj_error_y, _x.pterm_x, _x.pterm_y, _x.pterm_z, _x.pterm_yaw, _x.dterm_x, _x.dterm_y, _x.dterm_z, _x.dterm_yaw, _x.vel_x, _x.vel_y, _x.vel_z, _x.vel_yaw,) = _struct_22f.unpack(str[start:end])
+      end += 92
+      (_x.error_x, _x.error_y, _x.error_z, _x.error_yaw, _x.d_error_x, _x.d_error_y, _x.d_error_z, _x.d_error_yaw, _x.proj_error_x, _x.proj_error_y, _x.pterm_x, _x.pterm_y, _x.pterm_z, _x.pterm_yaw, _x.dterm_x, _x.dterm_y, _x.dterm_z, _x.dterm_yaw, _x.iterm_z, _x.vel_x, _x.vel_y, _x.vel_z, _x.vel_yaw,) = _struct_23f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -167,7 +172,7 @@ float32 vel_yaw
     """
     try:
       _x = self
-      buff.write(_struct_22f.pack(_x.error_x, _x.error_y, _x.error_z, _x.error_yaw, _x.d_error_x, _x.d_error_y, _x.d_error_z, _x.d_error_yaw, _x.proj_error_x, _x.proj_error_y, _x.pterm_x, _x.pterm_y, _x.pterm_z, _x.pterm_yaw, _x.dterm_x, _x.dterm_y, _x.dterm_z, _x.dterm_yaw, _x.vel_x, _x.vel_y, _x.vel_z, _x.vel_yaw))
+      buff.write(_struct_23f.pack(_x.error_x, _x.error_y, _x.error_z, _x.error_yaw, _x.d_error_x, _x.d_error_y, _x.d_error_z, _x.d_error_yaw, _x.proj_error_x, _x.proj_error_y, _x.pterm_x, _x.pterm_y, _x.pterm_z, _x.pterm_yaw, _x.dterm_x, _x.dterm_y, _x.dterm_z, _x.dterm_yaw, _x.iterm_z, _x.vel_x, _x.vel_y, _x.vel_z, _x.vel_yaw))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -181,11 +186,11 @@ float32 vel_yaw
       end = 0
       _x = self
       start = end
-      end += 88
-      (_x.error_x, _x.error_y, _x.error_z, _x.error_yaw, _x.d_error_x, _x.d_error_y, _x.d_error_z, _x.d_error_yaw, _x.proj_error_x, _x.proj_error_y, _x.pterm_x, _x.pterm_y, _x.pterm_z, _x.pterm_yaw, _x.dterm_x, _x.dterm_y, _x.dterm_z, _x.dterm_yaw, _x.vel_x, _x.vel_y, _x.vel_z, _x.vel_yaw,) = _struct_22f.unpack(str[start:end])
+      end += 92
+      (_x.error_x, _x.error_y, _x.error_z, _x.error_yaw, _x.d_error_x, _x.d_error_y, _x.d_error_z, _x.d_error_yaw, _x.proj_error_x, _x.proj_error_y, _x.pterm_x, _x.pterm_y, _x.pterm_z, _x.pterm_yaw, _x.dterm_x, _x.dterm_y, _x.dterm_z, _x.dterm_yaw, _x.iterm_z, _x.vel_x, _x.vel_y, _x.vel_z, _x.vel_yaw,) = _struct_23f.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_22f = struct.Struct("<22f")
+_struct_23f = struct.Struct("<23f")

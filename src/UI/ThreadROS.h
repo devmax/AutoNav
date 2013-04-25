@@ -55,6 +55,7 @@ class Rthread : private CVD::Thread
   void publishCommand(Position move);
   void sendTakeOff();
   void housefigure();
+  void gotoOrigin();
   void sendLand();
   void sendToggleState();
   void sendFlatTrim();

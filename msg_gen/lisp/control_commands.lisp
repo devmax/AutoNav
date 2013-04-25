@@ -97,6 +97,11 @@
     :initarg :dterm_yaw
     :type cl:float
     :initform 0.0)
+   (iterm_z
+    :reader iterm_z
+    :initarg :iterm_z
+    :type cl:float
+    :initform 0.0)
    (vel_x
     :reader vel_x
     :initarg :vel_x
@@ -217,6 +222,11 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:dterm_yaw-val is deprecated.  Use AutoNav-msg:dterm_yaw instead.")
   (dterm_yaw m))
 
+(cl:ensure-generic-function 'iterm_z-val :lambda-list '(m))
+(cl:defmethod iterm_z-val ((m <control_commands>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:iterm_z-val is deprecated.  Use AutoNav-msg:iterm_z instead.")
+  (iterm_z m))
+
 (cl:ensure-generic-function 'vel_x-val :lambda-list '(m))
 (cl:defmethod vel_x-val ((m <control_commands>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader AutoNav-msg:vel_x-val is deprecated.  Use AutoNav-msg:vel_x instead.")
@@ -324,6 +334,11 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
   (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'dterm_yaw))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'iterm_z))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -464,6 +479,12 @@
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'iterm_z) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'vel_x) (roslisp-utils:decode-single-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
@@ -493,18 +514,19 @@
   "AutoNav/control_commands")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<control_commands>)))
   "Returns md5sum for a message object of type '<control_commands>"
-  "89daaa5cf29061dcd0b2da457fee8393")
+  "3db3fa1a97fcb89b635a0c8cfbc2484b")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'control_commands)))
   "Returns md5sum for a message object of type 'control_commands"
-  "89daaa5cf29061dcd0b2da457fee8393")
+  "3db3fa1a97fcb89b635a0c8cfbc2484b")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<control_commands>)))
   "Returns full string definition for message of type '<control_commands>"
-  (cl:format cl:nil "~%float32 error_x~%float32 error_y~%float32 error_z~%float32 error_yaw~%~%float32 d_error_x~%float32 d_error_y~%float32 d_error_z~%float32 d_error_yaw~%~%float32 proj_error_x~%float32 proj_error_y~%~%float32 pterm_x~%float32 pterm_y~%float32 pterm_z~%float32 pterm_yaw~%~%float32 dterm_x~%float32 dterm_y~%float32 dterm_z~%float32 dterm_yaw~%~%float32 vel_x~%float32 vel_y~%float32 vel_z~%float32 vel_yaw~%~%"))
+  (cl:format cl:nil "~%float32 error_x~%float32 error_y~%float32 error_z~%float32 error_yaw~%~%float32 d_error_x~%float32 d_error_y~%float32 d_error_z~%float32 d_error_yaw~%~%float32 proj_error_x~%float32 proj_error_y~%~%float32 pterm_x~%float32 pterm_y~%float32 pterm_z~%float32 pterm_yaw~%~%float32 dterm_x~%float32 dterm_y~%float32 dterm_z~%float32 dterm_yaw~%~%float32 iterm_z~%~%float32 vel_x~%float32 vel_y~%float32 vel_z~%float32 vel_yaw~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'control_commands)))
   "Returns full string definition for message of type 'control_commands"
-  (cl:format cl:nil "~%float32 error_x~%float32 error_y~%float32 error_z~%float32 error_yaw~%~%float32 d_error_x~%float32 d_error_y~%float32 d_error_z~%float32 d_error_yaw~%~%float32 proj_error_x~%float32 proj_error_y~%~%float32 pterm_x~%float32 pterm_y~%float32 pterm_z~%float32 pterm_yaw~%~%float32 dterm_x~%float32 dterm_y~%float32 dterm_z~%float32 dterm_yaw~%~%float32 vel_x~%float32 vel_y~%float32 vel_z~%float32 vel_yaw~%~%"))
+  (cl:format cl:nil "~%float32 error_x~%float32 error_y~%float32 error_z~%float32 error_yaw~%~%float32 d_error_x~%float32 d_error_y~%float32 d_error_z~%float32 d_error_yaw~%~%float32 proj_error_x~%float32 proj_error_y~%~%float32 pterm_x~%float32 pterm_y~%float32 pterm_z~%float32 pterm_yaw~%~%float32 dterm_x~%float32 dterm_y~%float32 dterm_z~%float32 dterm_yaw~%~%float32 iterm_z~%~%float32 vel_x~%float32 vel_y~%float32 vel_z~%float32 vel_yaw~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <control_commands>))
   (cl:+ 0
+     4
      4
      4
      4
@@ -549,6 +571,7 @@
     (cl:cons ':dterm_y (dterm_y msg))
     (cl:cons ':dterm_z (dterm_z msg))
     (cl:cons ':dterm_yaw (dterm_yaw msg))
+    (cl:cons ':iterm_z (iterm_z msg))
     (cl:cons ':vel_x (vel_x msg))
     (cl:cons ':vel_y (vel_y msg))
     (cl:cons ':vel_z (vel_z msg))

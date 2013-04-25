@@ -22,6 +22,8 @@ float32 dterm_y
 float32 dterm_z
 float32 dterm_yaw
 
+float32 iterm_z
+
 float32 vel_x
 float32 vel_y
 float32 vel_z

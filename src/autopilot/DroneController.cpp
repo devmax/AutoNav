@@ -19,7 +19,21 @@ Controller::Controller()
   cmd_pub = nh.advertise<geometry_msgs::Twist>(velocity_channel,1);
   log_control_commands = nh.advertise<AutoNav::control_commands>(log_control_commands_channel,1);
 
+  lastTimeStamp = 0;
+  i_term =0;
   reached = false;
+}
+
+void Controller::i_increase(double new_err,double cap)
+{
+  if(new_err < 0 && i_term>0)
+    i_term = std::max(0.0,i_term + 2.5*new_err);
+  else if(new_err>0 && i_term<0)
+    i_term = std::min(0.0,i_term + 2.5*new_err);
+  else
+    i_term+=new_err;
+
+  i_term = std::max(-cap,std::min(i_term,cap));
 }
 
 void Controller::setGoal(Position newGoal)
@@ -63,6 +77,15 @@ geometry_msgs::Twist Controller::calcControl(Vector4f error,Vector4f d_error,dou
   message.proj_error_x = p_term(0);
   message.proj_error_y = p_term(1);
 
+  double sec = getMS()/1000 - lastTimeStamp;
+  lastTimeStamp = getMS()/1000;
+  i_increase(error(2)*sec,0.2f/gaz.Ki);
+
+  if(last_error*error(2)<0)
+    i_term = 0;
+
+  last_error = error(2);
+
   double gain_pX = p_term(0)*rp.Kp;
   double gain_pY  = p_term(1)*rp.Kp;
   double gain_pZ = p_term(2)*gaz.Kp;
@@ -72,12 +95,15 @@ geometry_msgs::Twist Controller::calcControl(Vector4f error,Vector4f d_error,dou
   double gain_dY= d_term(1)*rp.Kd;
   double gain_dZ = d_term(2)*gaz.Kd;
   double gain_dYaw = d_term(3)*yaw.Kd;
+  
+  double gain_iZ = i_term*gaz.Ki;
 
   geometry_msgs::Twist command;
 
   command.linear.x = std::max(-max_rp,std::min(max_rp,(double)(gain_pX+gain_dX)));
   command.linear.y = std::max(-max_rp,std::min(max_rp,(double)(gain_pY+gain_dY)));
-  command.linear.z = std::max(-max_gaz,std::min(max_gaz,(double)(gain_pZ + gain_dZ)));
+  command.linear.z = std::max(min_gaz,std::min(max_gaz/rise_fac,(double)(gain_pZ + gain_dZ)));
+  command.linear.z*= command.linear.z>0?rise_fac:1;
   command.angular.z = std::max(-max_yaw,std::min(max_yaw,(double)(gain_pYaw + gain_dYaw)));
 
   message.pterm_x = gain_pX;
@@ -89,6 +115,8 @@ geometry_msgs::Twist Controller::calcControl(Vector4f error,Vector4f d_error,dou
   message.dterm_y = gain_dY;
   message.dterm_z = gain_dZ;
   message.dterm_yaw = gain_dYaw;
+
+  message.iterm_z = gain_iZ;
 
   message.vel_x = command.linear.x;
   message.vel_y = command.linear.y;

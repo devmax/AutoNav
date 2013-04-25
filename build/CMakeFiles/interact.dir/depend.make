@@ -6,6 +6,7 @@ CMakeFiles/interact.dir/src/UI/Interact.o: ../thirdparty/libcvd/include/cvd/thre
 CMakeFiles/interact.dir/src/UI/Interact.o: ../src/UI/Interact.cpp
 CMakeFiles/interact.dir/src/UI/Interact.o: ../src/UI/Interact.h
 CMakeFiles/interact.dir/src/UI/Interact.o: ../src/UI/ThreadROS.h
+CMakeFiles/interact.dir/src/UI/Interact.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/cpp/include/ar_track_alvar/AlvarMarker.h
 CMakeFiles/interact.dir/src/UI/Interact.o: /opt/ros/fuerte/include/XmlRpcDecl.h
 CMakeFiles/interact.dir/src/UI/Interact.o: /opt/ros/fuerte/include/XmlRpcValue.h
 CMakeFiles/interact.dir/src/UI/Interact.o: /opt/ros/fuerte/include/geometry_msgs/Point.h
@@ -121,6 +122,7 @@ CMakeFiles/interact.dir/src/UI/ThreadROS.o: ../thirdparty/libcvd/include/cvd/thr
 CMakeFiles/interact.dir/src/UI/ThreadROS.o: ../src/UI/Interact.h
 CMakeFiles/interact.dir/src/UI/ThreadROS.o: ../src/UI/ThreadROS.cpp
 CMakeFiles/interact.dir/src/UI/ThreadROS.o: ../src/UI/ThreadROS.h
+CMakeFiles/interact.dir/src/UI/ThreadROS.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/cpp/include/ar_track_alvar/AlvarMarker.h
 CMakeFiles/interact.dir/src/UI/ThreadROS.o: /opt/ros/fuerte/include/XmlRpcDecl.h
 CMakeFiles/interact.dir/src/UI/ThreadROS.o: /opt/ros/fuerte/include/XmlRpcValue.h
 CMakeFiles/interact.dir/src/UI/ThreadROS.o: /opt/ros/fuerte/include/geometry_msgs/Point.h
@@ -236,6 +238,7 @@ CMakeFiles/interact.dir/src/UI/main_Interact.o: ../thirdparty/libcvd/include/cvd
 CMakeFiles/interact.dir/src/UI/main_Interact.o: ../src/UI/Interact.h
 CMakeFiles/interact.dir/src/UI/main_Interact.o: ../src/UI/ThreadROS.h
 CMakeFiles/interact.dir/src/UI/main_Interact.o: ../src/UI/main_Interact.cpp
+CMakeFiles/interact.dir/src/UI/main_Interact.o: /home/dev/ros/stacks/ar_track_alvar/msg_gen/cpp/include/ar_track_alvar/AlvarMarker.h
 CMakeFiles/interact.dir/src/UI/main_Interact.o: /opt/ros/fuerte/include/XmlRpcDecl.h
 CMakeFiles/interact.dir/src/UI/main_Interact.o: /opt/ros/fuerte/include/XmlRpcValue.h
 CMakeFiles/interact.dir/src/UI/main_Interact.o: /opt/ros/fuerte/include/geometry_msgs/Point.h

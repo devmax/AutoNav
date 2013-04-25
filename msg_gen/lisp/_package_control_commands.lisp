@@ -35,6 +35,8 @@
           DTERM_Z
           DTERM_YAW-VAL
           DTERM_YAW
+          ITERM_Z-VAL
+          ITERM_Z
           VEL_X-VAL
           VEL_X
           VEL_Y-VAL

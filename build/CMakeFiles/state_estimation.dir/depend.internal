@@ -89,6 +89,7 @@ CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o
  /opt/ros/fuerte/include/sensor_msgs/PointCloud.h
  /opt/ros/fuerte/include/std_msgs/Empty.h
  /opt/ros/fuerte/include/std_msgs/Header.h
+ /opt/ros/fuerte/include/std_msgs/String.h
  /opt/ros/fuerte/include/std_srvs/Empty.h
  /opt/ros/fuerte/include/std_srvs/EmptyRequest.h
  /opt/ros/fuerte/include/std_srvs/EmptyResponse.h
@@ -321,6 +322,7 @@ CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o
  /opt/ros/fuerte/include/sensor_msgs/PointCloud.h
  /opt/ros/fuerte/include/std_msgs/Empty.h
  /opt/ros/fuerte/include/std_msgs/Header.h
+ /opt/ros/fuerte/include/std_msgs/String.h
  /opt/ros/fuerte/include/std_srvs/Empty.h
  /opt/ros/fuerte/include/std_srvs/EmptyRequest.h
  /opt/ros/fuerte/include/std_srvs/EmptyResponse.h
@@ -546,6 +548,7 @@ CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o
  /opt/ros/fuerte/include/sensor_msgs/PointCloud.h
  /opt/ros/fuerte/include/std_msgs/Empty.h
  /opt/ros/fuerte/include/std_msgs/Header.h
+ /opt/ros/fuerte/include/std_msgs/String.h
  /opt/ros/fuerte/include/std_srvs/Empty.h
  /opt/ros/fuerte/include/std_srvs/EmptyRequest.h
  /opt/ros/fuerte/include/std_srvs/EmptyResponse.h

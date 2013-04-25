@@ -40,6 +40,7 @@ struct control_commands_ {
   , dterm_y(0.0)
   , dterm_z(0.0)
   , dterm_yaw(0.0)
+  , iterm_z(0.0)
   , vel_x(0.0)
   , vel_y(0.0)
   , vel_z(0.0)
@@ -66,6 +67,7 @@ struct control_commands_ {
   , dterm_y(0.0)
   , dterm_z(0.0)
   , dterm_yaw(0.0)
+  , iterm_z(0.0)
   , vel_x(0.0)
   , vel_y(0.0)
   , vel_z(0.0)
@@ -127,6 +129,9 @@ struct control_commands_ {
   typedef float _dterm_yaw_type;
   float dterm_yaw;
 
+  typedef float _iterm_z_type;
+  float iterm_z;
+
   typedef float _vel_x_type;
   float vel_x;
 
@@ -168,12 +173,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::AutoNav::control_commands_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "89daaa5cf29061dcd0b2da457fee8393";
+    return "3db3fa1a97fcb89b635a0c8cfbc2484b";
   }
 
   static const char* value(const  ::AutoNav::control_commands_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0x89daaa5cf29061dcULL;
-  static const uint64_t static_value2 = 0xd0b2da457fee8393ULL;
+  static const uint64_t static_value1 = 0x3db3fa1a97fcb89bULL;
+  static const uint64_t static_value2 = 0x635a0c8cfbc2484bULL;
 };
 
 template<class ContainerAllocator>
@@ -213,6 +218,8 @@ float32 dterm_x\n\
 float32 dterm_y\n\
 float32 dterm_z\n\
 float32 dterm_yaw\n\
+\n\
+float32 iterm_z\n\
 \n\
 float32 vel_x\n\
 float32 vel_y\n\
@@ -255,6 +262,7 @@ template<class ContainerAllocator> struct Serializer< ::AutoNav::control_command
     stream.next(m.dterm_y);
     stream.next(m.dterm_z);
     stream.next(m.dterm_yaw);
+    stream.next(m.iterm_z);
     stream.next(m.vel_x);
     stream.next(m.vel_y);
     stream.next(m.vel_z);
@@ -312,6 +320,8 @@ struct Printer< ::AutoNav::control_commands_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.dterm_z);
     s << indent << "dterm_yaw: ";
     Printer<float>::stream(s, indent + "  ", v.dterm_yaw);
+    s << indent << "iterm_z: ";
+    Printer<float>::stream(s, indent + "  ", v.iterm_z);
     s << indent << "vel_x: ";
     Printer<float>::stream(s, indent + "  ", v.vel_x);
     s << indent << "vel_y: ";

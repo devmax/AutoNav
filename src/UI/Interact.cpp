@@ -14,7 +14,9 @@ Interact::Interact()
 
   int_marker.name = "Interactive Teleop";
   manual_marker.name = "Manual Teleop";
+
 }
+
 void Interact::start()
 {
   marker_server.reset(new interactive_markers::InteractiveMarkerServer("drone_controls","",false) );
@@ -28,6 +30,7 @@ void Interact::start()
   menu_handler.insert(sub_menu_handle,"Flat Trim",processFeedback);
   menu_handler.insert(sub_menu_handle,"Reset State",processFeedback);
   menu_handler.insert("Figure",processFeedback);
+  menu_handler.insert("Snap to Origin",processFeedback);
 
   menu_handler_manual.insert("Takeoff",processFeedback);
   menu_handler_manual.insert("Land",processFeedback);
@@ -96,6 +99,10 @@ void processFeedback(const visualization_msgs::InteractiveMarkerFeedbackConstPtr
 	      break;
 	    case 8:
 	      marker_interact.rosthread->housefigure();
+	      break;
+	    case 9:
+	      marker_interact.resetInt();
+	      marker_interact.rosthread->gotoOrigin();
 	      break;
 	    }
 	  break;
@@ -181,6 +188,13 @@ void Interact::resetManual()
   geometry_msgs::Pose pose;
   
   marker_server->setPose(manual_marker.name,pose);
+}
+
+void Interact::resetInt()
+{
+  geometry_msgs::Pose pose;
+
+  marker_server->setPose(int_marker.name,pose);
 }
 
 void Interact::generateCommandAuto(geometry_msgs::Pose pose)

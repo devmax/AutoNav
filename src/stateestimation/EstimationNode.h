@@ -12,6 +12,7 @@
 #include "tf/transform_listener.h"
 #include "tf/transform_broadcaster.h"
 #include "std_msgs/Empty.h"
+#include <std_msgs/String.h>
 #include "std_srvs/Empty.h"
 #include "ardrone_autonomy/Navdata.h"
 #include "ar_track_alvar/AlvarMarker.h"
@@ -36,18 +37,26 @@ private:
   ros::Time lastNavStamp;
 
   ros::Publisher dronepose_pub;
+  ros::Publisher currentstate_pub;
+  ros::Publisher command_pub;
 
   ros::NodeHandle nh;
 
   ros::Duration predTime;
   int publishFreq;
 
+  unsigned int lastTag;
+
   std::string navdata_channel;
   std::string control_channel;
   std::string tag_channel;
   std::string output_channel;
+  std::string current_output_channel;
+  std::string command_channel;
 
   ardrone_autonomy::Navdata lastNavdataReceived;
+
+  std_msgs::String hover;
 
 public:
 

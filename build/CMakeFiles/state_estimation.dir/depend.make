@@ -88,6 +88,7 @@ CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ro
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/include/sensor_msgs/PointCloud.h
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/include/std_msgs/Empty.h
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/include/std_msgs/Header.h
+CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/include/std_msgs/String.h
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/include/std_srvs/Empty.h
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/include/std_srvs/EmptyRequest.h
 CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o: /opt/ros/fuerte/include/std_srvs/EmptyResponse.h
@@ -320,6 +321,7 @@ CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/f
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/include/sensor_msgs/PointCloud.h
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/include/std_msgs/Empty.h
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/include/std_msgs/Header.h
+CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/include/std_msgs/String.h
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/include/std_srvs/Empty.h
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/include/std_srvs/EmptyRequest.h
 CMakeFiles/state_estimation.dir/src/stateestimation/EstimationNode.o: /opt/ros/fuerte/include/std_srvs/EmptyResponse.h
@@ -545,6 +547,7 @@ CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/include/sensor_msgs/PointCloud.h
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/include/std_msgs/Empty.h
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/include/std_msgs/Header.h
+CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/include/std_msgs/String.h
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/include/std_srvs/Empty.h
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/include/std_srvs/EmptyRequest.h
 CMakeFiles/state_estimation.dir/src/stateestimation/main_stateestimation.o: /opt/ros/fuerte/include/std_srvs/EmptyResponse.h

@@ -17,8 +17,8 @@ const double varPoseObservation_rp_IMU = 1*1;
 const double varSpeedError_rp = 360*360 * 16;	// increased because prediction based on control command is very inaccurate.
 
 const double varSpeedObservation_yaw = 3*3;
-const double varPoseObservation_yaw_IMU = 2*2;
-const double varPoseObservation_yaw_tag = 5*5; //very inaccurate angle observations due to motion blur with the tag
+const double varPoseObservation_yaw_IMU =2*2;
+const double varPoseObservation_yaw_tag = 4*4; //very inaccurate angle observations due to motion blur with the tag
 const double varAccelerationError_yaw = 360*360;
 	
 
@@ -54,8 +54,10 @@ DroneKalmanFilter::DroneKalmanFilter()
   obs_IMU_XYZ_channel=n.resolveName("/log_obs_IMU_XYZ");
   obs_IMU_RPY_channel=n.resolveName("/log_obs_IMU_RPY");
   obs_tag_channel=n.resolveName("/log_obs_tag");
+  predictData_channel=n.resolveName("/log_predictData");
 
   pub_predictInternal=n.advertise<AutoNav::predictInternal>(predictInternal_channel,1);
+  pub_predictData = n.advertise<AutoNav::filter_state>(predictData_channel,1);
   pub_predictUpTo=n.advertise<AutoNav::predictUpTo>(predictUpTo_channel,1);
   pub_obs_IMU_XYZ=n.advertise<AutoNav::obs_IMU_XYZ>(obs_IMU_XYZ_channel,1);
   pub_obs_IMU_RPY=n.advertise<AutoNav::obs_IMU_RPY>(obs_IMU_RPY_channel,1);
@@ -145,11 +147,7 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
 {
   if(timeSpanMicros <= 0) return;
 
-  bool controlValid = !(activeControlInfo.linear.z > 1.01 || activeControlInfo.linear.z < -1.01 ||
-											  activeControlInfo.linear.x > 1.01 || activeControlInfo.linear.x < -1.01 ||
-																			    activeControlInfo.linear.y > 1.01 || activeControlInfo.linear.y < -1.01 ||
-																											      activeControlInfo.angular.z > 1.01 || activeControlInfo.angular.z < -1.01);
-
+  bool controlValid = !(activeControlInfo.linear.z > 1.01 || activeControlInfo.linear.z < -1.01 || activeControlInfo.linear.x > 1.01 || activeControlInfo.linear.x < -1.01 || activeControlInfo.linear.y > 1.01 || activeControlInfo.linear.y < -1.01 || activeControlInfo.angular.z > 1.01 || activeControlInfo.angular.z < -1.01);
 
   double tsMillis = timeSpanMicros / 1000.0;	// in milliseconds
   double tsSeconds = tsMillis / 1000.0;	// in seconds
@@ -287,7 +285,7 @@ void DroneKalmanFilter::observeIMU_XYZ(const ardrone_autonomy::Navdata* nav)
       y.observeSpeed(vy_global,varSpeedObservation_xy);
     }
 
-  if(last_z_IMU != nav->altd || nav->header.seq - last_z_packageID>8)
+  if(last_z_IMU != nav->altd || nav->header.seq - last_z_packageID>6)
     {
       if(baselineZ_Filter < -100000)
 	{
@@ -480,7 +478,7 @@ void DroneKalmanFilter::observeTag(Vector6f pose)
       x.observePose(pose[0],varPoseObservation_xy);
       y.observePose(pose[1],varPoseObservation_xy);
 
-      if(std::abs(last_z-pose(2))<0.8 || (getMS()-last_tag)>500)
+      if(std::abs(last_z-pose(2))<2 || (getMS()-last_tag)>500)
 	{
 	  z.observePose(pose[2],varPoseObservation_z_tag);
 	}
@@ -503,7 +501,7 @@ void DroneKalmanFilter::observeTag(Vector6f pose)
 	{
 	  //      ROS_INFO("Large jump in X of %lf, rejecting observation!",x.state(1));
 	  reject = true;
-	}
+ 	}
       else if(abs(y.state(1))>2.8)
 	{
 	  //      ROS_INFO("Large jump in Y of %lf, rejecting observation!",y.state(1));
@@ -564,13 +562,15 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
   std::deque<geometry_msgs::TwistStamped>::iterator controlIterator = velQueue->begin();
 
   while(controlIterator != velQueue->end() && controlIterator+1 != velQueue->end() && getMS((controlIterator+1)->header.stamp) <= predictedUpToTimestamp - delayControl)
-    if(consume)
-      {
-	velQueue->pop_front();
-	controlIterator = velQueue->begin();
-      }
-    else
-      controlIterator++;
+    {
+      if(consume)
+	{
+	  velQueue->pop_front();
+	  controlIterator = velQueue->begin();
+	}
+      else
+	controlIterator++;
+    }
   if(velQueue->size() == 0)
     {
       //ROS_INFO("VelQueue = 0!");
@@ -579,19 +579,22 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
   // dont delete here, it will be deleted if respective rpy data is consumed.
   std::deque<ardrone_autonomy::Navdata>::iterator xyzIterator = navdataQueue->begin();
   while(xyzIterator != navdataQueue->end() && getMS(xyzIterator->header.stamp) <= predictedUpToTimestamp + delayXYZ)
-    xyzIterator++;
+    {
+      xyzIterator++;
+    }
 
   std::deque<ardrone_autonomy::Navdata>::iterator rpyIterator = navdataQueue->begin();
   while(rpyIterator != navdataQueue->end() && getMS(rpyIterator->header.stamp) <= predictedUpToTimestamp + delayRPY)
-    if(consume)
-      {
-	//ROS_INFO("Popping Navdata message # %d ",(navdataQueue->front()).header.seq);
-	navdataQueue->pop_front();
-	rpyIterator = navdataQueue->begin();
-      }
-    else
-      rpyIterator++;
-
+    {
+      if(consume)
+	{
+	  //ROS_INFO("Popping Navdata message # %d ",(navdataQueue->front()).header.seq);
+	  navdataQueue->pop_front();
+	  rpyIterator = navdataQueue->begin();
+	}
+      else
+	rpyIterator++;
+    }
   // now, each iterator points to the first element in queue that is to be integrated.
   // start predicting,
   while(true)
@@ -605,19 +608,18 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
       // get three queues to the right point in time by rolling forward in them.
       // for xyz this is the first point at which its obs-time is bigger than or equal to [predictedUpToTimestamp]
       while(xyzIterator != navdataQueue->end() && getMS(xyzIterator->header.stamp) - delayXYZ < predictedUpToTimestamp)
-	xyzIterator++;
+	{
+	  xyzIterator++;
+	}
       while(rpyIterator != navdataQueue->end() && getMS(rpyIterator->header.stamp) - delayRPY < predictedUpToTimestamp)
-	rpyIterator++;
+	{
+	  rpyIterator++;
+	}
       // for control that is last message with stamp <= predictedUpToTimestamp - delayControl.
       while(controlIterator != velQueue->end() && controlIterator+1 != velQueue->end() && getMS((controlIterator+1)->header.stamp) + delayControl <= predictedUpToTimestamp)
-	controlIterator++;
-
-      //if(useControlGains)
-	
-      //ROS_INFO("Control info sent at %d.%d=%d with age of %d selected for prediction!",controlIterator->header.stamp.sec,controlIterator->header.stamp.nsec,getMS(controlIterator->header.stamp),(predictedUpToTimestamp - delayControl - getMS(controlIterator->header.stamp)));
-      //ROS_INFO("Next control data sent at %d.%d=%d with age of %d",(controlIterator+1)->header.stamp.sec,(controlIterator+1)->header.stamp.nsec,getMS((controlIterator+1)->header.stamp),(predictedUpToTimestamp - delayControl - getMS((controlIterator+1)->header.stamp)));
-	
-
+	{
+	  controlIterator++;
+	}
       /*begin LOGGING*/
       AutoNav::predictUpTo message;
       message.timestamp = getMS();
@@ -626,25 +628,23 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
       message.age = predictedUpToTimestamp - delayControl - getMS(controlIterator->header.stamp);
       /*end LOGGING*/
 
-      //useControlGains = getMS(controlIterator->header.stamp) + 200 > predictedUpToTimestamp - delayControl ? 1: 0;
-
-      //ROS_INFO("useControlGains = %d",(int)useControlGains);
-
       // predict not further than the point in time where the next observation needs to be added.
+
       if(rpyIterator != navdataQueue->end() )
 	predictTo =std::min(predictTo, getMS(rpyIterator->header.stamp)-delayRPY);
       if(xyzIterator != navdataQueue->end() )
 	predictTo = std::min(predictTo,getMS(xyzIterator->header.stamp)-delayXYZ);
+      
 
       predictInternal(useControlGains ? controlIterator->twist : geometry_msgs::Twist(),(predictTo - predictedUpToTimestamp)*1000,useControlGains && getMS(controlIterator->header.stamp) + 200 > predictedUpToTimestamp - delayControl);				// control max. 200ms old.
 
+      if(consume)
+	pub_predictData.publish(getCurrentPoseSpeed());
       // if an observation needs to be added, it HAS to have a stamp equal to [predictTo],
       // as we just set [predictTo] to that timestamp.
       bool observedXYZ = false, observedRPY=false;
       if(rpyIterator != navdataQueue->end() && getMS(rpyIterator->header.stamp) - delayRPY == predictTo)
 	{
-	  //ROS_INFO("IMU info # %d received at %d.%d=%d selected for observation!",rpyIterator->header.seq,rpyIterator->header.stamp.sec,rpyIterator->header.stamp.nsec,getMS(rpyIterator->header.stamp));
-	  //if(this->useNavdata)
 	  observeIMU_RPY(&(*rpyIterator));
 	  /*begin LOGGING*/
 	  message.seq_rpy = rpyIterator->header.seq;
@@ -670,7 +670,6 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
 	}
 
       predictedUpToTimestamp = predictTo;
-      //ROS_INFO("predictedUpToTimestamp = %d",predictTo);
 
       if(consume)
 	predictedUpToTotal = predictedUpToTimestamp;

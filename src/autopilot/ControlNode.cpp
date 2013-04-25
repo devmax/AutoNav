@@ -31,6 +31,8 @@ ControlNode::ControlNode()
 
   seq = house.begin();
 
+  origin.x = origin.y = origin.yaw =0.0;
+
   controller = Controller();
 }
 
@@ -61,15 +63,23 @@ void ControlNode::commandCB(const std_msgs::StringConstPtr str)
       ROS_INFO_STREAM(str->data);
       goalSet = goalReached = false;
     }
+  else if(str->data == "origin")
+    {
+      ROS_INFO("Flying to origin!");
+      goalSet = false;
+      goalReached = false;
+    }
 }
 
 void ControlNode::updateHouse(Position cur)
 {
   if(seq == house.begin())
     {
-      reference = cur;
+      reference.x = reference.y = reference.yaw = 0.0;
+      reference.z = cur.z;
+      //reference = cur;
     }
-  ROS_INFO("Adding next waypoint!");
+  //ROS_INFO("Adding next waypoint!");
   beginHover(reference + (*seq));
   goalReached = false;
 
@@ -116,6 +126,15 @@ void ControlNode::stateCB(const AutoNav::filter_stateConstPtr state)
 	}
       goalReached = controller.update(state);
     }
+  else if(current == "origin")
+    {
+      if(!goalSet)
+	{
+	  origin.z = state->z;
+	  beginHover(origin);
+	}
+      goalReached = controller.update(state);
+    }
   
 }
 
@@ -137,8 +156,10 @@ void ControlNode::dynConfCB(AutoNav::AutopilotParamsConfig &config,uint32_t leve
   controller.max_yaw = config.max_yaw;
   controller.min_rp = config.min_rp;
   controller.max_rp = config.max_rp;
-  controller.min_gaz = config.min_gaz;
+  controller.min_gaz = config.max_gaz_drop;
   controller.max_gaz = config.max_gaz_rise;
+
+  controller.rise_fac = config.rise_fac;
 
   controller.initStayDist = config.initStayDist;
   controller.stayWithinDist = config.stayWithinDist;
@@ -160,7 +181,12 @@ void ControlNode::Loop()
 
 void ControlNode::beginHover(Position goal)
 {
-  goal.yaw = 0;
+  if(current == "house")
+    goal.yaw = 0;
+
+  goal.z = std::max(goal.z,0.4);
+  //  goal.yaw = 0.0;
+  //  goal.z = 1.0;
   controller.setGoal(goal);
   goalSet = true;
   //ROS_INFO("goal set as (%lf,%lf,%lf,%lf)",goal.x,goal.y,goal.z,goal.yaw);

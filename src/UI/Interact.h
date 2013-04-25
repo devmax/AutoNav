@@ -14,6 +14,7 @@
 #include <visualization_msgs/InteractiveMarker.h>
 #include <visualization_msgs/InteractiveMarkerControl.h>
 #include <cmath>
+#include "ar_track_alvar/AlvarMarker.h"
 
 #define PI 3.141592
 
@@ -46,7 +47,7 @@ class Interact
 {
 
  private:
-  
+
  public:
   Interact();
 
@@ -67,6 +68,7 @@ class Interact
   Position findDifference(geometry_msgs::Pose pose);
 
   void resetManual();
+  void resetInt();
 
   geometry_msgs::Twist calcControl();
   void generateCommandAuto(geometry_msgs::Pose pose);

@@ -245,6 +245,8 @@ tf/transform_broadcaster.h
 /home/dev/ros/stacks/AutoNav/src/stateestimation/tf/transform_broadcaster.h
 std_msgs/Empty.h
 /home/dev/ros/stacks/AutoNav/src/stateestimation/std_msgs/Empty.h
+std_msgs/String.h
+-
 std_srvs/Empty.h
 /home/dev/ros/stacks/AutoNav/src/stateestimation/std_srvs/Empty.h
 ardrone_autonomy/Navdata.h
@@ -1271,6 +1273,22 @@ ros/message_operations.h
 -
 
 /opt/ros/fuerte/include/std_msgs/Header.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/opt/ros/fuerte/include/std_msgs/String.h
 string
 -
 vector

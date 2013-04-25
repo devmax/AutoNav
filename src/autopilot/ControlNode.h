@@ -37,6 +37,7 @@ class ControlNode
   std::string current;
   
   Position reference;
+  Position origin;
   std::vector<Position> house;
   std::vector<Position>::iterator seq;
 

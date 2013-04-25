@@ -235,6 +235,7 @@ class DroneKalmanFilter
   int last_tag;
 
   std::string predictInternal_channel;
+  std::string predictData_channel;
   std::string predictUpTo_channel;
   std::string obs_IMU_XYZ_channel;
   std::string obs_IMU_RPY_channel;
@@ -243,6 +244,7 @@ class DroneKalmanFilter
   ros::NodeHandle n;
 
   ros::Publisher pub_predictInternal;
+  ros::Publisher pub_predictData;
   ros::Publisher pub_predictUpTo;
   ros::Publisher pub_obs_IMU_XYZ;
   ros::Publisher pub_obs_IMU_RPY;
