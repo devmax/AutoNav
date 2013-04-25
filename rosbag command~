@@ -1,1 +1,0 @@
-rosbag record /ardrone/image_raw /ardrone/navdata /ardrone/predictedPose /cmd_vel /log_control_commands /log_obs_IMU_XYZ /log_obs_IMU_RPY /log_obs_tag /log_predictInternal /log_predictUpTo /ar_pose_marker /AutoNav/commands /quatTOrpy /AutoNav/markerUsed -O 
