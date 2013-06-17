@@ -45,7 +45,7 @@ private:
   ros::Duration predTime;
   int publishFreq;
 
-  unsigned int lastTag;
+  bool initTransform;
 
   std::string navdata_channel;
   std::string control_channel;

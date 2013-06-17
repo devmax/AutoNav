@@ -16,7 +16,6 @@ EstimationNode::EstimationNode()
 
   predTime=ros::Duration(25*0.001);
   publishFreq=30;
-  lastTag=999;
 
   navdata_sub=nh.subscribe(navdata_channel,10,&EstimationNode::navdataCB,this);
   control_sub=nh.subscribe(control_channel,10,&EstimationNode::velCB,this);
@@ -30,6 +29,8 @@ EstimationNode::EstimationNode()
 
   filter=new DroneKalmanFilter();
   lastNavStamp=ros::Time(0); 
+
+  initTransform = false;
 }
 
 void EstimationNode::navdataCB(const ardrone_autonomy::NavdataConstPtr navdataPtr)
@@ -61,44 +62,35 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 {
   //  ROS_INFO("Tag Call Back!");
 
-  ar_track_alvar::AlvarMarker markerUsed;
   for(size_t i=0;i<msg.markers.size(); i++)
     {
-      //      ROS_INFO("%d ",msg.markers[i].id);
-      if(msg.markers[i].id == 10 || msg.markers[i].id == 11 || msg.markers[i].id == 12)
+     
+      if(msg.markers[i].id >= 0 && msg.markers[i].id <= 11)
 	{
-	  markerUsed = msg.markers[i];
-	  if(lastTag == 999 || msg.markers[i].id == lastTag)
-	      break;
+	  if(!initTransform)
+	    {
+	      filter->offsets_initialized = false;
+	      ROS_INFO("Tag number %d being used!",msg.markers[i].id);
+	      command_pub.publish(hover);
+	    }
+
+	  ros::Time stamp;
+	  if(ros::Time::now()-markerUsed.pose.header.stamp > ros::Duration(30.0))
+	    stamp=ros::Time::now()-ros::Duration(0.001);
+	  else
+	    stamp=markerUsed.pose.header.stamp;
+
+	  tf::Quaternion q;
+	  quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
+	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
+	  tf::Transform camToTag(q,origin);
+
+	  pthread_mutex_lock(&filter->filter_CS);
+	  filter->addTag(camToTag,getMS(stamp)-filter->delayVideo);
+	  pthread_mutex_unlock(&filter->filter_CS);
+
+	  lastTag = markerUsed.id;
 	}
-    }
-
-  if(markerUsed.id == 11 || markerUsed.id == 10 || markerUsed.id == 12)
-    {
-
-      if(markerUsed.id!=lastTag)
-	{
-	  filter->offsets_initialized = false;
-	  ROS_INFO("Tag number %d being used!",markerUsed.id);
-	  command_pub.publish(hover);
-	}
-
-      ros::Time stamp;
-      if(ros::Time::now()-markerUsed.pose.header.stamp > ros::Duration(30.0))
-	stamp=ros::Time::now()-ros::Duration(0.001);
-      else
-	stamp=markerUsed.pose.header.stamp;
-
-      tf::Quaternion q;
-      quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
-      tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
-      tf::Transform camToTag(q,origin);
-
-      pthread_mutex_lock(&filter->filter_CS);
-      filter->addTag(camToTag,getMS(stamp)-filter->delayVideo);
-      pthread_mutex_unlock(&filter->filter_CS);
-
-      lastTag = markerUsed.id;
     }
 }
 
