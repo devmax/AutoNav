@@ -33,7 +33,8 @@ autopilot: Generates control commands to autonomously navigate the drone based o
 
 UI: A simple interface to provide commands to the drone. 
 
-interact: A interactive interface built using Rviz to interact with the drone. Please run only either UI or interact at any given time. 
+interact: A interactive interface built using Rviz to interact with the drone. Please run only either UI or interact at any given time. For interact to work, rviz needs to already be running. 
+See "rosrun rviz rviz".
 
 Acknowledgements:
 

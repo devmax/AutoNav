@@ -1,0 +1,11 @@
+<launch>
+  <node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver" output="screen">
+	    <param name="outdoor" value="0" />
+	    <param name="altitude_max" value="7000" />
+	    <param name="do_imu_caliberation" value="false" />
+	    <param name="navdata_demo" value="0" />
+	    <param name="realtime_navdata" value="true" />
+	</node>
+	<node name="rviz" pkg="rviz" type="rviz" output="screen">
+	</node>
+</launch>
