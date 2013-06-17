@@ -87,7 +87,7 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
       if(ros::Time::now()-markerUsed.pose.header.stamp > ros::Duration(30.0))
 	stamp=ros::Time::now()-ros::Duration(0.001);
       else
-      stamp=markerUsed.pose.header.stamp;
+	stamp=markerUsed.pose.header.stamp;
 
       tf::Quaternion q;
       quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
