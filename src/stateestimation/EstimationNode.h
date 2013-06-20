@@ -44,8 +44,12 @@ private:
 
   ros::Duration predTime;
   int publishFreq;
+  int numTags;
+  int lastTag;
 
-  bool initTransform;
+  tf::Transform initToMarker;
+
+  bool lastTag_found, nextTag_found;
 
   std::string navdata_channel;
   std::string control_channel;
@@ -55,8 +59,6 @@ private:
   std::string command_channel;
 
   ardrone_autonomy::Navdata lastNavdataReceived;
-
-  std_msgs::String hover;
 
 public:
 

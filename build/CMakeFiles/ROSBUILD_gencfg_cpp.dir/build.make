@@ -107,6 +107,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/dist-packages/yaml/representer.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/genpy/base.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/fnmatch.py
+../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/msg/_Logger.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/pprint.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/dist-packages/yaml/parser.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_Byte.py
@@ -123,6 +124,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/impl/transport.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosmsg/__init__.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/xml/dom/xmlbuilder.py
+../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/srv/__init__.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/xml/dom/expatbuilder.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/base64.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosgraph/names.py
@@ -131,6 +133,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_UInt16MultiArray.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/impl/masterslave.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/core.py
+../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/msg/__init__.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/genpy/__init__.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosbag/migration.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosgraph/xmlrpc.py
@@ -183,6 +186,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/xml/dom/minicompat.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/genpy/generate_numpy.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/msproxy.py
+../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/srv/_Empty.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/random.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/subprocess.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/xml/__init__.py
@@ -224,6 +228,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/__init__.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/urlparse.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/service.py
+../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/srv/_SetLoggerLevel.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/gzip.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roslib/launcher.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roslib/stack_manifest.py
@@ -234,6 +239,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/logging/config.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_Int64MultiArray.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/impl/tcpros_service.py
+../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/__init__.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/textwrap.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/dist-packages/yaml/serializer.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_Bool.py
@@ -263,6 +269,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosbag/rosbag_main.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosgraph_msgs/msg/_Log.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/rostime.py
+../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/srv/_GetLoggers.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_UInt8.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /usr/lib/python2.7/xml/dom/minidom.py
 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/client.py
@@ -347,6 +354,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/dist-packages/yaml/representer.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/genpy/base.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/fnmatch.py
+../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/msg/_Logger.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/pprint.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/dist-packages/yaml/parser.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_Byte.py
@@ -363,6 +371,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/impl/transport.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosmsg/__init__.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/xml/dom/xmlbuilder.py
+../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/srv/__init__.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/xml/dom/expatbuilder.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/base64.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosgraph/names.py
@@ -371,6 +380,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_UInt16MultiArray.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/impl/masterslave.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/core.py
+../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/msg/__init__.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/genpy/__init__.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosbag/migration.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosgraph/xmlrpc.py
@@ -423,6 +433,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/xml/dom/minicompat.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/genpy/generate_numpy.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/msproxy.py
+../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/srv/_Empty.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/random.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/subprocess.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/xml/__init__.py
@@ -464,6 +475,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/__init__.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/urlparse.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/service.py
+../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/srv/_SetLoggerLevel.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/gzip.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roslib/launcher.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roslib/stack_manifest.py
@@ -474,6 +486,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/logging/config.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_Int64MultiArray.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/impl/tcpros_service.py
+../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/__init__.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/textwrap.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/dist-packages/yaml/serializer.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_Bool.py
@@ -503,6 +516,7 @@ CMakeFiles/ROSBUILD_gencfg_cpp: ../src/AutoNav/cfg/AutopilotParamsConfig.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosbag/rosbag_main.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rosgraph_msgs/msg/_Log.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/rostime.py
+../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/roscpp/srv/_GetLoggers.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/std_msgs/msg/_UInt8.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /usr/lib/python2.7/xml/dom/minidom.py
 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h: /opt/ros/fuerte/lib/python2.7/dist-packages/rospy/client.py

@@ -210,8 +210,6 @@ class DroneKalmanFilter
 
   double lastX,lastY,lastZ;
 
-  tf::Transform initToMarker;
-
   double last_yaw_IMU;
   double last_z_IMU;
   long last_z_packageID;
@@ -271,7 +269,6 @@ class DroneKalmanFilter
 
   int predictedUpToTimestamp;
 
-  bool offsets_initialized;
 
   void reset();
   void clearTag();
@@ -285,8 +282,9 @@ class DroneKalmanFilter
   
   float c1,c2,c3,c4,c5,c6,c7,c8;
 
-  void addTag(tf::Transform droneToMarker,int corrStamp);
+  void addTag(tf::Transform initToDrone,int corrStamp);
   void addFakeTag(int timestamp);
+
   AutoNav::filter_state getPoseAt(ros::Time t,bool useControlGains=true);
   
 };

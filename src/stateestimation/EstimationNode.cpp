@@ -25,12 +25,14 @@ EstimationNode::EstimationNode()
   currentstate_pub=nh.advertise<AutoNav::filter_state>(current_output_channel,1);
   command_pub=nh.advertise<std_msgs::String>(command_channel,1);
 
-  hover.data = "hover";
-
   filter=new DroneKalmanFilter();
   lastNavStamp=ros::Time(0); 
 
-  initTransform = false;
+  lastTag = -255;
+  lastTag_found = false;
+  nextTag_found = false;
+
+  numTags = 6;
 }
 
 void EstimationNode::navdataCB(const ardrone_autonomy::NavdataConstPtr navdataPtr)
@@ -61,37 +63,87 @@ void EstimationNode::velCB(const geometry_msgs::TwistConstPtr controlPtr)
 void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 {
   //  ROS_INFO("Tag Call Back!");
+  ar_track_alvar::AlvarMarker markerUsed;
+  tf::Transform droneToMarker, droneToNMarker, initToDrone;
 
   for(size_t i=0;i<msg.markers.size(); i++)
     {
-     
-      if(msg.markers[i].id >= 0 && msg.markers[i].id <= 11)
+      if(lastTag<0 && msg.markers[i].id<20)
 	{
-	  if(!initTransform)
-	    {
-	      filter->offsets_initialized = false;
-	      ROS_INFO("Tag number %d being used!",msg.markers[i].id);
-	      command_pub.publish(hover);
-	    }
-
-	  ros::Time stamp;
-	  if(ros::Time::now()-markerUsed.pose.header.stamp > ros::Duration(30.0))
-	    stamp=ros::Time::now()-ros::Duration(0.001);
-	  else
-	    stamp=markerUsed.pose.header.stamp;
+	  markerUsed = msg.markers[i];
 
 	  tf::Quaternion q;
 	  quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
 	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
-	  tf::Transform camToTag(q,origin);
+	  initToMarker = tf::Transform(q,origin);
+	  droneToMarker = initToMarker;
 
-	  pthread_mutex_lock(&filter->filter_CS);
-	  filter->addTag(camToTag,getMS(stamp)-filter->delayVideo);
-	  pthread_mutex_unlock(&filter->filter_CS);
+	  lastTag = msg.markers[i].id;
+	  lastTag_found = true;
 
-	  lastTag = markerUsed.id;
+	  ROS_INFO("First observation of tag %d made and offsets initialized...!",msg.markers[i].id);
+	  break;
+	}
+
+      if(msg.markers[i].id == lastTag)
+	{
+	  lastTag_found = true;
+	  markerUsed = msg.markers[i];
+
+	  tf::Quaternion q;
+	  quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
+	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
+	 droneToMarker = tf::Transform(q,origin);
+
+	 lastTag = msg.markers[i].id;
+	}
+
+      if(msg.markers[i].id == (lastTag+1)%numTags)
+	{
+	  nextTag_found = true;
+	  markerUsed = msg.markers[i];
+
+	  tf::Quaternion q;
+	  quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
+	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
+	  droneToNMarker = tf::Transform(q,origin);
+
+	  lastTag = msg.markers[i].id;
 	}
     }
+
+  if(nextTag_found && lastTag_found)
+    {
+      initToMarker *= (droneToMarker.inverse())*droneToNMarker;
+
+      ROS_INFO("Transitioning between tags now!");
+    }
+
+  if(lastTag_found)
+    {
+      initToDrone = initToMarker*(droneToMarker.inverse());
+
+      ros::Time stamp;
+      if(ros::Time::now()-markerUsed.pose.header.stamp > ros::Duration(30.0))
+	stamp=ros::Time::now()-ros::Duration(0.001);
+      else
+	stamp=markerUsed.pose.header.stamp;
+
+
+      pthread_mutex_lock(&filter->filter_CS);
+      filter->addTag(initToDrone,getMS(stamp)-filter->delayVideo);
+      pthread_mutex_unlock(&filter->filter_CS);
+
+    }
+  else
+    {
+      if(nextTag_found)
+	lastTag--;
+      ROS_INFO("ERROR! Last tag lost..!");
+    }
+
+
+  lastTag_found = nextTag_found = false;
 }
 
 void EstimationNode::Loop()
