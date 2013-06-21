@@ -46,6 +46,8 @@ private:
   int publishFreq;
   int numTags;
   int lastTag;
+  double lastTag_y,nextTag_y;
+  double tolerance;
 
   tf::Transform initToMarker;
 

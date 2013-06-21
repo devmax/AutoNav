@@ -32,6 +32,11 @@ EstimationNode::EstimationNode()
   lastTag_found = false;
   nextTag_found = false;
 
+  lastTag_y = 0;
+  nextTag_y = 0;
+
+  tolerance = 0.17;
+
   numTags = 6;
 }
 
@@ -72,6 +77,9 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 	{
 	  markerUsed = msg.markers[i];
 
+	  if(markerUsed.id!=0)
+	    continue;
+
 	  tf::Quaternion q;
 	  quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
 	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
@@ -93,9 +101,12 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 	  tf::Quaternion q;
 	  quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
 	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
-	 droneToMarker = tf::Transform(q,origin);
+	  droneToMarker = tf::Transform(q,origin);
 
-	 lastTag = msg.markers[i].id;
+	  lastTag = msg.markers[i].id;
+	  //ROS_INFO("Last tag is %d",lastTag);
+
+	  lastTag_y = markerUsed.pose.pose.position.y;
 	}
 
       if(msg.markers[i].id == (lastTag+1)%numTags)
@@ -108,19 +119,24 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
 	  droneToNMarker = tf::Transform(q,origin);
 
-	  lastTag = msg.markers[i].id;
+	  nextTag_y = markerUsed.pose.pose.position.y;
 	}
     }
 
-  if(nextTag_found && lastTag_found)
-    {
-      initToMarker *= (droneToMarker.inverse())*droneToNMarker;
-
-      ROS_INFO("Transitioning between tags now!");
-    }
 
   if(lastTag_found)
     {
+
+      if(nextTag_found && std::abs(std::abs(lastTag_y) - std::abs(nextTag_y)) < tolerance)
+	{
+	  initToMarker *= (droneToMarker.inverse())*droneToNMarker;
+	  droneToMarker = droneToNMarker;
+
+	  ROS_INFO("Transitioning from tag %d to %d now!",lastTag,(lastTag+1)%numTags);
+
+	  lastTag = (lastTag+1)%numTags;
+	}
+
       initToDrone = initToMarker*(droneToMarker.inverse());
 
       ros::Time stamp;
@@ -138,8 +154,8 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
   else
     {
       if(nextTag_found)
-	lastTag--;
-      ROS_INFO("ERROR! Last tag lost..!");
+	ROS_INFO("New tag found but last tag not found...!");
+      ROS_INFO("ERROR! Last tag %d lost without transition...!",lastTag);
     }
 
 
