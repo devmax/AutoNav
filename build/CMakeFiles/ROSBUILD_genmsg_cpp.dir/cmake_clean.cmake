@@ -4,6 +4,7 @@ FILE(REMOVE_RECURSE
   "../msg_gen"
   "CMakeFiles/ROSBUILD_genmsg_cpp"
   "../msg_gen/cpp/include/AutoNav/predictInternal.h"
+  "../msg_gen/cpp/include/AutoNav/circle_control.h"
   "../msg_gen/cpp/include/AutoNav/filter_state.h"
   "../msg_gen/cpp/include/AutoNav/offsets.h"
   "../msg_gen/cpp/include/AutoNav/control_commands.h"

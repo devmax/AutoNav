@@ -200,6 +200,19 @@ autopilot/fast:
 .PHONY : autopilot/fast
 
 #=============================================================================
+# Target rules for targets named circle
+
+# Build rule for target.
+circle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 circle
+.PHONY : circle
+
+# fast build rule for target.
+circle/fast:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/build
+.PHONY : circle/fast
+
+#=============================================================================
 # Target rules for targets named clean-test-results
 
 # Build rule for target.
@@ -556,6 +569,36 @@ src/autopilot/main_autopilot.s:
 .PHONY : src/autopilot/main_autopilot.s
 
 # target to build an object file
+src/circle/Circle.o:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/src/circle/Circle.o
+.PHONY : src/circle/Circle.o
+
+# target to preprocess a source file
+src/circle/Circle.i:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/src/circle/Circle.i
+.PHONY : src/circle/Circle.i
+
+# target to generate assembly for a file
+src/circle/Circle.s:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/src/circle/Circle.s
+.PHONY : src/circle/Circle.s
+
+# target to build an object file
+src/circle/main_circle.o:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/src/circle/main_circle.o
+.PHONY : src/circle/main_circle.o
+
+# target to preprocess a source file
+src/circle/main_circle.i:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/src/circle/main_circle.i
+.PHONY : src/circle/main_circle.i
+
+# target to generate assembly for a file
+src/circle/main_circle.s:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/src/circle/main_circle.s
+.PHONY : src/circle/main_circle.s
+
+# target to build an object file
 src/stateestimation/DroneKalmanFilter.o:
 	$(MAKE) -f CMakeFiles/state_estimation.dir/build.make CMakeFiles/state_estimation.dir/src/stateestimation/DroneKalmanFilter.o
 .PHONY : src/stateestimation/DroneKalmanFilter.o
@@ -629,6 +672,7 @@ help:
 	@echo "... ROSBUILD_gensrv_lisp"
 	@echo "... UI"
 	@echo "... autopilot"
+	@echo "... circle"
 	@echo "... clean-test-results"
 	@echo "... edit_cache"
 	@echo "... interact"
@@ -675,6 +719,12 @@ help:
 	@echo "... src/autopilot/main_autopilot.o"
 	@echo "... src/autopilot/main_autopilot.i"
 	@echo "... src/autopilot/main_autopilot.s"
+	@echo "... src/circle/Circle.o"
+	@echo "... src/circle/Circle.i"
+	@echo "... src/circle/Circle.s"
+	@echo "... src/circle/main_circle.o"
+	@echo "... src/circle/main_circle.i"
+	@echo "... src/circle/main_circle.s"
 	@echo "... src/stateestimation/DroneKalmanFilter.o"
 	@echo "... src/stateestimation/DroneKalmanFilter.i"
 	@echo "... src/stateestimation/DroneKalmanFilter.s"

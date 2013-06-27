@@ -5,6 +5,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/ROSBUILD_genmsg_py"
   "../src/AutoNav/msg/__init__.py"
   "../src/AutoNav/msg/_predictInternal.py"
+  "../src/AutoNav/msg/_circle_control.py"
   "../src/AutoNav/msg/_filter_state.py"
   "../src/AutoNav/msg/_offsets.py"
   "../src/AutoNav/msg/_control_commands.py"

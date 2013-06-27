@@ -479,7 +479,7 @@ void DroneKalmanFilter::observeTag(Vector6f pose)
       z.observePose(pose[2],varPoseObservation_z_tag);
     }
   else
-    ROS_INFO("Large jump in z, not observing height..");
+    //ROS_INFO("Large jump in z, not observing height..");
 
   //ROS_INFO("Posterior poses: %lf,%lf,%lf and velocities: %lf,%lf,%lf",x.state(0),y.state(0),z.state(0),x.state(1),y.state(1),z.state(1));
 
@@ -750,7 +750,7 @@ void DroneKalmanFilter::addTag(tf::Transform initToDrone,int corrStamp)
 
   measurement(5) = angleFromTo(measurement(5),-180,180);
 
-  if(std::abs(last_yaw-measurement[5])<15 || (getMS() - last_tag)>500)
+  if(std::abs(last_yaw-measurement[5])<25 || (getMS() - last_tag)>500)
     {
       last_tag = getMS();
       last_yaw_valid = true;
@@ -761,7 +761,7 @@ void DroneKalmanFilter::addTag(tf::Transform initToDrone,int corrStamp)
   else
     {
       last_yaw_valid = false;
-      ROS_INFO("Large jump in yaw observed, rejecting!");
+      //ROS_INFO("Large jump in yaw observed, rejecting!");
     }
 
 

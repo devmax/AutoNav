@@ -45,6 +45,7 @@ include CMakeFiles/ROSBUILD_genmsg_py.dir/progress.make
 CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 
 ../src/AutoNav/msg/__init__.py: ../src/AutoNav/msg/_predictInternal.py
+../src/AutoNav/msg/__init__.py: ../src/AutoNav/msg/_circle_control.py
 ../src/AutoNav/msg/__init__.py: ../src/AutoNav/msg/_filter_state.py
 ../src/AutoNav/msg/__init__.py: ../src/AutoNav/msg/_offsets.py
 ../src/AutoNav/msg/__init__.py: ../src/AutoNav/msg/_control_commands.py
@@ -55,7 +56,7 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/__init__.py: ../src/AutoNav/msg/_predictUpTo.py
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/__init__.py"
-	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --initpy /home/dev/ros/stacks/AutoNav/msg/predictInternal.msg /home/dev/ros/stacks/AutoNav/msg/filter_state.msg /home/dev/ros/stacks/AutoNav/msg/offsets.msg /home/dev/ros/stacks/AutoNav/msg/control_commands.msg /home/dev/ros/stacks/AutoNav/msg/obs_IMU_XYZ.msg /home/dev/ros/stacks/AutoNav/msg/obs_IMU_RPY.msg /home/dev/ros/stacks/AutoNav/msg/eulerpose.msg /home/dev/ros/stacks/AutoNav/msg/obs_tag.msg /home/dev/ros/stacks/AutoNav/msg/predictUpTo.msg
+	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --initpy /home/dev/ros/stacks/AutoNav/msg/predictInternal.msg /home/dev/ros/stacks/AutoNav/msg/circle_control.msg /home/dev/ros/stacks/AutoNav/msg/filter_state.msg /home/dev/ros/stacks/AutoNav/msg/offsets.msg /home/dev/ros/stacks/AutoNav/msg/control_commands.msg /home/dev/ros/stacks/AutoNav/msg/obs_IMU_XYZ.msg /home/dev/ros/stacks/AutoNav/msg/obs_IMU_RPY.msg /home/dev/ros/stacks/AutoNav/msg/eulerpose.msg /home/dev/ros/stacks/AutoNav/msg/obs_tag.msg /home/dev/ros/stacks/AutoNav/msg/predictUpTo.msg
 
 ../src/AutoNav/msg/_predictInternal.py: ../msg/predictInternal.msg
 ../src/AutoNav/msg/_predictInternal.py: /opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py
@@ -113,6 +114,60 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_predictInternal.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/predictInternal.msg
 
+../src/AutoNav/msg/_circle_control.py: ../msg/circle_control.msg
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/roslib/bin/gendeps
+../src/AutoNav/msg/_circle_control.py: ../manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/roslang/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/rospy/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/roscpp/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/rosservice/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/geometry_msgs/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/sensor_msgs/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/roslib/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/rosconsole/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/pluginlib/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/message_filters/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/image_common/image_transport/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/std_srvs/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/bullet/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/rostest/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/roswtf/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/common_rosdeps/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/image_common/camera_calibration_parsers/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/image_common/camera_info_manager/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /home/dev/ros/stacks/ardrone_autonomy/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/std_msgs/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/visualization_msgs/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/robot_model/resource_retriever/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/vision_opencv/opencv2/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/vision_opencv/cv_bridge/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/share/rosbag/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/bond_core/bond/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/bond_core/smclib/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/bond_core/bondcpp/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/perception_pcl/pcl_ros/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /home/dev/ros/stacks/ar_track_alvar/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/visualization/interactive_markers/manifest.xml
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
+../src/AutoNav/msg/_circle_control.py: /home/dev/ros/stacks/ardrone_autonomy/msg_gen/generated
+../src/AutoNav/msg/_circle_control.py: /home/dev/ros/stacks/ardrone_autonomy/srv_gen/generated
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
+../src/AutoNav/msg/_circle_control.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
+../src/AutoNav/msg/_circle_control.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_circle_control.py"
+	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/circle_control.msg
+
 ../src/AutoNav/msg/_filter_state.py: ../msg/filter_state.msg
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/share/roslib/bin/gendeps
@@ -164,7 +219,7 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_filter_state.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
 ../src/AutoNav/msg/_filter_state.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_filter_state.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/filter_state.msg
 
@@ -218,7 +273,7 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_offsets.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
 ../src/AutoNav/msg/_offsets.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_offsets.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/offsets.msg
 
@@ -272,7 +327,7 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_control_commands.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
 ../src/AutoNav/msg/_control_commands.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_control_commands.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/control_commands.msg
 
@@ -326,7 +381,7 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_XYZ.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_obs_IMU_XYZ.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/obs_IMU_XYZ.msg
 
@@ -380,7 +435,7 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
 ../src/AutoNav/msg/_obs_IMU_RPY.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_obs_IMU_RPY.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/obs_IMU_RPY.msg
 
@@ -435,7 +490,7 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_eulerpose.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_eulerpose.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
 ../src/AutoNav/msg/_eulerpose.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_eulerpose.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/eulerpose.msg
 
@@ -489,7 +544,7 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_obs_tag.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
 ../src/AutoNav/msg/_obs_tag.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_obs_tag.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/obs_tag.msg
 
@@ -545,13 +600,14 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/bond_core/bond/msg_gen/generated
 ../src/AutoNav/msg/_predictUpTo.py: /opt/ros/fuerte/stacks/nodelet_core/nodelet/srv_gen/generated
 ../src/AutoNav/msg/_predictUpTo.py: /home/dev/ros/stacks/ar_track_alvar/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/AutoNav/msg/_predictUpTo.py"
 	/opt/ros/fuerte/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/dev/ros/stacks/AutoNav/msg/predictUpTo.msg
 
 ROSBUILD_genmsg_py: CMakeFiles/ROSBUILD_genmsg_py
 ROSBUILD_genmsg_py: ../src/AutoNav/msg/__init__.py
 ROSBUILD_genmsg_py: ../src/AutoNav/msg/_predictInternal.py
+ROSBUILD_genmsg_py: ../src/AutoNav/msg/_circle_control.py
 ROSBUILD_genmsg_py: ../src/AutoNav/msg/_filter_state.py
 ROSBUILD_genmsg_py: ../src/AutoNav/msg/_offsets.py
 ROSBUILD_genmsg_py: ../src/AutoNav/msg/_control_commands.py

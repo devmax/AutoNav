@@ -1,0 +1,18 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~radius" : \b [double] Radius of circle min: 0.4, default: 0.8, max: 3.0
+- \b "~angRes" : \b [int] Angular resolution min: 1, default: 5, max: 45
+- \b "~latVel" : \b [double] Desired laterval velocity min: 0.1, default: 0.4, max: 2.5
+- \b "~angVel" : \b [double] Desired angular velocity min: 0.1, default: 0.1, max: 4.5
+- \b "~Kat_p" : \b [double] PID control parameter min: 0.1, default: 0.4, max: 2.5
+- \b "~Kat_d" : \b [double] PID control parameter min: 0.1, default: 0.0, max: 2.5
+- \b "~Kat_i" : \b [double] PID control parameter min: 0.1, default: 0.0, max: 2.5
+- \b "~Kct_p" : \b [double] PID control parameter min: 0.1, default: 0.4, max: 2.5
+- \b "~Kct_d" : \b [double] PID control parameter min: 0.1, default: 0.4, max: 2.5
+- \b "~Kct_i" : \b [double] PID control parameter min: 0.1, default: 0.0, max: 2.5
+- \b "~angular_p" : \b [double] PID control parameter min: 0.1, default: 0.4, max: 2.5
+- \b "~angular_d" : \b [double] PID control parameter min: 0.1, default: 0.0, max: 2.5
+- \b "~angular_i" : \b [double] PID control parameter min: 0.1, default: 0.0, max: 2.5
+

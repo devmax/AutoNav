@@ -4,7 +4,6 @@
 #define _DRONE_CONTROLLER_H_
 
 #include <ros/ros.h>
-#include "../HelperFunction.h"
 #include <geometry_msgs/Twist.h>
 #include <Eigen/Core>
 #include <Eigen/LU>

@@ -103,8 +103,6 @@ DroneController.h
 /home/dev/ros/stacks/AutoNav/src/autopilot/DroneController.h
 ros/ros.h
 -
-../HelperFunction.h
-/home/dev/ros/stacks/AutoNav/src/autopilot/../HelperFunction.h
 geometry_msgs/Twist.h
 -
 Eigen/Core

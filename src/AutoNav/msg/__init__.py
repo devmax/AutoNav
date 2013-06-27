@@ -1,3 +1,4 @@
+from ._circle_control import *
 from ._predictUpTo import *
 from ._filter_state import *
 from ._predictInternal import *

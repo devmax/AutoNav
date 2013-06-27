@@ -56,13 +56,13 @@ CMAKE_BINARY_DIR = /home/dev/ros/stacks/AutoNav/build
 CMakeFiles/ROSBUILD_gencfg_cpp.dir/all:
 	$(MAKE) -f CMakeFiles/ROSBUILD_gencfg_cpp.dir/build.make CMakeFiles/ROSBUILD_gencfg_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/ROSBUILD_gencfg_cpp.dir/build.make CMakeFiles/ROSBUILD_gencfg_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  1 2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  1 2 3
 	@echo "Built target ROSBUILD_gencfg_cpp"
 .PHONY : CMakeFiles/ROSBUILD_gencfg_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ROSBUILD_gencfg_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ROSBUILD_gencfg_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/ROSBUILD_gencfg_cpp.dir/rule
@@ -87,13 +87,13 @@ clean: CMakeFiles/ROSBUILD_gencfg_cpp.dir/clean
 CMakeFiles/ROSBUILD_genmsg_cpp.dir/all: CMakeFiles/rosbuild_premsgsrvgen.dir/all
 	$(MAKE) -f CMakeFiles/ROSBUILD_genmsg_cpp.dir/build.make CMakeFiles/ROSBUILD_genmsg_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/ROSBUILD_genmsg_cpp.dir/build.make CMakeFiles/ROSBUILD_genmsg_cpp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  3 4 5 6 7 8 9 10 11
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  4 5 6 7 8 9 10 11 12 13
 	@echo "Built target ROSBUILD_genmsg_cpp"
 .PHONY : CMakeFiles/ROSBUILD_genmsg_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ROSBUILD_genmsg_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ROSBUILD_genmsg_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/ROSBUILD_genmsg_cpp.dir/rule
@@ -118,13 +118,13 @@ clean: CMakeFiles/ROSBUILD_genmsg_cpp.dir/clean
 CMakeFiles/ROSBUILD_genmsg_lisp.dir/all: CMakeFiles/rosbuild_premsgsrvgen.dir/all
 	$(MAKE) -f CMakeFiles/ROSBUILD_genmsg_lisp.dir/build.make CMakeFiles/ROSBUILD_genmsg_lisp.dir/depend
 	$(MAKE) -f CMakeFiles/ROSBUILD_genmsg_lisp.dir/build.make CMakeFiles/ROSBUILD_genmsg_lisp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  12 13 14 15 16 17 18 19 20
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  14 15 16 17 18 19 20 21 22 23
 	@echo "Built target ROSBUILD_genmsg_lisp"
 .PHONY : CMakeFiles/ROSBUILD_genmsg_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ROSBUILD_genmsg_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ROSBUILD_genmsg_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/ROSBUILD_genmsg_lisp.dir/rule
@@ -149,13 +149,13 @@ clean: CMakeFiles/ROSBUILD_genmsg_lisp.dir/clean
 CMakeFiles/ROSBUILD_genmsg_py.dir/all: CMakeFiles/rosbuild_premsgsrvgen.dir/all
 	$(MAKE) -f CMakeFiles/ROSBUILD_genmsg_py.dir/build.make CMakeFiles/ROSBUILD_genmsg_py.dir/depend
 	$(MAKE) -f CMakeFiles/ROSBUILD_genmsg_py.dir/build.make CMakeFiles/ROSBUILD_genmsg_py.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  21 22 23 24 25 26 27 28 29 30
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  24 25 26 27 28 29 30 31 32 33 34
 	@echo "Built target ROSBUILD_genmsg_py"
 .PHONY : CMakeFiles/ROSBUILD_genmsg_py.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ROSBUILD_genmsg_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ROSBUILD_genmsg_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/ROSBUILD_genmsg_py.dir/rule
@@ -242,7 +242,7 @@ clean: CMakeFiles/ROSBUILD_gensrv_lisp.dir/clean
 CMakeFiles/UI.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/depend
 	$(MAKE) -f CMakeFiles/UI.dir/build.make CMakeFiles/UI.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  31 32 33
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  35 36 37
 	@echo "Built target UI"
 .PHONY : CMakeFiles/UI.dir/all
 
@@ -252,7 +252,7 @@ all: CMakeFiles/UI.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/UI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 33
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 37
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/UI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/UI.dir/rule
@@ -277,7 +277,7 @@ clean: CMakeFiles/UI.dir/clean
 CMakeFiles/autopilot.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/depend
 	$(MAKE) -f CMakeFiles/autopilot.dir/build.make CMakeFiles/autopilot.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  34 35 36
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  38 39 40
 	@echo "Built target autopilot"
 .PHONY : CMakeFiles/autopilot.dir/all
 
@@ -287,7 +287,7 @@ all: CMakeFiles/autopilot.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/autopilot.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 33
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 37
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/autopilot.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/autopilot.dir/rule
@@ -303,6 +303,41 @@ CMakeFiles/autopilot.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/autopilot.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/circle.dir
+
+# All Build rule for target.
+CMakeFiles/circle.dir/all: CMakeFiles/rosbuild_precompile.dir/all
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/depend
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  41 42
+	@echo "Built target circle"
+.PHONY : CMakeFiles/circle.dir/all
+
+# Include target in all.
+all: CMakeFiles/circle.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/circle.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 36
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/circle.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
+.PHONY : CMakeFiles/circle.dir/rule
+
+# Convenience name for target.
+circle: CMakeFiles/circle.dir/rule
+.PHONY : circle
+
+# clean rule for target.
+CMakeFiles/circle.dir/clean:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/clean
+.PHONY : CMakeFiles/circle.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/circle.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -343,7 +378,7 @@ clean: CMakeFiles/clean-test-results.dir/clean
 CMakeFiles/interact.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/depend
 	$(MAKE) -f CMakeFiles/interact.dir/build.make CMakeFiles/interact.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  37 38 39
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  43 44 45
 	@echo "Built target interact"
 .PHONY : CMakeFiles/interact.dir/all
 
@@ -353,7 +388,7 @@ all: CMakeFiles/interact.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/interact.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 33
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 37
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/interact.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/interact.dir/rule
@@ -385,7 +420,7 @@ CMakeFiles/rosbuild_precompile.dir/all: CMakeFiles/rospack_genmsg_libexe.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rosbuild_precompile.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 34
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rosbuild_precompile.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/rosbuild_precompile.dir/rule
@@ -451,7 +486,7 @@ all: CMakeFiles/rospack_gencfg.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rospack_gencfg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rospack_gencfg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/rospack_gencfg.dir/rule
@@ -486,7 +521,7 @@ all: CMakeFiles/rospack_gencfg_real.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rospack_gencfg_real.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rospack_gencfg_real.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/rospack_gencfg_real.dir/rule
@@ -519,7 +554,7 @@ CMakeFiles/rospack_genmsg.dir/all: CMakeFiles/ROSBUILD_genmsg_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rospack_genmsg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 31
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rospack_genmsg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/rospack_genmsg.dir/rule
@@ -554,7 +589,7 @@ all: CMakeFiles/rospack_genmsg_all.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rospack_genmsg_all.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 31
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rospack_genmsg_all.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/rospack_genmsg_all.dir/rule
@@ -585,7 +620,7 @@ CMakeFiles/rospack_genmsg_libexe.dir/all: CMakeFiles/rospack_gencfg.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rospack_genmsg_libexe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rospack_genmsg_libexe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/rospack_genmsg_libexe.dir/rule
@@ -642,7 +677,7 @@ clean: CMakeFiles/rospack_gensrv.dir/clean
 CMakeFiles/state_estimation.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/state_estimation.dir/build.make CMakeFiles/state_estimation.dir/depend
 	$(MAKE) -f CMakeFiles/state_estimation.dir/build.make CMakeFiles/state_estimation.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  40 41 42
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  46 47 48
 	@echo "Built target state_estimation"
 .PHONY : CMakeFiles/state_estimation.dir/all
 
@@ -652,7 +687,7 @@ all: CMakeFiles/state_estimation.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/state_estimation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 33
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 37
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/state_estimation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/state_estimation.dir/rule
@@ -801,7 +836,7 @@ clean: CMakeFiles/test-results-run.dir/clean
 CMakeFiles/testRPY.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/testRPY.dir/build.make CMakeFiles/testRPY.dir/depend
 	$(MAKE) -f CMakeFiles/testRPY.dir/build.make CMakeFiles/testRPY.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  43
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dev/ros/stacks/AutoNav/build/CMakeFiles  49
 	@echo "Built target testRPY"
 .PHONY : CMakeFiles/testRPY.dir/all
 
@@ -811,7 +846,7 @@ all: CMakeFiles/testRPY.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/testRPY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 35
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/testRPY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dev/ros/stacks/AutoNav/build/CMakeFiles 0
 .PHONY : CMakeFiles/testRPY.dir/rule

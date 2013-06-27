@@ -1,6 +1,8 @@
 # Hashes of file build rules.
 2c0d5d635e6f2302aaa1a5b084948b41 ../cfg/cpp/AutoNav/AutopilotParamsConfig.h
+25a8a16d378410eae1b822f8fb37bbde ../cfg/cpp/AutoNav/CircleParamsConfig.h
 1bceb2cdfa6b0485f232f3a350e2f046 ../cfg/cpp/AutoNav/StateestimationParamsConfig.h
+68ad547c5fc68c3717712f37930e0fff ../msg_gen/cpp/include/AutoNav/circle_control.h
 6de0ebb8681cd0ce59aeefc5d714e90d ../msg_gen/cpp/include/AutoNav/control_commands.h
 295ddd9003b22c409d28c3d9118adc2c ../msg_gen/cpp/include/AutoNav/eulerpose.h
 48f906cc45b4816378fe738c3dd49d13 ../msg_gen/cpp/include/AutoNav/filter_state.h
@@ -10,6 +12,7 @@
 3ce5c7447b77529738adb4fbf8c87ed2 ../msg_gen/cpp/include/AutoNav/offsets.h
 e7bf4274e52a69aa044ff356e807f637 ../msg_gen/cpp/include/AutoNav/predictInternal.h
 e2ef2a88003ad23505fbc8d0649c4292 ../msg_gen/cpp/include/AutoNav/predictUpTo.h
+d33ff8149be701f4c926c009efebf3a1 ../msg_gen/lisp/circle_control.lisp
 a8f10d555bceec97e0f760f9a265f21d ../msg_gen/lisp/control_commands.lisp
 01b2ae2820aa63336706752485665639 ../msg_gen/lisp/eulerpose.lisp
 237e9182d3dc4a4101240d3944b92068 ../msg_gen/lisp/filter_state.lisp
@@ -19,7 +22,8 @@ dd7a15483377da14fd8ad1b7231aefe6 ../msg_gen/lisp/obs_tag.lisp
 5cf71a49893202f529cac83cc3981c45 ../msg_gen/lisp/offsets.lisp
 62bc845ce51a4518f2ec6abc1bda7a42 ../msg_gen/lisp/predictInternal.lisp
 61a9846256aa2ae1611114f4bf7c0844 ../msg_gen/lisp/predictUpTo.lisp
-387fa3cf7183b4377866be6fa473d7cf ../src/AutoNav/msg/__init__.py
+c20615d592574dd1859e5dcb510b01f9 ../src/AutoNav/msg/__init__.py
+8a2799962ac1935189b55be8b275ce03 ../src/AutoNav/msg/_circle_control.py
 63128761fad0eb03a7114c92cca22fd2 ../src/AutoNav/msg/_control_commands.py
 aae60af9b9e98f080ba88e29bd268404 ../src/AutoNav/msg/_eulerpose.py
 eaabd50ff8c51ce37c8d926790255943 ../src/AutoNav/msg/_filter_state.py

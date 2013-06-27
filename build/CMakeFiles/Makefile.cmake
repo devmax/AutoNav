@@ -76,6 +76,7 @@ SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ROSBUILD_gensrv_lisp.dir/DependInfo.cmake"
   "CMakeFiles/UI.dir/DependInfo.cmake"
   "CMakeFiles/autopilot.dir/DependInfo.cmake"
+  "CMakeFiles/circle.dir/DependInfo.cmake"
   "CMakeFiles/clean-test-results.dir/DependInfo.cmake"
   "CMakeFiles/interact.dir/DependInfo.cmake"
   "CMakeFiles/rosbuild_precompile.dir/DependInfo.cmake"

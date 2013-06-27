@@ -8,6 +8,8 @@
   :components ((:file "_package")
     (:file "predictInternal" :depends-on ("_package_predictInternal"))
     (:file "_package_predictInternal" :depends-on ("_package"))
+    (:file "circle_control" :depends-on ("_package_circle_control"))
+    (:file "_package_circle_control" :depends-on ("_package"))
     (:file "filter_state" :depends-on ("_package_filter_state"))
     (:file "_package_filter_state" :depends-on ("_package"))
     (:file "offsets" :depends-on ("_package_offsets"))

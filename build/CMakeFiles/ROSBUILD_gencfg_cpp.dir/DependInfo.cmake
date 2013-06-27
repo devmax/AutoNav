@@ -15,10 +15,14 @@ SET(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/dev/ros/stacks/AutoNav/docs/AutopilotParamsConfig-usage.dox" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/AutopilotParamsConfig.h"
   "/home/dev/ros/stacks/AutoNav/docs/AutopilotParamsConfig.dox" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/AutopilotParamsConfig.h"
   "/home/dev/ros/stacks/AutoNav/docs/AutopilotParamsConfig.wikidoc" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/AutopilotParamsConfig.h"
+  "/home/dev/ros/stacks/AutoNav/docs/CircleParamsConfig-usage.dox" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/CircleParamsConfig.h"
+  "/home/dev/ros/stacks/AutoNav/docs/CircleParamsConfig.dox" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/CircleParamsConfig.h"
+  "/home/dev/ros/stacks/AutoNav/docs/CircleParamsConfig.wikidoc" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/CircleParamsConfig.h"
   "/home/dev/ros/stacks/AutoNav/docs/StateestimationParamsConfig-usage.dox" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/StateestimationParamsConfig.h"
   "/home/dev/ros/stacks/AutoNav/docs/StateestimationParamsConfig.dox" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/StateestimationParamsConfig.h"
   "/home/dev/ros/stacks/AutoNav/docs/StateestimationParamsConfig.wikidoc" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/StateestimationParamsConfig.h"
   "/home/dev/ros/stacks/AutoNav/src/AutoNav/cfg/AutopilotParamsConfig.py" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/AutopilotParamsConfig.h"
+  "/home/dev/ros/stacks/AutoNav/src/AutoNav/cfg/CircleParamsConfig.py" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/CircleParamsConfig.h"
   "/home/dev/ros/stacks/AutoNav/src/AutoNav/cfg/StateestimationParamsConfig.py" "/home/dev/ros/stacks/AutoNav/cfg/cpp/AutoNav/StateestimationParamsConfig.h"
   )
 
