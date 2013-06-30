@@ -35,7 +35,7 @@ EstimationNode::EstimationNode()
   lastTag_y = 0;
   nextTag_y = 0;
 
-  tolerance = 0.17;
+  tolerance = 10;
 
   numTags = 6;
 }
@@ -106,7 +106,10 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 	  lastTag = msg.markers[i].id;
 	  //ROS_INFO("Last tag is %d",lastTag);
 
-	  lastTag_y = markerUsed.pose.pose.position.y;
+	  double r,p,y;
+	  tf::Matrix3x3(droneToMarker.getRotation()).getRPY(r,p,y);
+
+	  lastTag_y = y * 180/PI;
 	}
 
       if(msg.markers[i].id == (lastTag+1)%numTags)
@@ -119,7 +122,10 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
 	  droneToNMarker = tf::Transform(q,origin);
 
-	  nextTag_y = markerUsed.pose.pose.position.y;
+	  double r,p,y;
+	  tf::Matrix3x3(droneToNMarker.getRotation()).getRPY(r,p,y);
+
+	  nextTag_y = y * 180/PI;
 	}
     }
 

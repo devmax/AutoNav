@@ -276,6 +276,7 @@ class DEFAULT
         if("angular_p"==(*i)->name){angular_p = boost::any_cast<double>(val);}
         if("angular_d"==(*i)->name){angular_d = boost::any_cast<double>(val);}
         if("angular_i"==(*i)->name){angular_i = boost::any_cast<double>(val);}
+        if("direction"==(*i)->name){direction = boost::any_cast<int>(val);}
       }
     }
 
@@ -292,6 +293,7 @@ double Kct_i;
 double angular_p;
 double angular_d;
 double angular_i;
+int direction;
 
     bool state;
     std::string name;
@@ -327,6 +329,8 @@ double angular_i;
       double angular_d;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       double angular_i;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      int direction;
 //#line 255 "/opt/ros/fuerte/stacks/dynamic_reconfigure/templates/ConfigType.h"
 
     bool __fromMessage__(dynamic_reconfigure::Config &msg)
@@ -565,9 +569,9 @@ CircleParamsConfig::GroupDescription<CircleParamsConfig::DEFAULT, CircleParamsCo
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __min__.angular_p = 0.01;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __max__.angular_p = 1.5;
+      __max__.angular_p = 2.5;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
-      __default__.angular_p = 0.04;
+      __default__.angular_p = 0.4;
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.abstract_parameters.push_back(CircleParamsConfig::AbstractParamDescriptionConstPtr(new CircleParamsConfig::ParamDescription<double>("angular_p", "double", 0, "PID control parameter", "", &CircleParamsConfig::angular_p)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
@@ -592,6 +596,16 @@ CircleParamsConfig::GroupDescription<CircleParamsConfig::DEFAULT, CircleParamsCo
       Default.abstract_parameters.push_back(CircleParamsConfig::AbstractParamDescriptionConstPtr(new CircleParamsConfig::ParamDescription<double>("angular_i", "double", 0, "PID control parameter", "", &CircleParamsConfig::angular_i)));
 //#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       __param_descriptions__.push_back(CircleParamsConfig::AbstractParamDescriptionConstPtr(new CircleParamsConfig::ParamDescription<double>("angular_i", "double", 0, "PID control parameter", "", &CircleParamsConfig::angular_i)));
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __min__.direction = -1;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __max__.direction = 1;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __default__.direction = -1;
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      Default.abstract_parameters.push_back(CircleParamsConfig::AbstractParamDescriptionConstPtr(new CircleParamsConfig::ParamDescription<int>("direction", "int", 0, "Direction of yaw(Anti=-1)", "", &CircleParamsConfig::direction)));
+//#line 259 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
+      __param_descriptions__.push_back(CircleParamsConfig::AbstractParamDescriptionConstPtr(new CircleParamsConfig::ParamDescription<int>("direction", "int", 0, "Direction of yaw(Anti=-1)", "", &CircleParamsConfig::direction)));
 //#line 233 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"
       Default.convertParams();
 //#line 233 "/opt/ros/fuerte/stacks/dynamic_reconfigure/src/dynamic_reconfigure/parameter_generator.py"

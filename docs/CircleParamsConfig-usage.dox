@@ -11,9 +11,10 @@
   <param name="Kct_p" type="double" value="0.4" />
   <param name="Kct_d" type="double" value="0.4" />
   <param name="Kct_i" type="double" value="0.0" />
-  <param name="angular_p" type="double" value="0.04" />
+  <param name="angular_p" type="double" value="0.4" />
   <param name="angular_d" type="double" value="0.0" />
   <param name="angular_i" type="double" value="0.0" />
+  <param name="direction" type="int" value="-1" />
 </node>
 \endverbatim
 

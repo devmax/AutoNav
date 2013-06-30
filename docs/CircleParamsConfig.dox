@@ -12,7 +12,8 @@ Reads and maintains the following parameters on the ROS server
 - \b "~Kct_p" : \b [double] PID control parameter min: 0.01, default: 0.4, max: 2.0
 - \b "~Kct_d" : \b [double] PID control parameter min: 0.01, default: 0.4, max: 2.0
 - \b "~Kct_i" : \b [double] PID control parameter min: 0.01, default: 0.0, max: 2.0
-- \b "~angular_p" : \b [double] PID control parameter min: 0.01, default: 0.04, max: 1.5
+- \b "~angular_p" : \b [double] PID control parameter min: 0.01, default: 0.4, max: 2.5
 - \b "~angular_d" : \b [double] PID control parameter min: 0.01, default: 0.0, max: 1.0
 - \b "~angular_i" : \b [double] PID control parameter min: 0.01, default: 0.0, max: 1.0
+- \b "~direction" : \b [int] Direction of yaw(Anti=-1) min: -1, default: -1, max: 1
 

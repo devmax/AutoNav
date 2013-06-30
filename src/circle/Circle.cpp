@@ -14,9 +14,12 @@ void Circle::dynConfCB(AutoNav::CircleParamsConfig &config,uint32_t level)
   latVel = config.latVel;
   angVel = config.angVel * PI/180;
 
-  angVel = latVel/radius;
+  angVel = latVel/radius * (-config.direction);
+  latVel *= config.direction;
+
   ROS_INFO("Target latVel: %lf and radius: %lf",latVel,radius);
   ROS_INFO("Angular speed changed to %lf degrees/second",angVel*180/PI);
+
 
   atr.Kp = config.Kat_p;
   atr.Kd = config.Kat_d;
@@ -56,7 +59,7 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
   proj_vel(1) = -(state->dx)*sin(yawRad) + (state->dy)*cos(yawRad);
 
   d_error(0) = - proj_vel(0);
-  d_error(1) = (-latVel) - proj_vel(1);
+  d_error(1) = latVel - proj_vel(1);
   d_error(2) = angVel - ((state->dyaw)*PI/180);
 
   double CTgainP = proj_error(0)*ctr.Kp;
@@ -103,6 +106,7 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
   log_circle.ANGgainP = ANGgainP;
   log_circle.ANGgainD = ANGgainD;
 
+  log_control.publish(log_circle);
   //END LOGGING
 
   ROS_INFO("Velocity commands are: %lf,%lf,%lf",cmd.linear.x,cmd.linear.y,cmd.angular.z);

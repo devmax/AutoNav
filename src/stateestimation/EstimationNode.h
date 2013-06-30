@@ -27,6 +27,8 @@ typedef Eigen::Matrix<float,6,1> Vector6f;
 typedef Eigen::Matrix<float,10,1> Vector10f;
 #endif //_EIGEN_TYPES_
 
+const double PI = 3.14159265359;
+
 class EstimationNode
 {
 
