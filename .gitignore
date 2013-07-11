@@ -15,3 +15,4 @@ thirdparty/libcvd/include/
 thirdparty/libcvd/installfiles/
 thirdparty/libcvd/lib/
 thirdparty/libcvd/libcvd_built
+*.bag
