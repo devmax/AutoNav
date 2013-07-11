@@ -28,7 +28,7 @@ EstimationNode::EstimationNode()
   filter=new DroneKalmanFilter();
   lastNavStamp=ros::Time(0); 
 
-  lastTag = -255;
+  lastTag = 999;
   lastTag_found = false;
   nextTag_found = false;
 
@@ -73,7 +73,7 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 
   for(size_t i=0;i<msg.markers.size(); i++)
     {
-      if(lastTag<0 && msg.markers[i].id<20)
+      if(lastTag == 999 && msg.markers[i].id<20)
 	{
 	  markerUsed = msg.markers[i];
 
@@ -109,7 +109,9 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 	  double r,p,y;
 	  tf::Matrix3x3(droneToMarker.getRotation()).getRPY(r,p,y);
 
-	  lastTag_y = y * 180/PI;
+	  lastTag_y = y * 180/PI - 90;
+
+	  //ROS_INFO("Tag yaw is %lf",lastTag_y);
 	}
 
       if(msg.markers[i].id == (lastTag+1)%numTags)
@@ -125,7 +127,9 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
 	  double r,p,y;
 	  tf::Matrix3x3(droneToNMarker.getRotation()).getRPY(r,p,y);
 
-	  nextTag_y = y * 180/PI;
+	  nextTag_y = y * 180/PI - 90;
+
+	  //ROS_INFO("Next tag yaw is %lf",nextTag_y);
 	}
     }
 

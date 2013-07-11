@@ -1,6 +1,9 @@
 int32 timestamp
 uint32 seq
 
+#indicate the result of the yaw observation routine
+uint32 code 
+
 float32 roll
 float32 pitch
 

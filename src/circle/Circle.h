@@ -13,8 +13,10 @@
 #include <Eigen/LU>
 #include <Eigen/Core>
 #include <math.h>
+#include "ar_track_alvar/AlvarMarker.h"
+#include "ar_track_alvar/AlvarMarkers.h"
 
-#define PI 3.14159265
+const double PI = 3.14159265;
 
 struct PID
 {
@@ -32,13 +34,22 @@ class Circle
 {
  private:
   double radius;
-  int angRes;
   double latVel;
   double angVel;
+  int dirn;
 
   PID atr;
   PID ctr;
   PID angular;
+
+  bool radiusInit;
+  bool stateInit;
+
+  double initX,initY,initA;
+
+  double lastError;
+  double iTerm;
+  ros::Time lastTime;
 
   ros::NodeHandle n;
   ros::Publisher vel;
@@ -49,5 +60,6 @@ class Circle
   Circle();
   void dynConfCB(AutoNav::CircleParamsConfig &config,uint32_t level);
   void stateCB(const AutoNav::filter_stateConstPtr state);
+  void begin();
 };
 #endif //Circle.h

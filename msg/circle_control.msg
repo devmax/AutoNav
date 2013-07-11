@@ -23,4 +23,4 @@ float32 ATgainP
 float32 ATgainI
 
 float32 ANGgainP
-float32 ANGgainD
+float32 ANGgainI

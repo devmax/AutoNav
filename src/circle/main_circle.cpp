@@ -15,5 +15,7 @@ int main(int argc,char** argv)
   f = boost::bind(&Circle::dynConfCB,&circle,_1,_2);
   srv.setCallback(f);
 
-  ros::spin();
+  circle.begin();
+
+  return 0;
 }

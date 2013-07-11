@@ -33,12 +33,13 @@ void tagCB(const ar_track_alvar::AlvarMarkers &msg)
     {
       ar_track_alvar::AlvarMarker marker=msg.markers[i];
       
-      if(marker.id == 10)
+      if(marker.id < 10)
 	{
 	  tf::Quaternion q;
 	  quaternionMsgToTF(marker.pose.pose.orientation,q);
 	  tf::Vector3 origin(marker.pose.pose.position.x,marker.pose.pose.position.y,marker.pose.pose.position.z);
 
+	  /* UNCOMMENT FROM HERE FOR INIT_TO_DRONE
 	  if(!inited)
 	    {
 	      init(marker.pose.pose);
@@ -46,7 +47,10 @@ void tagCB(const ar_track_alvar::AlvarMarkers &msg)
 
 	  tf::Transform drone_to_marker(q,origin);
 
-	  tf::Transform init_to_drone = init_to_marker*(drone_to_marker.inverse());
+	  tf::Transform init_to_drone = init_to_marker*(drone_to_marker.inverse());*/
+
+	  tf::Transform init_to_drone(q,origin); //COMMENT THIS
+
 	  double roll,pitch,yaw;
 
 	  tf::Matrix3x3(init_to_drone.getRotation()).getRPY(roll,pitch,yaw);
@@ -67,7 +71,7 @@ void tagCB(const ar_track_alvar::AlvarMarkers &msg)
 
 int main(int argc, char**argv)
 {
-  ros::init(argc,argv,"rpy");
+  ros::init(argc,argv,"testRPY");
 
   inited = false;
 

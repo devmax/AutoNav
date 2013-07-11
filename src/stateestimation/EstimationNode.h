@@ -47,7 +47,7 @@ private:
   ros::Duration predTime;
   int publishFreq;
   int numTags;
-  int lastTag;
+  unsigned int lastTag;
   double lastTag_y,nextTag_y;
   double tolerance;
 

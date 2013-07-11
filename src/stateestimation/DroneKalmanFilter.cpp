@@ -400,7 +400,13 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
 	{
 	  //ROS_INFO("Prior yaw: %lf",yaw.state(0));
 	  yaw.observePose(observedYaw,varPoseObservation_yaw_IMU);
+	  message.code = 1;
 	  //ROS_INFO("New yaw after observation = %lf",yaw.state(0));
+	}
+      else
+	{
+	  //ROS_INFO("Large jump in NAVdata yaw, rejecting!");
+	  message.code = 2;
 	}
     }
   else
@@ -409,13 +415,15 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
 	{
 	  //ROS_INFO("Prior yaw: %lf",yaw.state(0));
 	  yaw.observePose(observedYaw,1*1);
+	  message.code = 3;
 	  //ROS_INFO("Last pose invalid, but making observation now! posterior=%lf",yaw.state(0));
 	}
       else
 	{
-	  //ROS_INFO("Big jump observed, no observation done!");
+	  //ROS_INFO("Last tag observation invalid and big jump in NAVyaw!");
 	  baselineY_IMU=nav->rotZ;
 	  baselineY_Filter = yaw.state(0);
+	  message.code = 4;
 	  //ROS_INFO("invalid: baselineY_IMU=%lf,baselineY_Filter=%lf",baselineY_IMU,baselineY_Filter);
 	}
     }
@@ -761,7 +769,7 @@ void DroneKalmanFilter::addTag(tf::Transform initToDrone,int corrStamp)
   else
     {
       last_yaw_valid = false;
-      //ROS_INFO("Large jump in yaw observed, rejecting!");
+      ROS_INFO("Large jump in yaw from tag observed, rejecting!");
     }
 
 

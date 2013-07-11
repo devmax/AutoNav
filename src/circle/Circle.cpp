@@ -1,24 +1,35 @@
 #include "Circle.h"
 
+double angleFromTo(double angle, double min, double max)
+{//make sure min<=angle<max
+  while(angle<min) angle+=360;
+  while(angle>=max) angle-=360;
+  return angle;
+}
+
 Circle::Circle()
 {
   vel = n.advertise<geometry_msgs::Twist>("/cmd_vel",1);
   log_control = n.advertise<AutoNav::circle_control>("/log_circleControl",1);
   state = n.subscribe("/ardrone/predictedPose",2,&Circle::stateCB,this);
+
+  radiusInit = false;
+  stateInit = false;
+
+  iTerm = lastError = 0.0;
+  lastTime = ros::Time::now();
 }
 
 void Circle::dynConfCB(AutoNav::CircleParamsConfig &config,uint32_t level)
 {
   radius = config.radius;
-  angRes = config.angRes;
   latVel = config.latVel;
-  angVel = config.angVel * PI/180;
+  dirn = config.direction;
 
-  angVel = latVel/radius * (-config.direction);
-  latVel *= config.direction;
+  latVel *= dirn;
+  //  angVel = (-latVel/radius) * 180/PI;
 
-  ROS_INFO("Target latVel: %lf and radius: %lf",latVel,radius);
-  ROS_INFO("Angular speed changed to %lf degrees/second",angVel*180/PI);
+  ROS_INFO("Target latVel: %lf, radius: %lf",latVel,radius);
 
 
   atr.Kp = config.Kat_p;
@@ -26,8 +37,8 @@ void Circle::dynConfCB(AutoNav::CircleParamsConfig &config,uint32_t level)
   atr.Ki = config.Kat_i;
 
   ctr.Kp = config.Kct_p;
-  ctr.Kp = config.Kct_d;
-  ctr.Kp = config.Kct_i;
+  ctr.Kd = config.Kct_d;
+  ctr.Ki = config.Kct_i;
 
   angular.Kp = config.angular_p;
   angular.Kd = config.angular_d;
@@ -37,6 +48,14 @@ void Circle::dynConfCB(AutoNav::CircleParamsConfig &config,uint32_t level)
 void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
 {
 
+  if(!stateInit)
+    {
+      initX = state->x;
+      initY = state->y;
+      initA = state->yaw;
+      stateInit = true;
+    }
+
   AutoNav::circle_control log_circle;
 
   Eigen::Vector2f error;
@@ -44,10 +63,11 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
   Eigen::Vector2f proj_error,proj_vel;
   Eigen::Vector2f goal;
 
-  double yawRad = state->yaw * PI / 180;
+  double yawRad = state->yaw - initA;
+  yawRad = angleFromTo(yawRad,-180,180) * PI / 180;
 
-  goal(0) = radius*(1 - cos(yawRad));
-  goal(1) = -radius*sin(yawRad);
+  goal(0) = initX + (radius*(1 - cos(yawRad)));
+  goal(1) = initY - (radius*sin(yawRad));
 
   error(0) = goal(0) - state->x;
   error(1) = goal(1) - state->y;
@@ -58,28 +78,35 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
   proj_vel(0) = (state->dx)*cos(yawRad) + (state->dy)*sin(yawRad);
   proj_vel(1) = -(state->dx)*sin(yawRad) + (state->dy)*cos(yawRad);
 
+  angVel = (-proj_vel(1)) / radius;
+
   d_error(0) = - proj_vel(0);
   d_error(1) = latVel - proj_vel(1);
   d_error(2) = angVel - ((state->dyaw)*PI/180);
 
+  iTerm += lastError * (ros::Time::now()-lastTime).toSec();
+
   double CTgainP = proj_error(0)*ctr.Kp;
   double CTgainD = d_error(0)*ctr.Kd;
 
-  double ATgainP = d_error(1)*atr.Kp;
+  double ATgainP = latVel; //d_error(1)*atr.Kp;
   double ATgainI = 0;
 
   double ANGgainP = d_error(2)*angular.Kp;
-  double ANGgainD = 0;
+  double ANGgainI = iTerm * angular.Ki;
+
+  lastError = d_error(2);
+  lastTime = ros::Time::now();
 
   geometry_msgs::Twist cmd;
 
   cmd.linear.x = CTgainP + CTgainD;
   cmd.linear.y = ATgainP + ATgainI;
-  cmd.angular.z = ANGgainP + ANGgainD;
+  cmd.angular.z = ANGgainP + ANGgainI;
 
   //START LOGGING
 
-  log_circle.yaw = state->yaw;
+  log_circle.yaw = state->yaw - initA;
 
   log_circle.goalX = goal(0);
   log_circle.goalY = goal(1);
@@ -95,7 +122,7 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
 
   log_circle.VerrX = d_error(0);
   log_circle.VerrY = d_error(1);
-  log_circle.VerrA = d_error(2);
+  log_circle.VerrA = d_error(2) * 180/PI;
 
   log_circle.CTgainP = CTgainP;
   log_circle.CTgainD = CTgainD;
@@ -104,11 +131,42 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
   log_circle.ATgainI = ATgainI;
 
   log_circle.ANGgainP = ANGgainP;
-  log_circle.ANGgainD = ANGgainD;
+  log_circle.ANGgainI = ANGgainI;
 
   log_control.publish(log_circle);
   //END LOGGING
 
-  ROS_INFO("Velocity commands are: %lf,%lf,%lf",cmd.linear.x,cmd.linear.y,cmd.angular.z);
+  //  ROS_INFO("Velocity commands are: %lf,%lf,%lf",cmd.linear.x,cmd.linear.y,cmd.angular.z);
   vel.publish(cmd);
+
+}
+
+void Circle::begin()
+{
+  while(n.ok())
+    {
+      while(!radiusInit)
+	{
+	  ar_track_alvar::AlvarMarkersConstPtr msg = ros::topic::waitForMessage<ar_track_alvar::AlvarMarkers>("/ar_pose_marker",ros::Duration(5));
+	  if(msg)
+	    {
+	      for(size_t i=0; i<msg->markers.size() && (!radiusInit); i++)
+		{
+		  if(msg->markers[i].id == 0)
+		    {
+		      radius = msg->markers[i].pose.pose.position.x;
+		      radiusInit = true;
+		    }
+		}
+	      if(radiusInit)
+		ROS_INFO("Target radius chosen to be %lf metres",radius);
+	      else
+		ROS_INFO("First tag not sighted, retrying callback...");
+	    }
+	  else
+	    ROS_INFO("No message received from tag callback...");
+	}
+
+      ros::spin();
+    }
 }
