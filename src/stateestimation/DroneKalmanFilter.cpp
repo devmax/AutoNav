@@ -64,7 +64,6 @@ DroneKalmanFilter::DroneKalmanFilter()
   pub_obs_tag=n.advertise<AutoNav::obs_tag>(obs_tag_channel,1);
 
   last_z_IMU = -111;
-  baseline_set = false;
 
   pthread_mutex_lock(&filter_CS);
   reset();
@@ -124,7 +123,6 @@ void DroneKalmanFilter::reset()
 
   baselineZ_Filter = baselineZ_IMU = baselineY_IMU = baselineY_Filter = -999999;
 
-  last_yaw_IMU = 0;
   yaw_offset_initialized = false;
 }
 
@@ -132,9 +130,7 @@ void DroneKalmanFilter::clearTag()
 {
   ROS_INFO("Initializing tag-info now!");
 
-  lastX = lastY = lastZ = 0.0;
-  last_yaw = 0.0;
-  last_z = 0.0;
+  last_yaw =  last_z = 0.0;
   last_tag = getMS(ros::Time::now());
 
   lastPosesValid = last_yaw_valid = false;
@@ -375,19 +371,6 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
   yaw.state[0] = angleFromTo(yaw.state[0],-180,180);
   observedYaw = angleFromTo(observedYaw,-180,180);
 
-  /*if(!baseline_set)
-    {
-    if(nav->altd != 0)
-    {
-    baselineY_IMU = nav->rotZ;
-    baseline_set = true;
-    //baselineY_Filter = yaw.state[0];
-    }
-    else
-    observedYaw = 0.0;
-    }
-
-    yaw.observePose(observedYaw,varPoseObservation_yaw_IMU);*/
 
   if(last_yaw_valid)
     {
@@ -433,7 +416,6 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
   message.navYaw = nav->rotZ;
   message.observedYaw = observedYaw;
 
-  last_yaw_IMU=nav->rotZ;
   yaw.state[0]=angleFromTo(yaw.state[0],-180,180);
 
   /*begin LOGGING*/
@@ -482,12 +464,12 @@ void DroneKalmanFilter::observeTag(Vector6f pose)
   x.observePose(pose[0],varPoseObservation_xy);
   y.observePose(pose[1],varPoseObservation_xy);
 
-  if(std::abs(last_z-pose(2))<2 || (getMS()-last_tag)>500)
-    {
-      z.observePose(pose[2],varPoseObservation_z_tag);
-    }
-  else
-    //ROS_INFO("Large jump in z, not observing height..");
+  //  if(std::abs(last_z-pose(2))<2 || (getMS()-last_tag)>500)
+  //    {
+  z.observePose(pose[2],varPoseObservation_z_tag);
+  //    }
+  //  else
+  //ROS_INFO("Large jump in z, not observing height..");
 
   //ROS_INFO("Posterior poses: %lf,%lf,%lf and velocities: %lf,%lf,%lf",x.state(0),y.state(0),z.state(0),x.state(1),y.state(1),z.state(1));
 
@@ -701,6 +683,15 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
     }
 }
 
+tf::Transform DroneKalmanFilter::getCurrentTF()
+{
+  tf::Transform s;
+
+  s.setRotation(tf::createQuaternionFromRPY(roll.state*PI/180,pitch.state*PI/180,yaw.state(0)*PI/180));
+  s.setOrigin(tf::Vector3(x.state(0),y.state(0),z.state(0)));
+
+  return s;
+}
 Vector6f DroneKalmanFilter::getCurrentPose()
 {
   return (Vector6f()<<x.state[0],y.state[0],z.state[0],roll.state,pitch.state,yaw.state[0]).finished();
@@ -744,7 +735,6 @@ void DroneKalmanFilter::addTag(tf::Transform initToDrone,int corrStamp)
     }
 
   Vector6f measurement;
-
   double r,p,y;
 
   tf::Matrix3x3(initToDrone.getRotation()).getRPY(r,p,y);
@@ -752,27 +742,27 @@ void DroneKalmanFilter::addTag(tf::Transform initToDrone,int corrStamp)
   measurement(0) = initToDrone.getOrigin().x();
   measurement(1) = initToDrone.getOrigin().y();
   measurement(2) = initToDrone.getOrigin().z();
-  measurement(3) = r * 180 / 3.14159265359;
-  measurement(4) = p * 180 / 3.14159265359;
-  measurement(5) = y * 180 / 3.14159265359;
+  measurement(3) = r * 180 / PI;
+  measurement(4) = p * 180 / PI;
+  measurement(5) = y * 180 / PI;
 
   measurement(5) = angleFromTo(measurement(5),-180,180);
 
-  if(std::abs(last_yaw-measurement[5])<25 || (getMS() - last_tag)>500)
+
+  /*  if(std::abs(last_yaw-measurement[5])<25 || (getMS() - last_tag)>500)
     {
       last_tag = getMS();
       last_yaw_valid = true;
       last_yaw = measurement(5);
-
+  */
       observeTag(measurement);
-    }
+      /*    }
   else
     {
       last_yaw_valid = false;
       ROS_INFO("Large jump in yaw from tag observed, rejecting!");
-    }
-
-
+      }*/
+  
 }
 
 void DroneKalmanFilter::addFakeTag(int timestamp)

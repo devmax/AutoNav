@@ -29,6 +29,8 @@
 #define _EIGEN_TYPES_
 typedef Eigen::Matrix<float,6,1> Vector6f;
 typedef Eigen::Matrix<float,10,1> Vector10f;
+
+const double PI = 3.14159265359;
 #endif //_EIGEN_TYPES_
 
 class EstimationNode;
@@ -208,9 +210,6 @@ class DroneKalmanFilter
 
   bool lastPosesValid,yaw_offset_initialized,last_yaw_valid;
 
-  double lastX,lastY,lastZ;
-
-  double last_yaw_IMU;
   double last_z_IMU;
   long last_z_packageID;
 
@@ -228,7 +227,6 @@ class DroneKalmanFilter
   double baselineY_Filter;
   double last_yaw;
   double last_z;
-  bool baseline_set;
 
   int last_tag;
 
@@ -247,7 +245,6 @@ class DroneKalmanFilter
   ros::Publisher pub_obs_IMU_XYZ;
   ros::Publisher pub_obs_IMU_RPY;
   ros::Publisher pub_obs_tag;
-
 
  public:
   DroneKalmanFilter();
@@ -269,13 +266,13 @@ class DroneKalmanFilter
 
   int predictedUpToTimestamp;
 
-
   void reset();
   void clearTag();
   void predictUpTo(int timestamp,bool consume=true,bool useControlGains=true);
   void setPing(unsigned int navPing, unsigned int vidPing);
 
   Vector6f getCurrentPose();
+  tf::Transform getCurrentTF();
   AutoNav::filter_state getCurrentPoseSpeed();
   Vector10f getCurrentPoseSpeedVariances();
   Vector6f getCurrentPoseVariances();

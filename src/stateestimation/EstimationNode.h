@@ -25,9 +25,9 @@ class DroneKalmanFilter;
 #define _EIGEN_TYPES_
 typedef Eigen::Matrix<float,6,1> Vector6f;
 typedef Eigen::Matrix<float,10,1> Vector10f;
-#endif //_EIGEN_TYPES_
 
 const double PI = 3.14159265359;
+#endif //_EIGEN_TYPES_
 
 class EstimationNode
 {
@@ -46,14 +46,10 @@ private:
 
   ros::Duration predTime;
   int publishFreq;
-  int numTags;
-  unsigned int lastTag;
-  double lastTag_y,nextTag_y;
-  double tolerance;
+
+  unsigned int lastID;
 
   tf::Transform initToMarker;
-
-  bool lastTag_found, nextTag_found;
 
   std::string navdata_channel;
   std::string control_channel;
@@ -72,7 +68,7 @@ public:
 
   void navdataCB(const ardrone_autonomy::NavdataConstPtr navdataPtr);
   void velCB(const geometry_msgs::TwistConstPtr controlPtr);
-  void tagCB(const ar_track_alvar::AlvarMarkers &msg);
+  void tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr);
   
   void Loop();
 

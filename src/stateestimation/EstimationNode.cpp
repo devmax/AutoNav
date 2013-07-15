@@ -28,16 +28,7 @@ EstimationNode::EstimationNode()
   filter=new DroneKalmanFilter();
   lastNavStamp=ros::Time(0); 
 
-  lastTag = 999;
-  lastTag_found = false;
-  nextTag_found = false;
-
-  lastTag_y = 0;
-  nextTag_y = 0;
-
-  tolerance = 10;
-
-  numTags = 6;
+  lastID = 999;
 }
 
 void EstimationNode::navdataCB(const ardrone_autonomy::NavdataConstPtr navdataPtr)
@@ -65,89 +56,88 @@ void EstimationNode::velCB(const geometry_msgs::TwistConstPtr controlPtr)
   pthread_mutex_unlock(&filter->filter_CS);
 }
 
-void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
+void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr)
 {
-  //  ROS_INFO("Tag Call Back!");
-  ar_track_alvar::AlvarMarker markerUsed;
-  tf::Transform droneToMarker, droneToNMarker, initToDrone;
 
-  for(size_t i=0;i<msg.markers.size(); i++)
+  int lastTag=999, nextTag=999, minYawID=999;
+  double minYaw = 999;
+  tf::Transform droneToMarker;
+
+  for(unsigned int i=0;i<tagsPtr->markers.size();i++)
     {
-      if(lastTag == 999 && msg.markers[i].id<20)
+      if(tagsPtr->markers[i].id < 100)
 	{
-	  markerUsed = msg.markers[i];
+	  if(tagsPtr->markers[i].id == lastID)
+	      lastTag = i;
+	  else
+	    {
 
-	  if(markerUsed.id!=0)
-	    continue;
+	      const ar_track_alvar::AlvarMarker markerUsed = tagsPtr->markers[i];
 
-	  tf::Quaternion q;
-	  quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
-	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
-	  initToMarker = tf::Transform(q,origin);
-	  droneToMarker = initToMarker;
+	      tf::Quaternion q;
+	      quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
+	      tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
+	      droneToMarker = tf::Transform(q,origin);
 
-	  lastTag = msg.markers[i].id;
-	  lastTag_found = true;
+	      double r,p,y;
 
-	  ROS_INFO("First observation of tag %d made and offsets initialized...!",msg.markers[i].id);
-	  break;
-	}
+	      tf::Matrix3x3(droneToMarker.getRotation()).getRPY(r,p,y);
 
-      if(msg.markers[i].id == lastTag)
-	{
-	  lastTag_found = true;
-	  markerUsed = msg.markers[i];
+	      double yawDeg = (y*180/PI) - 90;
 
-	  tf::Quaternion q;
-	  quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
-	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
-	  droneToMarker = tf::Transform(q,origin);
-
-	  lastTag = msg.markers[i].id;
-	  //ROS_INFO("Last tag is %d",lastTag);
-
-	  double r,p,y;
-	  tf::Matrix3x3(droneToMarker.getRotation()).getRPY(r,p,y);
-
-	  lastTag_y = y * 180/PI - 90;
-
-	  //ROS_INFO("Tag yaw is %lf",lastTag_y);
-	}
-
-      if(msg.markers[i].id == (lastTag+1)%numTags)
-	{
-	  nextTag_found = true;
-	  markerUsed = msg.markers[i];
-
-	  tf::Quaternion q;
-	  quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
-	  tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
-	  droneToNMarker = tf::Transform(q,origin);
-
-	  double r,p,y;
-	  tf::Matrix3x3(droneToNMarker.getRotation()).getRPY(r,p,y);
-
-	  nextTag_y = y * 180/PI - 90;
-
-	  //ROS_INFO("Next tag yaw is %lf",nextTag_y);
+	      if(std::abs(yawDeg) < std::abs(minYaw))
+		{
+		  minYaw = yawDeg;
+		  minYawID = i;
+		}
+	      if(yawDeg>10 && yawDeg<45)
+		nextTag = i;	  
+	    }
 	}
     }
 
+  ar_track_alvar::AlvarMarker markerUsed;
+  bool transition = false;
 
-  if(lastTag_found)
+  if(minYawID != 999 || lastTag!=999)
     {
-
-      if(nextTag_found && std::abs(std::abs(lastTag_y) - std::abs(nextTag_y)) < tolerance)
+      if(lastTag!=999)
 	{
-	  initToMarker *= (droneToMarker.inverse())*droneToNMarker;
-	  droneToMarker = droneToNMarker;
-
-	  ROS_INFO("Transitioning from tag %d to %d now!",lastTag,(lastTag+1)%numTags);
-
-	  lastTag = (lastTag+1)%numTags;
+	  if(nextTag == 999)
+	    {
+	      markerUsed = tagsPtr->markers[lastTag];
+	      ROS_INFO("Retained tag %d",markerUsed.id);
+	    }
+	  else
+	    {
+	      markerUsed = tagsPtr->markers[nextTag];
+	      transition = true;
+	      ROS_INFO("Ready to transition to tag %d",markerUsed.id);
+	    }
+	}
+      else if(lastTag==999)
+	{
+	  markerUsed = tagsPtr->markers[minYawID];
+	  transition = true;
+	  ROS_INFO("Starting afresh from tag %d",markerUsed.id);
 	}
 
-      initToDrone = initToMarker*(droneToMarker.inverse());
+      //      ROS_INFO("Using tag %d",markerUsed.id);
+      lastID = markerUsed.id;
+
+      tf::Quaternion q;
+      quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
+      tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
+      droneToMarker = tf::Transform(q,origin);
+
+      if(transition)
+	{
+	  ROS_INFO("Resetting origin for tags!");
+	  
+	  initToMarker = (filter->getCurrentTF()) * droneToMarker;
+	}
+
+      tf::Transform initToDrone = initToMarker*(droneToMarker.inverse());
 
       ros::Time stamp;
       if(ros::Time::now()-markerUsed.pose.header.stamp > ros::Duration(30.0))
@@ -159,17 +149,8 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkers &msg)
       pthread_mutex_lock(&filter->filter_CS);
       filter->addTag(initToDrone,getMS(stamp)-filter->delayVideo);
       pthread_mutex_unlock(&filter->filter_CS);
-
-    }
-  else
-    {
-      if(nextTag_found)
-	ROS_INFO("New tag found but last tag not found...!");
-      ROS_INFO("ERROR! Last tag %d lost without transition...!",lastTag);
     }
 
-
-  lastTag_found = nextTag_found = false;
 }
 
 void EstimationNode::Loop()
@@ -182,7 +163,7 @@ void EstimationNode::Loop()
       ros::spinOnce();
 
       pthread_mutex_lock(&filter->filter_CS);
-      AutoNav::filter_state cur_s = filter->getPoseAt(ros::Time::now());
+      //      AutoNav::filter_state cur_s = filter->getPoseAt(ros::Time::now());
       AutoNav::filter_state s = filter->getPoseAt(ros::Time::now()+predTime);
       pthread_mutex_unlock(&filter->filter_CS);
 
@@ -191,7 +172,7 @@ void EstimationNode::Loop()
       s.batteryPercent=lastNavdataReceived.batteryPercent;
 
       dronepose_pub.publish(s);
-      currentstate_pub.publish(cur_s);
+      //      currentstate_pub.publish(cur_s);
 
       if((getMS(ros::Time::now())-filter->predictedUpToTimestamp)>500)
 	filter->addFakeTag(getMS(ros::Time::now())-300);
