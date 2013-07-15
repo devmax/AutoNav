@@ -33,7 +33,7 @@ void tagCB(const ar_track_alvar::AlvarMarkers &msg)
     {
       ar_track_alvar::AlvarMarker marker=msg.markers[i];
       
-      if(marker.id < 10)
+      if(marker.id < 100)
 	{
 	  tf::Quaternion q;
 	  quaternionMsgToTF(marker.pose.pose.orientation,q);
@@ -62,7 +62,7 @@ void tagCB(const ar_track_alvar::AlvarMarkers &msg)
 	  epose.position.z = init_to_drone.getOrigin().z();
 	  epose.euler.x=roll*180/3.14159268;
 	  epose.euler.y=pitch*180/3.14159268;
-	  epose.euler.z=yaw*180/3.14159268;
+	  epose.euler.z=yaw*180/3.14159268 - 90;
 
 	  pose_pub.publish(epose);
 	}

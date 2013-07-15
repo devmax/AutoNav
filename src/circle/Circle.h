@@ -47,8 +47,8 @@ class Circle
 
   double initX,initY,initA;
 
-  double lastError;
-  double iTerm;
+  Eigen::Vector3f lastError;
+  Eigen::Vector3f iTerm;
   ros::Time lastTime;
 
   ros::NodeHandle n;

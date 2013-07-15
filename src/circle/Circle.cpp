@@ -16,7 +16,7 @@ Circle::Circle()
   radiusInit = false;
   stateInit = false;
 
-  iTerm = lastError = 0.0;
+  iTerm = lastError = Eigen::Vector3f::Zero();
   lastTime = ros::Time::now();
 }
 
@@ -84,18 +84,21 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
   d_error(1) = latVel - proj_vel(1);
   d_error(2) = angVel - ((state->dyaw)*PI/180);
 
-  iTerm += lastError * (ros::Time::now()-lastTime).toSec();
+  iTerm(0) = 0; //drone's x-axis
+  iTerm(1) += lastError(1) * (ros::Time::now()-lastTime).toSec(); //drone's y-axis
+  iTerm(2) += lastError(2) * (ros::Time::now()-lastTime).toSec(); //yaw 
 
   double CTgainP = proj_error(0)*ctr.Kp;
   double CTgainD = d_error(0)*ctr.Kd;
 
-  double ATgainP = latVel; //d_error(1)*atr.Kp;
-  double ATgainI = 0;
+  double ATgainP = d_error(1)*atr.Kp;
+  double ATgainI = iTerm(1) * atr.Ki;
 
   double ANGgainP = d_error(2)*angular.Kp;
-  double ANGgainI = iTerm * angular.Ki;
+  double ANGgainI = iTerm(2) * angular.Ki;
 
-  lastError = d_error(2);
+  lastError(1) = d_error(1);
+  lastError(2) = d_error(2);
   lastTime = ros::Time::now();
 
   geometry_msgs::Twist cmd;
@@ -107,6 +110,9 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
   //START LOGGING
 
   log_circle.yaw = state->yaw - initA;
+  log_circle.dyaw = state->dyaw;
+
+  log_circle.angVel = angVel * 180/PI;
 
   log_circle.goalX = goal(0);
   log_circle.goalY = goal(1);

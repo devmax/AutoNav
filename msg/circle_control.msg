@@ -1,4 +1,6 @@
 float32 yaw
+float32 dyaw
+float32 angVel
 
 float32 goalX
 float32 goalY

@@ -1,2 +1,1 @@
--increase crosstrack Kp!!
-
+-make provisions for temporary loss of view of tags...(ENHANCEMENT)
