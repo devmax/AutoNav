@@ -24,6 +24,7 @@ EstimationNode::EstimationNode()
   dronepose_pub=nh.advertise<AutoNav::filter_state>(output_channel,1);
   currentstate_pub=nh.advertise<AutoNav::filter_state>(current_output_channel,1);
   command_pub=nh.advertise<std_msgs::String>(command_channel,1);
+  logTag_pub = nh.advertise<AutoNav::tags>("/log_tags",1);
 
   filter=new DroneKalmanFilter();
   lastNavStamp=ros::Time(0); 
@@ -106,7 +107,7 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr)
 	  if(nextTag == 999)
 	    {
 	      markerUsed = tagsPtr->markers[lastTag];
-	      ROS_INFO("Retained tag %d",markerUsed.id);
+	      //ROS_INFO("Retained tag %d",markerUsed.id);
 	    }
 	  else
 	    {
@@ -130,14 +131,58 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr)
       tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
       droneToMarker = tf::Transform(q,origin);
 
+      AutoNav::tags log;
+
+      log.markerID = markerUsed.id;
+
+      tf::Transform current = filter->getCurrentTF();
       if(transition)
 	{
-	  ROS_INFO("Resetting origin for tags!");
-	  
-	  initToMarker = (filter->getCurrentTF()) * droneToMarker;
+	  initToMarker = current * droneToMarker;
+
+	  log.initToMarker.linear.x = initToMarker.getOrigin().x();
+	  log.initToMarker.linear.y = initToMarker.getOrigin().y();
+	  log.initToMarker.linear.z = initToMarker.getOrigin().z();
+
+	  double r,p,y;
+	  tf::Matrix3x3(initToMarker.getRotation()).getRPY(r,p,y);
+
+	  log.initToMarker.angular.x = r * 180 / PI;
+	  log.initToMarker.angular.y = p * 180 / PI;
+	  log.initToMarker.angular.z = y * 180 / PI;
 	}
 
+      log.droneToMarker.linear.x = droneToMarker.getOrigin().x();
+      log.droneToMarker.linear.y = droneToMarker.getOrigin().y();
+      log.droneToMarker.linear.z = droneToMarker.getOrigin().z();
+
+      double r,p,y;
+      tf::Matrix3x3(droneToMarker.getRotation()).getRPY(r,p,y);
+
+      log.droneToMarker.angular.x = r * 180 / PI;
+      log.droneToMarker.angular.y = p * 180 / PI;
+      log.droneToMarker.angular.z = y * 180 / PI;
+
       tf::Transform initToDrone = initToMarker*(droneToMarker.inverse());
+
+      double curR,curP,curY;
+      double measR,measP,measY;
+
+      tf::Matrix3x3(current.getRotation()).getRPY(curR,curP,curY);
+      tf::Matrix3x3(initToDrone.getRotation()).getRPY(measR,measP,measY);
+
+      log.initToDrone.linear.x = initToDrone.getOrigin().x();
+      log.initToDrone.linear.y = initToDrone.getOrigin().y();
+      log.initToDrone.linear.z = initToDrone.getOrigin().z();
+      log.initToDrone.angular.x = measR * 180 / PI;
+      log.initToDrone.angular.y = measP * 180 / PI;
+      log.initToDrone.angular.z = measY * 180 / PI;
+
+      curY *= 180/PI;
+      measY *= 180/PI;
+
+      if(std::abs(measY - curY) > 15)
+	ROS_INFO("Sudden yaw from %lf to %lf",curY,measY);
 
       ros::Time stamp;
       if(ros::Time::now()-markerUsed.pose.header.stamp > ros::Duration(30.0))
@@ -145,10 +190,13 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr)
       else
 	stamp=markerUsed.pose.header.stamp;
 
-
       pthread_mutex_lock(&filter->filter_CS);
-      filter->addTag(initToDrone,getMS(stamp)-filter->delayVideo);
+      filter->addTag(
+(Vector6f()<<log.initToDrone.linear.x,log.initToDrone.linear.y,log.initToDrone.linear.z,log.initToDrone.angular.x,log.initToDrone.angular.y,log.initToDrone.angular.z).finished(),
+getMS(stamp)-filter->delayVideo);
       pthread_mutex_unlock(&filter->filter_CS);
+
+      logTag_pub.publish(log);
     }
 
 }

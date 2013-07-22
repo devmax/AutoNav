@@ -18,6 +18,7 @@
 #include "ar_track_alvar/AlvarMarker.h"
 #include "ar_track_alvar/AlvarMarkers.h"
 #include "AutoNav/filter_state.h"
+#include "AutoNav/tags.h"
 
 class DroneKalmanFilter;
 
@@ -42,6 +43,7 @@ private:
   ros::Publisher currentstate_pub;
   ros::Publisher command_pub;
 
+  ros::Publisher logTag_pub;
   ros::NodeHandle nh;
 
   ros::Duration predTime;

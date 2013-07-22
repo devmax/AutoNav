@@ -107,7 +107,8 @@ void DroneKalmanFilter::reset()
 {
   ROS_INFO("Doing a reset on EKF now!");
   // init filter with pose 0 (var 0) and speed 0 (var large).
-  x = y = z = yaw = PVFilter(0);
+  x = y = z = PVSFilter(0,1);
+  yaw = PVFilter(0);
   roll = pitch = PFilter(0);
   
   last_z_heightDiff = 0;
@@ -215,10 +216,10 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
   yaw.predict(tsMillis,varAccelerationError_yaw,(Eigen::Vector2f()<<(tsSeconds*yawSpeedControlGain/2),yawSpeedControlGain).finished(),1,5*5);
   yaw.state[0]=angleFromTo(yaw.state[0],-180,180);
 
-  x.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector2f()<<(tsSeconds*vx_gain/2),vx_gain).finished(),0.0001);
-  y.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector2f()<<(tsSeconds*vy_gain/2),vy_gain).finished(),0.0001);
+  x.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector3f()<<(tsSeconds*vx_gain/2),vx_gain,0).finished(),0.0001);
+  y.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector3f()<<(tsSeconds*vy_gain/2),vy_gain,0).finished(),0.0001);
   //CONTACT ABOUT BUG HERE-VARIANCE IN SPEED SENT IMPROPER
-  z.predict(tsMillis,(Eigen::Vector3f()<<(tsSeconds*tsSeconds*tsSeconds*tsSeconds), (9*tsSeconds*tsSeconds),(tsSeconds*tsSeconds*tsSeconds*3)).finished(),(Eigen::Vector2f()<<(tsSeconds*vz_gain/2),vz_gain).finished());
+  z.predict(tsMillis,(Eigen::Vector3f()<<(tsSeconds*tsSeconds*tsSeconds*tsSeconds), (9*tsSeconds*tsSeconds),(tsSeconds*tsSeconds*tsSeconds*3)).finished(),(Eigen::Vector3f()<<(tsSeconds*vz_gain/2),vz_gain,0).finished());
 
   /*begin LOGGING*/
   message.roll_post = roll.state;
@@ -339,7 +340,6 @@ void DroneKalmanFilter::observeIMU_XYZ(const ardrone_autonomy::Navdata* nav)
 
 void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
 {
-  //ROS_INFO("Observing IMU_RPY # %d now!",nav->header.seq);
   /*begin LOGGING*/
   AutoNav::obs_IMU_RPY message;
   message.timestamp=getMS();
@@ -359,7 +359,7 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
     {
       baselineY_IMU = nav->rotZ;
       baselineY_Filter = yaw.state[0];
-      //last_baseline = baselineY_IMU;
+
       //ROS_INFO("Initing: base_IMU = %lf and base_Filter = %lf",baselineY_IMU,baselineY_Filter);
     }
 
@@ -457,9 +457,6 @@ void DroneKalmanFilter::observeTag(Vector6f pose)
 
   bool reject  = false;
   lastPosesValid = true;
-
-  //ROS_INFO("Prior poses are: %lf,%lf,%lf and velocities are: %lf,%lf,%lf",x.state(0),y.state(0),z.state(0),x.state(1),y.state(1),z.state(1));
-  //ROS_INFO("Observation is : %lf,%lf,%lf for time at %d",pose[0],pose[1],pose[2],getMS());
 
   x.observePose(pose[0],varPoseObservation_xy);
   y.observePose(pose[1],varPoseObservation_xy);
@@ -725,7 +722,7 @@ Vector6f DroneKalmanFilter::getCurrentPoseVariances()
   return (Vector6f()<<x.var(0,0),y.var(0,0),z.var(0,0),roll.var,pitch.var,yaw.var(0,0)).finished();
 }
 
-void DroneKalmanFilter::addTag(tf::Transform initToDrone,int corrStamp)
+void DroneKalmanFilter::addTag(Vector6f measurement,int corrStamp)
 {
   //ROS_INFO("Adding tag now!");
   if(corrStamp>predictedUpToTotal)
@@ -734,6 +731,7 @@ void DroneKalmanFilter::addTag(tf::Transform initToDrone,int corrStamp)
       predictUpTo(corrStamp,true,true);
     }
 
+  /*
   Vector6f measurement;
   double r,p,y;
 
@@ -747,22 +745,23 @@ void DroneKalmanFilter::addTag(tf::Transform initToDrone,int corrStamp)
   measurement(5) = y * 180 / PI;
 
   measurement(5) = angleFromTo(measurement(5),-180,180);
+  */
 
-
-  /*  if(std::abs(last_yaw-measurement[5])<25 || (getMS() - last_tag)>500)
+  if(std::abs(last_yaw-measurement[5])<25 || (getMS() - last_tag)>500)
     {
       last_tag = getMS();
       last_yaw_valid = true;
       last_yaw = measurement(5);
-  */
+
       observeTag(measurement);
-      /*    }
+
+}
   else
     {
       last_yaw_valid = false;
-      ROS_INFO("Large jump in yaw from tag observed, rejecting!");
-      }*/
-  
+      ROS_INFO("Unusual yaw of %lf detected from tags, rejecting!",measurement(5));
+    }
+
 }
 
 void DroneKalmanFilter::addFakeTag(int timestamp)

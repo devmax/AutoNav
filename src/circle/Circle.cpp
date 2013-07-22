@@ -153,14 +153,14 @@ void Circle::begin()
     {
       while(!radiusInit)
 	{
-	  ar_track_alvar::AlvarMarkersConstPtr msg = ros::topic::waitForMessage<ar_track_alvar::AlvarMarkers>("/ar_pose_marker",ros::Duration(5));
+	  const ar_track_alvar::AlvarMarkersConstPtr msg = ros::topic::waitForMessage<ar_track_alvar::AlvarMarkers>("/ar_pose_marker",ros::Duration(5));
 	  if(msg)
 	    {
 	      for(size_t i=0; i<msg->markers.size() && (!radiusInit); i++)
 		{
 		  if(msg->markers[i].id == 0)
 		    {
-		      radius = msg->markers[i].pose.pose.position.x;
+		      radius = msg->markers[i].pose.pose.position.x + 0.3;
 		      radiusInit = true;
 		    }
 		}

@@ -43,6 +43,7 @@ link_directories(
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 rosbuild_add_executable(testRPY src/testQuatToRPY.cpp)
 rosbuild_add_executable(testTF src/testTF.cpp)
+rosbuild_add_executable(testPTAM src/testPTAM.cpp)
 rosbuild_add_executable(state_estimation src/stateestimation/main_stateestimation.cpp src/stateestimation/DroneKalmanFilter.cpp src/stateestimation/EstimationNode.cpp)
 rosbuild_add_executable(autopilot src/autopilot/main_autopilot.cpp src/autopilot/DroneController.cpp src/autopilot/ControlNode.cpp)
 rosbuild_add_executable(circle src/circle/main_circle.cpp src/circle/Circle.cpp)
