@@ -13,9 +13,10 @@
 #include<geometry_msgs/TwistStamped.h>
 #include<pthread.h>
 #include"AutoNav/filter_state.h"
+#include "AutoNav/filter_var.h"
 #include"AutoNav/obs_IMU_RPY.h"
 #include"AutoNav/obs_IMU_XYZ.h"
-#include"AutoNav/obs_tag.h"
+#include"AutoNav/obs_PTAM.h"
 #include"AutoNav/offsets.h"
 #include"AutoNav/predictInternal.h"
 #include"AutoNav/predictUpTo.h"
@@ -338,7 +339,7 @@ class DroneKalmanFilter
   void predictInternal(geometry_msgs::Twist activeControlInfo, int timeSpanMicros, bool useControlGains=true);
   void observeIMU_XYZ(const ardrone_autonomy::Navdata* nav);
   void observeIMU_RPY(const ardrone_autonomy::Navdata* nav);
-  void observeTag(Vector6f measurement);
+  void observePTAM(Vector6f pose,Vector6f var);
 
   int predictedUpToTotal;
 
@@ -350,23 +351,22 @@ class DroneKalmanFilter
   double last_yaw;
   double last_z;
 
-  int last_tag;
+  int last_PTAM;
 
   std::string predictInternal_channel;
   std::string predictData_channel;
   std::string predictUpTo_channel;
   std::string obs_IMU_XYZ_channel;
   std::string obs_IMU_RPY_channel;
-  std::string obs_tag_channel;
+  std::string obs_PTAM_channel;
 
   ros::NodeHandle n;
 
   ros::Publisher pub_predictInternal;
-  ros::Publisher pub_predictData;
   ros::Publisher pub_predictUpTo;
   ros::Publisher pub_obs_IMU_XYZ;
   ros::Publisher pub_obs_IMU_RPY;
-  ros::Publisher pub_obs_tag;
+  ros::Publisher pub_obs_PTAM;
 
  public:
   DroneKalmanFilter();
@@ -389,20 +389,28 @@ class DroneKalmanFilter
   int predictedUpToTimestamp;
 
   void reset();
-  void clearTag();
+  void clearPTAM();
+
+  void resetPoseVariances(); //reset pose to origin and zero variances (used after rescaling map)
+
   void predictUpTo(int timestamp,bool consume=true,bool useControlGains=true);
   void setPing(unsigned int navPing, unsigned int vidPing);
 
   Vector6f getCurrentPose();
   tf::Transform getCurrentTF();
-  AutoNav::filter_state getCurrentPoseSpeed();
+
+  AutoNav::filter_state getCurrentState();
+  AutoNav::filter_var getCurrentVariances();
+
   Vector10f getCurrentPoseSpeedVariances();
   Vector6f getCurrentPoseVariances();
   
   float c1,c2,c3,c4,c5,c6,c7,c8;
 
-  void addTag(Vector6f measurement,int corrStamp);
-  void addFakeTag(int timestamp);
+  void addPTAM(Vector6f measurement,Vector6f var,int corrStamp);
+  void addFakePTAM(int timestamp);
+
+  void setScale(double scale,int axis);
 
   AutoNav::filter_state getPoseAt(ros::Time t,bool useControlGains=true);
   

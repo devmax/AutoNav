@@ -4,7 +4,8 @@ Rosthread::Rosthread()
 {
   gui = NULL;
   velCount = 0;
-  speed = turn = 1.0;
+  speed = 0.3; 
+  turn = 0.25;
   keepRunning = true;
 }
 
@@ -66,6 +67,17 @@ void Rosthread::autohover()
   command_pub.publish(command);
 }
 
+void Rosthread::publishCom(std::string com)
+{
+  std_msgs::String command;
+
+  command.data = com.c_str();
+
+  ROS_INFO("%s",com.c_str());
+
+  command_pub.publish(command);
+
+}
 void Rosthread::housefigure()
 {
   std_msgs::String command;
@@ -94,8 +106,6 @@ void Rosthread::run()
   flattrim_srv = n.serviceClient<std_srvs::Empty>(n.resolveName("/ardrone/flattrim"),1);
 
   sendFlatTrim();
-
-  speed = turn = 1.0;
 
   ros::Time last = ros::Time::now();
 

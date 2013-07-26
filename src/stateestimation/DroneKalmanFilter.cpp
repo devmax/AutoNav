@@ -53,15 +53,14 @@ DroneKalmanFilter::DroneKalmanFilter()
   predictUpTo_channel=n.resolveName("/log_predictUpTo");
   obs_IMU_XYZ_channel=n.resolveName("/log_obs_IMU_XYZ");
   obs_IMU_RPY_channel=n.resolveName("/log_obs_IMU_RPY");
-  obs_tag_channel=n.resolveName("/log_obs_tag");
+  obs_PTAM_channel=n.resolveName("/log_obs_PTAM");
   predictData_channel=n.resolveName("/log_predictData");
 
   pub_predictInternal=n.advertise<AutoNav::predictInternal>(predictInternal_channel,1);
-  pub_predictData = n.advertise<AutoNav::filter_state>(predictData_channel,1);
   pub_predictUpTo=n.advertise<AutoNav::predictUpTo>(predictUpTo_channel,1);
   pub_obs_IMU_XYZ=n.advertise<AutoNav::obs_IMU_XYZ>(obs_IMU_XYZ_channel,1);
   pub_obs_IMU_RPY=n.advertise<AutoNav::obs_IMU_RPY>(obs_IMU_RPY_channel,1);
-  pub_obs_tag=n.advertise<AutoNav::obs_tag>(obs_tag_channel,1);
+  pub_obs_PTAM=n.advertise<AutoNav::obs_PTAM>(obs_PTAM_channel,1);
 
   last_z_IMU = -111;
 
@@ -77,6 +76,7 @@ DroneKalmanFilter::DroneKalmanFilter()
   c6=25;
   c7=1.4;
   c8=1.0;
+
 }
 
 void DroneKalmanFilter::release()
@@ -113,7 +113,7 @@ void DroneKalmanFilter::reset()
   
   last_z_heightDiff = 0;
 
-  clearTag();
+  clearPTAM();
 
   // clear IMU-queues
   navdataQueue->clear();
@@ -127,12 +127,23 @@ void DroneKalmanFilter::reset()
   yaw_offset_initialized = false;
 }
 
-void DroneKalmanFilter::clearTag()
+void DroneKalmanFilter::resetPoseVariances()
 {
-  ROS_INFO("Initializing tag-info now!");
+  ROS_INFO("Setting state back to origin..");
+
+  x.state(0) = x.state(1) = 0;
+  y.state(0) = y.state(1) = 0;
+  z.state(0) = z.state(1) = 0;
+
+  x.var = y.var = z.var = Eigen::Matrix3f::Zero();
+}
+
+void DroneKalmanFilter::clearPTAM()
+{
+  ROS_INFO("Initializing PTAM-info now!");
 
   last_yaw =  last_z = 0.0;
-  last_tag = getMS(ros::Time::now());
+  last_PTAM = getMS(ros::Time::now());
 
   lastPosesValid = last_yaw_valid = false;
 }
@@ -187,20 +198,9 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
   message.vx_gain = vx_gain;
   message.vy_gain = vy_gain;
   message.vz_gain = vz_gain;
-  message.roll_pre = roll.state;
-  message.pitch_pre = pitch.state;
-  message.yaw_pre = yaw.state(0);
-  message.x_pre = x.state(0);
-  message.y_pre = y.state(0);
-  message.z_pre = z.state(0);
-  message.dx_pre = x.state(1);
-  message.dy_pre = y.state(1);
-  message.dz_pre = z.state(1);
-  message.dyaw_pre = yaw.state(1);
-  message.varx_pre = x.var(0,0);
-  message.vardx_pre = x.var(1,1);
-  message.vary_pre = y.var(0,0);
-  message.vardy_pre = y.var(1,1);
+
+  message.prior_state = getCurrentState();
+  message.prior_var = getCurrentVariances();
   /*end LOGGING*/
 
   if(!useControlGains || !controlValid)
@@ -222,20 +222,8 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
   z.predict(tsMillis,(Eigen::Vector3f()<<(tsSeconds*tsSeconds*tsSeconds*tsSeconds), (9*tsSeconds*tsSeconds),(tsSeconds*tsSeconds*tsSeconds*3)).finished(),(Eigen::Vector3f()<<(tsSeconds*vz_gain/2),vz_gain,0).finished());
 
   /*begin LOGGING*/
-  message.roll_post = roll.state;
-  message.pitch_post = pitch.state;
-  message.yaw_post = yaw.state(0);
-  message.x_post = x.state(0);
-  message.y_post = y.state(0);
-  message.z_post = z.state(0);
-  message.dx_post = x.state(1);
-  message.dy_post = y.state(1);
-  message.dz_post = z.state(1);
-  message.dyaw_post = yaw.state(1);
-  message.varx_post = x.var(0,0);
-  message.vardx_post = x.var(1,1);
-  message.vary_post = y.var(0,0);
-  message.vardy_post = y.var(1,1);
+  message.posterior_state = getCurrentState();
+  message.posterior_var = getCurrentVariances();
 
   pub_predictInternal.publish(message);
   /*end LOGGING*/
@@ -256,16 +244,9 @@ void DroneKalmanFilter::observeIMU_XYZ(const ardrone_autonomy::Navdata* nav)
   message.nav_vy = nav->vy;
   message.global_vx = vx_global;
   message.global_vy = vy_global;
-  message.x_pre = x.state(0);
-  message.y_pre = y.state(0);
-  message.z_pre = z.state(0);
-  message.dx_pre = x.state(1);
-  message.dy_pre = y.state(1);
-  message.dz_pre = z.state(1);
-  message.varx_pre = x.var(0,0);
-  message.vardx_pre = x.var(1,1);
-  message.vary_pre = y.var(0,0);
-  message.vardy_pre = y.var(1,1);
+
+  message.pre_state = getCurrentState();
+  message.pre_var = getCurrentVariances();
   /*end LOGGING*/
 
   if(lastPosesValid)
@@ -324,16 +305,9 @@ void DroneKalmanFilter::observeIMU_XYZ(const ardrone_autonomy::Navdata* nav)
       last_z_packageID = nav->header.seq;
     }
   /*begin LOGGING*/
-  message.x_post = x.state(0);
-  message.y_post = y.state(0);
-  message.z_post = z.state(0);
-  message.dx_post = x.state(1);
-  message.dy_post = y.state(1);
-  message.dz_post = z.state(1);
-  message.varx_post = x.var(0,0);
-  message.vardx_post = x.var(1,1);
-  message.vary_post = y.var(0,0);
-  message.vardy_post = y.var(1,1);
+  message.post_state = getCurrentState();
+  message.post_var = getCurrentVariances();
+
   pub_obs_IMU_XYZ.publish(message);
   /*end LOGGING*/
 }
@@ -346,10 +320,9 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
   message.seq = nav->header.seq;
   message.roll = nav->rotX;
   message.pitch = nav->rotY;
-  message.roll_pre = roll.state;
-  message.pitch_pre = pitch.state;
-  message.yaw_pre = yaw.state(0);
-  message.dyaw_pre = yaw.state(1);
+
+  message.pre_state = getCurrentState();
+  message.pre_var = getCurrentVariances();
   /*end LOGGING*/
 
   roll.observe(nav->rotX,varPoseObservation_rp_IMU);
@@ -419,18 +392,17 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
   yaw.state[0]=angleFromTo(yaw.state[0],-180,180);
 
   /*begin LOGGING*/
-  message.roll_post = roll.state;
-  message.pitch_post = pitch.state;
-  message.yaw_post = yaw.state(0);
-  message.dyaw_post = yaw.state(1);
+  message.post_state = getCurrentState();
+  message.post_var = getCurrentVariances();
+
   pub_obs_IMU_RPY.publish(message);
   /*end LOGGING*/
 }
 
-void DroneKalmanFilter::observeTag(Vector6f pose)
+void DroneKalmanFilter::observePTAM(Vector6f pose,Vector6f var)
 {
   /*LOGGING now*/
-  AutoNav::obs_tag message;
+  AutoNav::obs_PTAM message;
 
   message.timestamp = getMS();
   message.x = pose(0);
@@ -439,43 +411,47 @@ void DroneKalmanFilter::observeTag(Vector6f pose)
   message.roll = pose(3);
   message.pitch = pose(4);
   message.yaw = pose(5);
-  message.x_pre = x.state(0);
-  message.y_pre = y.state(0);
-  message.z_pre = z.state(0);
-  message.dx_pre = x.state(1);
-  message.dy_pre = y.state(1);
-  message.dz_pre = z.state(1);
-  message.roll_pre = roll.state;
-  message.pitch_pre = pitch.state;
-  message.yaw_pre = yaw.state(0);
-  message.dyaw_pre = yaw.state(1);
-  message.varx_pre = x.var(0,0);
-  message.vardx_pre = x.var(1,1);
-  message.vary_pre = y.var(0,0);
-  message.vardy_pre = y.var(1,1);
+
+  message.varX = var(0);
+  message.varY = var(1);
+  message.varZ = var(2);
+  message.varRoll = var(3);
+  message.varPitch = var(4);
+  message.varYaw = var(5);
+
+  message.prior_state = getCurrentState();
+  message.prior_var = getCurrentVariances();
   /*end LOGGING*/
 
   bool reject  = false;
   lastPosesValid = true;
 
-  x.observePose(pose[0],varPoseObservation_xy);
-  y.observePose(pose[1],varPoseObservation_xy);
+  x.observePose(pose(0),var(0));
+  y.observePose(pose(1),var(1));
+  z.observePose(pose(2),var(2));
+
+  //x.observePose(pose[0],varPoseObservation_xy);
+  //y.observePose(pose[1],varPoseObservation_xy);
 
   //  if(std::abs(last_z-pose(2))<2 || (getMS()-last_tag)>500)
   //    {
-  z.observePose(pose[2],varPoseObservation_z_tag);
+  //z.observePose(pose[2],varPoseObservation_z_tag);
   //    }
   //  else
   //ROS_INFO("Large jump in z, not observing height..");
 
   //ROS_INFO("Posterior poses: %lf,%lf,%lf and velocities: %lf,%lf,%lf",x.state(0),y.state(0),z.state(0),x.state(1),y.state(1),z.state(1));
 
-  roll.observe(pose[3],varPoseObservation_rp_tag);
-  pitch.observe(pose[4],varPoseObservation_rp_tag);
+  roll.observe(pose(3),var(3));
+  pitch.observe(pose(4),var(4));
+
+  //roll.observe(pose[3],varPoseObservation_rp_tag);
+  //pitch.observe(pose[4],varPoseObservation_rp_tag);
 
   pose[5] = angleFromTo(pose[5],-180,180);
 
-  yaw.observePose(pose(5),varPoseObservation_yaw_tag);
+  //yaw.observePose(pose(5),varPoseObservation_yaw_tag);
+  yaw.observePose(pose(5),var(5));
 
   yaw.state[0] = angleFromTo(yaw.state[0],-180,180);
 
@@ -497,22 +473,10 @@ void DroneKalmanFilter::observeTag(Vector6f pose)
     }
 
   /*begin LOGGING*/
-  message.x_post = x.state(0);
-  message.y_post = y.state(0);
-  message.z_post = z.state(0);
-  message.dx_post = x.state(1);
-  message.dy_post = y.state(1);
-  message.dz_post = z.state(1);
-  message.roll_post = roll.state;
-  message.pitch_post = pitch.state;
-  message.yaw_post = yaw.state(0);
-  message.dyaw_post = yaw.state(1);
-  message.varx_post = x.var(0,0);
-  message.vardx_post = x.var(1,1);
-  message.vary_post = y.var(0,0);
-  message.vardy_post = y.var(1,1);
+  message.posterior_state = getCurrentState();
+  message.posterior_var = getCurrentVariances();
   message.rejected = (int)reject;
-  pub_obs_tag.publish(message);
+  pub_obs_PTAM.publish(message);
   /*end LOGGING*/
 }
 
@@ -618,8 +582,7 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
 
       predictInternal(useControlGains ? controlIterator->twist : geometry_msgs::Twist(),(predictTo - predictedUpToTimestamp)*1000,useControlGains && getMS(controlIterator->header.stamp) + 200 > predictedUpToTimestamp - delayControl);				// control max. 200ms old.
 
-      if(consume)
-	pub_predictData.publish(getCurrentPoseSpeed());
+
       // if an observation needs to be added, it HAS to have a stamp equal to [predictTo],
       // as we just set [predictTo] to that timestamp.
       bool observedXYZ = false, observedRPY=false;
@@ -682,25 +645,24 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
 
 tf::Transform DroneKalmanFilter::getCurrentTF()
 {
-  tf::Transform s;
+  return tf::Transform(tf::createQuaternionFromRPY(roll.state*PI/180,pitch.state*PI/180,yaw.state(0)*PI/180),tf::Vector3(x.state(0),y.state(0),z.state(0)));
 
-  s.setRotation(tf::createQuaternionFromRPY(roll.state*PI/180,pitch.state*PI/180,yaw.state(0)*PI/180));
-  s.setOrigin(tf::Vector3(x.state(0),y.state(0),z.state(0)));
-
-  return s;
 }
 Vector6f DroneKalmanFilter::getCurrentPose()
 {
   return (Vector6f()<<x.state[0],y.state[0],z.state[0],roll.state,pitch.state,yaw.state[0]).finished();
 }
 
-AutoNav::filter_state DroneKalmanFilter::getCurrentPoseSpeed()
+AutoNav::filter_state DroneKalmanFilter::getCurrentState()
 {
   AutoNav::filter_state s;
 
   s.x = x.state(0);
   s.y = y.state(0);
   s.z = z.state(0);
+  s.Lx = x.state(2);
+  s.Ly = y.state(2);
+  s.Lz = z.state(2);
   s.dx = x.state(1);
   s.dy = y.state(1);
   s.dz = z.state(1);
@@ -710,6 +672,30 @@ AutoNav::filter_state DroneKalmanFilter::getCurrentPoseSpeed()
   s.dyaw = yaw.state(1);
 
   return s;
+}
+
+AutoNav::filter_var DroneKalmanFilter::getCurrentVariances()
+{
+  AutoNav::filter_var var;
+
+  var.x = x.var(0,0);
+  var.y = y.var(0,0);
+  var.z = z.var(0,0);
+
+  var.dx = x.var(1,1);
+  var.dy = y.var(1,1);
+  var.dz = z.var(1,1);
+
+  var.Lx = x.var(2,2);
+  var.Ly = y.var(2,2);
+  var.Lz = z.var(2,2);
+
+  var.roll = roll.var;
+  var.pitch = pitch.var;
+  var.yaw = yaw.var(0,0);
+  var.dyaw = yaw.var(1,1);
+
+  return var;
 }
 
 Vector10f DroneKalmanFilter::getCurrentPoseSpeedVariances()
@@ -722,7 +708,26 @@ Vector6f DroneKalmanFilter::getCurrentPoseVariances()
   return (Vector6f()<<x.var(0,0),y.var(0,0),z.var(0,0),roll.var,pitch.var,yaw.var(0,0)).finished();
 }
 
-void DroneKalmanFilter::addTag(Vector6f measurement,int corrStamp)
+void DroneKalmanFilter::setScale(double scale,int axis)
+{
+  switch(axis)
+    {
+    case 1:
+      x.state(2) = scale;
+      ROS_INFO("Scale on X-axis = %lf",x.state(2));
+      break;
+    case 2:
+      y.state(2) = scale;
+      ROS_INFO("Scale on Y-axis = %lf",y.state(2));
+      break;
+    case 3:
+      z.state(2) = scale;
+      ROS_INFO("Scale on Z-axis = %lf",z.state(2));
+      break;
+    }
+}
+
+void DroneKalmanFilter::addPTAM(Vector6f measurement,Vector6f var,int corrStamp)
 {
   //ROS_INFO("Adding tag now!");
   if(corrStamp>predictedUpToTotal)
@@ -731,52 +736,36 @@ void DroneKalmanFilter::addTag(Vector6f measurement,int corrStamp)
       predictUpTo(corrStamp,true,true);
     }
 
-  /*
-  Vector6f measurement;
-  double r,p,y;
-
-  tf::Matrix3x3(initToDrone.getRotation()).getRPY(r,p,y);
-
-  measurement(0) = initToDrone.getOrigin().x();
-  measurement(1) = initToDrone.getOrigin().y();
-  measurement(2) = initToDrone.getOrigin().z();
-  measurement(3) = r * 180 / PI;
-  measurement(4) = p * 180 / PI;
-  measurement(5) = y * 180 / PI;
-
-  measurement(5) = angleFromTo(measurement(5),-180,180);
-  */
-
-  if(std::abs(last_yaw-measurement[5])<25 || (getMS() - last_tag)>500)
+  observePTAM(measurement,var);
+  last_yaw_valid = true;
+  /*  if(std::abs(last_yaw-measurement[5])<25 || (getMS() - last_PTAM)>500)
     {
-      last_tag = getMS();
+      last_PTAM = getMS();
       last_yaw_valid = true;
       last_yaw = measurement(5);
 
-      observeTag(measurement);
+      observePTAM(measurement);
 
-}
+    }
   else
     {
       last_yaw_valid = false;
       ROS_INFO("Unusual yaw of %lf detected from tags, rejecting!",measurement(5));
     }
-
+  */
 }
 
-void DroneKalmanFilter::addFakeTag(int timestamp)
+void DroneKalmanFilter::addFakePTAM(int timestamp)
 {
   last_yaw_valid = false;
-  //lastPosesValid = false;
-  //ROS_INFO("Adding fake tag now");
+
   if(timestamp>predictedUpToTotal)
     {
-      //ROS_INFO("Calling predictUpTo because new \"fake\" tag added!");
+
       predictUpTo(timestamp,true,true);
     }
 
   lastPosesValid = false;
-  //last_yaw_valid = false;
 }
 
 AutoNav::filter_state DroneKalmanFilter::getPoseAt(ros::Time t, bool useControlGains)
@@ -784,10 +773,9 @@ AutoNav::filter_state DroneKalmanFilter::getPoseAt(ros::Time t, bool useControlG
   // make shallow copy
   DroneKalmanFilter scopy = DroneKalmanFilter(*this);
 
-  //ROS_INFO("Calling predictUpTo using the shallow copy!");
   // predict using this copy
   scopy.predictUpTo(getMS(t),false, useControlGains);
 
   // return value, and discard any changes made to scopy (deleting it)
-  return scopy.getCurrentPoseSpeed();
+  return scopy.getCurrentState();
 }

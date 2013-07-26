@@ -4,6 +4,7 @@ uint32 seq
 #indicate the result of the yaw observation routine
 uint32 code 
 
+#measurements
 float32 roll
 float32 pitch
 
@@ -12,12 +13,12 @@ float32 baselineY_Filter
 float32 navYaw
 float32 observedYaw
 
-float32 roll_pre
-float32 pitch_pre
-float32 yaw_pre
-float32 dyaw_pre
+#state and variances pre-observation
 
-float32 roll_post
-float32 pitch_post
-float32 yaw_post
-float32 dyaw_post
+AutoNav/filter_state pre_state
+AutoNav/filter_var pre_var
+
+#state and variance post-observation
+
+AutoNav/filter_state post_state
+AutoNav/filter_var post_var
