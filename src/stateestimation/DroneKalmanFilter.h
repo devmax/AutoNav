@@ -423,28 +423,19 @@ class DroneKalmanFilter
 
   Vector6f getCurrentPose();
   tf::Transform getCurrentTF();
-<<<<<<< HEAD
-  AutoNav::filter_state getCurrentState();
-=======
 
   AutoNav::filter_state getCurrentState();
   AutoNav::filter_var getCurrentVariances();
 
->>>>>>> 0339d1aef307420878e1cce4833a127c3740ab07
   Vector10f getCurrentPoseSpeedVariances();
   Vector6f getCurrentPoseVariances();
   
   float c1,c2,c3,c4,c5,c6,c7,c8;
 
-<<<<<<< HEAD
-  void addTag(Vector6f measurement,int corrStamp);
-  void addFakeTag(int timestamp);
-=======
   void addPTAM(Vector6f measurement,Vector6f var,int corrStamp);
   void addFakePTAM(int timestamp);
 
   void setScale(double scale,int axis);
->>>>>>> 0339d1aef307420878e1cce4833a127c3740ab07
 
   AutoNav::filter_state getPoseAt(ros::Time t,bool useControlGains=true);
   

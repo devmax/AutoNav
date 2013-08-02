@@ -24,14 +24,9 @@ float32 vz_gain
 
 #prior state before prediction
 AutoNav/filter_state prior_state
-<<<<<<< HEAD
-
-#posterior state after prediction
-AutoNav/filter_state posterior_state
-=======
 AutoNav/filter_var prior_var
 
 #posterior state after prediction
 AutoNav/filter_state posterior_state
 AutoNav/filter_var posterior_var
->>>>>>> 0339d1aef307420878e1cce4833a127c3740ab07
+

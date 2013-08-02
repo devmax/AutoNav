@@ -18,13 +18,9 @@
 #include <vector>
 #include <algorithm>
 #include "AutoNav/filter_state.h"
-<<<<<<< HEAD
-#include "AutoNav/tags.h"
-=======
 #include "AutoNav/filter_var.h"
 #include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <geometry_msgs/Quaternion.h>
->>>>>>> 0339d1aef307420878e1cce4833a127c3740ab07
 
 class DroneKalmanFilter;
 class ScaleMap;
