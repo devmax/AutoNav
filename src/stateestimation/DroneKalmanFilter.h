@@ -56,11 +56,13 @@ class PVSFilter //Pose, velocity and scale
     : state((Eigen::Vector3f()<<pose,0,scale).finished()), var(Eigen::Matrix3f::Zero())
     {
       var(1,1) = 1e10;
+      var(2,2) = 100;
     }
 
   inline PVSFilter()
     : state(Eigen::Vector3f::Zero()), var(Eigen::Matrix3f::Zero())
     {
+      var(2,2) = 100;
       var(1,1) = var(0,0) = 1e10;
     }
 
@@ -73,16 +75,29 @@ class PVSFilter //Pose, velocity and scale
        state = state + K * (obs - H*state);
        var = (eye(2)-K*H) * var;
     */
+
+    ROS_INFO("POSE OBS. %lf with var %lf",obs,obsVar);
+    std::cout<<"Prior state: "<<state<<std::endl;
+
     Eigen::RowVector3f H;
     H << (1/state(2)), 0, (-state(0)/(state(2)*state(2)));
+
+    std::cout<<"H : "<<H<<std::endl;
+
     double S = H * var * H.transpose() + obsVar;
 
     Eigen::Vector3f K = (var * H.transpose())/S;
 
-    state = state + K * (obs - state[0]);
+    std::cout<<"K: "<<K<<std::endl;
+
+    state = state + K * (obs - (H*state));
+
+    std::cout<<"Posterior state: "<<state<<std::endl;
+    std::cout<<"Prior variances: "<<var<<std::endl;
 
     var = (Eigen::Matrix3f::Identity() - (K*H)) * var;
 
+    std::cout<<"Posterior variances: "<<var<<std::endl;
   }
 
 
@@ -94,16 +109,26 @@ class PVSFilter //Pose, velocity and scale
        state = state + K * (obs - H*state);
        var = (eye(2)-K*H) * var;
     */
+
+    ROS_INFO("SPEED OBS. %lf with var %lf",obs,obsVar);
+    std::cout<<"Prior state: "<<state<<std::endl;
+
     Eigen::RowVector3f H;
     H << 0, 1, 0;
     double S = H * var * H.transpose() + obsVar;
 
     Eigen::Vector3f K = (var * H.transpose())/S;
 
-    state = state + K * (obs - state[0]);
+    std::cout<<"K: "<<K<<std::endl;
+
+    state = state + K * (obs - state(1));
+
+    std::cout<<"Posterior state: "<<state<<std::endl;
+    std::cout<<"Prior variances: "<<var<<std::endl;
 
     var = (Eigen::Matrix3f::Identity() - (K*H)) * var;
 
+    std::cout<<"Posterior variances: "<<var<<std::endl;
   }
 
 

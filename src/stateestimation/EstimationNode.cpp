@@ -124,6 +124,7 @@ void EstimationNode::ptamCB(const geometry_msgs::PoseWithCovarianceStampedConstP
   if(!inited)
     {
       origToWorld = droneToWorld;
+      inited = true;
     }
 
   tf::Transform origToWorld_exp = (filter->getCurrentTF())*droneToWorld;

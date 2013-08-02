@@ -28,12 +28,11 @@ class ScaleMap
   ros::Subscriber navdata_sub;
   ros::Subscriber ptam_sub;
 
+  ros::Publisher dbg;
   double lastNav;
   tf::Transform lastPtam;
 
   ros::Time lastNavStamp,lastPtamStamp;
-
-  tf::TransformListener *listener;
 
   double dist;
   int axis;

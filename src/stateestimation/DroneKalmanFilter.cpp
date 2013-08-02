@@ -108,6 +108,7 @@ void DroneKalmanFilter::reset()
   ROS_INFO("Doing a reset on EKF now!");
   // init filter with pose 0 (var 0) and speed 0 (var large).
   x = y = z = PVSFilter(0,1);
+
   yaw = PVFilter(0);
   roll = pitch = PFilter(0);
   

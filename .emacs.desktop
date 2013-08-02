@@ -2,7 +2,7 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Mon Mar 25 10:46:16 2013
+;; Created Mon Jul 29 01:44:51 2013
 ;; Desktop file format version 206
 ;; Emacs version 23.3.1
 
@@ -13,9 +13,31 @@
 (setq search-ring nil)
 (setq regexp-search-ring nil)
 (setq register-alist nil)
-(setq file-name-history '("~/ros/stacks/AutoNav/" "~/ros/stacks/AutoNav/src/UI/Interact.cpp"))
+(setq file-name-history '("~/ros/stacks/AutoNav/src/stateestimation/EstimationNode.cpp" "~/ros/stacks/AutoNav/logging/log.sh" "~/ros/stacks/AutoNav/" "~/ros/stacks/AutoNav/src/UI/Interact.cpp"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/dev/ros/stacks/AutoNav/logging/log.sh"
+  "log.sh"
+  'sh-mode
+  nil
+  296
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/dev/ros/stacks/AutoNav/src/stateestimation/EstimationNode.cpp"
+  "EstimationNode.cpp"
+  'c++-mode
+  '(abbrev-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
 (desktop-create-buffer 206
   "/home/dev/ros/stacks/AutoNav/src/UI/Interact.cpp"
   "Interact.cpp"

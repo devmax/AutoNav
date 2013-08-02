@@ -4,8 +4,8 @@ Rosthread::Rosthread()
 {
   gui = NULL;
   velCount = 0;
-  speed = 0.3; 
-  turn = 0.25;
+  speed = 0.2; 
+  turn = 0.2;
   keepRunning = true;
 }
 

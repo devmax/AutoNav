@@ -10,8 +10,6 @@ ScaleMap::ScaleMap(double d,int a)
 
   lastNavStamp = ros::Time::now() - ros::Duration(5);
   lastPtamStamp = ros::Time::now() - ros::Duration(10);
-
-  listener = new tf::TransformListener(n);
 }
 
 void ScaleMap::navdataCB(const ardrone_autonomy::NavdataConstPtr navdataPtr)
@@ -48,12 +46,18 @@ double ScaleMap::getScale()
   double curDist,initNav;
 
   tf::Transform initPtam,finalPtam;
-  tf::StampedTransform droneToCam;
 
+  ros::Time start = ros::Time::now();
   while((ros::Time::now() - lastNavStamp > ros::Duration(0.5)) || (ros::Time::now() - lastPtamStamp > ros::Duration(0.5)))
     {
+      if(ros::Time::now() - start > ros::Duration(5.0))
+	{
+	  ROS_INFO("Something went wrong with syncing the callbacks, try again...!");
+	  return 1;
+	}
+
       ROS_INFO("Waiting to sync callbacks...");
-      ros::getGlobalCallbackQueue()->callAvailable(ros::WallDuration(1));
+      ros::getGlobalCallbackQueue()->callAvailable(ros::WallDuration(1.0));
     }
 
   initPtam = lastPtam;
@@ -61,34 +65,25 @@ double ScaleMap::getScale()
   curDist = 0;
 
   //ROS_INFO("initNav = %lf, initPtam = %lf,%lf,%lf",initNav,initPtam.getOrigin().x(),initPtam.getOrigin().y(),initPtam.getOrigin().z());
-
   while(std::abs(curDist) < dist)
     {
       if(axis !=3)
 	{
 	  //ROS_INFO("Vel=%lf for %lf s",lastNav,(ros::Time::now()-lastNavStamp).toSec());
-	  curDist += lastNav * ((ros::Time::now()-lastNavStamp).toSec());
+	  curDist += (lastNav * (ros::Time::now()-lastNavStamp).toSec());
+
 	}
       else
 	curDist = lastNav - initNav;
 
-      ros::spinOnce();
+      ros::getGlobalCallbackQueue()->callAvailable(ros::WallDuration(0.02));
     }
   ROS_INFO("Distance of %lf on inertial",curDist);
 
   finalPtam = lastPtam;
   //ROS_INFO("Final ptam = %lf,%lf,%lf",finalPtam.getOrigin().x(),finalPtam.getOrigin().y(),finalPtam.getOrigin().z());
-  try
-    {
-      listener->waitForTransform("/ardrone_base_link","/ardrone_base_frontcam",lastPtamStamp,ros::Duration(1));
-      listener->lookupTransform("/ardrone_base_link","/ardrone_base_frontcam",lastPtamStamp,droneToCam);
-    }
-  catch (tf::TransformException ex)
-    {
-      ROS_ERROR("%s",ex.what());
-    }
 
-  tf::Transform initToFinal = (droneToCam * initPtam) * ((droneToCam * finalPtam).inverse());
+  tf::Transform initToFinal = initPtam * finalPtam.inverse();
 
   double ptamDist = axis == 1 ? initToFinal.getOrigin().x() : axis == 2? initToFinal.getOrigin().y() : initToFinal.getOrigin().z();
 
@@ -99,7 +94,7 @@ double ScaleMap::getScale()
       if( curDist * ptamDist < 0)
 	{
 	  ROS_INFO("Sensors report movement in opposite directions!");
-	  return -1;
+	  return 1;
 	}
       else
 	return (curDist/ptamDist);
@@ -107,7 +102,7 @@ double ScaleMap::getScale()
   else
     {
       ROS_INFO("Something went wrong in syncing the sensors, try scaling again...!");
-      return -1;
+      return 1;
     }
 
 }
