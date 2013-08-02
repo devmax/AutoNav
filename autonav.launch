@@ -1,8 +1,0 @@
-<launch>
-  <node name="state_estimation" pkg="AutoNav" type="state_estimation">
-  </node>
-  <node name="autopilot" pkg="AutoNav" type="autopilot">
-  </node>
-  <node name="interact" pkg="AutoNav" type="interact">
-  </node>
-</launch>
