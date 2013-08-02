@@ -15,15 +15,23 @@
 #include <std_msgs/String.h>
 #include "std_srvs/Empty.h"
 #include "ardrone_autonomy/Navdata.h"
-#include "ar_track_alvar/AlvarMarker.h"
-#include "ar_track_alvar/AlvarMarkers.h"
+#include <vector>
+#include <algorithm>
 #include "AutoNav/filter_state.h"
+<<<<<<< HEAD
 #include "AutoNav/tags.h"
+=======
+#include "AutoNav/filter_var.h"
+#include <geometry_msgs/PoseWithCovarianceStamped.h>
+#include <geometry_msgs/Quaternion.h>
+>>>>>>> 0339d1aef307420878e1cce4833a127c3740ab07
 
 class DroneKalmanFilter;
+class ScaleMap;
 
 #ifndef _EIGEN_TYPES_
 #define _EIGEN_TYPES_
+
 typedef Eigen::Matrix<float,6,1> Vector6f;
 typedef Eigen::Matrix<float,10,1> Vector10f;
 
@@ -36,10 +44,12 @@ class EstimationNode
 private:
   ros::Subscriber navdata_sub;
   ros::Subscriber control_sub;
-  ros::Subscriber tag_sub;
+  ros::Subscriber PTAM_sub;
+  ros::Subscriber command_sub;
   ros::Time lastNavStamp;
 
   ros::Publisher dronepose_pub;
+  ros::Publisher dronevar_pub;
   ros::Publisher currentstate_pub;
   ros::Publisher command_pub;
 
@@ -49,28 +59,42 @@ private:
   ros::Duration predTime;
   int publishFreq;
 
-  unsigned int lastID;
+  const static int nBuff = 30;
+  Eigen::Matrix<double,nBuff,4> qBuff;
+  int quatCounter;
 
-  tf::Transform initToMarker;
+  double Lx,Ly,Lz;
+
+  double fuzzyThres;
+
+  bool inited;
+  tf::Transform origToWorld;
 
   std::string navdata_channel;
   std::string control_channel;
-  std::string tag_channel;
+  std::string PTAM_channel;
   std::string output_channel;
   std::string current_output_channel;
   std::string command_channel;
+  std::string variances_channel;
+
+  tf::TransformBroadcaster state_broadcaster;
 
   ardrone_autonomy::Navdata lastNavdataReceived;
 
 public:
 
   DroneKalmanFilter* filter;
+  ScaleMap* scale;
 
   EstimationNode();
 
   void navdataCB(const ardrone_autonomy::NavdataConstPtr navdataPtr);
   void velCB(const geometry_msgs::TwistConstPtr controlPtr);
-  void tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr);
+  void ptamCB(const geometry_msgs::PoseWithCovarianceStampedConstPtr posePtr);
+  void commandCB(const std_msgs::StringConstPtr comPtr);
+
+  double getMedian(const Eigen::Matrix<double,nBuff,1> & data);
   
   void Loop();
 

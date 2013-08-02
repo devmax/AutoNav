@@ -8,26 +8,20 @@ Keypress::Keypress(QWidget *parent):QWidget(parent)
   mainLayout = new QVBoxLayout;
   mainLayout->addWidget(myLabel);
   setLayout(mainLayout);
-  myLabel->setText("Reading from the keyboard  and Publishing to Twist!\n"
+  myLabel->setText("Welcome to keyboard control!\n"
 		   "---------------------------\n"
-		   "Takeoff/Land: q/a \n\n"
-		   "Moving around (Roll and Pitch):\n"
-		   "    i\n"
-		   "  j   l\n"
-		   "    k\n"
-		   "Throttle (Height) and Yaw (Direction):\n"
-		   "    w\n"
-		   "  u   o\n"
-		   "    s\n"
-		   "Press f to flat trim\n"
-		   "Press t to toggle state\n"
-		   "Press h to start hovering with the AutoPilot\n"
-		   "Press g to start flying the house figure\n"
-		   "CAUTION:Leave 2 meter radius free for figure flying\n"
-		   "Press m to revert to manual control\n"
-		   "Press 1/2 to increase/decrease linear speeds by 10% \n"
-		   "Press 3/4 to increase/decrease angular speeds by 10% \n"
-		   "Press ESC to quit!\n");
+		   "Takeoff/Land: q/a \n"
+		   "Roll/Pitch: i,k / j,l\n"
+		   "Throttle/Yaw: w,s / u,o\n"
+		   " f to flat trim\n"
+		   " t to toggle emergency state\n"
+		   " r to reset filter\n"
+		   " x/y/z to scale the PTAM thread\n"
+		   " h to hover with the AutoPilot\n"
+		   " m to revert to manual control\n"
+		   " 1,2 / 3,4 to change linear/angular\n"
+		   " speed limits by 10% \n"
+		   " ESC to quit!\n");
 
   for(int i=0;i<8;i++)
     isPressed[i] = false;
@@ -71,6 +65,25 @@ void Keypress::keyPressEvent(QKeyEvent *key)
     {
       rosthread->sendToggleState();
       ROS_INFO("Reset State!");
+    }
+  else if(key->key() == 88) //x
+    {
+      rosthread->publishCom("Scale X");
+      //ROS_INFO("Scaling on the x-axis");
+    }
+  else if(key->key() == 89) //y
+    {
+      rosthread->publishCom("Scale Y");
+      //ROS_INFO("Scaling on the y-axis");
+    }
+  else if(key->key() == 90) //z
+    {
+      rosthread->publishCom("Scale Z");
+      //ROS_INFO("Scaling on the z-axis");
+    }
+  else if(key->key() == 82)
+    {
+      rosthread->publishCom("Reset");
     }
   else if(key->key() == 49) //1
     {

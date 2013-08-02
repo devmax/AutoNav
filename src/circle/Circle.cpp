@@ -159,7 +159,11 @@ void Circle::begin()
   while(n.ok())
     {
       while(!radiusInit)
+<<<<<<< HEAD
 	{ //set radius by observing the depth of the currently visible tag...
+=======
+	{
+>>>>>>> 0339d1aef307420878e1cce4833a127c3740ab07
 	  const ar_track_alvar::AlvarMarkersConstPtr msg = ros::topic::waitForMessage<ar_track_alvar::AlvarMarkers>("/ar_pose_marker",ros::Duration(5));
 	  if(msg)
 	    {

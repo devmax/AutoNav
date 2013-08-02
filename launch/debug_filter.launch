@@ -1,0 +1,4 @@
+<launch>
+  <node name="state_estimation" pkg="AutoNav" type="state_estimation" launch-prefix="gdb --args">
+  </node>
+</launch>

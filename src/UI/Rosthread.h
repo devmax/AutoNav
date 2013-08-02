@@ -60,6 +60,7 @@ class Rosthread : private CVD::Thread
   void sendLand();
   void sendToggleState();
   void sendFlatTrim();
+  void publishCom(std::string com);
 };
 
 #endif //Rosthread.h
