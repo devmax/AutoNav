@@ -87,6 +87,7 @@ void DroneKalmanFilter::release()
 
 void DroneKalmanFilter::setPing(unsigned int navPing, unsigned int vidPing)
 {
+  //for now, ping values are constant...they should be periodically updated as in tum_ardrone
   // add a constant of 20ms // 40ms to accound for delay due to ros.
   // very, very rough approximation.
   navPing += 20;
@@ -107,7 +108,7 @@ void DroneKalmanFilter::reset()
 {
   ROS_INFO("Doing a reset on EKF now!");
   // init filter with pose 0 (var 0) and speed 0 (var large).
-  x = y = z = PVSFilter(0,1);
+  x = y = z = PVFilter(0,1);
   yaw = PVFilter(0);
   roll = pitch = PFilter(0);
   
@@ -187,20 +188,8 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
   message.vx_gain = vx_gain;
   message.vy_gain = vy_gain;
   message.vz_gain = vz_gain;
-  message.roll_pre = roll.state;
-  message.pitch_pre = pitch.state;
-  message.yaw_pre = yaw.state(0);
-  message.x_pre = x.state(0);
-  message.y_pre = y.state(0);
-  message.z_pre = z.state(0);
-  message.dx_pre = x.state(1);
-  message.dy_pre = y.state(1);
-  message.dz_pre = z.state(1);
-  message.dyaw_pre = yaw.state(1);
-  message.varx_pre = x.var(0,0);
-  message.vardx_pre = x.var(1,1);
-  message.vary_pre = y.var(0,0);
-  message.vardy_pre = y.var(1,1);
+
+  message.prior_state = getCurrentState();
   /*end LOGGING*/
 
   if(!useControlGains || !controlValid)
@@ -210,32 +199,20 @@ void DroneKalmanFilter::predictInternal(geometry_msgs::Twist activeControlInfo, 
       rollControlGain = pitchControlGain = yawSpeedControlGain = 0;
     }
 
+  //propagate state
   yaw.state[0]=angleFromTo(yaw.state[0],-180,180);
   roll.predict(tsMillis,varSpeedError_rp, rollControlGain);
   pitch.predict(tsMillis,varSpeedError_rp, pitchControlGain);
   yaw.predict(tsMillis,varAccelerationError_yaw,(Eigen::Vector2f()<<(tsSeconds*yawSpeedControlGain/2),yawSpeedControlGain).finished(),1,5*5);
   yaw.state[0]=angleFromTo(yaw.state[0],-180,180);
 
-  x.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector3f()<<(tsSeconds*vx_gain/2),vx_gain,0).finished(),0.0001);
-  y.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector3f()<<(tsSeconds*vy_gain/2),vy_gain,0).finished(),0.0001);
+  x.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector2f()<<(tsSeconds*vx_gain/2),vx_gain).finished(),0.0001);
+  y.predict(tsMillis,varAccelerationError_xy,(Eigen::Vector2f()<<(tsSeconds*vy_gain/2),vy_gain).finished(),0.0001);
   //CONTACT ABOUT BUG HERE-VARIANCE IN SPEED SENT IMPROPER
-  z.predict(tsMillis,(Eigen::Vector3f()<<(tsSeconds*tsSeconds*tsSeconds*tsSeconds), (9*tsSeconds*tsSeconds),(tsSeconds*tsSeconds*tsSeconds*3)).finished(),(Eigen::Vector3f()<<(tsSeconds*vz_gain/2),vz_gain,0).finished());
+  z.predict(tsMillis,(Eigen::Vector3f()<<(tsSeconds*tsSeconds*tsSeconds*tsSeconds), (9*tsSeconds*tsSeconds),(tsSeconds*tsSeconds*tsSeconds*3)).finished(),(Eigen::Vector2f()<<(tsSeconds*vz_gain/2),vz_gain).finished());
 
   /*begin LOGGING*/
-  message.roll_post = roll.state;
-  message.pitch_post = pitch.state;
-  message.yaw_post = yaw.state(0);
-  message.x_post = x.state(0);
-  message.y_post = y.state(0);
-  message.z_post = z.state(0);
-  message.dx_post = x.state(1);
-  message.dy_post = y.state(1);
-  message.dz_post = z.state(1);
-  message.dyaw_post = yaw.state(1);
-  message.varx_post = x.var(0,0);
-  message.vardx_post = x.var(1,1);
-  message.vary_post = y.var(0,0);
-  message.vardy_post = y.var(1,1);
+  message.posterior_state = getCurrentState();
 
   pub_predictInternal.publish(message);
   /*end LOGGING*/
@@ -256,16 +233,8 @@ void DroneKalmanFilter::observeIMU_XYZ(const ardrone_autonomy::Navdata* nav)
   message.nav_vy = nav->vy;
   message.global_vx = vx_global;
   message.global_vy = vy_global;
-  message.x_pre = x.state(0);
-  message.y_pre = y.state(0);
-  message.z_pre = z.state(0);
-  message.dx_pre = x.state(1);
-  message.dy_pre = y.state(1);
-  message.dz_pre = z.state(1);
-  message.varx_pre = x.var(0,0);
-  message.vardx_pre = x.var(1,1);
-  message.vary_pre = y.var(0,0);
-  message.vardy_pre = y.var(1,1);
+
+  message.prior_state = getCurrentState();
   /*end LOGGING*/
 
   if(lastPosesValid)
@@ -281,6 +250,7 @@ void DroneKalmanFilter::observeIMU_XYZ(const ardrone_autonomy::Navdata* nav)
 
   if(last_z_IMU != nav->altd || nav->header.seq - last_z_packageID>6)
     {
+      //altimeter is used as a relative height sensor, not absolute...
       if(baselineZ_Filter < -100000)
 	{
 	  baselineZ_IMU = nav->altd;
@@ -324,16 +294,8 @@ void DroneKalmanFilter::observeIMU_XYZ(const ardrone_autonomy::Navdata* nav)
       last_z_packageID = nav->header.seq;
     }
   /*begin LOGGING*/
-  message.x_post = x.state(0);
-  message.y_post = y.state(0);
-  message.z_post = z.state(0);
-  message.dx_post = x.state(1);
-  message.dy_post = y.state(1);
-  message.dz_post = z.state(1);
-  message.varx_post = x.var(0,0);
-  message.vardx_post = x.var(1,1);
-  message.vary_post = y.var(0,0);
-  message.vardy_post = y.var(1,1);
+  message.posterior_state = getCurrentState();
+
   pub_obs_IMU_XYZ.publish(message);
   /*end LOGGING*/
 }
@@ -346,10 +308,8 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
   message.seq = nav->header.seq;
   message.roll = nav->rotX;
   message.pitch = nav->rotY;
-  message.roll_pre = roll.state;
-  message.pitch_pre = pitch.state;
-  message.yaw_pre = yaw.state(0);
-  message.dyaw_pre = yaw.state(1);
+
+  message.prior_state = getCurrentState();
   /*end LOGGING*/
 
   roll.observe(nav->rotX,varPoseObservation_rp_IMU);
@@ -374,14 +334,13 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
 
   if(last_yaw_valid)
     {
+      //yaw measurements are also treated as relative to last measurement, not absolute...
       baselineY_IMU = nav->rotZ;
       baselineY_Filter = yaw.state[0];
 
-      //ROS_INFO("valid: baselineY_IMU=%lf,baselineY_Filter=%lf",baselineY_IMU,baselineY_Filter);
 
       if(abs(observedYaw - yaw.state[0])<15)
 	{
-	  //ROS_INFO("Prior yaw: %lf",yaw.state(0));
 	  yaw.observePose(observedYaw,varPoseObservation_yaw_IMU);
 	  message.code = 1;
 	  //ROS_INFO("New yaw after observation = %lf",yaw.state(0));
@@ -419,10 +378,8 @@ void DroneKalmanFilter::observeIMU_RPY(const ardrone_autonomy::Navdata* nav)
   yaw.state[0]=angleFromTo(yaw.state[0],-180,180);
 
   /*begin LOGGING*/
-  message.roll_post = roll.state;
-  message.pitch_post = pitch.state;
-  message.yaw_post = yaw.state(0);
-  message.dyaw_post = yaw.state(1);
+  message.posterior_state = getCurrentState();
+
   pub_obs_IMU_RPY.publish(message);
   /*end LOGGING*/
 }
@@ -439,20 +396,8 @@ void DroneKalmanFilter::observeTag(Vector6f pose)
   message.roll = pose(3);
   message.pitch = pose(4);
   message.yaw = pose(5);
-  message.x_pre = x.state(0);
-  message.y_pre = y.state(0);
-  message.z_pre = z.state(0);
-  message.dx_pre = x.state(1);
-  message.dy_pre = y.state(1);
-  message.dz_pre = z.state(1);
-  message.roll_pre = roll.state;
-  message.pitch_pre = pitch.state;
-  message.yaw_pre = yaw.state(0);
-  message.dyaw_pre = yaw.state(1);
-  message.varx_pre = x.var(0,0);
-  message.vardx_pre = x.var(1,1);
-  message.vary_pre = y.var(0,0);
-  message.vardy_pre = y.var(1,1);
+
+  message.prior_state = getCurrentState();
   /*end LOGGING*/
 
   bool reject  = false;
@@ -497,20 +442,8 @@ void DroneKalmanFilter::observeTag(Vector6f pose)
     }
 
   /*begin LOGGING*/
-  message.x_post = x.state(0);
-  message.y_post = y.state(0);
-  message.z_post = z.state(0);
-  message.dx_post = x.state(1);
-  message.dy_post = y.state(1);
-  message.dz_post = z.state(1);
-  message.roll_post = roll.state;
-  message.pitch_post = pitch.state;
-  message.yaw_post = yaw.state(0);
-  message.dyaw_post = yaw.state(1);
-  message.varx_post = x.var(0,0);
-  message.vardx_post = x.var(1,1);
-  message.vary_post = y.var(0,0);
-  message.vardy_post = y.var(1,1);
+  message.posterior_state = getCurrentState();
+
   message.rejected = (int)reject;
   pub_obs_tag.publish(message);
   /*end LOGGING*/
@@ -619,7 +552,7 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
       predictInternal(useControlGains ? controlIterator->twist : geometry_msgs::Twist(),(predictTo - predictedUpToTimestamp)*1000,useControlGains && getMS(controlIterator->header.stamp) + 200 > predictedUpToTimestamp - delayControl);				// control max. 200ms old.
 
       if(consume)
-	pub_predictData.publish(getCurrentPoseSpeed());
+	pub_predictData.publish(getCurrentState());
       // if an observation needs to be added, it HAS to have a stamp equal to [predictTo],
       // as we just set [predictTo] to that timestamp.
       bool observedXYZ = false, observedRPY=false;
@@ -681,7 +614,7 @@ void DroneKalmanFilter::predictUpTo(int timestamp, bool consume, bool useControl
 }
 
 tf::Transform DroneKalmanFilter::getCurrentTF()
-{
+{//transform of world frame to drone's current pose
   tf::Transform s;
 
   s.setRotation(tf::createQuaternionFromRPY(roll.state*PI/180,pitch.state*PI/180,yaw.state(0)*PI/180));
@@ -694,7 +627,7 @@ Vector6f DroneKalmanFilter::getCurrentPose()
   return (Vector6f()<<x.state[0],y.state[0],z.state[0],roll.state,pitch.state,yaw.state[0]).finished();
 }
 
-AutoNav::filter_state DroneKalmanFilter::getCurrentPoseSpeed()
+AutoNav::filter_state DroneKalmanFilter::getCurrentState()
 {
   AutoNav::filter_state s;
 
@@ -748,7 +681,7 @@ void DroneKalmanFilter::addTag(Vector6f measurement,int corrStamp)
   */
 
   if(std::abs(last_yaw-measurement[5])<25 || (getMS() - last_tag)>500)
-    {
+    {//hacky way of making sure that this measurement is legit, i.e. assume big jumps mean that tracking has failed...this is not always the case though, and a better heuristic should be implemented to detect tracking failure
       last_tag = getMS();
       last_yaw_valid = true;
       last_yaw = measurement(5);
@@ -784,10 +717,9 @@ AutoNav::filter_state DroneKalmanFilter::getPoseAt(ros::Time t, bool useControlG
   // make shallow copy
   DroneKalmanFilter scopy = DroneKalmanFilter(*this);
 
-  //ROS_INFO("Calling predictUpTo using the shallow copy!");
   // predict using this copy
   scopy.predictUpTo(getMS(t),false, useControlGains);
 
   // return value, and discard any changes made to scopy (deleting it)
-  return scopy.getCurrentPoseSpeed();
+  return scopy.getCurrentState();
 }

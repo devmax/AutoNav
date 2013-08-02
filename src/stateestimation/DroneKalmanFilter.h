@@ -35,128 +35,6 @@ const double PI = 3.14159265359;
 
 class EstimationNode;
 
-class PVSFilter //Pose, velocity and scale
-{
- public:
-  Eigen::Vector3f state;
-  Eigen::Matrix3f var;	
-
-  // constructors
-  inline PVSFilter(Eigen::Vector3f state, Eigen::Matrix3f var)
-    : state(state), var(var)
-  {
-  }
-
-  inline PVSFilter(double pose, double speed, double scale):state((Eigen::Vector3f()<<pose,speed,scale).finished()),var(Eigen::Matrix3f::Zero())
-    {
-    }
-
-  inline PVSFilter(double pose,double scale)
-    : state((Eigen::Vector3f()<<pose,0,scale).finished()), var(Eigen::Matrix3f::Zero())
-    {
-      var(1,1) = 1e10;
-    }
-
-  inline PVSFilter()
-    : state(Eigen::Vector3f::Zero()), var(Eigen::Matrix3f::Zero())
-    {
-      var(1,1) = var(0,0) = 1e10;
-    }
-
-  // observe
-  inline void observePose(double obs, double obsVar)
-  {
-    /* MATLAB:
-       H = [1/L 0 -x/(L^2)];
-       K = (uncertainty * H') / ((H * uncertainty * H') + obsVar);
-       state = state + K * (obs - H*state);
-       var = (eye(2)-K*H) * var;
-    */
-    Eigen::RowVector3f H;
-    H << (1/state(2)), 0, (-state(0)/(state(2)*state(2)));
-    double S = H * var * H.transpose() + obsVar;
-
-    Eigen::Vector3f K = (var * H.transpose())/S;
-
-    state = state + K * (obs - state[0]);
-
-    var = (Eigen::Matrix3f::Identity() - (K*H)) * var;
-
-  }
-
-
-  inline void observeSpeed(double obs, double obsVar)
-  {
-    /* MATLAB:
-       H = [0 1 0];
-       K = (uncertainty * H') / ((H * uncertainty * H') + obsVar);
-       state = state + K * (obs - H*state);
-       var = (eye(2)-K*H) * var;
-    */
-    Eigen::RowVector3f H;
-    H << 0, 1, 0;
-    double S = H * var * H.transpose() + obsVar;
-
-    Eigen::Vector3f K = (var * H.transpose())/S;
-
-    state = state + K * (obs - state[0]);
-
-    var = (Eigen::Matrix3f::Identity() - (K*H)) * var;
-
-  }
-
-
-  // predict
-  // calculates prediction variance matrix based on gaussian acceleration as error.
-  inline void predict(double ms, double accelerationVar, Eigen::Vector3f controlGains =(Eigen::Vector3f()<<0,0,0).finished() , double coVarFac = 1, double speedVarFac = 1)
-  {
-    /* MATLAB:
-       G = [1 ms/1000 0; 0 1 0; 0 0 1];
-       E = [((ms/1000)^2)/2; ms/1000]; % assume normal distributed constant ACCELERATION.
-       state = G*state;
-       var = G * var * G' + accelerationVarPerS*(E*E');
-    */
-
-    ms /= 1000;
-
-    Eigen::Matrix3f G = Eigen::Matrix3f::Identity();
-    G(0,1) = ms;
-
-    state = G * state + controlGains;
-    var  = G * var * G.transpose();
-    var(0,0) += accelerationVar * 0.25 * ms*ms*ms*ms;
-    var(1,0) += coVarFac * accelerationVar * 0.5 * ms*ms*ms * 4;
-    var(0,1) += coVarFac * accelerationVar * 0.5 * ms*ms*ms * 4;
-    var(1,1) += speedVarFac * accelerationVar * 1 * ms*ms * 4 * 4;
-  }
-
-  // predict
-  // calculates prediction using the given uncertainty matrix
-  // vars is var(0) var(1) covar(0,1)
-  inline void predict(double ms, Eigen::Vector3f vars, Eigen::Vector3f controlGains = Eigen::Vector3f::Zero())
-  {
-    /* MATLAB:
-       G = [1 ms/1000; 0 1];
-       E = [((ms/1000)^2)/2; ms/1000]; % assume normal distributed constant ACCELERATION.
-       state = G*state;
-       var = G * var * G' + accelerationVarPerS*(E*E');
-    */
-
-    ms /= 1000;
-
-    Eigen::Matrix3f G = Eigen::Matrix3f::Identity();
-    G(0,1) = ms;
-
-    state = G * state + controlGains;
-    var  = G * var * G.transpose();
-    var(0,0) += vars[0];
-    var(1,0) += vars[2];
-    var(0,1) += vars[2];
-    var(1,1) += vars[1];
-  }
-};
-
-
 class PVFilter
 {
  public:
@@ -323,9 +201,9 @@ class PFilter
 class DroneKalmanFilter
 {
  private:
-  PVSFilter x;
-  PVSFilter y;
-  PVSFilter z;
+  PVFilter x;
+  PVFilter y;
+  PVFilter z;
   PVFilter yaw;
   PFilter roll;
   PFilter pitch;
@@ -395,7 +273,7 @@ class DroneKalmanFilter
 
   Vector6f getCurrentPose();
   tf::Transform getCurrentTF();
-  AutoNav::filter_state getCurrentPoseSpeed();
+  AutoNav::filter_state getCurrentState();
   Vector10f getCurrentPoseSpeedVariances();
   Vector6f getCurrentPoseVariances();
   

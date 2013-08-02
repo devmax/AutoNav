@@ -34,6 +34,7 @@ EstimationNode::EstimationNode()
 
 void EstimationNode::navdataCB(const ardrone_autonomy::NavdataConstPtr navdataPtr)
 {
+  //get Navdata message and push into observation queue of filter
   ROS_DEBUG("Navdata Call Back!");
   lastNavdataReceived=*navdataPtr;
   if(ros::Time::now() - lastNavdataReceived.header.stamp > ros::Duration(30.0))
@@ -48,6 +49,7 @@ void EstimationNode::navdataCB(const ardrone_autonomy::NavdataConstPtr navdataPt
 
 void EstimationNode::velCB(const geometry_msgs::TwistConstPtr controlPtr)
 {
+  // control commands sent are used to propogate state 
   geometry_msgs::TwistStamped ts;
   ts.header.stamp = ros::Time::now();
   ts.twist=*controlPtr;
@@ -62,17 +64,17 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr)
 
   int lastTag=999, nextTag=999, minYawID=999;
   double minYaw = 999;
-  tf::Transform droneToMarker;
+  tf::Transform droneToMarker; //drone=base frame, marker=target frame
 
   for(unsigned int i=0;i<tagsPtr->markers.size();i++)
     {
       if(tagsPtr->markers[i].id < 100)
 	{
 	  if(tagsPtr->markers[i].id == lastID)
-	      lastTag = i;
+	    lastTag = i; //store index of last tag seen
 	  else
 	    {
-
+	      //if last tag is not found, we want to base our observation on the tag with the least yaw as seen from the drone's camera
 	      const ar_track_alvar::AlvarMarker markerUsed = tagsPtr->markers[i];
 
 	      tf::Quaternion q;
@@ -87,10 +89,11 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr)
 	      double yawDeg = (y*180/PI) - 90;
 
 	      if(std::abs(yawDeg) < std::abs(minYaw))
-		{
+		{//find the tag with the minimum yaw
 		  minYaw = yawDeg;
 		  minYawID = i;
 		}
+	      //these are tags that are ideal for transitioning to, i.e. assuming the drone is circling counter-clockwise, if a tag appears in the following configuration, it is a good idea to shift observation to this one now
 	      if(yawDeg>10 && yawDeg<45)
 		nextTag = i;	  
 	    }
@@ -102,42 +105,41 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr)
 
   if(minYawID != 999 || lastTag!=999)
     {
-      if(lastTag!=999)
+      if(lastTag!=999) //last tag was found....
 	{
-	  if(nextTag == 999)
+	  if(nextTag == 999) //no appropriate tag found to transition to..
 	    {
-	      markerUsed = tagsPtr->markers[lastTag];
+	      markerUsed = tagsPtr->markers[lastTag]; //simply observe using the last used tag
 	      //ROS_INFO("Retained tag %d",markerUsed.id);
 	    }
 	  else
-	    {
+	    { //found a marker that is ideal for transitioning to
 	      markerUsed = tagsPtr->markers[nextTag];
 	      transition = true;
 	      ROS_INFO("Ready to transition to tag %d",markerUsed.id);
 	    }
 	}
       else if(lastTag==999)
-	{
+	{//didn't find last tag, just choose tag with lowest yaw w.r.t drone
 	  markerUsed = tagsPtr->markers[minYawID];
 	  transition = true;
 	  ROS_INFO("Starting afresh from tag %d",markerUsed.id);
 	}
 
-      //      ROS_INFO("Using tag %d",markerUsed.id);
-      lastID = markerUsed.id;
+      lastID = markerUsed.id; //store ID of tag used for future runs
 
       tf::Quaternion q;
       quaternionMsgToTF(markerUsed.pose.pose.orientation,q);
       tf::Vector3 origin(markerUsed.pose.pose.position.x,markerUsed.pose.pose.position.y,markerUsed.pose.pose.position.z);
       droneToMarker = tf::Transform(q,origin);
 
-      AutoNav::tags log;
+      AutoNav::tags log; //log all the details of the observation for debugging purposes
 
       log.markerID = markerUsed.id;
 
-      tf::Transform current = filter->getCurrentTF();
+      tf::Transform current = filter->getCurrentTF(); //transform of worldToDrone (init=world, sorry)
       if(transition)
-	{
+	{ //while transitioning to new tags or starting from a new tag, worldToMarker must be updated
 	  initToMarker = current * droneToMarker;
 
 	  log.initToMarker.linear.x = initToMarker.getOrigin().x();
@@ -163,7 +165,7 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr)
       log.droneToMarker.angular.y = p * 180 / PI;
       log.droneToMarker.angular.z = y * 180 / PI;
 
-      tf::Transform initToDrone = initToMarker*(droneToMarker.inverse());
+      tf::Transform initToDrone = initToMarker*(droneToMarker.inverse()); //worldToDrone = worldtoMarker * MarkertoDrone
 
       double curR,curP,curY;
       double measR,measP,measY;
@@ -181,12 +183,13 @@ void EstimationNode::tagCB(const ar_track_alvar::AlvarMarkersConstPtr tagsPtr)
       curY *= 180/PI;
       measY *= 180/PI;
 
+      //a very hacky way of measuring sudden shifts in measurement, which means tracking has failed and the measurements are corrupted..must improve this
       if(std::abs(measY - curY) > 15)
 	ROS_INFO("Sudden yaw from %lf to %lf",curY,measY);
 
       ros::Time stamp;
       if(ros::Time::now()-markerUsed.pose.header.stamp > ros::Duration(30.0))
-	stamp=ros::Time::now()-ros::Duration(0.001);
+	stamp=ros::Time::now()-ros::Duration(0.001); 
       else
 	stamp=markerUsed.pose.header.stamp;
 
@@ -212,7 +215,7 @@ void EstimationNode::Loop()
 
       pthread_mutex_lock(&filter->filter_CS);
       //      AutoNav::filter_state cur_s = filter->getPoseAt(ros::Time::now());
-      AutoNav::filter_state s = filter->getPoseAt(ros::Time::now()+predTime);
+      AutoNav::filter_state s = filter->getPoseAt(ros::Time::now()+predTime);//always predict predTime ms in the future
       pthread_mutex_unlock(&filter->filter_CS);
 
       s.header.stamp=ros::Time::now();

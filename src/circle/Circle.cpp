@@ -27,7 +27,6 @@ void Circle::dynConfCB(AutoNav::CircleParamsConfig &config,uint32_t level)
   dirn = config.direction;
 
   latVel *= dirn;
-  //  angVel = (-latVel/radius) * 180/PI;
 
   ROS_INFO("Target latVel: %lf, radius: %lf",latVel,radius);
 
@@ -49,14 +48,14 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
 {
 
   if(!stateInit)
-    {
+    {//store initial state and offset all goal commands by it
       initX = state->x;
       initY = state->y;
       initA = state->yaw;
       stateInit = true;
     }
 
-  AutoNav::circle_control log_circle;
+  AutoNav::circle_control log_circle; //log all data for debugging
 
   Eigen::Vector2f error;
   Eigen::Vector3f d_error;
@@ -66,36 +65,44 @@ void Circle::stateCB(const AutoNav::filter_stateConstPtr state)
   double yawRad = state->yaw - initA;
   yawRad = angleFromTo(yawRad,-180,180) * PI / 180;
 
+  //goal on the x and y axes in world frame
   goal(0) = initX + (radius*(1 - cos(yawRad)));
   goal(1) = initY - (radius*sin(yawRad));
 
+  //error in position in world frame
   error(0) = goal(0) - state->x;
   error(1) = goal(1) - state->y;
 
+  //error in position projected in drone's frame
   proj_error(0) = error(0)*cos(yawRad) + error(1)*sin(yawRad);
   proj_error(1) = -error(0)*sin(yawRad) + error(1)*cos(yawRad);
 
+  //drone's velocity projected in its own frame
   proj_vel(0) = (state->dx)*cos(yawRad) + (state->dy)*sin(yawRad);
   proj_vel(1) = -(state->dx)*sin(yawRad) + (state->dy)*cos(yawRad);
 
+  //desired angular velocity at this point
   angVel = (-proj_vel(1)) / radius;
 
-  d_error(0) = - proj_vel(0);
-  d_error(1) = latVel - proj_vel(1);
-  d_error(2) = angVel - ((state->dyaw)*PI/180);
+  //error in velocities
+  d_error(0) = - proj_vel(0);//should be zero in the cross track axis
+  d_error(1) = latVel - proj_vel(1); //should be constant in the axis tangential to circle
+  d_error(2) = angVel - ((state->dyaw)*PI/180); //angular velocity
 
   iTerm(0) = 0; //drone's x-axis
   iTerm(1) += lastError(1) * (ros::Time::now()-lastTime).toSec(); //drone's y-axis
   iTerm(2) += lastError(2) * (ros::Time::now()-lastTime).toSec(); //yaw 
 
-  double CTgainP = proj_error(0)*ctr.Kp;
-  double CTgainD = d_error(0)*ctr.Kd;
+  //cross track (normal to tangent of circle)
+  double CTgainP = proj_error(0)*ctr.Kp; //proportional
+  double CTgainD = d_error(0)*ctr.Kd; //derivative
 
-  double ATgainP = d_error(1)*atr.Kp;
-  double ATgainI = iTerm(1) * atr.Ki;
+  //along track
+  double ATgainP = d_error(1)*atr.Kp; //proportional
+  double ATgainI = iTerm(1) * atr.Ki; //integral
 
-  double ANGgainP = d_error(2)*angular.Kp;
-  double ANGgainI = iTerm(2) * angular.Ki;
+  double ANGgainP = d_error(2)*angular.Kp; //prop.
+  double ANGgainI = iTerm(2) * angular.Ki; //integral
 
   lastError(1) = d_error(1);
   lastError(2) = d_error(2);
@@ -152,7 +159,7 @@ void Circle::begin()
   while(n.ok())
     {
       while(!radiusInit)
-	{
+	{ //set radius by observing the depth of the currently visible tag...
 	  const ar_track_alvar::AlvarMarkersConstPtr msg = ros::topic::waitForMessage<ar_track_alvar::AlvarMarkers>("/ar_pose_marker",ros::Duration(5));
 	  if(msg)
 	    {
@@ -167,7 +174,7 @@ void Circle::begin()
 	      if(radiusInit)
 		ROS_INFO("Target radius chosen to be %lf metres",radius);
 	      else
-		ROS_INFO("First tag not sighted, retrying callback...");
+		ROS_INFO("First tag not sighted, retrying callback..."); //always looks for tag ID 0, make sure that's where you start
 	    }
 	  else
 	    ROS_INFO("No message received from tag callback...");

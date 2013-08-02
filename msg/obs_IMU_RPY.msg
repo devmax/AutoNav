@@ -12,12 +12,6 @@ float32 baselineY_Filter
 float32 navYaw
 float32 observedYaw
 
-float32 roll_pre
-float32 pitch_pre
-float32 yaw_pre
-float32 dyaw_pre
+AutoNav/filter_state prior_state
 
-float32 roll_post
-float32 pitch_post
-float32 yaw_post
-float32 dyaw_post
+AutoNav/filter_state posterior_state
